@@ -1,0 +1,25 @@
+@import '../../styles.scss';
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 5vmin 0;
+    img {
+        border-radius: 100%;
+        width: 30px;
+        height: 30px;
+    }
+}
+
+ul {
+    li {
+        list-style: none;
+        padding-left: 15%;
+        margin: 3vmin 0;
+        a {
+            text-decoration: none;
+            color: $main-text-color;
+        }
+    }
+}
