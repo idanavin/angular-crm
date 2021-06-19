@@ -1,10 +1,10 @@
-@import '../../styles.scss';
+@use '../style/base';
 
 main {
     width: 80%;
     max-width: 1200px;
     height: 80%;
-    background-image: linear-gradient(to bottom, $color-bright-2, $color-dark-2);
+    background-image: linear-gradient(to bottom, base.$color-bright-2, base.$color-dark-2);
     box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
     display: flex;
     border-radius: 1%;

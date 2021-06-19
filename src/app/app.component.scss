@@ -1,4 +1,4 @@
-@import '../styles.scss';
+@use './style/base';
 
 app-main {
     // display: flex;
@@ -10,5 +10,5 @@ app-main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(to bottom, $color-bright-1, $color-dark-1);
+    background-image: linear-gradient(to bottom, base.$color-bright-1, base.$color-dark-1);
 }

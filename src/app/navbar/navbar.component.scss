@@ -1,6 +1,7 @@
-@import '../../styles.scss';
+@use '../style/base';
+
 .wrapper {
-    background-image: linear-gradient(to bottom, $color-bright-3, $color-dark-3);
+    background-image: linear-gradient(to bottom, base.$color-bright-3, base.$color-dark-3);
     border-radius: 1%;
     width: 120px;
     // height: 90%;
@@ -30,23 +31,39 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 50px;
-            width: 55px;
+            width: 70%;
+            height: 4vmin;
             list-style: none;
-            color: $color-dark-1;
+            color: base.$color-dark-1;
             border-radius: 1%;
-            background-color: $color-bright-3;
-            :hover {
-                background-color: $color-contrast-bright;
+            padding: 0.5px;
+            &:hover {
+                background-color: base.$color-bright-1;
+                border: solid rgba(0, 0, 0, 0.13) 0.5px;
+                padding: 0;
+                a {
+                    svg {
+                        fill: black;
+                    }
+                }
             }
             a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 text-decoration: none;
-                color: $color-dark-1;
-                width: 30px;
-                height: 30px;
+                color: base.$color-dark-1;
+                height: 100%;
+                width: 100%;
                 svg {
+                    fill: rgba(0, 0, 0, 0.274);
                     width: 30px;
                     height: 30px;
+                    defs {
+                        style {
+                            fill: rgba(0, 0, 0, 0.274);
+                        }
+                    }
                 }
             }
         }
