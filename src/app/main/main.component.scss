@@ -1,17 +1,23 @@
 @use '../style/base';
 
-main {
-    width: 80%;
+.wrapper {
+    width: 90%;
     max-width: 1200px;
-    height: 80%;
+    height: 90%;
     background-image: linear-gradient(to bottom, base.$color-bright-2, base.$color-dark-2);
     box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
-    display: flex;
+    display: grid;
+    grid-template-columns: 125px auto;
+    grid-template-rows: 100%;
     border-radius: 1%;
     app-navbar {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 20%;
+        padding: 3vmin;
+    }
+    main {
+        padding: 1vmin;
+        border-radius: 1%;
     }
 }

@@ -8,9 +8,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CostumersComponent } from './costumers/costumers.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'costumers', component: CostumersComponent },
   { path: '**', component: NotFoundComponent },  // Wildcard route for a 404 page
@@ -22,7 +24,8 @@ const routes: Routes = [
     MainComponent,
     DashboardComponent,
     CostumersComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

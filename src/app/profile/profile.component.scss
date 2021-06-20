@@ -1,0 +1,31 @@
+.grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+    height: 100%;
+    place-items: center;
+    .card {
+        height: 70%;
+        width: 70%;
+        padding: 1vmin;
+        min-width: 250px;
+        &_profile {
+            display: grid;
+            place-items: center;
+            height: 100%;
+            width: 100%;
+            background-image: linear-gradient(to bottom, white, rgba(255, 255, 255, 0));
+            z-index: 99;
+            img {
+                width: 15vmin;
+                height: 15vmin;
+                border-radius: 100%;
+            }
+            &__info {
+                text-align: center;
+                display: grid;
+                row-gap: 2vmin;
+            }
+        }
+    }
+}
