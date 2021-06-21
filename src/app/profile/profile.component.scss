@@ -9,13 +9,13 @@
         width: 70%;
         padding: 1vmin;
         min-width: 250px;
+        background-image: linear-gradient(to bottom, white, rgba(255, 255, 255, 0));
+        box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
         &_profile {
             display: grid;
             place-items: center;
             height: 100%;
             width: 100%;
-            background-image: linear-gradient(to bottom, white, rgba(255, 255, 255, 0));
-            z-index: 99;
             img {
                 width: 15vmin;
                 height: 15vmin;
@@ -25,6 +25,14 @@
                 text-align: center;
                 display: grid;
                 row-gap: 2vmin;
+            }
+        }
+        &_stat {
+            display: grid;
+            place-items: center;
+            height: 100%;
+            &__graph {
+                max-width: 300px;
             }
         }
     }
