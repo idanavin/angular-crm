@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
@@ -9,6 +10,7 @@ import { CostumersComponent } from './costumers/costumers.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ChartComponent } from './shared/chart/chart.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -25,11 +27,15 @@ const routes: Routes = [
     DashboardComponent,
     CostumersComponent,
     NavbarComponent,
-    ProfileComponent
+    ProfileComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
   exports: [RouterModule],
   providers: [],
