@@ -12,6 +12,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  //Unhide app-custom-alt as first child
+  //TODO refactor this
   showTooltip(event: any) {
     event.target.firstChild.hidden = false;
   }

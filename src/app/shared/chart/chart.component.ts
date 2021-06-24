@@ -8,7 +8,8 @@ import type { EChartsOption } from 'echarts';
 })
 export class ChartComponent implements OnInit {
 
-  @Input() data: number[] = [4, 6, 7, 5, 8, 1, 0];
+  @Input() data: number[] = [];
+  //TODO: set timeout to fake server request and change isLoading
   isLoading = false;
   options: EChartsOption = {};
 
