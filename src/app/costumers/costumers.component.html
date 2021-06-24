@@ -1,1 +1,19 @@
-<p>costumers works!</p>
+<div class="grid">
+    <div class="sort-by">
+        <span>ID</span>
+        <span>Name</span>
+        <span>Age</span>
+    </div>
+    <div *ngFor="let costumer of costumers" class="row">
+        <span>{{ costumer.firstName }} {{ costumer.lastName }}</span>
+    </div>
+    <span>
+        "isActive": false,
+        "age": 21,
+        "id": 2,
+        "firstName": "Larsen",
+        "lastName": "Shaw",
+        "email": "abc@test.com",
+        "avatar": "/assets/img/avatar3.png"
+    </span>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataHandlerService } from '../services/data-handler.service';
 
 @Component({
   selector: 'app-costumers',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CostumersComponent implements OnInit {
 
-  constructor() { }
+  costumers: any[] = [];
+
+  constructor(private dataHandler: DataHandlerService) { }
 
   ngOnInit(): void {
+    this.costumers = this.dataHandler.getAmountOfCostumersByPage(3, 1);
   }
 
 }
