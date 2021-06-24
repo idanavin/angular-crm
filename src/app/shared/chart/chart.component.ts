@@ -30,20 +30,23 @@ export class ChartComponent implements OnInit {
         {
           type: 'category',
           // boundaryGap: false,
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
           axisTick: {
             alignWithLabel: true
           }
         }
       ],
       yAxis: {
-        type: 'value'
+        type: 'value',
       },
       series: [
         {
           name: 'bar',
           type: 'bar',
           data: this.data,
+          itemStyle: {
+            color: 'rgb(153, 153, 153)'
+          },
           animationDelay: (idx: number) => idx * 10,
         },
       ],

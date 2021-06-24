@@ -11,6 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ChartComponent } from './shared/chart/chart.component';
+import { CustomAltComponent } from './shared/custom-alt/custom-alt.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -28,7 +29,8 @@ const routes: Routes = [
     CostumersComponent,
     NavbarComponent,
     ProfileComponent,
-    ChartComponent
+    ChartComponent,
+    CustomAltComponent
   ],
   imports: [
     BrowserModule,

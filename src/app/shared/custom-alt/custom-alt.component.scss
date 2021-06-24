@@ -1,0 +1,12 @@
+@use '../../style/base';
+
+.container {
+    position: absolute;
+    left: 150%;
+    top: 0;
+    padding: 1vmin;
+    background-color: rgb(179, 194, 197);
+    span {
+        color: black;
+    }
+}

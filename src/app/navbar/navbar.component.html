@@ -3,7 +3,8 @@
     <img src="../../assets/avatar0.png" alt="" />
   </div>
   <ul>
-    <li>
+    <li (mouseenter)="showTooltip($event)" (mouseleave)="hideTooltip($event)">
+      <app-custom-alt [altText]='"Dashboard"' [hidden]=true></app-custom-alt>
       <a [routerLink]="['dashboard']">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 125" x="0px" y="0px">
           <path
@@ -11,7 +12,8 @@
         </svg>
       </a>
     </li>
-    <li>
+    <li (mouseenter)="showTooltip($event)" (mouseleave)="hideTooltip($event)">
+      <app-custom-alt [altText]='"About"' [hidden]=true></app-custom-alt>
       <a [routerLink]="['about']">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 80" x="0px" y="0px">
           <path
@@ -19,7 +21,8 @@
         </svg>
       </a>
     </li>
-    <li>
+    <li (mouseenter)="showTooltip($event)" (mouseleave)="hideTooltip($event)">
+      <app-custom-alt [altText]='"Costumers"' [hidden]=true></app-custom-alt>
       <a [routerLink]="['costumers']">
         <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 98 122.5" x="0px" y="0px">
           <g data-name="Group">
@@ -53,7 +56,8 @@
         </svg>
       </a>
     </li>
-    <li>
+    <li (mouseenter)="showTooltip($event)" (mouseleave)="hideTooltip($event)">
+      <app-custom-alt [altText]='"Profile"' [hidden]=true></app-custom-alt>
       <a [routerLink]="['profile']">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px"
           viewBox="0 0 98 122.5" style="enable-background:new 0 0 98 98;" xml:space="preserve">
@@ -66,7 +70,8 @@
         </svg>
       </a>
     </li>
-    <li>
+    <li (mouseenter)="showTooltip($event)" (mouseleave)="hideTooltip($event)">
+      <app-custom-alt [altText]='"Search"' [hidden]=true></app-custom-alt>
       <a [routerLink]="['costumers']">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 125" x="0px" y="0px">
           <path

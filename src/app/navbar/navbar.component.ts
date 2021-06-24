@@ -12,4 +12,12 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  showTooltip(event: any) {
+    event.target.firstChild.hidden = false;
+  }
+
+  hideTooltip(event: any) {
+    event.target.firstChild.hidden = true;
+  }
+
 }

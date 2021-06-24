@@ -6,22 +6,26 @@
     display: flex;
     gap: 3vmin;
     flex-flow: wrap;
+    padding: 0 1vmin;
     .card {
         padding: 1vmin;
-        min-width: 400px;
+        flex: 1;
+        min-width: 300px;
         background-image: linear-gradient(to bottom, white, rgba(255, 255, 255, 0));
         box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
         .row {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             padding-bottom: 1vmin;
             gap: 1vmin;
             select {
                 background-color: transparent;
                 border: none;
                 cursor: pointer;
-                width: 15vw;
+                width: 50%;
                 max-width: 200px;
+                height: 30px;
             }
         }
         .chart {
