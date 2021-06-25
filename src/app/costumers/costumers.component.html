@@ -2,18 +2,18 @@
     <div class="sort-by">
         <span>ID</span>
         <span>Name</span>
-        <span>Age</span>
+        <span>Email</span>
     </div>
     <div *ngFor="let costumer of costumers" class="row">
-        <span>{{ costumer.firstName }} {{ costumer.lastName }}</span>
+        <div class="row__separator">
+            <span>{{ costumer.id }}</span>
+            <img (src)='costumer.avatar' alt="">
+            <span>{{ costumer.firstName }} {{ costumer.lastName }}</span>
+            <span>{{ costumer.email }}</span>
+        </div>
+        <div class="row__separator">
+            <span [ngClass]="costumer.isActive ? 'active' : 'inactive'">{{ costumer.isActive ? 'Online' : 'Offline'}}</span>
+            <button>Edit</button>
+        </div>
     </div>
-    <span>
-        "isActive": false,
-        "age": 21,
-        "id": 2,
-        "firstName": "Larsen",
-        "lastName": "Shaw",
-        "email": "abc@test.com",
-        "avatar": "/assets/img/avatar3.png"
-    </span>
 </div>

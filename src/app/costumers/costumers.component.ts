@@ -8,12 +8,14 @@ import { DataHandlerService } from '../services/data-handler.service';
 })
 export class CostumersComponent implements OnInit {
 
+  page: number = 1;
+  costumersPerPage: number = 5;
   costumers: any[] = [];
 
   constructor(private dataHandler: DataHandlerService) { }
 
   ngOnInit(): void {
-    this.costumers = this.dataHandler.getAmountOfCostumersByPage(3, 1);
+    this.costumers = this.dataHandler.getAmountOfCostumersByPage(this.costumersPerPage, this.page);
   }
 
 }

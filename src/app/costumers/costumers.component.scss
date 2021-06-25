@@ -1,0 +1,36 @@
+@use '../style/base';
+
+.grid {
+    display: grid;
+    gap: 3vmin;
+    padding-top: 3vmin;
+    .sort-by {
+        padding: 0 1vmin;
+        display: flex;
+        gap: 8vmin;
+    }
+    .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1vmin 1.5vmin;
+        background-image: linear-gradient(to bottom, base.$color-bright-1, base.$color-bright-2);
+        &__separator {
+            display: grid;
+            grid-auto-flow: column;
+            align-items: center;
+            gap: 2vmin;
+        }
+        img {
+            width: 35px;
+            height: 35px;
+        }
+    }
+}
+
+.active {
+    color: green;
+}
+.inactive {
+    color: red;
+}
