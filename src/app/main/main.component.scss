@@ -1,22 +1,25 @@
 @use '../style/base';
 
 .wrapper {
+    display: flex;
     width: 90%;
     max-width: 1200px;
     height: 90%;
     background-image: linear-gradient(to bottom, base.$color-bright-2, base.$color-dark-2);
     box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
-    display: grid;
-    grid-auto-flow: column;
     border-radius: 1%;
     app-navbar {
         display: flex;
         justify-content: center;
         align-items: center;
     }
+    app-login {
+        width: 50%;
+    }
     main {
         padding: 1vmin;
         border-radius: 1%;
         overflow-y: auto;
+        width: 100%;
     }
 }

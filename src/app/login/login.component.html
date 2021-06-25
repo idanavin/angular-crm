@@ -1,11 +1,19 @@
-<form [formGroup]="loginForm" (ngSubmit)="login()">
-    <div class="row">
-        <label for="email">Email: </label>
-        <input id="email" type="text" placeholder="example@email.com" formControlName='email'>
+<div class="wrapper">
+    <h1>Welcome to your costumer relation manager</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="row">
+            <label for="email">Email: </label>
+            <input id="email" type="text" placeholder="example@email.com" formControlName='email'>
+        </div>
+        <div class="row">
+            <label for="pass">Password: </label>
+            <input id="pass" type="password" formControlName='password'>
+        </div>
+        <button type="submit" [disabled]="!loginForm.valid">Login</button>
+    </form>
+    <div class="helpers">
+        <div class="worng-login" *ngIf="loginError"><span>Your login is wrong, try this:</span><span>test@test.com:123456</span></div>
+        <div *ngIf="email?.touched && email?.invalid">Please enter email</div>
+        <div *ngIf="password?.touched && password?.invalid">Password should be at least 3 letters</div>
     </div>
-    <div class="row">
-        <label for="pass">Password: </label>
-        <input id="pass" type="password" formControlName='password'>
-    </div>
-    <button type="submit" [disabled]="!loginForm.valid">Login</button>
-</form>
+</div>

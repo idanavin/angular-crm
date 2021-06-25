@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder} from '@angular/forms'
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,7 @@ export class LoginComponent implements OnInit {
 
   loading: boolean = false;
   success: boolean = false;
+  loginError: boolean = false;
 
   loginForm: FormGroup = this.fb.group({
     email: ['', [
@@ -22,14 +24,29 @@ export class LoginComponent implements OnInit {
     ]]
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private authServiece: AuthService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
   }
 
-  login() {
-    console.log(this.loginForm.value);
-    
+  async login() {
+    try {
+      this.loginError = false;
+      this.loading = true;
+      this.authServiece.login(this.loginForm.value)
+      this.success = true;
+    } catch (error) {
+      this.loginError = true;
+    }
+    this.loading = false;
+  }
+
+  get email() {
+    return this.loginForm.get('email')
+  }
+
+  get password() {
+    return this.loginForm.get('password')
   }
 
 }
