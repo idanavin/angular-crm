@@ -3,8 +3,8 @@
 .wrapper {
     background-image: linear-gradient(to bottom, base.$color-bright-3, base.$color-dark-3);
     border-radius: 1%;
-    width: 100%;
-    height: 100%;
+    padding: 0 3vmin;
+    // margin-right: 1vmin;
     display: flex;
     flex-direction: column;
     align-self: stretch;
@@ -30,12 +30,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 70%;
             height: 4vmin;
             list-style: none;
             color: base.$color-dark-1;
             border-radius: 1%;
-            padding: 0.5px;
+            padding: 0 1vmin;
             &:hover {
                 background-color: base.$color-bright-1;
                 border: solid rgba(0, 0, 0, 0.13) 0.5px;
@@ -64,10 +63,6 @@
                         }
                     }
                 }
-            }
-            app-custom-alt {
-                // left: 100%;
-                // bottom: 50%;
             }
         }
     }

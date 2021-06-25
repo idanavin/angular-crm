@@ -1,6 +1,7 @@
 <div class="wrapper">
-    <app-navbar></app-navbar>
-    <main>
+    <app-login *ngIf="!isAuth"></app-login>
+    <app-navbar *ngIf="isAuth"></app-navbar>
+    <main *ngIf="isAuth">
         <router-outlet></router-outlet>
     </main>
 </div>

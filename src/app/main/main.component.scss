@@ -7,14 +7,12 @@
     background-image: linear-gradient(to bottom, base.$color-bright-2, base.$color-dark-2);
     box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
     display: grid;
-    grid-template-columns: 125px auto;
-    grid-template-rows: 100%;
+    grid-auto-flow: column;
     border-radius: 1%;
     app-navbar {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 3vmin;
     }
     main {
         padding: 1vmin;
