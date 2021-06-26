@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +22,10 @@ export class NavbarComponent implements OnInit {
 
   hideTooltip(event: any) {
     event.target.firstChild.hidden = true;
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
 }

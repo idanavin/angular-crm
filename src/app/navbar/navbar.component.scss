@@ -45,7 +45,7 @@
                     }
                 }
             }
-            a {
+            .link {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -53,6 +53,8 @@
                 color: base.$color-dark-1;
                 height: 100%;
                 width: 100%;
+                background-color: transparent;
+                border: none;
                 svg {
                     fill: rgba(0, 0, 0, 0.274);
                     width: 30px;

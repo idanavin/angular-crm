@@ -5,7 +5,7 @@
   <ul>
     <li (mouseenter)="showTooltip($event)" (mouseleave)="hideTooltip($event)">
       <app-custom-alt [altText]='"Dashboard"' [hidden]=true></app-custom-alt>
-      <a [routerLink]="['dashboard']">
+      <a [routerLink]="['dashboard']" class="link">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 125" x="0px" y="0px">
           <path
             d="M.37988,53H14.28906V87.29688H42.27637V63.042H55.72266V87.29688H83.70947V53H97.61865L48.99951,4.48633Zm77.32959-6V81.29688H61.72266V57.042H36.27637V81.29688H20.28906V47H14.8877L48.99951,12.96289,83.11084,47Z" />
@@ -14,7 +14,7 @@
     </li>
     <li (mouseenter)="showTooltip($event)" (mouseleave)="hideTooltip($event)">
       <app-custom-alt [altText]='"About"' [hidden]=true></app-custom-alt>
-      <a [routerLink]="['about']">
+      <a [routerLink]="['about']" class="link">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 80" x="0px" y="0px">
           <path
             d="M34.949,28.768h-5.9a1,1,0,0,0-1,1v15.2a1,1,0,0,0,1,1h5.9a1,1,0,0,0,1-1v-15.2A1,1,0,0,0,34.949,28.768Zm-1,15.2h-3.9v-13.2h3.9ZM32,18.029a3.949,3.949,0,1,0,3.949,3.949A3.953,3.953,0,0,0,32,18.029Zm0,5.9a1.949,1.949,0,1,1,1.949-1.949A1.951,1.951,0,0,1,32,23.927ZM46,9H18a9.011,9.011,0,0,0-9,9V46a9.011,9.011,0,0,0,9,9H46a9.011,9.011,0,0,0,9-9V18A9.011,9.011,0,0,0,46,9Zm7,37a7.008,7.008,0,0,1-7,7H18a7.008,7.008,0,0,1-7-7V18a7.008,7.008,0,0,1,7-7H46a7.008,7.008,0,0,1,7,7Z" />
@@ -23,7 +23,7 @@
     </li>
     <li (mouseenter)="showTooltip($event)" (mouseleave)="hideTooltip($event)">
       <app-custom-alt [altText]='"Costumers"' [hidden]=true></app-custom-alt>
-      <a [routerLink]="['costumers']">
+      <a [routerLink]="['costumers']" class="link">
         <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 98 122.5" x="0px" y="0px">
           <g data-name="Group">
             <g data-name="Group">
@@ -58,7 +58,7 @@
     </li>
     <li (mouseenter)="showTooltip($event)" (mouseleave)="hideTooltip($event)">
       <app-custom-alt [altText]='"Profile"' [hidden]=true></app-custom-alt>
-      <a [routerLink]="['profile']">
+      <a [routerLink]="['profile']" class="link">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px"
           viewBox="0 0 98 122.5" style="enable-background:new 0 0 98 98;" xml:space="preserve">
           <g>
@@ -71,13 +71,13 @@
       </a>
     </li>
     <li (mouseenter)="showTooltip($event)" (mouseleave)="hideTooltip($event)">
-      <app-custom-alt [altText]='"Search"' [hidden]=true></app-custom-alt>
-      <a [routerLink]="['costumers']">
+      <app-custom-alt [altText]='"Log Out"' [hidden]=true></app-custom-alt>
+      <button (click)="logout()" class="link">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 125" x="0px" y="0px">
           <path
             d="M87.84155,83.11584,61.26038,59.21893a28.76637,28.76637,0,1,0-2.97254,2.97242L82.18469,88.77271a4.15188,4.15188,0,0,0,.30091.30084,4.00564,4.00564,0,0,0,5.35595-5.95771ZM22.00684,57.93652a24.74805,24.74805,0,1,1,34.998,0A24.77757,24.77757,0,0,1,22.00684,57.93652Z" />
         </svg>
-      </a>
+      </button>
     </li>
   </ul>
 </div>

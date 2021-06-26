@@ -7,8 +7,11 @@ import { Subject } from 'rxjs';
 export class AuthService {
 
   users: any[] = [{
+    name: 'Yosi',
     email: 'test@test.com',
-    password: '123456'
+    password: '123456',
+    age: 26,
+    credentials: 'test@test.com-1234abcd'
   },
   {
     email: 'test2@test.com',
@@ -35,7 +38,6 @@ export class AuthService {
       if (user.email === email && user.password === password) {
         this.setToken(email);
         success = true
-        this._successfulAuth.next(true);
       }
     })
     if (!success) throw 'Email or password is wrong';
@@ -43,9 +45,29 @@ export class AuthService {
 
   private setToken(param: string) {
     localStorage.setItem('credentials', `${param}-1234abcd`);
+    this._successfulAuth.next(true);
+  }
 
-    console.log(param);
-    
+  getToken() {
+    return localStorage.getItem('credentials')
+  }
+
+  checkMatchingCredentials() {
+    const creds = this.getToken();
+    let returnUser = null;
+    if (creds) {
+      this.users.map(user => {
+        if (user.credentials === creds) {
+          returnUser = user
+        }
+      })
+    }
+    return returnUser
+  }
+
+  logout() {
+    localStorage.clear();
+    this._successfulAuth.next(false);
   }
 
 }
