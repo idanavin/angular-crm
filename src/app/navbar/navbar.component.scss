@@ -12,10 +12,10 @@
         display: flex;
         justify-content: center;
         margin: 4vmin 0;
-        img {
-            border-radius: 100%;
-            width: 30px;
-            height: 30px;
+        span {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: bold;
         }
     }
     
@@ -55,6 +55,9 @@
                 width: 100%;
                 background-color: transparent;
                 border: none;
+                &:focus {
+                    outline: none;
+                }
                 svg {
                     fill: rgba(0, 0, 0, 0.274);
                     width: 30px;
