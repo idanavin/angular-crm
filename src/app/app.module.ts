@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
@@ -16,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -45,7 +50,12 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
-    })
+    }),
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatPaginatorModule
   ],
   exports: [RouterModule],
   providers: [],

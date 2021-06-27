@@ -1,5 +1,5 @@
 <app-login *ngIf="!login"></app-login>
 <div class="cover">
-    <button (click)="switchLoginRegister()">{{ login ? 'Login' : 'Register'}}</button>
+    <button mat-raised-button (click)="switchLoginRegister()">{{ login ? 'Login' : 'Register'}}</button>
 </div>
 <app-register *ngIf="login" (success)="login = false"></app-register>

@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class DataHandlerService {
 
-  costumers: any[] = [
+  private _costumers: any[] = [
     {
       "isActive": false,
       "age": 21,
@@ -740,16 +740,20 @@ export class DataHandlerService {
 
   constructor() { }
 
-  getCostumers() {
-    return this.costumers;
+  get getCostumers() {
+    return this._costumers;
+  }
+  
+  get getCostumersLength(): number {
+    return this._costumers.length;
   }
 
   getAmountOfCostumersByPage(amount: number, page: number) {
     let costumersList: any[] = [];
-    const endIndex = (amount * page);
+    const endIndex = amount * (page + 1);
     const startingIndex = endIndex - amount;
-    for (let i = startingIndex; i < this.costumers.length && i < endIndex; i++) {
-      costumersList.push(this.costumers[i]);
+    for (let i = startingIndex; i < this._costumers.length && i < endIndex; i++) {
+      costumersList.push(this._costumers[i]);
     }
     return costumersList;
   }

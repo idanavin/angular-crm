@@ -28,6 +28,12 @@
                 display: grid;
                 row-gap: 2vmin;
             }
+            &__buttons {
+                display: flex;
+                justify-content: center;
+                gap: 15%;
+                width: 100%;
+            }
         }
         &_stat {
             display: grid;

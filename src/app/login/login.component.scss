@@ -16,34 +16,13 @@
             gap: 3vmin;
             width: 100%;
             align-items: center;
-            .row {
-                display: flex;
-                flex-direction: column;
-                gap: 1vmin;
-                input {
-                    padding: 1.5vmin 3vmin;
-                    border: 1px solid rgba(0, 0, 0, 0.123);
-                    border-radius: base.$border-radius;
-                    background-color: transparent;
-                }
-            }
-            button {
-                cursor: pointer;
-                padding: 1.5vmin 3vmin;
-                background-image: linear-gradient(to bottom left, base.$color-contrast-bright, base.$color-contrast-dark);
-                border: none;
-                border-radius: base.$border-radius;
-                color: white;
-                &:focus {
-                    outline: none;
-                }
-                &:disabled {
-                    cursor: auto;
-                }
+            mat-form-field {
+                width: 70%;
             }
         }
         .helpers {
             height: 33%;
+            width: 30vw;
             .worng-login {
                 display: flex;
                 flex-direction: column;

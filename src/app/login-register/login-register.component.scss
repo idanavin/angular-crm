@@ -8,19 +8,12 @@
         height: 100%;
         width: 100%;
         background-color: blue;
+        border-radius: 1%;
         button {
             position: absolute;
             top: 70%;
             left: 50%;
             transform: translate(-50%, -70%);
-            cursor: pointer;
-            color: white;
-            padding: 3vmin 5vmin;
-            background-image: linear-gradient(to bottom left, base.$color-contrast-bright, base.$color-contrast-dark);
-            border: none;
-            &:focus {
-                outline: none;
-            }
         }
     }
 }

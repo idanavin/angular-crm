@@ -1,31 +1,31 @@
 <div class="wrapper">
     <h1>Welcome to your costumer relation manager</h1>
     <form [formGroup]="registerForm" (ngSubmit)="register()">
-        <div class="row">
-            <label for="first-name">First name: </label>
-            <input id="first-name" type="text" formControlName='firstName'>
-        </div>
-        <div class="row">
-            <label for="last-name">Last name: </label>
-            <input id="last-name" type="text" formControlName='lastName'>
-        </div>
-        <div class="row">
-            <label for="email">Email: </label>
-            <input id="email" type="text" placeholder="test@test.com" formControlName='email'>
-        </div>
-        <div class="row">
-            <label for="pass">Password: </label>
-            <input id="pass" type="password" placeholder="123456" formControlName='password'>
-        </div>
-        <div class="row">
-            <label for="age">Age: </label>
-            <input id="age" type="number" formControlName='age'>
-        </div>
-        <button type="submit" [disabled]="!registerForm.valid">Register</button>
+        <mat-form-field>
+            <mat-label for="first-name">First name: </mat-label>
+            <input matInput id="first-name"  type="text" formControlName='firstName'>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="last-name">Last name: </mat-label>
+            <input matInput id="last-name"  type="text" formControlName='lastName'>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="email">Email: </mat-label>
+            <input matInput id="email" type ="text" placeholder="test@test.com" formControlName='email'>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="pass">Password: </mat-label>
+            <input matInput id="pass" type= "password" placeholder="123456" formControlName='password'>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label for="age">Age: </mat-label>
+            <input matInput id="age" type=" number" formControlName='age'>
+        </mat-form-field>
+        <button mat-raised-button type="submit" [disabled]="!registerForm.valid">Register</button>
     </form>
     <div class="helpers">
-        <div *ngIf="email?.touched && email?.invalid">Please enter email</div>
-        <div *ngIf="password?.touched && password?.invalid">Password should be at least 3 letters</div>
-        <div *ngIf="age?.touched && age?.invalid">Your age must be above 18</div>
+        <mat-error *ngIf="email?.touched && email?.invalid">Please enter email</mat-error>
+        <mat-error *ngIf="password?.touched && password?.invalid">Password should be at least 3 letters</mat-error>
+        <mat-error *ngIf="age?.touched && age?.invalid">Your age must be above 18</mat-error>
     </div>
 </div>

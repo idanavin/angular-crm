@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <div class="head-row">
+    <div class="head_row">
         <div class="card">
             <div class="text">Costumers</div>
             <div class="number">15</div>
@@ -13,11 +13,6 @@
             <div class="number">65</div>
         </div>
     </div>
-    <!-- <div class="sort-by">
-        <span>ID</span>
-        <span>Name</span>
-        <span>Email</span>
-    </div> -->
     <main>
         <div *ngFor="let costumer of costumers" class="row">
             <div class="seperator"></div>
@@ -25,12 +20,18 @@
             <img (src)='costumer.avatar' alt="">
             <span>{{ costumer.firstName }} {{ costumer.lastName }}</span>
             <span>{{ costumer.email }}</span>
-            <span [ngClass]="costumer.isActive ? 'active' : 'inactive'">{{ costumer.isActive ? 'Online' : 'Offline'}}</span>
+            <span [ngClass]="costumer.isActive ? 'active' : 'inactive'">{{ costumer.isActive ? 'Online' :
+                'Offline'}}</span>
             <div class="actions">
-                <button [disabled]="true">Call</button>
-                <button>Watch</button>
-                <button>...</button>
+                <button mat-raised-button [disabled]="true">Call</button>
+                <button mat-raised-button>Watch</button>
+                <button mat-raised-button>...</button>
             </div>
+        </div>
+        <div class="bottom_row">
+            <div class="seperator"></div>
+            <mat-paginator [length]="amountOfCostumers" [pageSize]="costumersPerPage" [pageSizeOptions]="[3, 5, 7]" (page)="getServerData($event)">
+            </mat-paginator>
         </div>
     </main>
 </div>
