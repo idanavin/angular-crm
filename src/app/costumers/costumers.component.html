@@ -1,19 +1,36 @@
-<div class="grid">
-    <div class="sort-by">
+<div class="wrapper">
+    <div class="head-row">
+        <div class="card">
+            <div class="text">Costumers</div>
+            <div class="number">15</div>
+        </div>
+        <div class="card">
+            <div class="text">ipsum</div>
+            <div class="number">23/50</div>
+        </div>
+        <div class="card">
+            <div class="text">Lorem</div>
+            <div class="number">65</div>
+        </div>
+    </div>
+    <!-- <div class="sort-by">
         <span>ID</span>
         <span>Name</span>
         <span>Email</span>
-    </div>
-    <div *ngFor="let costumer of costumers" class="row">
-        <div class="row__separator">
+    </div> -->
+    <main>
+        <div *ngFor="let costumer of costumers" class="row">
+            <div class="seperator"></div>
             <span>{{ costumer.id }}</span>
             <img (src)='costumer.avatar' alt="">
             <span>{{ costumer.firstName }} {{ costumer.lastName }}</span>
             <span>{{ costumer.email }}</span>
-        </div>
-        <div class="row__separator">
             <span [ngClass]="costumer.isActive ? 'active' : 'inactive'">{{ costumer.isActive ? 'Online' : 'Offline'}}</span>
-            <button>Edit</button>
+            <div class="actions">
+                <button [disabled]="true">Call</button>
+                <button>Watch</button>
+                <button>...</button>
+            </div>
         </div>
-    </div>
+    </main>
 </div>

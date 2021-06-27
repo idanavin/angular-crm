@@ -1,29 +1,79 @@
 @use '../style/base';
 
-.grid {
-    display: grid;
+.wrapper {
+    display: flex;
+    flex-direction: column;
     gap: 3vmin;
-    padding-top: 3vmin;
-    .sort-by {
-        padding: 0 1vmin;
+    margin: 3vmin;
+    background-image: linear-gradient(to bottom, base.$color-bright-1, base.$color-bright-2);
+    .head-row {
         display: flex;
-        gap: 8vmin;
-    }
-    .row {
-        display: flex;
-        justify-content: space-between;
+        gap: 2vmin;
         align-items: center;
         padding: 1vmin 1.5vmin;
-        background-image: linear-gradient(to bottom, base.$color-bright-1, base.$color-bright-2);
-        &__separator {
-            display: grid;
-            grid-auto-flow: column;
-            align-items: center;
-            gap: 2vmin;
+        .card {
+            display: flex;
+            flex-direction: column;
+            gap: 1vmin;
+            flex: 1;
+            padding: 3vmin 2vmin;
+            background-color: white;
+            border-radius: 3%;
+            box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+            .number {
+                font-size: 2rem;
+            }
         }
-        img {
-            width: 35px;
-            height: 35px;
+    }
+    main {
+        display: flex;
+        flex-direction: column;
+        gap: 3vmin;
+        padding: 3vmin 2vmin;
+        margin: 0 1.5vmin;
+        background-color: white;
+        border-radius: 3%;
+        box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+        .row {
+            position: relative;
+            display: grid;
+            grid-template-columns: min-content 35px 40% 20% min-content auto;
+            gap: 1vmin;
+            align-items: center;
+            padding-top: 2vmin;
+            .seperator {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 1px;
+                width: 100%;
+                background-image: linear-gradient(to left, white, black, white);
+            }
+            .actions {
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                button {
+                    cursor: pointer;
+                    padding: 0.5vmin 1vmin;
+                    background-image: linear-gradient(to bottom left, base.$color-contrast-bright, base.$color-contrast-dark);
+                    border: none;
+                    border-radius: base.$border-radius;
+                    color: white;
+                &:focus {
+                    outline: none;
+                }
+                &:disabled {
+                    cursor: auto;
+                    background-image: none;
+                    background-color: base.$color-dark-1;
+                }
+                }
+            }
+            img {
+                width: 35px;
+                height: 35px;
+            }
         }
     }
 }
