@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { User } from '../interface/user';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -8,21 +9,20 @@ import { AuthService } from '../services/auth.service';
 })
 export class MainComponent implements OnInit {
 
-  user: any;
-  @Input() isAuth: boolean = false;
+  user: User | undefined;
+
 
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.authService.authSuccess$.subscribe(bool => {this.isAuth = bool})
+    this.authService.authSuccess$.subscribe(user => {this.user = user})
     this.isLogged()
   }
 
   isLogged() {
-    const user = this.authService.checkMatchingCredentials()
+    const user = this.authService.getUserForLocalToken()
 
     if (user) {
-      this.isAuth = true;
       this.user = user;
     }
   }

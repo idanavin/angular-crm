@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { User } from '../interface/user';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  user: User | null = null;
+
+  constructor(private dataService: DataService) { 
+  }
 
   ngOnInit(): void {
+    this.getLocalUser();
+  }
+
+  getLocalUser() {
+    const userEmail = localStorage.getItem('userEmail')
+    let user;
+    if (userEmail) {
+      user = this.dataService.getUserByEmail(userEmail)
+      if (user) {
+        this.user = user
+      }
+    }
   }
 
 }

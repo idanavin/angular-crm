@@ -3,11 +3,11 @@
     <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div class="row">
             <label for="email">Email: </label>
-            <input id="email" type="text" placeholder="example@email.com" formControlName='email'>
+            <input id="email" type="text" placeholder="test@test.com" formControlName='email'>
         </div>
         <div class="row">
             <label for="pass">Password: </label>
-            <input id="pass" type="password" formControlName='password'>
+            <input id="pass" type="password" placeholder="123456" formControlName='password'>
         </div>
         <button type="submit" [disabled]="!loginForm.valid">Login</button>
     </form>

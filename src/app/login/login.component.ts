@@ -10,8 +10,8 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent implements OnInit {
 
   loading: boolean = false;
-  success: boolean = false;
-  loginError: boolean = false;
+  success: boolean;
+  loginError: boolean;
 
   loginForm: FormGroup = this.fb.group({
     email: ['', [
@@ -24,18 +24,22 @@ export class LoginComponent implements OnInit {
     ]]
   });
 
-  constructor(private fb: FormBuilder, private authServiece: AuthService) { }
+  constructor(private fb: FormBuilder, private authServiece: AuthService) {
+    this.loginError = false;
+    this.success = false; 
+  }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {   
   }
 
   async login() {
     try {
       this.loginError = false;
       this.loading = true;
-      this.authServiece.login(this.loginForm.value)
-      this.success = true;
-    } catch (error) {
+      await this.authServiece.login(this.loginForm.value)
+      this.success = true
+    }
+    catch (error) {
       this.loginError = true;
     }
     this.loading = false;

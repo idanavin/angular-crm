@@ -14,6 +14,8 @@ import { ChartComponent } from './shared/chart/chart.component';
 import { CustomAltComponent } from './shared/custom-alt/custom-alt.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+import { LoginRegisterComponent } from './login-register/login-register.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -33,7 +35,9 @@ const routes: Routes = [
     ProfileComponent,
     ChartComponent,
     CustomAltComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    LoginRegisterComponent
   ],
   imports: [
     BrowserModule,
