@@ -14,7 +14,7 @@ export class DataService {
     email: 'test@test.com',
     password: '123456',
     age: 26,
-    token: null
+    token: 'test@test.com-1234abcd'
   },
   {
     id: 2,
@@ -67,17 +67,17 @@ export class DataService {
       })
   }
 
-  checkToken(localToken: string): User | null {
-    let returnUser = null;
+  checkToken(localToken: string): User | undefined {
+    let returnUser;
     this._users.map((user: User) => {
-      if(user.token = localToken) returnUser = user
+      if(user.token === localToken) returnUser = user
     })
     return returnUser;
   }
 
   removeToken(localToken: string) {
     this._users.map((user: User) => {
-      if(user.token = localToken) user.token = null;
+      if(user.token === localToken) user.token = null;
     })
   }
 }

@@ -37,6 +37,9 @@
                 &:focus {
                     outline: none;
                 }
+                &:disabled {
+                    cursor: auto;
+                }
             }
         }
         .helpers {

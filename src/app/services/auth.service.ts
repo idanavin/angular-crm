@@ -39,8 +39,8 @@ export class AuthService {
     return localStorage.getItem('credentials')
   }
 
-  getUserForLocalToken(): User | null {
-    let user = null;
+  getUserForLocalToken(): User | undefined {
+    let user;
     const localToken = this.getLocalToken();
     if (localToken) {
       user = this.dataService.checkToken(localToken)

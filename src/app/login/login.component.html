@@ -9,7 +9,7 @@
             <label for="pass">Password: </label>
             <input id="pass" type="password" placeholder="123456" formControlName='password'>
         </div>
-        <button type="submit" [disabled]="!loginForm.valid">Login</button>
+        <button type="submit" [disabled]="!loginForm.valid || loading">{{ loading ? 'Loading' : 'Login'}}</button>
     </form>
     <div class="helpers">
         <div class="worng-login" *ngIf="loginError"><span>Your login is wrong, try this:</span><span>test@test.com:123456</span></div>
