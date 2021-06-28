@@ -17,9 +17,11 @@
         width: 50%;
     }
     main {
+        position: relative;
         padding: 1vmin;
         border-radius: 1%;
         overflow-y: auto;
+        overflow-x: hidden;
         width: 100%;
     }
 }

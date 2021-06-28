@@ -1,7 +1,7 @@
 <div class="wrapper">
     <app-navbar *ngIf="user"></app-navbar>
-    <main *ngIf="user">
-        <router-outlet></router-outlet>
+    <main *ngIf="user" [@routeAnimations]="prepareRoute(outlet)">
+        <router-outlet #outlet="outlet"></router-outlet>
     </main>
     <app-login-register *ngIf="!user"></app-login-register>
 </div>

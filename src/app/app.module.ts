@@ -23,11 +23,11 @@ import { LoginRegisterComponent } from './login-register/login-register.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'costumers', component: CostumersComponent },
-  { path: '**', component: NotFoundComponent },  // Wildcard route for a 404 page
+  { path: '', component: DashboardComponent, data: {animation: 'home'} },
+  { path: 'profile', component: ProfileComponent, data: {animation: 'profile'}  },
+  { path: 'dashboard', component: DashboardComponent, data: {animation: 'dashboard'}  },
+  { path: 'costumers', component: CostumersComponent, data: {animation: 'costumers'} },
+  { path: '**', component: NotFoundComponent, data: {animation: 'notFound'} },  // Wildcard route for a 404 page
 ];
 
 @NgModule({
