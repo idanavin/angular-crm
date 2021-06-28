@@ -1,41 +1,17 @@
 import { Injectable } from '@angular/core';
 import { User } from '../interface/user';
+import { users as dataUsers } from '../data/data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  private _users: User[] = [{
-    id: 1,
-    image: '../../assets/avatar0.png',
-    firstName: 'Larsen',
-    lastName: 'Show',
-    email: 'test@test.com',
-    password: '123456',
-    age: 26,
-    token: 'test@test.com-1234abcd'
-  },
-  {
-    id: 2,
-    firstName: 'Rosseta',
-    lastName: 'Wilson',
-    email: 'test1@test.com',
-    password: '123456',
-    age: 18,
-    token: null
-  },
-  {
-    id: 3,
-    firstName: 'William',
-    lastName: 'Carney',
-    email: 'test3@test.com',
-    password: '123456',
-    age: 44,
-    token: null
-  }]
+  private _users: User[];
 
-  constructor() { }
+  constructor() {
+    this._users = dataUsers
+  }
 
   get getUsers(): User[] {
     return this._users;
@@ -60,24 +36,24 @@ export class DataService {
     const token = `${userEmail}-1234abcd`;
     this._users.map((user: User) => {
       if (user.email === userEmail) {
-          user.token = token
-          localStorage.setItem('userEmail', user.email)
-          localStorage.setItem('credentials', token);
-        } 
-      })
+        user.token = token
+        localStorage.setItem('userEmail', user.email)
+        localStorage.setItem('credentials', token);
+      }
+    })
   }
 
   checkToken(localToken: string): User | undefined {
     let returnUser;
     this._users.map((user: User) => {
-      if(user.token === localToken) returnUser = user
+      if (user.token === localToken) returnUser = user
     })
     return returnUser;
   }
 
   removeToken(localToken: string) {
     this._users.map((user: User) => {
-      if(user.token === localToken) user.token = null;
+      if (user.token === localToken) user.token = null;
     })
   }
 }

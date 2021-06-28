@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { DataHandlerService } from '../services/data-handler.service';
+import { CostumersService } from '../services/costumers.service';
 
 @Component({
   selector: 'app-costumers',
@@ -14,18 +14,18 @@ export class CostumersComponent implements OnInit {
   amountOfCostumers: number;
   costumers: any[] = [];
 
-  constructor(private dataHandler: DataHandlerService) { 
-    this.amountOfCostumers = this.dataHandler.getCostumersLength
+  constructor(private costumersService: CostumersService) { 
+    this.amountOfCostumers = this.costumersService.getCostumersLength
   }
 
   ngOnInit(): void {
-    this.costumers = this.dataHandler.getAmountOfCostumersByPage(this.costumersPerPage, this.page);
+    this.costumers = this.costumersService.getAmountOfCostumersByPage(this.costumersPerPage, this.page);
   }
 
   getServerData(event: PageEvent) {
     this.page = event.pageIndex;
     this.costumersPerPage = event.pageSize;
-    this.costumers = this.dataHandler.getAmountOfCostumersByPage(event.pageSize, event.pageIndex);
+    this.costumers = this.costumersService.getAmountOfCostumersByPage(event.pageSize, event.pageIndex);
   }
 
 }
