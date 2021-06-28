@@ -1,5 +1,13 @@
+@use '../style/base';
+
 .header {
     padding: 5vmin 0;
+    &__title {
+        @include base.custom-header
+    }
+    &__sub {
+        @include base.custom-subheader
+    }
 }
 
 .grid {
@@ -19,6 +27,9 @@
             align-items: center;
             padding-bottom: 1vmin;
             gap: 1vmin;
+            .custom-header {
+                @include base.custom-subheader
+            }
             select {
                 background-color: transparent;
                 border: none;

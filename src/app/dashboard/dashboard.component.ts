@@ -8,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
 
   //TODO: Get actual data with handler
-  data = {
-    graph1: [1, 6, 7, 5, 8, 1, 0],
-    graph2: [3, 6, 7, 5, 8, 1, 0],
-    graph3: [8, 6, 7, 5, 8, 1, 0]
-  }
+  data = [
+    [1, 6, 7, 5, 8, 1, 0],
+    [3, 6, 7, 5, 8, 1, 0],
+    [8, 6, 7, 5, 8, 1, 0]
+  ]
 
   constructor() { }
 

@@ -10,3 +10,17 @@ $color-contrast-bright: rgb(247, 192, 138);
 $color-contrast-dark: rgb(247, 152, 104);
 
 $border-radius: 3%;
+$font-family-header: 'Poppins', sans-serif;
+$font-family-sub: 'Poppins', sans-serif;
+
+@mixin custom-header {
+    font-family: $font-family-header;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+@mixin custom-subheader {
+    font-family: $font-family-sub;
+    font-weight: 200;
+    font-size: 1.2em;
+}
