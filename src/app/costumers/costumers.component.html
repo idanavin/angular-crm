@@ -18,14 +18,12 @@
             <div class="seperator"></div>
             <span>{{ costumer.id }}</span>
             <img (src)='costumer.avatar' alt="">
-            <span>{{ costumer.firstName }} {{ costumer.lastName }}</span>
-            <span>{{ costumer.email }}</span>
-            <span [ngClass]="costumer.isActive ? 'active' : 'inactive'">{{ costumer.isActive ? 'Online' :
-                'Offline'}}</span>
+            <span [ngClass]="costumer.isActive ? 'active' : 'inactive'">{{ costumer.firstName }} {{ costumer.lastName }}</span>
+            <span class="email">{{ costumer.email }}</span>
             <div class="actions">
                 <button mat-raised-button [disabled]="true">Call</button>
                 <button mat-raised-button>Watch</button>
-                <button mat-raised-button>...</button>
+                <button mat-raised-button class="more">...</button>
             </div>
         </div>
         <div class="bottom_row">

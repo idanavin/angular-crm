@@ -1,4 +1,5 @@
 @use '../style/base';
+@use '../style/responsive';
 
 .wrapper {
     display: flex;
@@ -11,10 +12,12 @@
         gap: 2vmin;
         align-items: center;
         padding: 1vmin 1.5vmin;
+        flex-flow: wrap;
         .card {
             display: flex;
             flex-direction: column;
             gap: 1vmin;
+            min-width: auto;
             flex: 1;
             padding: 3vmin 2vmin;
             background-color: white;
@@ -37,14 +40,26 @@
         .row {
             position: relative;
             display: grid;
-            grid-template-columns: min-content 35px 40% 20% min-content auto;
+            grid-template-columns: min-content 35px auto auto max-content;
             gap: 1vmin;
             align-items: center;
             padding-top: 2vmin;
+            .email {
+                justify-self: flex-end;
+            }
             .actions {
                 display: flex;
                 align-items: center;
-                justify-content: space-evenly;
+                justify-content: flex-end;
+                gap: 1vmin;
+                button {
+                    font-size: 0.9em;
+                    &:not(.more) {
+                        @include responsive.mobile {
+                            display: none;
+                        }
+                    }
+                }
             }
             img {
                 width: 35px;
@@ -53,7 +68,6 @@
         }
         .bottom_row {
             display: flex;
-            // gap: 50%;
             position: relative;
             mat-form-field {
                 width: min-content;

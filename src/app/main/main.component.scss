@@ -1,4 +1,5 @@
 @use '../style/base';
+@use '../style/responsive';
 
 .wrapper {
     display: flex;
@@ -8,6 +9,10 @@
     background-image: linear-gradient(to bottom, base.$color-bright-2, base.$color-dark-2);
     box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
     border-radius: 1%;
+    @include responsive.mobile {
+        width: 100%;
+        height: 100%;
+    }
     app-navbar {
         display: flex;
         justify-content: center;
