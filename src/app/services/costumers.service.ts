@@ -28,8 +28,7 @@ export class CostumersService {
     if (lastIndex <= this._costumers.length) {
       return this.getLocalCostumers(firstIndex, lastIndex);
     } else {
-      const newUsers = this.loadRandomUsers(itemsPerPage)
-      return newUsers
+      return this.loadRandomUsers(itemsPerPage)
     }
   }
 
