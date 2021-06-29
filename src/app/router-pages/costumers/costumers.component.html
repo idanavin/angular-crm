@@ -31,5 +31,17 @@
             <mat-paginator [length]="amountOfCostumers" [pageSize]="costumersPerPage" [pageSizeOptions]="[3, 5, 7]" (page)="getServerData($event)">
             </mat-paginator>
         </div>
+
+        <mat-selection-list>
+            <mat-list-option *ngFor="let user of costumersService.pageUsers.get(page)">
+              <img matListAvatar [src]="user?.picture?.thumbnail" alt="...">
+              <h3 matLine> {{user.name.title}}  </h3>
+              <p matLine>
+                <span> {{user.name.first}} {{user.name.last}}</span>                
+              </p>
+            </mat-list-option>
+          </mat-selection-list>
+          <mat-paginator [length]="amountOfCostumers" [pageSize]="costumersPerPage" [pageSizeOptions]="[3, 5, 7]" (page)="loadRandomUsers($event)">
+        </mat-paginator>
     </main>
 </div>

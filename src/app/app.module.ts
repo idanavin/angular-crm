@@ -7,8 +7,10 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+import {MatListModule} from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
+import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { DashboardComponent } from './router-pages/dashboard/dashboard.component';
@@ -55,7 +57,9 @@ const routes: Routes = [
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatListModule,
+    HttpClientModule,
   ],
   exports: [RouterModule],
   providers: [],
