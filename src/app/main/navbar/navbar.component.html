@@ -15,7 +15,8 @@
         <mat-icon>info</mat-icon>
       </button>
     </a>
-    <a mat-list-item [routerLink]="'/costumers'" [routerLinkActive]="'active'" matTooltip="Costumers" [matTooltipPosition]="'after'">
+    <a mat-list-item [routerLink]="'/costumers'" [routerLinkActive]="'active'" matTooltip="Costumers"
+      [matTooltipPosition]="'after'">
       <button mat-button>
         <mat-icon>people_outline</mat-icon>
       </button>
@@ -28,12 +29,11 @@
     </a>
   </mat-list>
   <div class="bottom">
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Settings">
       <mat-icon>settings</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>
-        <!-- <span>Dark Mode</span> -->
         <mat-slide-toggle>Dark Mode</mat-slide-toggle>
       </button>
       <button mat-menu-item disabled>
