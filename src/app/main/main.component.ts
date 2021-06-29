@@ -3,13 +3,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { User } from '../interface/user';
 import { AuthService } from '../services/auth.service';
-import { slider } from './router-animations'
-
+import { routeSlider } from '../animations';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
-  animations: [slider]
+  animations: [routeSlider]
 })
 export class MainComponent implements OnInit {
 

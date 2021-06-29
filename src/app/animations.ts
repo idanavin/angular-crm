@@ -7,7 +7,7 @@ import {
     query,
 } from '@angular/animations'
 
-export const slider = trigger('routeAnimations', [
+export const routeSlider = trigger('routeAnimations', [
     transition('* <=> *', [
         query(':leave, :enter', [
             style({
@@ -30,3 +30,19 @@ export const slider = trigger('routeAnimations', [
         ], { optional: true })
     ])
 ]);
+
+export const loginSlider = trigger('insertRemoveTrigger', [
+    transition(':enter', [
+        style({ 
+            width: 0
+        }),
+        animate('100ms', style({ 
+            width: '100%',
+        })),
+    ]),
+    transition(':leave', [
+        animate('100ms', style({ 
+            width: 0 
+        }))
+    ])
+])
