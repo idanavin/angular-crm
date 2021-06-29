@@ -7,7 +7,7 @@ import { RandomUser, RandomUsers } from '../domain-layer/entities/random-users';
   providedIn: 'root',
 })
 export class CostumersService {
-  private _costumers: Object[];
+  private _costumers: RandomUser[] = [];
 
   readonly pageUsers: Map<number, RandomUser[]> = new Map<
     number,
@@ -15,41 +15,47 @@ export class CostumersService {
   >();
 
   constructor(private readonly httpClient: HttpClient) {
-    this._costumers = costumers;
   }
 
   get getCostumersLength(): number {
     return this._costumers.length;
   }
 
-  getAmountOfCostumersByPage(amount: number, page: number) {
-    let costumersList: any[] = [];
-    const endIndex = amount * (page + 1);
-    const startingIndex = endIndex - amount;
-    for (
-      let i = startingIndex;
-      i < this._costumers.length && i < endIndex;
-      i++
-    ) {
-      costumersList.push(this._costumers[i]);
+  getCostumersByPage(itemsPerPage: number, page: number): Promise<RandomUser[]> {
+    const lastIndex = itemsPerPage * (page + 1);
+    const firstIndex = lastIndex - itemsPerPage;
+
+    if (lastIndex <= this._costumers.length) {
+      return this.getLocalCostumers(firstIndex, lastIndex);
+    } else {
+      const newUsers = this.loadRandomUsers(itemsPerPage)
+      return newUsers
     }
-    return costumersList;
   }
 
-  async loadRandomUsers(
-    itemsPerPage: number,
-    pageNumber: number
-  ): Promise<RandomUser[]> {
-    if (this.pageUsers.has(pageNumber) && this.pageUsers.get(pageNumber)?.length === itemsPerPage) return this.pageUsers.get(pageNumber)!;
+  private async getLocalCostumers(firstIndex: number, lastIndex: number): Promise<RandomUser[]> {
+    return this._costumers.slice(firstIndex, lastIndex);
+  }
 
+  async loadRandomUsers(itemsPerPage: number): Promise<RandomUser[]> {
+    const pageNumber = 1;
     const users = await this.httpClient
       .get<RandomUsers>(
         `https://randomuser.me/api/?page=${pageNumber}&results=${itemsPerPage}`
       )
       .toPromise();
-    console.log({ users });
 
-    this.pageUsers.set(pageNumber, users.results);
-    return users.results;
+    this._costumers.push(...users.results);
+    this.saveToLocalstorage();
+    return users.results
+  }
+
+  private saveToLocalstorage(): void {
+    localStorage.setItem('costumers', JSON.stringify(this._costumers));
+  }
+
+  loadLocalstorage(): void {
+    const costumers = localStorage.getItem('costumers')
+    if (costumers) this._costumers = JSON.parse(costumers) as RandomUser[]
   }
 }

@@ -15,7 +15,7 @@
     </div>
     <main>
         <mat-selection-list>
-            <mat-list-option *ngFor="let user of costumersService.pageUsers.get(page)">
+            <mat-list-option *ngFor="let user of costumers | async">
               <img matListAvatar [src]="user?.picture?.thumbnail" alt="...">
               <h3 matLine> {{user.name.title}}  </h3>
               <p matLine>

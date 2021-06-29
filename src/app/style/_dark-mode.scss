@@ -1,0 +1,20 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$crm-primary: mat-palette($mat-grey, 50, 100, 200);
+$crm-accent: mat-palette($mat-pink);
+$crm-warn: mat-palette($mat-red);
+
+$crm-theme: mat-light-theme($crm-primary, $crm-accent, $crm-warn);
+@include angular-material-theme($crm-theme);
+
+
+$crm-primary-dark: mat-palette($mat-indigo);
+$crm-accent-dark: mat-palette($mat-pink);
+$crm-warn-dark: mat-palette($mat-red);
+
+$crm-theme-dark: mat-light-theme($crm-primary-dark, $crm-accent-dark, $crm-warn-dark);
+
+.dark-theme-mode {
+    @include angular-material-theme($crm-theme-dark);
+}

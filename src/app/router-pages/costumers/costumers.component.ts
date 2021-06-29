@@ -10,12 +10,14 @@ import { CostumersService } from '../../services/costumers.service';
 })
 export class CostumersComponent implements OnInit {
 
+  costumers: Promise<RandomUser[]>;
   page: number = 0;
   costumersPerPage: number = 5;
   amountOfCostumers: number = 50;
 
-  constructor(public readonly costumersService: CostumersService) { 
-    this.costumersService.loadRandomUsers(this.costumersPerPage, this.page);
+  constructor(public readonly costumersService: CostumersService) {
+    this.costumersService.loadLocalstorage();
+    this.costumers = this.costumersService.getCostumersByPage(this.costumersPerPage, this.page);
   }
 
   ngOnInit(): void {
@@ -24,7 +26,7 @@ export class CostumersComponent implements OnInit {
   loadRandomUsers(event: PageEvent) {
     this.page = event.pageIndex;
     this.costumersPerPage = event.pageSize;
-    this.costumersService.loadRandomUsers(event.pageSize, event.pageIndex);
+    this.costumers = this.costumersService.getCostumersByPage(event.pageSize, event.pageIndex);
   }
 
 }
