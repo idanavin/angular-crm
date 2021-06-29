@@ -2,87 +2,47 @@
   <div class="logo">
     <span>CRM</span>
   </div>
-  <ul>
-    <li (mouseenter)="showTooltip($event)" (mouseleave)="hideTooltip($event)">
-      <app-custom-alt [altText]='"Dashboard"' [hidden]=true></app-custom-alt>
-      <a [routerLink]="['dashboard']" class="link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 125" x="0px" y="0px">
-          <path
-            d="M.37988,53H14.28906V87.29688H42.27637V63.042H55.72266V87.29688H83.70947V53H97.61865L48.99951,4.48633Zm77.32959-6V81.29688H61.72266V57.042H36.27637V81.29688H20.28906V47H14.8877L48.99951,12.96289,83.11084,47Z" />
-        </svg>
-      </a>
-    </li>
-    <li (mouseenter)="showTooltip($event)" (mouseleave)="hideTooltip($event)">
-      <app-custom-alt [altText]='"About"' [hidden]=true></app-custom-alt>
-      <a [routerLink]="['about']" class="link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 80" x="0px" y="0px">
-          <path
-            d="M34.949,28.768h-5.9a1,1,0,0,0-1,1v15.2a1,1,0,0,0,1,1h5.9a1,1,0,0,0,1-1v-15.2A1,1,0,0,0,34.949,28.768Zm-1,15.2h-3.9v-13.2h3.9ZM32,18.029a3.949,3.949,0,1,0,3.949,3.949A3.953,3.953,0,0,0,32,18.029Zm0,5.9a1.949,1.949,0,1,1,1.949-1.949A1.951,1.951,0,0,1,32,23.927ZM46,9H18a9.011,9.011,0,0,0-9,9V46a9.011,9.011,0,0,0,9,9H46a9.011,9.011,0,0,0,9-9V18A9.011,9.011,0,0,0,46,9Zm7,37a7.008,7.008,0,0,1-7,7H18a7.008,7.008,0,0,1-7-7V18a7.008,7.008,0,0,1,7-7H46a7.008,7.008,0,0,1,7,7Z" />
-        </svg>
-      </a>
-    </li>
-    <li (mouseenter)="showTooltip($event)" (mouseleave)="hideTooltip($event)">
-      <app-custom-alt [altText]='"Costumers"' [hidden]=true></app-custom-alt>
-      <a [routerLink]="['costumers']" class="link">
-        <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 98 122.5" x="0px" y="0px">
-          <g data-name="Group">
-            <g data-name="Group">
-              <g data-name="Group">
-                <g data-name="Group">
-                  <path data-name="Compound Path"
-                    d="M55.6,84.9H42.4a2,2,0,0,1-2-2V57a2,2,0,0,1,2-2H55.6a2,2,0,0,1,2,2V82.9A2,2,0,0,1,55.6,84.9Zm-11.2-4h9.2V59H44.4Z" />
-                </g>
-                <g data-name="Group">
-                  <path data-name="Compound Path"
-                    d="M81.8,84.9H68.5a2,2,0,0,1-2-2V41.3a2,2,0,0,1,2-2H81.8a2,2,0,0,1,2,2V82.9A2,2,0,0,1,81.8,84.9Zm-11.3-4h9.3V43.3H70.5Z" />
-                </g>
-                <g data-name="Group">
-                  <path data-name="Compound Path"
-                    d="M29.5,84.9H16.2a2,2,0,0,1-2-2V66.7a2,2,0,0,1,2-2H29.5a2,2,0,0,1,2,2V82.9A2,2,0,0,1,29.5,84.9Zm-11.3-4h9.3V68.7H18.2Z" />
-                </g>
-              </g>
-            </g>
-            <g data-name="Group">
-              <g data-name="Group">
-                <path data-name="Path"
-                  d="M15.5,43.7A1.8,1.8,0,0,1,14,43a2,2,0,0,1,.1-2.8L32.7,22.4a2,2,0,0,1,2.6-.1L53.4,36.5,80.5,15.3a2,2,0,0,1,2.8.4,2,2,0,0,1-.3,2.8L54.6,40.6a2,2,0,0,1-2.5,0L34.2,26.5,16.9,43.1A2,2,0,0,1,15.5,43.7Z" />
-              </g>
-              <g data-name="Group">
-                <path data-name="Path"
-                  d="M81.2,35.2h-.1a2.1,2.1,0,0,1-1.9-2.1l1.2-14.9L64.2,17.1a2,2,0,0,1,.3-4l18.2,1.3a1.7,1.7,0,0,1,1.3.7,1.6,1.6,0,0,1,.5,1.4L83.2,33.4A2,2,0,0,1,81.2,35.2Z" />
-              </g>
-            </g>
-          </g>
-        </svg>
-      </a>
-    </li>
-    <li (mouseenter)="showTooltip($event)" (mouseleave)="hideTooltip($event)">
-      <app-custom-alt [altText]='"Profile"' [hidden]=true></app-custom-alt>
-      <a [routerLink]="['profile']" class="link">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px"
-          viewBox="0 0 98 122.5" style="enable-background:new 0 0 98 98;" xml:space="preserve">
-          <g>
-            <path
-              d="M49,10.8c-19.8,0-35.9,17.1-35.9,38.2S29.2,87.2,49,87.2S84.9,70.1,84.9,49S68.8,10.8,49,10.8z M49,83.2   c-8.5-0.1-16.6-3.6-22.4-9.9c0.2-0.7,0.5-1.3,0.9-1.9c2.3-3.7,6-6.3,10.3-7.1c6.6,5.1,15.8,5.1,22.4,0c4.3,0.8,8,3.4,10.3,7.1   c0.4,0.6,0.7,1.2,0.9,1.9C65.6,79.6,57.5,83.1,49,83.2z M73.9,69.3c-3-5-8.2-8.3-14-9.1H59l-0.6,0.6c-5.4,4.5-13.4,4.5-18.8,0   L39,60.2h-0.9c-5.8,0.8-11,4.1-14,9.1l-0.3,0.6c-4.4-6.1-6.7-13.4-6.7-20.9c0-18.9,14.3-34.2,31.9-34.2S80.9,30.1,80.9,49   c0,7.5-2.3,14.8-6.7,20.9L73.9,69.3z" />
-            <path
-              d="M49,28.2c-8,0-14.4,6.4-14.4,14.4C34.6,50.6,41,57,49,57s14.4-6.4,14.4-14.4C63.3,34.7,56.9,28.3,49,28.2z M49,53   c-5.7,0-10.4-4.7-10.4-10.4c0-5.7,4.7-10.4,10.4-10.4s10.4,4.7,10.4,10.4C59.3,48.3,54.7,52.9,49,53z" />
-          </g>
-        </svg>
-      </a>
-    </li>
-    <li (mouseenter)="showTooltip($event)" (mouseleave)="hideTooltip($event)">
-      <app-custom-alt [altText]='"Log Out"' [hidden]=true></app-custom-alt>
-      <button (click)="logout()" class="link">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px"
-          viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve">
-          <g>
-            <path
-              d="M89.198,48.458c-0.038-0.114-0.068-0.233-0.115-0.343c-0.194-0.49-0.485-0.951-0.883-1.347L77.887,36.454   c-1.547-1.546-4.054-1.546-5.601,0c-1.548,1.547-1.548,4.157,0,5.704L76.028,46H40.976c-2.134,0-3.864,1.866-3.864,4   c0,2.135,1.729,4,3.864,4h35.567l-4.063,3.826c-1.547,1.546-1.548,3.936,0,5.481c1.545,1.546,4.054,1.486,5.6-0.06l10.315-10.344   C89.589,51.709,89.85,49.915,89.198,48.458z" />
-            <path
-              d="M58.5,59.995c-2.133,0-3.5,1.731-3.5,3.864v10.245C55,76.521,53.373,79,50.956,79H23.011C20.595,79,18,76.521,18,74.104   V25.538C18,23.122,20.595,22,23.011,22h27.945C53.373,22,55,23.122,55,25.538v10.245c0,2.134,1.367,3.865,3.5,3.865   c2.135,0,3.5-1.731,3.5-3.865V25.538C62,18.865,57.631,14,50.956,14H23.011C16.337,14,10,18.865,10,25.538v48.567   C10,80.777,16.337,87,23.011,87h27.945C57.631,87,62,80.777,62,74.104V63.859C62,61.727,60.635,59.995,58.5,59.995z" />
-          </g>
-        </svg>
+  <mat-list>
+    <a mat-list-item [routerLink]="'/dashboard'" [routerLinkActive]="'active'" matTooltip="Dashboard"
+      [matTooltipPosition]="'after'">
+      <button mat-button>
+        <mat-icon>dashboard</mat-icon>
       </button>
-    </li>
-  </ul>
+    </a>
+    <a mat-list-item [routerLink]="'/about'" [routerLinkActive]="'active'" matTooltip="About"
+      [matTooltipPosition]="'after'">
+      <button mat-button>
+        <mat-icon>info</mat-icon>
+      </button>
+    </a>
+    <a mat-list-item [routerLink]="'/costumers'" [routerLinkActive]="'active'" matTooltip="Costumers" [matTooltipPosition]="'after'">
+      <button mat-button>
+        <mat-icon>people_outline</mat-icon>
+      </button>
+    </a>
+    <a mat-list-item [routerLink]="'/profile'" [routerLinkActive]="'active'" matTooltip="Profile"
+      [matTooltipPosition]="'after'">
+      <button mat-button>
+        <mat-icon>person</mat-icon>
+      </button>
+    </a>
+  </mat-list>
+  <div class="bottom">
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>settings</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <!-- <span>Dark Mode</span> -->
+        <mat-slide-toggle>Dark Mode</mat-slide-toggle>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>voicemail</mat-icon>
+        <span>Language</span>
+      </button>
+    </mat-menu>
+    <button mat-button (click)="logout()" matTooltip="Logout" [matTooltipPosition]="'after'">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </div>
 </div>

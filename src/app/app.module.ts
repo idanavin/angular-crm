@@ -7,10 +7,14 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { DashboardComponent } from './router-pages/dashboard/dashboard.component';
@@ -25,11 +29,11 @@ import { RegisterComponent } from './login-register/register/register.component'
 import { LoginRegisterComponent } from './login-register/login-register.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent, data: {animation: 'home'} },
-  { path: 'profile', component: ProfileComponent, data: {animation: 'profile'}  },
-  { path: 'dashboard', component: DashboardComponent, data: {animation: 'dashboard'}  },
-  { path: 'costumers', component: CostumersComponent, data: {animation: 'costumers'} },
-  { path: '**', component: NotFoundComponent, data: {animation: 'notFound'} },  // Wildcard route for a 404 page
+  { path: '', component: DashboardComponent, data: { animation: 'home' } },
+  { path: 'profile', component: ProfileComponent, data: { animation: 'profile' } },
+  { path: 'dashboard', component: DashboardComponent, data: { animation: 'dashboard' } },
+  { path: 'costumers', component: CostumersComponent, data: { animation: 'costumers' } },
+  { path: '**', component: NotFoundComponent, data: { animation: 'notFound' } },  // Wildcard route for a 404 page
 ];
 
 @NgModule({
@@ -59,6 +63,10 @@ const routes: Routes = [
     MatSelectModule,
     MatPaginatorModule,
     MatListModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatMenuModule,
+    MatSlideToggleModule,
     HttpClientModule,
   ],
   exports: [RouterModule],

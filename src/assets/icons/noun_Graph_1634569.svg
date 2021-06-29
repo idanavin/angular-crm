@@ -1,1 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 98 122.5" x="0px" y="0px"><title>01</title><g data-name="Group"><g data-name="Group"><g data-name="Group"><g data-name="Group"><path data-name="Compound Path" d="M55.6,84.9H42.4a2,2,0,0,1-2-2V57a2,2,0,0,1,2-2H55.6a2,2,0,0,1,2,2V82.9A2,2,0,0,1,55.6,84.9Zm-11.2-4h9.2V59H44.4Z"/></g><g data-name="Group"><path data-name="Compound Path" d="M81.8,84.9H68.5a2,2,0,0,1-2-2V41.3a2,2,0,0,1,2-2H81.8a2,2,0,0,1,2,2V82.9A2,2,0,0,1,81.8,84.9Zm-11.3-4h9.3V43.3H70.5Z"/></g><g data-name="Group"><path data-name="Compound Path" d="M29.5,84.9H16.2a2,2,0,0,1-2-2V66.7a2,2,0,0,1,2-2H29.5a2,2,0,0,1,2,2V82.9A2,2,0,0,1,29.5,84.9Zm-11.3-4h9.3V68.7H18.2Z"/></g></g></g><g data-name="Group"><g data-name="Group"><path data-name="Path" d="M15.5,43.7A1.8,1.8,0,0,1,14,43a2,2,0,0,1,.1-2.8L32.7,22.4a2,2,0,0,1,2.6-.1L53.4,36.5,80.5,15.3a2,2,0,0,1,2.8.4,2,2,0,0,1-.3,2.8L54.6,40.6a2,2,0,0,1-2.5,0L34.2,26.5,16.9,43.1A2,2,0,0,1,15.5,43.7Z"/></g><g data-name="Group"><path data-name="Path" d="M81.2,35.2h-.1a2.1,2.1,0,0,1-1.9-2.1l1.2-14.9L64.2,17.1a2,2,0,0,1,.3-4l18.2,1.3a1.7,1.7,0,0,1,1.3.7,1.6,1.6,0,0,1,.5,1.4L83.2,33.4A2,2,0,0,1,81.2,35.2Z"/></g></g></g><text x="0" y="113" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Trendy</text><text x="0" y="118" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 98 122.5" x="0px" y="0px">
+    <g data-name="Group">
+        <g data-name="Group">
+            <g data-name="Group">
+                <g data-name="Group">
+                    <path data-name="Compound Path" d="M55.6,84.9H42.4a2,2,0,0,1-2-2V57a2,2,0,0,1,2-2H55.6a2,2,0,0,1,2,2V82.9A2,2,0,0,1,55.6,84.9Zm-11.2-4h9.2V59H44.4Z" />
+                </g>
+                <g data-name="Group">
+                    <path data-name="Compound Path" d="M81.8,84.9H68.5a2,2,0,0,1-2-2V41.3a2,2,0,0,1,2-2H81.8a2,2,0,0,1,2,2V82.9A2,2,0,0,1,81.8,84.9Zm-11.3-4h9.3V43.3H70.5Z" />
+                </g>
+                <g data-name="Group">
+                    <path data-name="Compound Path" d="M29.5,84.9H16.2a2,2,0,0,1-2-2V66.7a2,2,0,0,1,2-2H29.5a2,2,0,0,1,2,2V82.9A2,2,0,0,1,29.5,84.9Zm-11.3-4h9.3V68.7H18.2Z" />
+                </g>
+            </g>
+        </g>
+        <g data-name="Group">
+            <g data-name="Group">
+                <path data-name="Path" d="M15.5,43.7A1.8,1.8,0,0,1,14,43a2,2,0,0,1,.1-2.8L32.7,22.4a2,2,0,0,1,2.6-.1L53.4,36.5,80.5,15.3a2,2,0,0,1,2.8.4,2,2,0,0,1-.3,2.8L54.6,40.6a2,2,0,0,1-2.5,0L34.2,26.5,16.9,43.1A2,2,0,0,1,15.5,43.7Z" />
+            </g>
+            <g data-name="Group">
+                <path data-name="Path" d="M81.2,35.2h-.1a2.1,2.1,0,0,1-1.9-2.1l1.2-14.9L64.2,17.1a2,2,0,0,1,.3-4l18.2,1.3a1.7,1.7,0,0,1,1.3.7,1.6,1.6,0,0,1,.5,1.4L83.2,33.4A2,2,0,0,1,81.2,35.2Z" />
+            </g>
+        </g>
+    </g>
+</svg>

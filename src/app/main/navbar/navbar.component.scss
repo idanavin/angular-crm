@@ -3,18 +3,18 @@
 
 .wrapper {
     background-image: linear-gradient(to bottom, base.$color-bright-3, base.$color-dark-3);
-    border-radius: 1%;
-    padding: 0 3vmin;
+    border-radius: base.$border-radius-left;
     display: flex;
     flex-direction: column;
-    align-self: stretch;
+    height: 100%;
+    justify-content: space-between;
     @include responsive.mobile {
         padding: 0 0.5vmin;
     }
     .logo {
         display: flex;
         justify-content: center;
-        margin: 4vmin 0;
+        padding: 2vmin 0;
         @include responsive.mobile {
             padding: 1;
         }
@@ -24,57 +24,15 @@
             font-weight: bold;
         }
     }
-    
-    ul {
-        display: flex;
-        height: 100%;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        li {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 4vmin;
-            list-style: none;
-            color: base.$color-dark-1;
-            border-radius: 1%;
-            padding: 0 1vmin;
-            &:hover {
-                background-color: base.$color-bright-1;
-                border: solid rgba(0, 0, 0, 0.13) 0.5px;
-                padding: 0;
-                a {
-                    svg {
-                        fill: black;
-                    }
-                }
-            }
-            .link {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                text-decoration: none;
-                color: base.$color-dark-1;
-                height: 100%;
-                width: 100%;
-                background-color: transparent;
-                border: none;
-                &:focus {
-                    outline: none;
-                }
-                svg {
-                    fill: rgba(0, 0, 0, 0.274);
-                    width: 30px;
-                    height: 30px;
-                    defs {
-                        style {
-                            fill: rgba(0, 0, 0, 0.274);
-                        }
-                    }
-                }
-            }
+    mat-list {
+        a {
+            text-decoration: none;
         }
+    }
+    .bottom {
+        padding-bottom: 2vmin;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
