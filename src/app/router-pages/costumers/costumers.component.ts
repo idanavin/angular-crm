@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { RandomUser } from 'src/app/domain-layer/entities/random-users';
 import { CostumersService } from '../../services/costumers.service';
 
 @Component({
@@ -11,22 +12,13 @@ export class CostumersComponent implements OnInit {
 
   page: number = 0;
   costumersPerPage: number = 5;
-  amountOfCostumers: number;
-  costumers: any[] = [];
+  amountOfCostumers: number = 50;
 
   constructor(public readonly costumersService: CostumersService) { 
-    this.amountOfCostumers = this.costumersService.getCostumersLength
-  }
-
-  ngOnInit(): void {
-    this.costumers = this.costumersService.getAmountOfCostumersByPage(this.costumersPerPage, this.page);
     this.costumersService.loadRandomUsers(this.costumersPerPage, this.page);
   }
 
-  getServerData(event: PageEvent) {
-    this.page = event.pageIndex;
-    this.costumersPerPage = event.pageSize;
-    this.costumers = this.costumersService.getAmountOfCostumersByPage(event.pageSize, event.pageIndex);
+  ngOnInit(): void {
   }
 
   loadRandomUsers(event: PageEvent) {

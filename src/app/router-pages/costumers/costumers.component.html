@@ -14,24 +14,6 @@
         </div>
     </div>
     <main>
-        <div *ngFor="let costumer of costumers" class="row">
-            <div class="seperator"></div>
-            <span>{{ costumer.id }}</span>
-            <img (src)='costumer.avatar' alt="">
-            <span [ngClass]="costumer.isActive ? 'active' : 'inactive'">{{ costumer.firstName }} {{ costumer.lastName }}</span>
-            <span class="email">{{ costumer.email }}</span>
-            <div class="actions">
-                <button mat-raised-button [disabled]="true">Call</button>
-                <button mat-raised-button>Watch</button>
-                <button mat-raised-button class="more">...</button>
-            </div>
-        </div>
-        <div class="bottom_row">
-            <div class="seperator"></div>
-            <mat-paginator [length]="amountOfCostumers" [pageSize]="costumersPerPage" [pageSizeOptions]="[3, 5, 7]" (page)="getServerData($event)">
-            </mat-paginator>
-        </div>
-
         <mat-selection-list>
             <mat-list-option *ngFor="let user of costumersService.pageUsers.get(page)">
               <img matListAvatar [src]="user?.picture?.thumbnail" alt="...">

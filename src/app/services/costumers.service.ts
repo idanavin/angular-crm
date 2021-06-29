@@ -40,7 +40,7 @@ export class CostumersService {
     itemsPerPage: number,
     pageNumber: number
   ): Promise<RandomUser[]> {
-    if (this.pageUsers.has(pageNumber)) return this.pageUsers.get(pageNumber)!;
+    if (this.pageUsers.has(pageNumber) && this.pageUsers.get(pageNumber)?.length === itemsPerPage) return this.pageUsers.get(pageNumber)!;
 
     const users = await this.httpClient
       .get<RandomUsers>(

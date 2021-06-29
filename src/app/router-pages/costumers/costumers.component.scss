@@ -37,44 +37,6 @@
         background-color: white;
         border-radius: 1%;
         box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
-        .row {
-            position: relative;
-            display: grid;
-            grid-template-columns: min-content 35px auto auto max-content;
-            gap: 1vmin;
-            align-items: center;
-            padding-top: 2vmin;
-            .email {
-                justify-self: flex-end;
-            }
-            .actions {
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-                gap: 1vmin;
-                button {
-                    font-size: 0.9em;
-                    &:not(.more) {
-                        @include responsive.mobile {
-                            display: none;
-                        }
-                    }
-                }
-            }
-            img {
-                width: 35px;
-                height: 35px;
-            }
-        }
-        .bottom_row {
-            display: flex;
-            position: relative;
-            mat-form-field {
-                width: min-content;
-                margin: 2vmin;
-            }
-
-        }
     }
 }
 
