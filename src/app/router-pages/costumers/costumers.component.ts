@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { CostumersService } from '../services/costumers.service';
+import { CostumersService } from '../../services/costumers.service';
 
 @Component({
   selector: 'app-costumers',
