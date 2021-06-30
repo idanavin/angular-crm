@@ -15,12 +15,11 @@ export class CostumersComponent implements OnInit {
   page: number = 0;
   costumersPerPage: number = 5;
   amountOfCostumers: number = 50;
-  // sort: Sort = {active: 'usorted', direction: 'asc'};
-  sort: string = 'unsorted';
+  sort: Sort = {active: 'unsorted', direction: 'asc'};
 
   constructor(public readonly costumersService: CostumersService) {
     this.costumersService.loadLocalstorage();
-    this.costumers = this.costumersService.getCostumersByPage(this.costumersPerPage, this.page);
+    this.costumers = this.costumersService.getCostumersByPage(this.costumersPerPage, this.page, this.sort);
   }
 
   ngOnInit(): void {
@@ -33,8 +32,8 @@ export class CostumersComponent implements OnInit {
   }
 
   sortData(event: Sort) {
-    this.sort = event.active
-    this.costumers = this.costumersService.getCostumersByPage(this.costumersPerPage, this.page, event.active)
+    this.sort = event
+    this.costumers = this.costumersService.getCostumersByPage(this.costumersPerPage, this.page, this.sort)
   }
 
 }

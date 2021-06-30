@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { stringify } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
+import { Sort } from '@angular/material/sort';
 import { costumers } from '../data/data';
 import { RandomUser, RandomUsers } from '../domain-layer/entities/random-users';
 
@@ -18,10 +19,12 @@ export class CostumersService {
     this.users.set('unsorted', [])
   }
 
-  getCostumersByPage(itemsPerPage: number, page: number, order: string = 'unsorted'): Promise<RandomUser[]> {
+  getCostumersByPage(itemsPerPage: number, page: number, order: Sort): Promise<RandomUser[]> {
     const lastIndex = itemsPerPage * (page + 1);
     const firstIndex = lastIndex - itemsPerPage;
-    const list: RandomUser[] = this.users.get(order)!;
+
+    if (!this.users.has(order.active)) this.sortUsers(order)
+    let list: RandomUser[] = this.users.get(order.active)!;
 
     if (lastIndex <= list.length) {
       return this.getLocalCostumers(firstIndex, lastIndex, list);
@@ -34,7 +37,7 @@ export class CostumersService {
     return users.slice(firstIndex, lastIndex);
   }
 
-  async loadRandomUsers(itemsPerPage: number): Promise<RandomUser[]> {
+  private async loadRandomUsers(itemsPerPage: number): Promise<RandomUser[]> {
     const pageNumber = 1;
     const users = await this.httpClient
       .get<RandomUsers>(
@@ -43,7 +46,6 @@ export class CostumersService {
       .toPromise();
 
     this.users.set('unsorted', [... this.users.get('unsorted')!, ...users.results])
-    this.sortUsers('a');
     this.saveToLocalstorage();
     return users.results
   }
@@ -55,11 +57,14 @@ export class CostumersService {
   loadLocalstorage(): void {
     const costumers = localStorage.getItem('costumers')
     if (costumers) this.users.set('unsorted', JSON.parse(costumers) as RandomUser[])
-    this.sortUsers('a');
   }
 
-  private sortUsers(direction: string): void {
+  private sortUsers(sort: Sort): void {
+    const { active, direction } = sort
     const unorderedList: RandomUser[] = this.users.get('unsorted')!;
-    this.users.set('age', [...unorderedList].sort((a, b) => a.dob.age - b.dob.age))
+    this.users.set(active, [...unorderedList].sort((a, b) => {
+      if (direction === 'asc') return a.dob.age - b.dob.age
+      else return b.dob.age - a.dob.age
+    }))
   }
 }
