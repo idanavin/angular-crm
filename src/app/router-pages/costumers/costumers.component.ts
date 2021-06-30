@@ -15,7 +15,7 @@ export class CostumersComponent implements OnInit {
   page: number = 0;
   costumersPerPage: number = 5;
   amountOfCostumers: number = 50;
-  sort: Sort = {active: 'unsorted', direction: 'asc'};
+  sort: Sort = {active: 'unsorted', direction: ''};
 
   constructor(public readonly costumersService: CostumersService) {
     this.costumersService.loadLocalstorage();

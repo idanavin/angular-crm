@@ -16,15 +16,15 @@ export class CostumersService {
   >();
 
   constructor(private readonly httpClient: HttpClient) {
-    this.users.set('unsorted', [])
+    this.users.set('unsorted-', [])
   }
 
   getCostumersByPage(itemsPerPage: number, page: number, order: Sort): Promise<RandomUser[]> {
     const lastIndex = itemsPerPage * (page + 1);
     const firstIndex = lastIndex - itemsPerPage;
 
-    if (!this.users.has(order.active)) this.sortUsers(order)
-    let list: RandomUser[] = this.users.get(order.active)!;
+    if (!this.users.has(`${order.active}-${order.direction}`)) this.sortUsers(order)
+    let list: RandomUser[] = this.users.get(`${order.active}-${order.direction}`)!;
 
     if (lastIndex <= list.length) {
       return this.getLocalCostumers(firstIndex, lastIndex, list);
@@ -45,7 +45,7 @@ export class CostumersService {
       )
       .toPromise();
 
-    this.users.set('unsorted', [... this.users.get('unsorted')!, ...users.results])
+    this.users.set('unsorted-', [... this.users.get('unsorted-')!, ...users.results])
     this.saveToLocalstorage();
     return users.results
   }
@@ -61,10 +61,11 @@ export class CostumersService {
 
   private sortUsers(sort: Sort): void {
     const { active, direction } = sort
-    const unorderedList: RandomUser[] = this.users.get('unsorted')!;
-    this.users.set(active, [...unorderedList].sort((a, b) => {
-      if (direction === 'asc') return a.dob.age - b.dob.age
-      else return b.dob.age - a.dob.age
+    const unorderedList: RandomUser[] = this.users.get('unsorted-')!;
+    
+    this.users.set(`${active}-${direction}`, [...unorderedList].sort((userA, userB) => {
+      if (direction === 'asc') return userA.dob.age - userB.dob.age
+      else return userB.dob.age - userA.dob.age
     }))
   }
 }
