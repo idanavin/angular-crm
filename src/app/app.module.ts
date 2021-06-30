@@ -13,6 +13,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSortModule } from '@angular/material/sort';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -27,6 +30,7 @@ import { CustomAltComponent } from './shared/custom-alt/custom-alt.component';
 import { LoginComponent } from './login-register/login/login.component';
 import { RegisterComponent } from './login-register/register/register.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
+import { CostumerListComponent } from './router-pages/costumers/costumer-list/costumer-list.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, data: { animation: 'home' } },
@@ -48,7 +52,8 @@ const routes: Routes = [
     CustomAltComponent,
     LoginComponent,
     RegisterComponent,
-    LoginRegisterComponent
+    LoginRegisterComponent,
+    CostumerListComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +72,9 @@ const routes: Routes = [
     MatTooltipModule,
     MatMenuModule,
     MatSlideToggleModule,
+    MatToolbarModule,
+    MatSortModule,
+    MatGridListModule,
     HttpClientModule,
   ],
   exports: [RouterModule],

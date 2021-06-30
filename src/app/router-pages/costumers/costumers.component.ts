@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { Sort } from '@angular/material/sort';
 import { RandomUser } from 'src/app/domain-layer/entities/random-users';
 import { CostumersService } from '../../services/costumers.service';
 
@@ -27,6 +28,10 @@ export class CostumersComponent implements OnInit {
     this.page = event.pageIndex;
     this.costumersPerPage = event.pageSize;
     this.costumers = this.costumersService.getCostumersByPage(event.pageSize, event.pageIndex);
+  }
+
+  sortData(event: Sort) {
+
   }
 
 }

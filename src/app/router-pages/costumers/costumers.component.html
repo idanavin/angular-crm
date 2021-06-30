@@ -14,16 +14,27 @@
         </div>
     </div>
     <main>
+        <mat-toolbar>
+            <button mat-button>
+                <mat-icon>person_add</mat-icon><span>New costumer</span>
+            </button>
+            <button mat-button>
+                <mat-icon>person_add</mat-icon><span>Edit selected</span>
+            </button>
+            <span class="spacer"></span>
+        </mat-toolbar>
         <mat-selection-list>
-            <mat-list-option *ngFor="let user of costumers | async">
-              <img matListAvatar [src]="user?.picture?.thumbnail" alt="...">
-              <h3 matLine> {{user.name.title}}  </h3>
-              <p matLine>
-                <span> {{user.name.first}} {{user.name.last}}</span>                
-              </p>
+            <mat-list-option matSubheader>
+                <mat-grid-list cols="5" matSort (matSortChange)="sortData($event)">
+                    <mat-grid-tile><span>Sort By:</span></mat-grid-tile>
+                    <mat-grid-tile colspan="2"><span mat-sort-header="name">Last Name</span></mat-grid-tile>
+                    <mat-grid-tile colspan="2"><span mat-sort-header="a">Age</span></mat-grid-tile>
+                </mat-grid-list>
             </mat-list-option>
-          </mat-selection-list>
-          <mat-paginator [length]="amountOfCostumers" [pageSize]="costumersPerPage" [pageSizeOptions]="[3, 5, 7]" (page)="loadRandomUsers($event)">
+            <app-costumer-list [costumers]="costumers"></app-costumer-list>
+        </mat-selection-list>
+        <mat-paginator [length]="amountOfCostumers" [pageSize]="costumersPerPage" [pageSizeOptions]="[3, 5, 7]"
+            (page)="loadRandomUsers($event)">
         </mat-paginator>
     </main>
 </div>
