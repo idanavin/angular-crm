@@ -20,7 +20,8 @@ export class CostumersService {
   getCostumersByPage(itemsPerPage: number, page: number, order: Sort): Promise<RandomUser[]> {
     const lastIndex = itemsPerPage * (page + 1);
     const firstIndex = lastIndex - itemsPerPage;
-
+    
+    //! BUG on unsorted if direction changed, when moving pages it loading new random users
     if (!this.users.has(`${order.active}${order.direction}`)) this.sortUsers(order)
     let list: RandomUser[] = this.users.get(`${order.active}${order.direction}`)!;
 
