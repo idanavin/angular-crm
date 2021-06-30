@@ -1,4 +1,4 @@
-<mat-list-option *ngFor="let user of costumers | async">
+<mat-list-option mat *ngFor="let user of costumers | async">
     <img matListAvatar [src]="user?.picture?.thumbnail" alt="...">
     <h3 matLine class="flex">
         <span>{{user.name.title}}</span>

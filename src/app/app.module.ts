@@ -16,6 +16,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -75,6 +76,7 @@ const routes: Routes = [
     MatToolbarModule,
     MatSortModule,
     MatGridListModule,
+    MatCheckboxModule,
     HttpClientModule,
   ],
   exports: [RouterModule],

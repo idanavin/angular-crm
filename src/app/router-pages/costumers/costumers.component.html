@@ -2,7 +2,7 @@
     <div class="head_row">
         <div class="card">
             <div class="text">Costumers</div>
-            <div class="number">15</div>
+            <div class="number">{{ amountOfCostumers }}</div>
         </div>
         <div class="card">
             <div class="text">ipsum</div>
@@ -21,16 +21,19 @@
             <button mat-button>
                 <mat-icon>person_add</mat-icon><span>Edit selected</span>
             </button>
-            <span class="spacer"></span>
+            <button mat-button>
+                <mat-icon>person_add</mat-icon><span>Delete selected</span>
+            </button>
         </mat-toolbar>
+        <mat-list matSort (matSortChange)="sortData($event)">
+            <h3 matLine class="flex">
+                <span>Sort By:</span>
+                <span mat-sort-header="name">Last Name</span>
+                <span mat-sort-header="age">Age</span>
+                <mat-checkbox></mat-checkbox>
+            </h3>
+        </mat-list>
         <mat-selection-list>
-            <mat-list-option>
-                <mat-grid-list cols="5" matSort (matSortChange)="sortData($event)">
-                    <mat-grid-tile><span>Sort By:</span></mat-grid-tile>
-                    <mat-grid-tile colspan="2"><span mat-sort-header="name">Last Name</span></mat-grid-tile>
-                    <mat-grid-tile colspan="2"><span mat-sort-header="age">Age</span></mat-grid-tile>
-                </mat-grid-list>
-            </mat-list-option>
             <app-costumer-list [costumers]="costumers"></app-costumer-list>
         </mat-selection-list>
         <mat-paginator [length]="amountOfCostumers" [pageSize]="costumersPerPage" [pageSizeOptions]="[3, 5, 7]"
