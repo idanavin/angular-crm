@@ -62,8 +62,13 @@ export class CostumersService {
     const unorderedList: RandomUser[] = this.users.get('unsorted')!;
     
     this.users.set(`${active}${direction}`, [...unorderedList].sort((userA, userB) => {
-      if (direction === 'asc') return userA.dob.age - userB.dob.age
-      else return userB.dob.age - userA.dob.age
+      if (direction === 'asc') return this.sortByType(userA, userB, sort.active);
+      else return this.sortByType(userB, userA, sort.active);
     }))
+  }
+
+  sortByType(userA: RandomUser, userB: RandomUser, sortType: string) {
+    if (sortType === 'age') return userA.dob.age - userB.dob.age
+    else return (userA.name.last > userB.name.last) ? 1 : ((userB.name.last > userA.name.last) ? -1 : 0)
   }
 }
