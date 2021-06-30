@@ -24,11 +24,11 @@
             <span class="spacer"></span>
         </mat-toolbar>
         <mat-selection-list>
-            <mat-list-option matSubheader>
+            <mat-list-option>
                 <mat-grid-list cols="5" matSort (matSortChange)="sortData($event)">
                     <mat-grid-tile><span>Sort By:</span></mat-grid-tile>
                     <mat-grid-tile colspan="2"><span mat-sort-header="name">Last Name</span></mat-grid-tile>
-                    <mat-grid-tile colspan="2"><span mat-sort-header="a">Age</span></mat-grid-tile>
+                    <mat-grid-tile colspan="2"><span mat-sort-header="age">Age</span></mat-grid-tile>
                 </mat-grid-list>
             </mat-list-option>
             <app-costumer-list [costumers]="costumers"></app-costumer-list>
