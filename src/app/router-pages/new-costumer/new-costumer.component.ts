@@ -20,4 +20,8 @@ export class NewCostumerComponent implements OnInit {
     
   }
 
+  useDatePipe(date: any) {
+    return this.costumerFormService.datePipe(date);
+  }
+
 }

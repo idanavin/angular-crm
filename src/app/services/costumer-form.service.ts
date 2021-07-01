@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -7,6 +8,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CostumerFormService {
 
   constructor(private fb: FormBuilder) { }
+
+  datePipe(date: any): string | null {
+    const datePipe = new DatePipe("en-US");
+    return datePipe.transform(date, 'MM/dd/yyyy')
+  }
 
   sharedForm() {
     const fg: FormGroup = this.fb.group({

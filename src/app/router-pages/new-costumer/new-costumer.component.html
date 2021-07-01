@@ -50,7 +50,7 @@
             <mat-form-field appearance="outline">
                 <mat-label for="dob">Birth Day</mat-label>
                 <input id="dob" matInput type="date" formControlName='dob' [matDatepicker]="picker"
-                    [value]="date.value">
+                    [ngModel]="useDatePipe" (ngModelChange)="useDatePipe=$event">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
