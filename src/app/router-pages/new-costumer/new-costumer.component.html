@@ -1,6 +1,6 @@
 <div class="wrapper">
     <h1>Add new costumer</h1>
-    <form [formGroup]="form">
+    <form id="form" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="row">
             <mat-form-field appearance="outline">
                 <mat-label for="nameFirst">First Name</mat-label>
@@ -49,15 +49,14 @@
         <div class="row">
             <mat-form-field appearance="outline">
                 <mat-label for="dob">Birth Day</mat-label>
-                <input id="dob" matInput type="date" formControlName='dob' [matDatepicker]="picker"
-                    (blur)="useDatePipe">
+                <input id="dob" matInput type="date" formControlName='dob' [matDatepicker]="picker">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
         </div>
     </form>
     <section>
-        <button mat-stroked-button>Add</button>
+        <button mat-stroked-button type="submit" form="form">Add</button>
         <button mat-stroked-button>Cancel</button>
     </section>
 </div>
