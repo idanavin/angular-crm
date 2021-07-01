@@ -17,6 +17,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -32,12 +34,14 @@ import { LoginComponent } from './login-register/login/login.component';
 import { RegisterComponent } from './login-register/register/register.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import { CostumerListComponent } from './router-pages/costumers/costumer-list/costumer-list.component';
+import { NewCostumerComponent } from './router-pages/new-costumer/new-costumer.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, data: { animation: 'home' } },
   { path: 'profile', component: ProfileComponent, data: { animation: 'profile' } },
   { path: 'dashboard', component: DashboardComponent, data: { animation: 'dashboard' } },
   { path: 'costumers', component: CostumersComponent, data: { animation: 'costumers' } },
+  { path: 'costumers/add', component: NewCostumerComponent, data: { animation: 'newcostumer' } },
   { path: '**', component: NotFoundComponent, data: { animation: 'notFound' } },  // Wildcard route for a 404 page
 ];
 
@@ -54,7 +58,8 @@ const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     LoginRegisterComponent,
-    CostumerListComponent
+    CostumerListComponent,
+    NewCostumerComponent
   ],
   imports: [
     BrowserModule,
@@ -77,6 +82,8 @@ const routes: Routes = [
     MatSortModule,
     MatGridListModule,
     MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     HttpClientModule,
   ],
   exports: [RouterModule],

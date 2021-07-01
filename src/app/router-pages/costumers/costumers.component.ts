@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Sort } from '@angular/material/sort';
+import { Router } from '@angular/router';
 import { RandomUser } from 'src/app/domain-layer/entities/random-users';
 import { CostumersService } from '../../services/costumers.service';
 
@@ -17,7 +18,7 @@ export class CostumersComponent implements OnInit {
   amountOfCostumers: number = 50;
   sort: Sort = {active: 'unsorted', direction: ''};
 
-  constructor(public readonly costumersService: CostumersService) {
+  constructor(public readonly costumersService: CostumersService, private router: Router) {
     this.costumersService.loadLocalstorage();
     this.costumers = this.costumersService.getCostumersByPage(this.costumersPerPage, this.page, this.sort);
   }
@@ -34,6 +35,10 @@ export class CostumersComponent implements OnInit {
   sortData(event: Sort) {
     this.sort = event
     this.costumers = this.costumersService.getCostumersByPage(this.costumersPerPage, this.page, this.sort)
+  }
+
+  goToNewCostumer() {
+    this.router.navigateByUrl('/costumers/add');
   }
 
 }

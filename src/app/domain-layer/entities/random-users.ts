@@ -18,9 +18,9 @@ export interface Location {
     street: string;
     city: string;
     state: string;
-    postcode: string;
-    coordinates: Coordinates;
-    timezone: Timezone;
+    postcode?: string;
+    coordinates?: Coordinates;
+    timezone?: Timezone;
 }
 
 export interface Login {
@@ -40,17 +40,17 @@ export interface Dob {
 
 export interface Registered {
     date: Date;
-    age: number;
+    age?: number;
 }
 
 export interface Id {
-    name: string;
+    name?: string;
     value: string;
 }
 
 export interface Picture {
-    large: string;
-    medium: string;
+    large?: string;
+    medium?: string;
     thumbnail: string;
 }
 
@@ -59,14 +59,14 @@ export interface RandomUser {
     name: Name;
     location: Location;
     email: string;
-    login: Login;
+    login?: Login;
     dob: Dob;
     registered: Registered;
     phone: string;
-    cell: string;
+    cell?: string;
     id: Id;
     picture: Picture;
-    nat: string;
+    nat?: string;
 }
 
 export interface Info {
