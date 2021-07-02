@@ -9,8 +9,12 @@ import {
   MAT_DATE_FORMATS,
   MAT_DATE_LOCALE,
 } from '@angular/material/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Router, RouterEvent } from '@angular/router';
 import { RandomUser } from 'src/app/domain-layer/entities/random-users';
 import { CostumerFormService } from 'src/app/services/costumer-form.service';
+import { CostumersService } from 'src/app/services/costumers.service';
+import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
 
 @Component({
   selector: 'app-new-costumer',
@@ -29,20 +33,36 @@ export class NewCostumerComponent {
   form: FormGroup;
   createdClient: RandomUser | undefined;
 
-  constructor(private costumerFormService: CostumerFormService) {
+  constructor(
+    private costumerFormService: CostumerFormService,
+    private costumersService: CostumersService,
+    public dialog: MatDialog,
+    private router: Router
+  ) {
     this.form = this.costumerFormService.getCostumerForm();
   }
 
   getFormGroup(groupName: any) {
     return this.form.get(groupName) as FormGroup;
   }
-  onSubmit() {
+  submitNewUser() {
     const costumer = this.form.value;
     const date = new Date();
     this.form.get('dob')?.patchValue({
       date: costumer.dob.date.toISOString(),
       age: date.getFullYear() - costumer.dob.date.get('year'),
     });
-    console.log(this.form.value);
+    this.costumersService.addNewCostumer(this.form.value);
+    this.router.navigateByUrl('/costumers');
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '250px',
+      data: {header: 'Add new costumer', content: 'Are you sure'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) this.submitNewUser();
+    });
   }
 }

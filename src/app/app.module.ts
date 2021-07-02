@@ -37,6 +37,7 @@ import { CostumerListComponent } from './router-pages/costumers/costumer-list/co
 import { NewCostumerComponent } from './router-pages/new-costumer/new-costumer.component';
 import { InputModule } from './shared/form/input/input.module';
 import { FormErrorsModule } from './shared/form/form-errors/form-errors.module';
+import { DialogModule } from './shared/dialog/dialog.module';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, data: { animation: 'home' } },
@@ -88,7 +89,8 @@ const routes: Routes = [
     MatNativeDateModule,
     HttpClientModule,
     InputModule,
-    FormErrorsModule
+    FormErrorsModule,
+    DialogModule
   ],
   exports: [RouterModule],
   providers: [],

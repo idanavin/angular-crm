@@ -1,6 +1,6 @@
 <div class="wrapper">
   <h1>Add new costumer</h1>
-  <form id="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <form id="form" [formGroup]="form">
     <div class="row" [formGroup]="getFormGroup('name')">
       <app-input
         formControlName="first"
@@ -89,7 +89,7 @@
     </div>
   </form>
   <section>
-    <button mat-stroked-button type="submit" form="form" [disabled]="!form.valid">Add</button>
+    <button mat-stroked-button type="submit" [disabled]="!form.valid" (click)="openDialog()">Add</button>
     <button mat-stroked-button>Cancel</button>
   </section>
 </div>

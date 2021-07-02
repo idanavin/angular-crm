@@ -72,4 +72,11 @@ export class CostumersService {
     if (sortType === 'age') return userA.dob.age - userB.dob.age
     else return (userA.name.last > userB.name.last) ? 1 : ((userB.name.last > userA.name.last) ? -1 : 0)
   }
+
+  addNewCostumer(costumer: RandomUser): void {
+    const costumers: RandomUser[] = [costumer, ...this.users.get('unsorted')!];
+    this.users = new Map<string, RandomUser[]>();
+    this.users.set('unsorted', costumers);
+    this.saveToLocalstorage();
+  }
 }

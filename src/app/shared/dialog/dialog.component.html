@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{ data.header }}</h1>
+<div mat-dialog-content>
+  <p>{{ data.content }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-stroked-button (click)="onOkClick()" cdkFocusInitial>Ok</button>
+  <button mat-stroked-button (click)="onNoClick()">No Thanks</button>
+</div>
