@@ -1,8 +1,4 @@
-<mat-error
-  *ngIf="
-    formField?.hasError('touched') ||
-    formField?.hasError('valid') ||
-    formField?.hasError('dirty')
-  "
-  >{{ getErrorMessage }}</mat-error
->
+<ng-container *ngIf="formField?.dirty">
+  <mat-error *ngIf="formField?.touched && formField?.invalid">Invalid</mat-error>
+</ng-container>
+
