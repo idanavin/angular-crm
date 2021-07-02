@@ -8,6 +8,7 @@ import { RandomUser, RandomUsers } from '../domain-layer/entities/random-users';
 })
 export class CostumersService {
 
+  usersToEdit?: RandomUser[]
   users: Map<string, RandomUser[]> = new Map<
     string,
     RandomUser[]
@@ -78,5 +79,13 @@ export class CostumersService {
     this.users = new Map<string, RandomUser[]>();
     this.users.set('unsorted', costumers);
     this.saveToLocalstorage();
+  }
+
+  setCostumersToEdit(costumers: RandomUser[]): void {
+    this.usersToEdit = costumers;
+  }
+
+  get CostumersToEdit(): RandomUser[] {
+    return this.usersToEdit!
   }
 }

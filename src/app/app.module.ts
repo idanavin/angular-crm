@@ -38,6 +38,7 @@ import { NewCostumerComponent } from './router-pages/new-costumer/new-costumer.c
 import { InputModule } from './shared/form/input/input.module';
 import { FormErrorsModule } from './shared/form/form-errors/form-errors.module';
 import { DialogModule } from './shared/dialog/dialog.module';
+import { CostumersEditComponent } from './router-pages/costumers-edit/costumers-edit.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, data: { animation: 'home' } },
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, data: { animation: 'dashboard' } },
   { path: 'costumers', component: CostumersComponent, data: { animation: 'costumers' } },
   { path: 'costumers/add', component: NewCostumerComponent, data: { animation: 'newcostumer' } },
+  { path: 'costumers/edit', component: CostumersEditComponent, data: { animation: 'costumersedit' } },
   { path: '**', component: NotFoundComponent, data: { animation: 'notFound' } },  // Wildcard route for a 404 page
 ];
 
@@ -62,7 +64,8 @@ const routes: Routes = [
     RegisterComponent,
     LoginRegisterComponent,
     CostumerListComponent,
-    NewCostumerComponent
+    NewCostumerComponent,
+    CostumersEditComponent
   ],
   imports: [
     BrowserModule,

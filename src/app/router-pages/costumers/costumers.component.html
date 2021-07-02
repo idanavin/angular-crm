@@ -18,7 +18,7 @@
             <button mat-button (click)="goToNewCostumer()">
                 <mat-icon>person_add</mat-icon><span>New costumer</span>
             </button>
-            <button mat-button>
+            <button mat-button (click)="editSelcted()">
                 <mat-icon>person_add</mat-icon><span>Edit selected</span>
             </button>
             <button mat-button>
@@ -33,7 +33,7 @@
                 <mat-checkbox></mat-checkbox>
             </h3>
         </mat-list>
-        <mat-selection-list>
+        <mat-selection-list #costumerSelect (selectionChange)="onSelections(costumerSelect.selectedOptions.selected)">
             <app-costumer-list [costumers]="costumers"></app-costumer-list>
         </mat-selection-list>
         <mat-paginator [length]="amountOfCostumers" [pageSize]="costumersPerPage" [pageSizeOptions]="[3, 5, 7]"

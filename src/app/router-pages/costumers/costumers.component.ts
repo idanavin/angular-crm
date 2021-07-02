@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatListOption } from '@angular/material/list';
 import { PageEvent } from '@angular/material/paginator';
 import { Sort } from '@angular/material/sort';
 import { Router } from '@angular/router';
@@ -17,6 +18,7 @@ export class CostumersComponent implements OnInit {
   costumersPerPage: number = 5;
   amountOfCostumers: number = 50;
   sort: Sort = {active: 'unsorted', direction: ''};
+  selected?: MatListOption[];
 
   constructor(public readonly costumersService: CostumersService, private router: Router) {
     this.costumersService.loadLocalstorage();
@@ -39,6 +41,16 @@ export class CostumersComponent implements OnInit {
 
   goToNewCostumer() {
     this.router.navigateByUrl('/costumers/add');
+  }
+
+  editSelcted(): void {
+    const usersToEdit: RandomUser[] = this.selected?.map((listOption) => listOption.value as RandomUser)!
+    this.costumersService.setCostumersToEdit(usersToEdit);
+    this.router.navigateByUrl('/costumers/edit');
+  }
+
+  onSelections(costumers: MatListOption[]): void {
+    this.selected = costumers;
   }
 
 }
