@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import * as moment from 'moment';
 import { Moment } from 'moment';
 import { RandomUser } from 'src/app/domain-layer/entities/random-users';
 import { CostumerFormService } from 'src/app/services/costumer-form.service';
@@ -20,7 +21,7 @@ export class NewCostumerComponent implements OnInit {
 
   form: FormGroup;
   createdClient: RandomUser | undefined;
-  date: Moment | undefined;
+  // date: string | undefined;
 
   constructor(private costumerFormService: CostumerFormService) {
     this.form = this.costumerFormService.sharedForm();
@@ -29,19 +30,38 @@ export class NewCostumerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onChange (event: Event): void {
-    const value: string =
-      (<HTMLInputElement>event.target).value
-    this.date = this.costumerFormService.getMoment(value)
-  }
+  // onChange (event: Event): void {
+  //   const value: string =
+  //     (<HTMLInputElement>event.target).value
+  //   this.date = this.costumerFormService.getMoment(value)
+  // }
 
   onSubmit() {
-    // this.form.patchValue({
-    //   dob: "1993-05-30T06:28:36.897Z"
-    // })
+    console.log(this.form.value.dob.toISOString());
+    const client = this.form.value
+    this.createdClient = {
+      name: {
+        title: '',
+        first: client.nameFirst,
+        last: client.nameLast
+      },
+      gender: client.gender,
+      location: {
+        state: client.locationState,
+        city: client.locationCity,
+        street: client.locationStreet
+      },
+      email: client.email,
+      dob: {
+        date: client.dob.toDate(),
+        age: 11
+      },
+      registered: {date: client.dob.toDate()},
+      phone: client.phoneNumber,
+      id: {value: '4564564'},
+      picture: {thumbnail: client.avatar}
 
-    //For extra validation
-    this.createdClient = {... this.form.value}
+    }
     console.log(this.createdClient);
     
   }
