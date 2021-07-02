@@ -1,5 +1,5 @@
 import { Component, forwardRef, Input } from '@angular/core';
-import { ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -16,6 +16,9 @@ import { ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR } from 
   ]
 })
 export class InputComponent implements ControlValueAccessor  {
+
+  @Input()
+  public select: string[] | undefined
 
   @Input()
   public parentForm?: FormGroup
@@ -35,6 +38,10 @@ export class InputComponent implements ControlValueAccessor  {
 
   get formField(): FormControl {
     return this.parentForm?.get(this.fieldName) as FormControl;
+  }
+
+  get formFieldError(): Validators {
+    return this.parentForm?.getError(this.fieldName) as Validators
   }
 
   onChange (event: Event): void {

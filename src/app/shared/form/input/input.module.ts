@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InputComponent } from './input.component';
 import { MatInputModule } from '@angular/material/input';
-
-
-
+import { MatSelectModule } from '@angular/material/select';
+import { FormErrorsModule } from '../form-errors/form-errors.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +11,9 @@ import { MatInputModule } from '@angular/material/input';
   ],
   imports: [
     CommonModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule,
+    FormErrorsModule
   ],
   exports: [
     InputComponent

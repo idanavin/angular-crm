@@ -1,6 +1,7 @@
 <mat-form-field appearance="outline">
   <mat-label>{{ label }}</mat-label>
   <input
+    *ngIf="!select"
     matInput
     [value]="value"
     [disabled]="isDisabled"
@@ -8,5 +9,19 @@
     (blur)="touched()"
     [id]="fieldName"
   />
-  <ng-content></ng-content>
+  <mat-select
+    *ngIf="select"
+    [value]="value"
+    [disabled]="isDisabled"
+    (input)="onChange($event)"
+    (blur)="touched()"
+    [id]="fieldName"
+  >
+    <mat-option
+      *ngFor="let option of select"
+      value="option"
+      >{{ option | titlecase }}</mat-option
+    >
+  </mat-select>
+  <app-form-errors [formField]="formField"></app-form-errors>
 </mat-form-field>

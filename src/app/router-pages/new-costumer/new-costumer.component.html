@@ -1,18 +1,18 @@
 <div class="wrapper">
   <h1>Add new costumer</h1>
   <form id="form" [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="row">
+    <div class="row" [formGroup]="getFormGroup('name')">
       <app-input
-        formControlName="nameFirst"
+        formControlName="first"
         [parentForm]="form"
-        [fieldName]="'firstName'"
+        [fieldName]="'first'"
         [label]="'First Name'"
       >
       </app-input>
       <app-input
-        formControlName="nameLast"
+        formControlName="last"
         [parentForm]="form"
-        [fieldName]="'lastName'"
+        [fieldName]="'last'"
         [label]="'Last Name'"
       >
       </app-input>
@@ -23,39 +23,49 @@
       [fieldName]="'email'"
       [label]="'Email'"
     ></app-input>
-    <app-input
-      formControlName="avatar"
-      [parentForm]="form"
-      [fieldName]="'avatar'"
-      [label]="'Avatar'"
-    ></app-input>
-    <div class="row">
+    <div class="row" [formGroup]="getFormGroup('picture')">
       <app-input
-        formControlName="locationState"
+        formControlName="thumbnail"
         [parentForm]="form"
-        [fieldName]="'locationState'"
+        [fieldName]="'thumbnail'"
+        [label]="'Avatar'"
+      ></app-input>
+    </div>
+    <div class="row" [formGroup]="getFormGroup('location')">
+      <app-input
+        formControlName="state"
+        [parentForm]="form"
+        [fieldName]="'state'"
         [label]="'State'"
       ></app-input>
       <app-input
-        formControlName="locationCity"
+        formControlName="city"
         [parentForm]="form"
-        [fieldName]="'locationCity'"
+        [fieldName]="'city'"
         [label]="'City'"
       ></app-input>
       <app-input
-        formControlName="locationStreet"
+        formControlName="street"
         [parentForm]="form"
-        [fieldName]="'locationStreet'"
+        [fieldName]="'street'"
         [label]="'Street'"
       ></app-input>
     </div>
     <div class="row">
       <app-input
-        formControlName="phoneNumber"
+        formControlName="phone"
         [parentForm]="form"
-        [fieldName]="'phoneNumber'"
+        [fieldName]="'phone'"
         [label]="'Phone Number'"
       ></app-input>
+      <!-- <app-input
+        formControlName="gender"
+        [select]="['male', 'female']"
+        [parentForm]="form"
+        [fieldName]="'gender'"
+        [label]="'Gender'"
+      >
+      </app-input> -->
       <mat-form-field appearance="outline">
         <mat-label>Gender</mat-label>
         <mat-select formControlName="gender">
@@ -64,13 +74,13 @@
         </mat-select>
       </mat-form-field>
     </div>
-    <div class="row">
+    <div class="row" [formGroup]="getFormGroup('dob')">
       <mat-form-field appearance="outline">
-        <mat-label for="dob">Birth Day</mat-label>
+        <mat-label for="date">Birth Day</mat-label>
         <input
-          id="dob"
+          id="date"
           matInput
-          formControlName="dob"
+          formControlName="date"
           [matDatepicker]="picker"
         />
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
