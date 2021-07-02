@@ -18,6 +18,9 @@
             display: flex;
             gap: 3vmin;
             justify-content: space-between;
+            app-input {
+                width: 100%;
+            }
             mat-form-field {
                 width: 100%;
             }

@@ -2,42 +2,20 @@
     <h1>Add new costumer</h1>
     <form id="form" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="row">
-            <mat-form-field appearance="outline">
-                <mat-label for="nameFirst">First Name</mat-label>
-                <input id="nameFirst" matInput type="text" formControlName='nameFirst'>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label for="nameLast">Last Name</mat-label>
-                <input id="nameLast" matInput type="text" formControlName='nameLast'>
-            </mat-form-field>
+            <app-input formControlName="nameFirst" [parentForm]="form" [fieldName]="'firstName'" [label]="'First Name'">
+            </app-input>
+            <app-input formControlName="nameLast" [parentForm]="form" [fieldName]="'lastName'" [label]="'Last Name'">
+            </app-input>
         </div>
-        <mat-form-field appearance="outline">
-            <mat-label for="email">Email</mat-label>
-            <input id="email" matInput type="text" placeholder="test@test.com" formControlName='email'>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label for="avatar">Avatar Link</mat-label>
-            <input id="avatar" matInput type="text" placeholder="https://website.com/image.png" formControlName='avatar'>
-        </mat-form-field>
+        <app-input formControlName="email" [parentForm]="form" [fieldName]="'email'" [label]="'Email'"></app-input>
+        <app-input formControlName="avatar" [parentForm]="form" [fieldName]="'avatar'" [label]="'Avatar'"></app-input>
         <div class="row">
-            <mat-form-field appearance="outline">
-                <mat-label for="locationState">State</mat-label>
-                <input id="locationState" matInput type="text" formControlName='locationState'>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label for="locationCity">City</mat-label>
-                <input id="locationCity" matInput type="text" formControlName='locationCity'>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label for="locationStreet">Street</mat-label>
-                <input id="locationStreet" matInput type="text" formControlName='locationStreet'>
-            </mat-form-field>
+            <app-input formControlName="locationState" [parentForm]="form" [fieldName]="'locationState'" [label]="'State'"></app-input>
+            <app-input formControlName="locationCity" [parentForm]="form" [fieldName]="'locationCity'" [label]="'City'"></app-input>
+            <app-input formControlName="locationStreet" [parentForm]="form" [fieldName]="'locationStreet'" [label]="'Street'"></app-input>
         </div>
         <div class="row">
-            <mat-form-field appearance="outline">
-                <mat-label for="phoneNumber">Phone Number</mat-label>
-                <input id="phoneNumber" matInput type="text" formControlName='phoneNumber'>
-            </mat-form-field>
+            <app-input formControlName="phoneNumber" [parentForm]="form" [fieldName]="'phoneNumber'" [label]="'Phone Number'"></app-input>
             <mat-form-field appearance="outline">
                 <mat-label>Gender</mat-label>
                 <mat-select formControlName='gender'>
@@ -49,7 +27,7 @@
         <div class="row">
             <mat-form-field appearance="outline">
                 <mat-label for="dob">Birth Day</mat-label>
-                <input id="dob" matInput type="date" formControlName='dob' [matDatepicker]="picker">
+                <input id="dob" matInput type="date" formControlName='dob' [matDatepicker]="picker" (input)="onChange($event)" [value]="date">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>

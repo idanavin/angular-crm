@@ -35,6 +35,7 @@ import { RegisterComponent } from './login-register/register/register.component'
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import { CostumerListComponent } from './router-pages/costumers/costumer-list/costumer-list.component';
 import { NewCostumerComponent } from './router-pages/new-costumer/new-costumer.component';
+import { InputModule } from './shared/form/input/input.module';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, data: { animation: 'home' } },
@@ -85,6 +86,7 @@ const routes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     HttpClientModule,
+    InputModule
   ],
   exports: [RouterModule],
   providers: [],

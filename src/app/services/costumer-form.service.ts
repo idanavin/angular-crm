@@ -1,4 +1,3 @@
-import { DatePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -10,6 +9,10 @@ import * as _moment from 'moment';
 export class CostumerFormService {
 
   constructor(private fb: FormBuilder) { }
+
+  getMoment(str: string) {
+    return _moment(str)
+  }
 
   sharedForm() {
     const fg: FormGroup = this.fb.group({
@@ -23,7 +26,7 @@ export class CostumerFormService {
       ]],
       email: ['', [
         Validators.required,
-        Validators.email
+        Validators.email,
       ]],
       avatar: ['', [
         Validators.required,
@@ -47,7 +50,7 @@ export class CostumerFormService {
       gender: ['', [
         Validators.required,
       ]],
-      dob: [new FormControl(_moment([2021, 0, 1])), [
+      dob: [new FormControl(_moment([1, 3, 2021])), [
         Validators.required,
       ]]
     });
