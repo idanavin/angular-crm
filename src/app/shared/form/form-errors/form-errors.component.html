@@ -1,0 +1,8 @@
+<mat-error
+  *ngIf="
+    formField?.hasError('touched') ||
+    formField?.hasError('valid') ||
+    formField?.hasError('dirty')
+  "
+  >{{ getErrorMessage }}</mat-error
+>
