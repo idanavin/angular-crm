@@ -11,6 +11,7 @@ import {
 } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { randomInt } from 'crypto';
 import { RandomUser } from 'src/app/domain-layer/entities/random-users';
 import { CostumerFormService } from 'src/app/services/costumer-form.service';
 import { CostumersService } from 'src/app/services/costumers.service';
@@ -58,6 +59,9 @@ export class NewCostumerComponent {
     this.form.get('location')?.get('street')?.patchValue({
       name: costumer.location.street,
       number: '1'
+    });
+    this.form.get('id')?.patchValue({
+      number: randomInt(9999)
     });
     this.costumersService.addNewCostumer(this.form.value);
     this.router.navigateByUrl('/costumers');
