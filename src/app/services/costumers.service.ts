@@ -76,6 +76,10 @@ export class CostumersService {
 
   addNewCostumer(costumer: RandomUser): void {
     const costumers: RandomUser[] = [costumer, ...this.users.get('unsorted')!];
+    this.resetUsersWithUnsorted(costumers)
+  }
+
+  resetUsersWithUnsorted(costumers: RandomUser[]) {
     this.users = new Map<string, RandomUser[]>();
     this.users.set('unsorted', costumers);
     this.saveToLocalstorage();
@@ -85,7 +89,18 @@ export class CostumersService {
     this.usersToEdit = costumers;
   }
 
-  get CostumersToEdit(): RandomUser[] {
+  costumersToEdit(): RandomUser[] {
     return this.usersToEdit!
+  }
+
+  findAndReplaceEdited(editedCostumers: RandomUser[]): void {
+    let unsortedUsers = this.users.get('unsorted')!;
+    this.usersToEdit?.forEach((costumer, index) => {
+      const indexToEdit = unsortedUsers.findIndex((unsortedCostumer) => {
+        return unsortedCostumer.id.value === costumer.id.value
+      })
+      unsortedUsers[indexToEdit] = editedCostumers[index];
+    })
+    this.resetUsersWithUnsorted(unsortedUsers);
   }
 }

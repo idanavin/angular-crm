@@ -10,8 +10,7 @@ import {
   MAT_DATE_LOCALE,
 } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router, RouterEvent } from '@angular/router';
-import { number } from 'echarts';
+import { Router } from '@angular/router';
 import { RandomUser } from 'src/app/domain-layer/entities/random-users';
 import { CostumerFormService } from 'src/app/services/costumer-form.service';
 import { CostumersService } from 'src/app/services/costumers.service';
