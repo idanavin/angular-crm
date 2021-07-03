@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { Moment } from 'moment';
 import { RandomUser } from 'src/app/domain-layer/entities/random-users';
 import { CostumerFormService } from 'src/app/services/costumer-form.service';
 import { CostumersService } from 'src/app/services/costumers.service';
@@ -12,7 +13,7 @@ import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
   templateUrl: './costumers-edit.component.html',
   styleUrls: ['./costumers-edit.component.scss'],
 })
-export class CostumersEditComponent implements OnInit {
+export class CostumersEditComponent implements OnInit, OnDestroy {
   costumers?: RandomUser[];
   currentEditingIndex: number = 0;
   form: FormGroup;
@@ -57,7 +58,17 @@ export class CostumersEditComponent implements OnInit {
   }
 
   saveCurrent(): void {
+    this.setAgeForBirthday()
     if (this.costumers) this.costumers[this.currentEditingIndex] = this.form.value
+  }
+
+  setAgeForBirthday() {
+    const date = new Date();
+    const currentCostumerDOB: Date = this.form.value.dob.date as Date
+    const age = date.getFullYear() - currentCostumerDOB.getFullYear();
+    this.form.get('dob')?.patchValue({
+      age: age
+    })
   }
 
   submitEditUsers(): void {
