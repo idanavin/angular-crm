@@ -11,6 +11,7 @@ import {
 } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router, RouterEvent } from '@angular/router';
+import { number } from 'echarts';
 import { RandomUser } from 'src/app/domain-layer/entities/random-users';
 import { CostumerFormService } from 'src/app/services/costumer-form.service';
 import { CostumersService } from 'src/app/services/costumers.service';
@@ -42,8 +43,11 @@ export class NewCostumerComponent {
     this.form = this.costumerFormService.getCostumerForm();
   }
 
-  getFormGroup(groupName: any) {
+  getFormGroup(groupName: string) {
     return this.form.get(groupName) as FormGroup;
+  }
+  getSubFormGroup(groupName: string, subGroupName: string) {
+    return this.form.get(groupName)?.get(subGroupName) as FormGroup;
   }
   submitNewUser() {
     const costumer = this.form.value;
@@ -51,6 +55,10 @@ export class NewCostumerComponent {
     this.form.get('dob')?.patchValue({
       date: costumer.dob.date.toISOString(),
       age: date.getFullYear() - costumer.dob.date.get('year'),
+    });
+    this.form.get('location')?.get('street')?.patchValue({
+      name: costumer.location.street,
+      number: '1'
     });
     this.costumersService.addNewCostumer(this.form.value);
     this.router.navigateByUrl('/costumers');

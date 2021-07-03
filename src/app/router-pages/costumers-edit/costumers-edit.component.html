@@ -1,1 +1,110 @@
-<div *ngFor="let item of costumers">{{item.name.first}}</div>
+<div class="wrapper">
+  <div class="costumers-cards">
+    <mat-card
+      *ngFor="let costumer of costumers; let i = index"
+      (click)="setEditingCostumer(i)"
+    >
+      <mat-card-title>{{ costumer.name.title }}</mat-card-title>
+      <mat-card-subtitle>
+        {{ costumer.name.first }} {{ costumer.name.last }}
+      </mat-card-subtitle>
+      <img mat-card-avatar [src]="costumer?.picture?.thumbnail" alt="" />
+    </mat-card>
+  </div>
+  <form id="form" [formGroup]="form" *ngIf="costumers">
+    <div class="row" [formGroup]="getFormGroup('name')">
+      <app-input
+        formControlName="first"
+        [parentForm]="form"
+        [fieldName]="'first'"
+        [label]="'First Name'"
+      >
+      </app-input>
+      <app-input
+        formControlName="last"
+        [parentForm]="form"
+        [fieldName]="'last'"
+        [label]="'Last Name'"
+      >
+      </app-input>
+    </div>
+    <app-input
+      formControlName="email"
+      [parentForm]="form"
+      [fieldName]="'email'"
+      [label]="'Email'"
+    ></app-input>
+    <div class="row" [formGroup]="getFormGroup('picture')">
+      <app-input
+        formControlName="thumbnail"
+        [parentForm]="form"
+        [fieldName]="'thumbnail'"
+        [label]="'Avatar'"
+      ></app-input>
+    </div>
+    <div class="row" [formGroup]="getFormGroup('location')">
+      <app-input
+        formControlName="state"
+        [parentForm]="form"
+        [fieldName]="'state'"
+        [label]="'State'"
+      ></app-input>
+      <app-input
+        formControlName="city"
+        [parentForm]="form"
+        [fieldName]="'city'"
+        [label]="'City'"
+      ></app-input>
+      <div [formGroup]="getSubFormGroup('location', 'street')">
+        <app-input
+          formControlName="name"
+          [parentForm]="form"
+          [fieldName]="'name'"
+          [label]="'Street'"
+        ></app-input>
+      </div>
+    </div>
+    <div class="row">
+      <app-input
+        formControlName="phone"
+        [parentForm]="form"
+        [fieldName]="'phone'"
+        [label]="'Phone Number'"
+      ></app-input>
+      <!-- <app-input
+			formControlName="gender"
+			[select]="['male', 'female']"
+			[parentForm]="form"
+			[fieldName]="'gender'"
+			[label]="'Gender'"
+		  >
+		  </app-input> -->
+      <mat-form-field appearance="outline">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="male">Male</mat-option>
+          <mat-option value="female">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="row" [formGroup]="getFormGroup('dob')">
+      <mat-form-field appearance="outline">
+        <mat-label for="date">Birth Day</mat-label>
+        <input
+          id="date"
+          matInput
+          formControlName="date"
+          [matDatepicker]="picker"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </form>
+  <section *ngIf="costumers">
+    <button mat-stroked-button type="submit" [disabled]="!form.valid">
+      Add
+    </button>
+    <button mat-stroked-button>Cancel</button>
+  </section>
+</div>

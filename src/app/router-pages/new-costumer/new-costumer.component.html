@@ -44,12 +44,14 @@
         [fieldName]="'city'"
         [label]="'City'"
       ></app-input>
-      <app-input
-        formControlName="street"
-        [parentForm]="form"
-        [fieldName]="'street'"
-        [label]="'Street'"
-      ></app-input>
+      <div [formGroup]="getSubFormGroup('location', 'street')">
+        <app-input
+          formControlName="name"
+          [parentForm]="form"
+          [fieldName]="'name'"
+          [label]="'Street'"
+        ></app-input>
+      </div>
     </div>
     <div class="row">
       <app-input

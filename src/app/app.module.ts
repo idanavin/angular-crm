@@ -19,6 +19,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -42,12 +43,32 @@ import { CostumersEditComponent } from './router-pages/costumers-edit/costumers-
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, data: { animation: 'home' } },
-  { path: 'profile', component: ProfileComponent, data: { animation: 'profile' } },
-  { path: 'dashboard', component: DashboardComponent, data: { animation: 'dashboard' } },
-  { path: 'costumers', component: CostumersComponent, data: { animation: 'costumers' } },
-  { path: 'costumers/add', component: NewCostumerComponent, data: { animation: 'newcostumer' } },
-  { path: 'costumers/edit', component: CostumersEditComponent, data: { animation: 'costumersedit' } },
-  { path: '**', component: NotFoundComponent, data: { animation: 'notFound' } },  // Wildcard route for a 404 page
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    data: { animation: 'profile' },
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    data: { animation: 'dashboard' },
+  },
+  {
+    path: 'costumers',
+    component: CostumersComponent,
+    data: { animation: 'costumers' },
+  },
+  {
+    path: 'costumers/add',
+    component: NewCostumerComponent,
+    data: { animation: 'newcostumer' },
+  },
+  {
+    path: 'costumers/edit',
+    component: CostumersEditComponent,
+    data: { animation: 'costumersedit' },
+  },
+  { path: '**', component: NotFoundComponent, data: { animation: 'notFound' } }, // Wildcard route for a 404 page
 ];
 
 @NgModule({
@@ -65,14 +86,14 @@ const routes: Routes = [
     LoginRegisterComponent,
     CostumerListComponent,
     NewCostumerComponent,
-    CostumersEditComponent
+    CostumersEditComponent,
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
     NgxEchartsModule.forRoot({
-      echarts: () => import('echarts')
+      echarts: () => import('echarts'),
     }),
     BrowserAnimationsModule,
     MatInputModule,
@@ -90,13 +111,14 @@ const routes: Routes = [
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatCardModule,
     HttpClientModule,
     InputModule,
     FormErrorsModule,
-    DialogModule
+    DialogModule,
   ],
   exports: [RouterModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

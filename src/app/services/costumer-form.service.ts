@@ -28,12 +28,15 @@ export class CostumerFormService {
       location: this.fb.group({
         state: [''],
         city: [''],
-        street: [''],
+        street: this.fb.group({
+          name: [''],
+          number: ['']
+        }),
       }),
       email: ['', [Validators.required, Validators.email]],
       dob: this.fb.group({
         date: ['', [Validators.required]],
-        age: 11,
+        age: 0,
       }),
       registered: this.fb.group({ date: [''] }),
       phone: ['', [Validators.required, Validators.minLength(2)]],
