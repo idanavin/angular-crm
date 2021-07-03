@@ -43,8 +43,19 @@ export class CostumersComponent implements OnInit {
     this.router.navigateByUrl('/costumers/add');
   }
 
+  getSelectedUsers(): RandomUser[] {
+    return this.selected?.map((listOption) => listOption.value as RandomUser)!
+  }
+
+  haveSelected(): boolean {
+    const selected = this.getSelectedUsers()
+    if (!selected || selected.length <= 0) return true
+    else return false
+  }
+
   editSelcted(): void {
-    const usersToEdit: RandomUser[] = this.selected?.map((listOption) => listOption.value as RandomUser)!
+    const usersToEdit: RandomUser[] = this.getSelectedUsers()
+    if (!usersToEdit) return
     this.costumersService.setCostumersToEdit(usersToEdit);
     this.router.navigateByUrl('/costumers/edit');
   }

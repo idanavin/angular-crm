@@ -64,8 +64,8 @@ export class CostumersEditComponent implements OnInit, OnDestroy {
 
   setAgeForBirthday() {
     const date = new Date();
-    const currentCostumerDOB: Date = this.form.value.dob.date as Date
-    const age = date.getFullYear() - currentCostumerDOB.getFullYear();
+    const costumerDOBYear: number = this.costumerFormService.getMoment(this.form.value.dob.date)
+    const age = date.getFullYear() - costumerDOBYear;
     this.form.get('dob')?.patchValue({
       age: age
     })
