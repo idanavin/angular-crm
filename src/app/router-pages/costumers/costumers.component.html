@@ -1,43 +1,50 @@
 <div class="wrapper">
-    <div class="head_row">
-        <div class="card">
-            <div class="text">Costumers</div>
-            <div class="number">{{ amountOfCostumers }}</div>
-        </div>
-        <div class="card">
-            <div class="text">ipsum</div>
-            <div class="number">23/50</div>
-        </div>
-        <div class="card">
-            <div class="text">Lorem</div>
-            <div class="number">65</div>
-        </div>
+  <div class="head_row">
+    <div class="card">
+      <div class="text">Costumers</div>
+      <div class="number">{{ amountOfCostumers }}</div>
     </div>
-    <main>
-        <mat-toolbar>
-            <button mat-button (click)="goToNewCostumer()">
-                <mat-icon>person_add</mat-icon><span>New costumer</span>
-            </button>
-            <button mat-button (click)="editSelcted()" [disabled]="haveSelected()">
-                <mat-icon>person_add</mat-icon><span>Edit selected</span>
-            </button>
-            <button mat-button>
-                <mat-icon>person_add</mat-icon><span>Delete selected</span>
-            </button>
-        </mat-toolbar>
-        <mat-list matSort (matSortChange)="sortData($event)">
-            <h3 matLine class="flex">
-                <span>Sort By:</span>
-                <span mat-sort-header="name">Last Name</span>
-                <span mat-sort-header="age">Age</span>
-                <mat-checkbox></mat-checkbox>
-            </h3>
-        </mat-list>
-        <mat-selection-list #costumerSelect (selectionChange)="onSelections(costumerSelect.selectedOptions.selected)">
-            <app-costumer-list [costumers]="costumers"></app-costumer-list>
-        </mat-selection-list>
-        <mat-paginator [length]="amountOfCostumers" [pageSize]="costumersPerPage" [pageSizeOptions]="[3, 5, 7]"
-            (page)="loadRandomUsers($event)">
-        </mat-paginator>
-    </main>
+    <div class="card">
+      <div class="text">ipsum</div>
+      <div class="number">23/50</div>
+    </div>
+    <div class="card">
+      <div class="text">Lorem</div>
+      <div class="number">65</div>
+    </div>
+  </div>
+  <main>
+    <mat-toolbar>
+      <button mat-button (click)="goToNewCostumer()">
+        <mat-icon>person_add</mat-icon><span>New costumer</span>
+      </button>
+      <button mat-button (click)="editSelcted()" [disabled]="haveSelected()">
+        <mat-icon>person_add</mat-icon><span>Edit selected</span>
+      </button>
+      <button mat-button (click)="opendDeleteDialog()" [disabled]="haveSelected()">
+        <mat-icon>person_add</mat-icon><span>Delete selected</span>
+      </button>
+    </mat-toolbar>
+    <mat-list matSort (matSortChange)="sortData($event)">
+      <h3 matLine class="flex">
+        <span>Sort By:</span>
+        <span mat-sort-header="name">Last Name</span>
+        <span mat-sort-header="age">Age</span>
+        <mat-checkbox></mat-checkbox>
+      </h3>
+    </mat-list>
+    <mat-selection-list
+      #costumerSelect
+      (selectionChange)="onSelections(costumerSelect.selectedOptions.selected)"
+    >
+      <app-costumer-list [costumers]="costumers"></app-costumer-list>
+    </mat-selection-list>
+    <mat-paginator
+      [length]="amountOfCostumers"
+      [pageSize]="costumersPerPage"
+      [pageSizeOptions]="[3, 5, 7]"
+      (page)="loadRandomUsers($event)"
+    >
+    </mat-paginator>
+  </main>
 </div>

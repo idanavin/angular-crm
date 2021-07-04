@@ -103,4 +103,12 @@ export class CostumersService {
     })
     this.resetUsersWithUnsorted(unsortedUsers);
   }
+
+  removeCostumers(costumers: RandomUser[]): void {
+    let unsortedUsers = this.users.get('unsorted')!;
+    costumers.map((costumerToRemove) => {
+      unsortedUsers = unsortedUsers.filter((costumerInMemory) => costumerInMemory != costumerToRemove)
+    })
+    this.resetUsersWithUnsorted(unsortedUsers)
+  }
 }
