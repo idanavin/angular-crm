@@ -1,66 +1,67 @@
 @use '../../style/base';
 @use '../../style/responsive';
+@use '../../style/theme';
 
 .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1vmin;
+  margin: 3vmin;
+  // background-image: linear-gradient(to bottom, base.$color-bright-1, base.$color-bright-2);
+  .head_row {
+    display: flex;
+    gap: 2vmin;
+    align-items: center;
+    padding: 1vmin 1.5vmin;
+    flex-flow: wrap;
+    .card {
+      display: flex;
+      flex-direction: column;
+      gap: 1vmin;
+      min-width: auto;
+      flex: 1;
+      padding: 3vmin 2vmin;
+      // background-color: white;
+      border-radius: 1%;
+      box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+      .number {
+        font-size: 2rem;
+      }
+    }
+  }
+  main {
     display: flex;
     flex-direction: column;
-    gap: 1vmin;
-    margin: 3vmin;
-    background-image: linear-gradient(to bottom, base.$color-bright-1, base.$color-bright-2);
-    .head_row {
-        display: flex;
-        gap: 2vmin;
-        align-items: center;
-        padding: 1vmin 1.5vmin;
-        flex-flow: wrap;
-        .card {
-            display: flex;
-            flex-direction: column;
-            gap: 1vmin;
-            min-width: auto;
-            flex: 1;
-            padding: 3vmin 2vmin;
-            background-color: white;
-            border-radius: 1%;
-            box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
-            .number {
-                font-size: 2rem;
-            }
-        }
-    }
-    main {
-        display: flex;
-        flex-direction: column;
-        gap: 3vmin;
-        padding: 3vmin 2vmin;
-        margin: 1vmin 1.5vmin;
-        background-color: white;
-        border-radius: 1%;
-        box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
-    }
+    gap: 3vmin;
+    padding: 3vmin 2vmin;
+    margin: 1vmin 1.5vmin;
+    background-color: white;
+    border-radius: 1%;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+  }
 }
 
 .seperator {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 1px;
-    width: 100%;
-    background-image: linear-gradient(to left, white, black, white);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-image: linear-gradient(to left, white, black, white);
 }
 .active {
-    color: green;
+  color: green;
 }
 .inactive {
-    color: red;
+  color: red;
 }
 .flex.mat-line {
+  display: flex;
+  gap: 3vmin;
+  padding: 0 2vmin;
+  mat-checkbox {
+    flex: 1;
     display: flex;
-    gap: 3vmin;
-    padding: 0 2vmin;
-    mat-checkbox {
-        flex: 1;
-        display: flex;
-        justify-content: flex-end;
-    }
+    justify-content: flex-end;
+  }
 }

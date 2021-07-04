@@ -1,15 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 @use './app/style/base';
-@import './app/style/material';
+@import "./app/style/material";
 
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-.mat-raised-button:not(.mat-button-disabled,.mat-primary) {
-    background-image: linear-gradient(to bottom left, base.$color-contrast-bright, base.$color-contrast-dark);
+html,
+body {
+  height: 100%;
 }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.mat-raised-button:not(.mat-button-disabled, .mat-primary) {
+  background-image: linear-gradient(
+    to bottom left,
+    base.$color-contrast-bright,
+    base.$color-contrast-dark
+  );
+}
+// :root .dark {
+//     background-color: black;
+//     color: white;
+// }
+// :root .light {
+//     --bg: #FAFAFA;
+// }

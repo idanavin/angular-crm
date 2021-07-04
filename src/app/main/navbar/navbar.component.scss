@@ -2,7 +2,7 @@
 @use '../../style/responsive';
 
 .wrapper {
-    background-image: linear-gradient(to bottom, base.$color-bright-3, base.$color-dark-3);
+    // background-image: linear-gradient(to bottom, base.$color-bright-3, base.$color-dark-3);
     border-radius: base.$border-radius-left;
     display: flex;
     flex-direction: column;
