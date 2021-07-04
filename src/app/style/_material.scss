@@ -18,11 +18,25 @@ $crm-theme-dark: mat-dark-theme(
   $crm-accent-dark,
   $crm-warn-dark
 );
-// .dark {
-//   color: white;
-//   background-color: grey;
-//   @include angular-material-theme($crm-theme-dark);
-// }
+.dark {
+  color: white;
+  background-color: grey;
+  @include angular-material-theme($crm-theme-dark);
+  .wrapper {
+    background-color: rgb(44, 44, 44);
+    .card {
+      background-color: grey;
+    }
+    main {
+      background-color: grey;
+    }
+  }
+  .profile {
+    .card {
+      background-color: rgb(44, 44, 44);
+    }
+  }
+}
 // .light {
 //   @include angular-material-theme($crm-theme);
 // }

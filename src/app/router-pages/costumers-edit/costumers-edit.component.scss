@@ -5,8 +5,9 @@
     display: flex;
     flex-direction: column;
     gap: 1vmin;
-    margin: 3vmin;
-    background-image: linear-gradient(to bottom, base.$color-bright-1, base.$color-bright-2);
+    padding: 0 1vmin;
+    min-height: 100%;
+    // background-image: linear-gradient(to bottom, base.$color-bright-1, base.$color-bright-2);
     .costumers-cards {
         display: flex;
         gap: 1.5vmin;
