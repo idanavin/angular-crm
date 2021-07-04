@@ -13,6 +13,7 @@ import { routeSlider } from '../animations';
 export class MainComponent implements OnInit {
 
   user: User | undefined;
+  theme: string = 'light';
 
 
   constructor(private authService: AuthService) { }
@@ -32,6 +33,10 @@ export class MainComponent implements OnInit {
 
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
+  }
+
+  toggleTheme(): void {
+    this.theme = this.theme === 'light' ? 'dark' : 'light'
   }
 
 }

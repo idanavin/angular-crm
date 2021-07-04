@@ -1,31 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
+  @Output()
+  themeEvent: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {}
 
-  ngOnInit(): void {
-  }
-
-
-  //Unhide app-custom-alt as first child
-  //TODO refactor this
-  showTooltip(event: any) {
-    event.target.firstChild.hidden = false;
-  }
-
-  hideTooltip(event: any) {
-    event.target.firstChild.hidden = true;
-  }
+  ngOnInit(): void {}
 
   logout() {
     this.authService.logout();
   }
 
+  toggleTheme($event: MatSlideToggleChange): void {
+    this.themeEvent.emit($event.checked ? 'dark' : 'light');
+  }
 }
