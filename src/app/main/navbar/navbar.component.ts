@@ -10,12 +10,16 @@ import { AuthService } from '../../services/auth.service';
 export class NavbarComponent implements OnInit {
   @Output()
   themeEvent: EventEmitter<string> = new EventEmitter<string>();
+  isChecked: boolean = false;
 
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     const storageTheme = localStorage.getItem('theme')
-    if (storageTheme) this.themeEvent.emit(storageTheme)
+    if (storageTheme) {
+      this.themeEvent.emit(storageTheme);
+      this.isChecked = storageTheme === 'dark'
+    }
   }
 
   logout() {
@@ -23,7 +27,8 @@ export class NavbarComponent implements OnInit {
   }
 
   toggleTheme($event: MatSlideToggleChange): void {
-    const mode = $event.checked ? 'dark' : 'light'
+    this.isChecked = $event.checked
+    const mode = this.isChecked ? 'dark' : 'light'
     this.themeEvent.emit(mode);
     localStorage.setItem('theme', mode);
   }

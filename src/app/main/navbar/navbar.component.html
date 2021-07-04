@@ -34,7 +34,7 @@
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>
-        <mat-slide-toggle (change)="toggleTheme($event)">Dark Mode</mat-slide-toggle>
+        <mat-slide-toggle [checked]="isChecked" (change)="toggleTheme($event)">Dark Mode</mat-slide-toggle>
       </button>
       <button mat-menu-item disabled>
         <mat-icon>voicemail</mat-icon>
