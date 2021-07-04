@@ -13,13 +13,19 @@ export class NavbarComponent implements OnInit {
 
   constructor(private authService: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const storageTheme = localStorage.getItem('theme')
+    if (storageTheme) this.themeEvent.emit(storageTheme)
+  }
 
   logout() {
     this.authService.logout();
   }
 
   toggleTheme($event: MatSlideToggleChange): void {
-    this.themeEvent.emit($event.checked ? 'dark' : 'light');
+    const mode = $event.checked ? 'dark' : 'light'
+    this.themeEvent.emit(mode);
+    localStorage.setItem('theme', mode);
   }
+
 }
