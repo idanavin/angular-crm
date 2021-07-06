@@ -1,7 +1,7 @@
 <div class="wrapper">
-  <div class="costumers-cards">
+  <div class="customers-cards">
     <mat-card
-      *ngFor="let costumer of costumers; let i = index"
+      *ngFor="let costumer of customers; let i = index"
       (click)="setEditingCostumer(i)"
     >
       <mat-card-title>{{ costumer.name.title }}</mat-card-title>
@@ -11,7 +11,7 @@
       <img mat-card-avatar [src]="costumer?.picture?.thumbnail" alt="" />
     </mat-card>
   </div>
-  <form id="form" [formGroup]="form" *ngIf="costumers">
+  <form id="form" [formGroup]="form" *ngIf="customers">
     <div class="row" [formGroup]="getFormGroup('name')">
       <app-input
         formControlName="first"
@@ -101,7 +101,7 @@
       </mat-form-field>
     </div>
   </form>
-  <section *ngIf="costumers">
+  <section *ngIf="customers">
     <button mat-stroked-button type="submit" [disabled]="!form.valid" (click)="openDialog()">
       Edit All
     </button>

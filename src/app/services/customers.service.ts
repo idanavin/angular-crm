@@ -6,7 +6,7 @@ import { RandomUser, RandomUsers } from '../domain-layer/entities/random-users';
 @Injectable({
   providedIn: 'root',
 })
-export class CostumersService {
+export class CustomersService {
 
   usersToEdit?: RandomUser[]
   users: Map<string, RandomUser[]> = new Map<
@@ -18,7 +18,7 @@ export class CostumersService {
     this.users.set('unsorted', [])
   }
 
-  getCostumersByPage(itemsPerPage: number, page: number, order: Sort): Promise<RandomUser[]> {
+  getCustomersByPage(itemsPerPage: number, page: number, order: Sort): Promise<RandomUser[]> {
     const lastIndex = itemsPerPage * (page + 1);
     const firstIndex = lastIndex - itemsPerPage;
     
@@ -27,13 +27,13 @@ export class CostumersService {
     let list: RandomUser[] = this.users.get(`${order.active}${order.direction}`)!;
 
     if (lastIndex <= list.length) {
-      return this.getLocalCostumers(firstIndex, lastIndex, list);
+      return this.getLocalCustomers(firstIndex, lastIndex, list);
     } else {
       return this.loadRandomUsers(itemsPerPage)
     }
   }
 
-  private async getLocalCostumers(firstIndex: number, lastIndex: number, users: RandomUser[]): Promise<RandomUser[]> {
+  private async getLocalCustomers(firstIndex: number, lastIndex: number, users: RandomUser[]): Promise<RandomUser[]> {
     return users.slice(firstIndex, lastIndex);
   }
 
@@ -51,12 +51,12 @@ export class CostumersService {
   }
 
   private saveToLocalstorage(): void {
-    localStorage.setItem(`costumers`, JSON.stringify(this.users.get('unsorted')))
+    localStorage.setItem(`customers`, JSON.stringify(this.users.get('unsorted')))
   }
 
   loadLocalstorage(): void {
-    const costumers = localStorage.getItem('costumers')
-    if (costumers) this.users.set('unsorted', JSON.parse(costumers) as RandomUser[])
+    const customers = localStorage.getItem('customers')
+    if (customers) this.users.set('unsorted', JSON.parse(customers) as RandomUser[])
   }
 
   private sortUsers(sort: Sort): void {
@@ -75,38 +75,38 @@ export class CostumersService {
   }
 
   addNewCostumer(costumer: RandomUser): void {
-    const costumers: RandomUser[] = [costumer, ...this.users.get('unsorted')!];
-    this.resetUsersWithUnsorted(costumers)
+    const customers: RandomUser[] = [costumer, ...this.users.get('unsorted')!];
+    this.resetUsersWithUnsorted(customers)
   }
 
-  resetUsersWithUnsorted(costumers: RandomUser[]) {
+  resetUsersWithUnsorted(customers: RandomUser[]) {
     this.users = new Map<string, RandomUser[]>();
-    this.users.set('unsorted', costumers);
+    this.users.set('unsorted', customers);
     this.saveToLocalstorage();
   }
 
-  setCostumersToEdit(costumers: RandomUser[]): void {
-    this.usersToEdit = costumers;
+  setCustomersToEdit(customers: RandomUser[]): void {
+    this.usersToEdit = customers;
   }
 
-  costumersToEdit(): RandomUser[] {
+  customersToEdit(): RandomUser[] {
     return this.usersToEdit!
   }
 
-  findAndReplaceEdited(editedCostumers: RandomUser[]): void {
+  findAndReplaceEdited(editedCustomers: RandomUser[]): void {
     let unsortedUsers = this.users.get('unsorted')!;
     this.usersToEdit?.forEach((costumer, index) => {
       const indexToEdit = unsortedUsers.findIndex((unsortedCostumer) => {
         return unsortedCostumer.id.value === costumer.id.value
       })
-      unsortedUsers[indexToEdit] = editedCostumers[index];
+      unsortedUsers[indexToEdit] = editedCustomers[index];
     })
     this.resetUsersWithUnsorted(unsortedUsers);
   }
 
-  removeCostumers(costumers: RandomUser[]): void {
+  removeCustomers(customers: RandomUser[]): void {
     let unsortedUsers = this.users.get('unsorted')!;
-    costumers.map((costumerToRemove) => {
+    customers.map((costumerToRemove) => {
       unsortedUsers = unsortedUsers.filter((costumerInMemory) => costumerInMemory != costumerToRemove)
     })
     this.resetUsersWithUnsorted(unsortedUsers)

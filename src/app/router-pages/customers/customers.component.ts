@@ -6,29 +6,29 @@ import { Sort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { RandomUser } from 'src/app/domain-layer/entities/random-users';
 import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
-import { CostumersService } from '../../services/costumers.service';
+import { CustomersService } from '../../services/customers.service';
 
 @Component({
-  selector: 'app-costumers',
-  templateUrl: './costumers.component.html',
-  styleUrls: ['./costumers.component.scss'],
+  selector: 'app-customers',
+  templateUrl: './customers.component.html',
+  styleUrls: ['./customers.component.scss'],
 })
-export class CostumersComponent implements OnInit {
-  costumers: Promise<RandomUser[]>;
+export class CustomersComponent implements OnInit {
+  customers: Promise<RandomUser[]>;
   page: number = 0;
-  costumersPerPage: number = 5;
-  amountOfCostumers: number = 50;
+  customersPerPage: number = 5;
+  amountOfCustomers: number = 50;
   sort: Sort = { active: 'unsorted', direction: '' };
   selected?: MatListOption[];
 
   constructor(
-    public readonly costumersService: CostumersService,
+    public readonly customersService: CustomersService,
     private dialog: MatDialog,
     private router: Router
   ) {
-    this.costumersService.loadLocalstorage();
-    this.costumers = this.costumersService.getCostumersByPage(
-      this.costumersPerPage,
+    this.customersService.loadLocalstorage();
+    this.customers = this.customersService.getCustomersByPage(
+      this.customersPerPage,
       this.page,
       this.sort
     );
@@ -36,9 +36,9 @@ export class CostumersComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  getCostumersByPage(): void {
-    this.costumers = this.costumersService.getCostumersByPage(
-      this.costumersPerPage,
+  getCustomersByPage(): void {
+    this.customers = this.customersService.getCustomersByPage(
+      this.customersPerPage,
       this.page,
       this.sort
     );
@@ -46,17 +46,17 @@ export class CostumersComponent implements OnInit {
 
   loadRandomUsers(event: PageEvent) {
     this.page = event.pageIndex;
-    this.costumersPerPage = event.pageSize;
-    this.getCostumersByPage();
+    this.customersPerPage = event.pageSize;
+    this.getCustomersByPage();
   }
 
   sortData(event: Sort) {
     this.sort = event;
-    this.getCostumersByPage();
+    this.getCustomersByPage();
   }
 
   goToNewCostumer(): void {
-    this.router.navigateByUrl('/costumers/add');
+    this.router.navigateByUrl('/customers/add');
   }
 
   getSelectedUsers(): RandomUser[] {
@@ -72,19 +72,19 @@ export class CostumersComponent implements OnInit {
   editSelcted(): void {
     const usersToEdit: RandomUser[] = this.getSelectedUsers();
     if (!usersToEdit) return;
-    this.costumersService.setCostumersToEdit(usersToEdit);
-    this.router.navigateByUrl('/costumers/edit');
+    this.customersService.setCustomersToEdit(usersToEdit);
+    this.router.navigateByUrl('/customers/edit');
   }
 
-  onSelections(costumers: MatListOption[]): void {
-    this.selected = costumers;
+  onSelections(customers: MatListOption[]): void {
+    this.selected = customers;
   }
 
   deleteSelected() {
     const usersToDelete: RandomUser[] = this.getSelectedUsers();
     if (!usersToDelete) return;
-    this.costumersService.removeCostumers(usersToDelete);
-    this.getCostumersByPage();
+    this.customersService.removeCustomers(usersToDelete);
+    this.getCustomersByPage();
     this.selected = undefined;
   }
 

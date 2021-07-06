@@ -2,24 +2,23 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Moment } from 'moment';
 import { RandomUser } from 'src/app/domain-layer/entities/random-users';
-import { CostumerFormService } from 'src/app/services/costumer-form.service';
-import { CostumersService } from 'src/app/services/costumers.service';
+import { CostumerFormService } from 'src/app/services/customers-form.service';
+import { CustomersService } from 'src/app/services/customers.service';
 import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
 
 @Component({
-  selector: 'app-costumers-edit',
-  templateUrl: './costumers-edit.component.html',
-  styleUrls: ['./costumers-edit.component.scss'],
+  selector: 'app-customers-edit',
+  templateUrl: './customers-edit.component.html',
+  styleUrls: ['./customers-edit.component.scss'],
 })
-export class CostumersEditComponent implements OnInit, OnDestroy {
-  costumers?: RandomUser[];
+export class CustomersEditComponent implements OnInit, OnDestroy {
+  customers?: RandomUser[];
   currentEditingIndex: number = 0;
   form: FormGroup;
 
   constructor(
-    private costumersService: CostumersService,
+    private customersService: CustomersService,
     private costumerFormService: CostumerFormService,
     public dialog: MatDialog,
     private router: Router
@@ -28,12 +27,12 @@ export class CostumersEditComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.costumers = this.costumersService.costumersToEdit();
+    this.customers = this.customersService.customersToEdit();
     this.setCostumerInForm();
   }
 
   ngOnDestroy(): void {
-    this.costumers = [];
+    this.customers = [];
   }
 
   getFormGroup(groupName: any): FormGroup {
@@ -45,8 +44,8 @@ export class CostumersEditComponent implements OnInit, OnDestroy {
   }
 
   setCostumerInForm(): void {
-    if (this.costumers) {
-      const curCostumer = this.costumers[this.currentEditingIndex];
+    if (this.customers) {
+      const curCostumer = this.customers[this.currentEditingIndex];
       this.form.patchValue({ ...curCostumer });
     }
   }
@@ -59,7 +58,7 @@ export class CostumersEditComponent implements OnInit, OnDestroy {
 
   saveCurrent(): void {
     this.setAgeForBirthday()
-    if (this.costumers) this.costumers[this.currentEditingIndex] = this.form.value
+    if (this.customers) this.customers[this.currentEditingIndex] = this.form.value
   }
 
   setAgeForBirthday() {
@@ -72,8 +71,8 @@ export class CostumersEditComponent implements OnInit, OnDestroy {
   }
 
   submitEditUsers(): void {
-    this.costumersService.findAndReplaceEdited(this.costumers!)
-    this.router.navigateByUrl('/costumers');
+    this.customersService.findAndReplaceEdited(this.customers!)
+    this.router.navigateByUrl('/customers');
   }
 
   openDialog(): void {

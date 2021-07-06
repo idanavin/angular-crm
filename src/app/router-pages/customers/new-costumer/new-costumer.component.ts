@@ -12,8 +12,8 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { RandomUser } from 'src/app/domain-layer/entities/random-users';
-import { CostumerFormService } from 'src/app/services/costumer-form.service';
-import { CostumersService } from 'src/app/services/costumers.service';
+import { CostumerFormService } from 'src/app/services/customers-form.service';
+import { CustomersService } from 'src/app/services/customers.service';
 import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
 
 @Component({
@@ -35,7 +35,7 @@ export class NewCostumerComponent {
 
   constructor(
     private costumerFormService: CostumerFormService,
-    private costumersService: CostumersService,
+    private customersService: CustomersService,
     public dialog: MatDialog,
     private router: Router
   ) {
@@ -62,8 +62,8 @@ export class NewCostumerComponent {
     this.form.get('id')?.patchValue({
       number: Math.floor((Math.random() * 1000))
     });
-    this.costumersService.addNewCostumer(this.form.value);
-    this.router.navigateByUrl('/costumers');
+    this.customersService.addNewCostumer(this.form.value);
+    this.router.navigateByUrl('/customers');
   }
 
   openDialog() {

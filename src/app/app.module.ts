@@ -25,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { DashboardComponent } from './router-pages/dashboard/dashboard.component';
-import { CostumersComponent } from './router-pages/costumers/costumers.component';
+import { CustomersComponent } from './router-pages/customers/customers.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NavbarComponent } from './main/navbar/navbar.component';
 import { ProfileComponent } from './router-pages/profile/profile.component';
@@ -34,12 +34,12 @@ import { CustomAltComponent } from './shared/custom-alt/custom-alt.component';
 import { LoginComponent } from './login-register/login/login.component';
 import { RegisterComponent } from './login-register/register/register.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
-import { CostumerListComponent } from './router-pages/costumers/costumer-list/costumer-list.component';
-import { NewCostumerComponent } from './router-pages/new-costumer/new-costumer.component';
+import { CustomerListComponent } from './router-pages/customers/customer-list/customer-list.component';
+import { NewCostumerComponent } from './router-pages/customers/new-costumer/new-costumer.component';
 import { InputModule } from './shared/form/input/input.module';
 import { FormErrorsModule } from './shared/form/form-errors/form-errors.module';
 import { DialogModule } from './shared/dialog/dialog.module';
-import { CostumersEditComponent } from './router-pages/costumers-edit/costumers-edit.component';
+import { CustomersEditComponent } from './router-pages/customers/customers-edit/customers-edit.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, data: { animation: 'home' } },
@@ -54,19 +54,19 @@ const routes: Routes = [
     data: { animation: 'dashboard' },
   },
   {
-    path: 'costumers',
-    component: CostumersComponent,
-    data: { animation: 'costumers' },
+    path: 'customers',
+    component: CustomersComponent,
+    data: { animation: 'customers' },
   },
   {
-    path: 'costumers/add',
+    path: 'customers/add',
     component: NewCostumerComponent,
     data: { animation: 'newcostumer' },
   },
   {
-    path: 'costumers/edit',
-    component: CostumersEditComponent,
-    data: { animation: 'costumersedit' },
+    path: 'customers/edit',
+    component: CustomersEditComponent,
+    data: { animation: 'customersedit' },
   },
   { path: '**', component: NotFoundComponent, data: { animation: 'notFound' } }, // Wildcard route for a 404 page
 ];
@@ -76,7 +76,7 @@ const routes: Routes = [
     AppComponent,
     MainComponent,
     DashboardComponent,
-    CostumersComponent,
+    CustomersComponent,
     NavbarComponent,
     ProfileComponent,
     ChartComponent,
@@ -84,9 +84,9 @@ const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     LoginRegisterComponent,
-    CostumerListComponent,
+    CustomerListComponent,
     NewCostumerComponent,
-    CostumersEditComponent,
+    CustomersEditComponent,
   ],
   imports: [
     BrowserModule,

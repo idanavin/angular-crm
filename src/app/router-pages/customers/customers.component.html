@@ -1,8 +1,8 @@
 <div class="wrapper">
   <div class="head_row">
     <div class="card">
-      <div class="text">Costumers</div>
-      <div class="number">{{ amountOfCostumers }}</div>
+      <div class="text">Customers</div>
+      <div class="number">{{ amountOfCustomers }}</div>
     </div>
     <div class="card">
       <div class="text">ipsum</div>
@@ -37,11 +37,11 @@
       #costumerSelect
       (selectionChange)="onSelections(costumerSelect.selectedOptions.selected)"
     >
-      <app-costumer-list [costumers]="costumers"></app-costumer-list>
+      <app-customer-list [customers]="customers"></app-customer-list>
     </mat-selection-list>
     <mat-paginator
-      [length]="amountOfCostumers"
-      [pageSize]="costumersPerPage"
+      [length]="amountOfCustomers"
+      [pageSize]="customersPerPage"
       [pageSizeOptions]="[3, 5, 7]"
       (page)="loadRandomUsers($event)"
     >

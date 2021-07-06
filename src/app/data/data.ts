@@ -29,7 +29,7 @@ export const users: User[] = [{
     token: null
 }]
 
-export const costumers: any[] = [
+export const customers: any[] = [
     {
         "isActive": false,
         "age": 21,
