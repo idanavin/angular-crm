@@ -1,14 +1,14 @@
 <div class="wrapper">
   <div class="customers-cards">
     <mat-card
-      *ngFor="let costumer of customers; let i = index"
+      *ngFor="let customer of customers; let i = index"
       (click)="setEditingCostumer(i)"
     >
-      <mat-card-title>{{ costumer.name.title }}</mat-card-title>
+      <mat-card-title>{{ customer.name.title }}</mat-card-title>
       <mat-card-subtitle>
-        {{ costumer.name.first }} {{ costumer.name.last }}
+        {{ customer.name.first }} {{ customer.name.last }}
       </mat-card-subtitle>
-      <img mat-card-avatar [src]="costumer?.picture?.thumbnail" alt="" />
+      <img mat-card-avatar [src]="customer?.picture?.thumbnail" alt="" />
     </mat-card>
   </div>
   <form id="form" [formGroup]="form" *ngIf="customers">

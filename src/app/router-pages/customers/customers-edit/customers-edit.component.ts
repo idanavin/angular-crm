@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { RandomUser } from 'src/app/domain-layer/entities/random-users';
-import { CostumerFormService } from 'src/app/services/customers-form.service';
+import { CustomersFormService } from 'src/app/services/customers-form.service';
 import { CustomersService } from 'src/app/services/customers.service';
 import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
 
@@ -19,16 +19,16 @@ export class CustomersEditComponent implements OnInit, OnDestroy {
 
   constructor(
     private customersService: CustomersService,
-    private costumerFormService: CostumerFormService,
+    private customersFormService: CustomersFormService,
     public dialog: MatDialog,
     private router: Router
   ) {
-    this.form = this.costumerFormService.getCostumerForm();
+    this.form = this.customersFormService.getCustomersForm();
   }
 
   ngOnInit(): void {
     this.customers = this.customersService.customersToEdit();
-    this.setCostumerInForm();
+    this.setCustomerInForm();
   }
 
   ngOnDestroy(): void {
@@ -43,17 +43,17 @@ export class CustomersEditComponent implements OnInit, OnDestroy {
     return this.form.get(groupName)?.get(subGroupName) as FormGroup;
   }
 
-  setCostumerInForm(): void {
+  setCustomerInForm(): void {
     if (this.customers) {
-      const curCostumer = this.customers[this.currentEditingIndex];
-      this.form.patchValue({ ...curCostumer });
+      const curCustomer = this.customers[this.currentEditingIndex];
+      this.form.patchValue({ ...curCustomer });
     }
   }
 
   setEditingCostumer(index: number): void {
     this.saveCurrent();
     this.currentEditingIndex = index;
-    this.setCostumerInForm();
+    this.setCustomerInForm();
   }
 
   saveCurrent(): void {
@@ -63,8 +63,8 @@ export class CustomersEditComponent implements OnInit, OnDestroy {
 
   setAgeForBirthday() {
     const date = new Date();
-    const costumerDOBYear: number = this.costumerFormService.getMoment(this.form.value.dob.date)
-    const age = date.getFullYear() - costumerDOBYear;
+    const customerDOBYear: number = this.customersFormService.getMoment(this.form.value.dob.date)
+    const age = date.getFullYear() - customerDOBYear;
     this.form.get('dob')?.patchValue({
       age: age
     })

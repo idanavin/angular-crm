@@ -10,14 +10,14 @@ import * as _moment from 'moment';
 @Injectable({
   providedIn: 'root',
 })
-export class CostumerFormService {
+export class CustomersFormService {
   constructor(private fb: FormBuilder) {}
 
   getMoment(str: string) {
     return _moment(str).get('year');
   }
 
-  getCostumerForm() {
+  getCustomersForm() {
     const fg: FormGroup = this.fb.group({
       name: this.fb.group({
         title: [''],

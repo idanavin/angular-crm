@@ -74,8 +74,8 @@ export class CustomersService {
     else return (userA.name.last > userB.name.last) ? 1 : ((userB.name.last > userA.name.last) ? -1 : 0)
   }
 
-  addNewCostumer(costumer: RandomUser): void {
-    const customers: RandomUser[] = [costumer, ...this.users.get('unsorted')!];
+  addNewCustomers(customer: RandomUser): void {
+    const customers: RandomUser[] = [customer, ...this.users.get('unsorted')!];
     this.resetUsersWithUnsorted(customers)
   }
 

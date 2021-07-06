@@ -35,7 +35,7 @@ import { LoginComponent } from './login-register/login/login.component';
 import { RegisterComponent } from './login-register/register/register.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import { CustomerListComponent } from './router-pages/customers/customer-list/customer-list.component';
-import { NewCostumerComponent } from './router-pages/customers/new-costumer/new-costumer.component';
+import { NewCustomersComponent } from './router-pages/customers/new-customers/new-customers.component';
 import { InputModule } from './shared/form/input/input.module';
 import { FormErrorsModule } from './shared/form/form-errors/form-errors.module';
 import { DialogModule } from './shared/dialog/dialog.module';
@@ -60,7 +60,7 @@ const routes: Routes = [
   },
   {
     path: 'customers/add',
-    component: NewCostumerComponent,
+    component: NewCustomersComponent,
     data: { animation: 'newcostumer' },
   },
   {
@@ -85,7 +85,7 @@ const routes: Routes = [
     RegisterComponent,
     LoginRegisterComponent,
     CustomerListComponent,
-    NewCostumerComponent,
+    NewCustomersComponent,
     CustomersEditComponent,
   ],
   imports: [
