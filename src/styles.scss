@@ -16,13 +16,13 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-.mat-raised-button:not(.mat-button-disabled, .mat-primary) {
-  background-image: linear-gradient(
-    to bottom left,
-    base.$color-contrast-bright,
-    base.$color-contrast-dark
-  );
-}
+// .mat-raised-button:not(.mat-button-disabled, .mat-primary) {
+//   background-image: linear-gradient(
+//     to bottom left,
+//     base.$color-contrast-bright,
+//     base.$color-contrast-dark
+//   );
+// }
 // :root .dark {
 //     background-color: black;
 //     color: white;

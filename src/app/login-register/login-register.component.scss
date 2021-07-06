@@ -8,13 +8,21 @@
         position: relative;
         height: 100%;
         width: 100%;
-        background-color: blue;
-        border-radius: 1%;
+        background-color: base.$color-dark-1;
+        border-radius: base.$border-radius / 2;
         button {
             position: absolute;
             top: 70%;
             left: 50%;
             transform: translate(-50%, -70%);
         }
+    }
+    app-login {
+        padding-right: 1vmin;
+        margin-right: -3vmin;
+    }
+    app-register {
+        padding-left: 1vmin;
+        margin-left: -3vmin;
     }
 }

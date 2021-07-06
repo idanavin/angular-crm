@@ -1,18 +1,23 @@
 @use '../../style/base';
 @use '../../style/responsive';
 @use '../../style/theme';
-
+:host {
+  display: flex;
+  height: 100%;
+}
 .wrapper {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  // height: 100%;
+  // justify-content: space-between;
   gap: 1vmin;
   padding: 1vmin;
-  // background-image: linear-gradient(to bottom, base.$color-bright-1, base.$color-bright-2);
+
   .head_row {
     display: flex;
     gap: 2vmin;
     align-items: center;
-    padding: 1vmin 1.5vmin;
     flex-flow: wrap;
     .card {
       display: flex;
@@ -21,7 +26,6 @@
       min-width: auto;
       flex: 1;
       padding: 3vmin 2vmin;
-      // background-color: white;
       border-radius: 1%;
       box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
       .number {
@@ -32,23 +36,17 @@
   main {
     display: flex;
     flex-direction: column;
-    gap: 3vmin;
-    padding: 3vmin 2vmin;
-    margin: 1vmin 1.5vmin;
-    // background-color: white;
+    flex: 1;
+    height: 83%;
     border-radius: 1%;
     box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+    mat-selection-list {
+      overflow: auto;
+      flex: 1;
+    }
   }
 }
 
-.seperator {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 1px;
-  width: 100%;
-  background-image: linear-gradient(to left, white, black, white);
-}
 .active {
   color: green;
 }

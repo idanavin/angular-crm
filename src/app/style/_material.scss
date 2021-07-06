@@ -1,4 +1,4 @@
-// @use '~@angular/material'as mat;
+@use './base';
 @import "~@angular/material/theming";
 @include mat-core();
 
@@ -37,6 +37,9 @@ $crm-theme-dark: mat-dark-theme(
     }
   }
 }
-// .light {
-//   @include angular-material-theme($crm-theme);
-// }
+.light {
+  @include angular-material-theme($crm-theme);
+  .wrapper {
+    background-color: base.$color-bright-1;
+  }
+}
