@@ -1,7 +1,7 @@
 <mat-list-option mat *ngFor="let user of customers | async" [value]="user">
     <img matListAvatar [src]="user?.picture?.thumbnail" alt="...">
     <h3 matLine class="flex">
-        <span>{{user.name.title}}</span>
+        <span translate>{{user.name.title}}</span>
         <span>{{user.dob.age}}</span>
     </h3>
     <p matLine class="flex">

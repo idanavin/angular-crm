@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="head_row">
     <div class="card">
-      <div class="text">Customers</div>
+      <div class="text" translate>CUSTOMERS</div>
       <div class="number">{{ amountOfCustomers }}</div>
     </div>
     <div class="card">
@@ -16,20 +16,20 @@
   <main>
     <mat-toolbar>
       <button mat-button (click)="goToNewCostumer()">
-        <mat-icon>person_add</mat-icon><span>New costumer</span>
+        <mat-icon>person_add</mat-icon><span translate>CUSTOMERS_NEW</span>
       </button>
       <button mat-button (click)="editSelected()" [disabled]="haveSelected()">
-        <mat-icon>person_add</mat-icon><span>Edit selected</span>
+        <mat-icon>person_add</mat-icon><span translate>CUSTOMERS_EDIT</span>
       </button>
       <button mat-button (click)="opendDeleteDialog()" [disabled]="haveSelected()">
-        <mat-icon>person_add</mat-icon><span>Delete selected</span>
+        <mat-icon>person_add</mat-icon><span translate>CUSTOMERS_DELETE</span>
       </button>
     </mat-toolbar>
     <mat-list matSort (matSortChange)="sortData($event)">
       <h3 matLine class="flex">
-        <span>Sort By:</span>
-        <span mat-sort-header="name">Last Name</span>
-        <span mat-sort-header="age">Age</span>
+        <span translate>SORT_BY</span>
+        <span mat-sort-header="name"><span translate>NAME_LAST</span></span>
+        <span mat-sort-header="age"><span translate>AGE</span></span>
         <mat-checkbox></mat-checkbox>
       </h3>
     </mat-list>

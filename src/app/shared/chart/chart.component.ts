@@ -25,7 +25,7 @@ export class ChartComponent implements OnInit {
     this.options = {
       tooltip: {},
       grid: {
-        backgroundColor: 'transparant',
+        backgroundColor: 'transparent',
       },
       xAxis: [
         {

@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class="customers-cards">
+  <div class="customers-cards" *ngIf="customers">
     <mat-card
       *ngFor="let customer of customers; let i = index"
       (click)="setEditingCostumer(i)"
@@ -89,7 +89,7 @@
     </div>
     <div class="row" [formGroup]="getFormGroup('dob')">
       <mat-form-field appearance="outline">
-        <mat-label for="date">Birth Day</mat-label>
+        <mat-label for="date" translate>DOB</mat-label>
         <input
           id="date"
           matInput
@@ -102,9 +102,16 @@
     </div>
   </form>
   <section *ngIf="customers">
-    <button mat-stroked-button type="submit" [disabled]="!form.valid" (click)="openDialog()">
-      Edit All
+    <button
+      mat-stroked-button
+      type="submit"
+      [disabled]="!form.valid"
+      (click)="customers ? openEditDialog() : openAddNewDialog()"
+    >
+      <span translate>
+        {{ customers ? "EDIT_ALL" : "ADD_NEW" }}
+      </span>
     </button>
-    <button mat-stroked-button>Cancel</button>
+    <button mat-stroked-button (click)="navigateToCustomers()"><span translate>cancel</span></button>
   </section>
 </div>

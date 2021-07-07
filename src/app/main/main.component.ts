@@ -12,10 +12,10 @@ import { LanguageService } from '../language/language.service';
 })
 export class MainComponent implements OnInit {
   user: User | undefined;
-  theme: string = '';
+  theme: string = 'light';
 
   constructor(private authService: AuthService, private languageService: LanguageService) {
-    this.languageService.changeLanguage('en');
+    this.languageService.setDefaultLanguage();
   }
 
   ngOnInit(): void {

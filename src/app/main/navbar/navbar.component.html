@@ -56,14 +56,14 @@
       <button mat-menu-item>
         <mat-slide-toggle
           [checked]="isChecked"
-          (change)="toggleTheme($event)"
-          translate
-          >dark-mode</mat-slide-toggle
+          (change)="toggleTheme($event)">
+          <span translate>DARK_MODE</span>
+          </mat-slide-toggle
         >
       </button>
       <button mat-menu-item [matMenuTriggerFor]="subMenu">
         <mat-icon>voicemail</mat-icon>
-        <span translate>language</span>
+        <span translate>LANGUAGE</span>
       </button>
     </mat-menu>
     <mat-menu #subMenu="matMenu">

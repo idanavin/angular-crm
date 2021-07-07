@@ -1,42 +1,45 @@
 <div class="grid profile">
-    <div class="card">
-        <div class="card_profile" *ngIf="user">
-            <img *ngIf="user.image" [src]="user.image" alt="" class="logo">
-            <div class="card_profile__info">
-                <span translate>welcome</span>
-                <div>
-                    <span translate>name-first</span>
-                    <span>: {{user.firstName}}</span>
-                </div>
-                <div>
-                    <span>Last Name: {{user.lastName}}</span>
-                </div>
-                <div>
-                    <span>Email: </span>
-                    <span>{{ user.email }}</span>
-                </div>
-                <div>
-                    <span>Age: </span>
-                    <span>{{ user.age }}</span>
-                </div>
-            </div>
-            <div class="card_profile__buttons">
-                <button mat-raised-button class="edit">Edit</button>
-                <button mat-raised-button color="primary" class="close">...</button>
-            </div>
+  <div class="card">
+    <div class="card_profile" *ngIf="user">
+      <img *ngIf="user.image" [src]="user.image" alt="" class="logo" />
+      <div class="card_profile__info">
+        <span translate>welcome</span>
+        <div>
+          <span translate>NAME_FIRST</span>
+          <span>: {{ user.firstName }}</span>
         </div>
-    </div>
-    <div class="card">
-        <div class="card_stat">
-            <h1>Statistics</h1>
-            <div class="card_stat__graph">
-                <h2>First Graph</h2>
-                <div class="first_graph"></div>
-            </div>
-            <div class="card_stat__graph">
-                <h2>Second Graph</h2>
-                <div class="second_graph"></div>
-            </div>
+        <div>
+          <span translate>NAME_LAST</span>
+          <span>: {{ user.lastName }}</span>
         </div>
+        <div>
+          <span translate>EMAIL</span>
+          <span>: {{ user.email }}</span>
+        </div>
+        <div>
+          <span translate>AGE</span>
+          <span>: {{ user.age }}</span>
+        </div>
+      </div>
+      <div class="card_profile__buttons">
+        <button mat-raised-button class="edit">
+          <span translate>EDIT</span>
+        </button>
+        <button mat-raised-button color="primary" class="close">...</button>
+      </div>
     </div>
+  </div>
+  <div class="card">
+    <div class="card_stat">
+      <h1>Statistics</h1>
+      <div class="card_stat__graph">
+        <h2>First Graph</h2>
+        <div class="first_graph"></div>
+      </div>
+      <div class="card_stat__graph">
+        <h2>Second Graph</h2>
+        <div class="second_graph"></div>
+      </div>
+    </div>
+  </div>
 </div>

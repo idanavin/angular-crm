@@ -75,7 +75,7 @@ export class CustomersEditComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl('/customers');
   }
 
-  openDialog(): void {
+  openEditDialog(): void {
     this.saveCurrent();
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '250px',
@@ -84,5 +84,37 @@ export class CustomersEditComponent implements OnInit, OnDestroy {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) this.submitEditUsers();
     });
+  }
+
+  openAddNewDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '250px',
+      data: {header: 'Add new customer', content: 'Are you sure'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) this.submitNewUser();
+    });
+  }
+
+  submitNewUser() {
+    const customer = this.form.value;
+    const date = new Date();
+    this.form.get('dob')?.patchValue({
+      date: customer.dob.date.toISOString(),
+      age: date.getFullYear() - customer.dob.date.get('year'),
+    });
+    this.form.get('location')?.get('street')?.patchValue({
+      name: customer.location.street,
+      number: '1'
+    });
+    this.form.get('id')?.patchValue({
+      number: Math.floor((Math.random() * 1000))
+    });
+    this.customersService.addNewCustomers(this.form.value);
+    this.router.navigateByUrl('/customers');
+  }
+
+  navigateToCustomers(): void {
+    this.router.navigateByUrl('/customers')
   }
 }

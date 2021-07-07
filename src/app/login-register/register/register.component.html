@@ -1,31 +1,31 @@
 <div class="wrapper">
-    <h1 translate>register-welcome</h1>
+    <h1 translate>REGISTER_WELCOME</h1>
     <form [formGroup]="registerForm" (ngSubmit)="register()">
         <mat-form-field>
-            <mat-label for="first-name" translate>name-first</mat-label>
+            <mat-label for="first-name" translate>NAME_FIRST</mat-label>
             <input matInput id="first-name"  type="text" formControlName='firstName'>
         </mat-form-field>
         <mat-form-field>
-            <mat-label for="last-name" translate>name-last</mat-label>
+            <mat-label for="last-name" translate>NAME_LAST</mat-label>
             <input matInput id="last-name"  type="text" formControlName='lastName'>
         </mat-form-field>
         <mat-form-field>
-            <mat-label for="email" translate>email</mat-label>
+            <mat-label for="email" translate>EMAIL</mat-label>
             <input matInput id="email" type ="text" placeholder="test@test.com" formControlName='email'>
         </mat-form-field>
         <mat-form-field>
-            <mat-label for="pass" translate>password</mat-label>
+            <mat-label for="pass" translate>PASSWORD</mat-label>
             <input matInput id="pass" type= "password" placeholder="123456" formControlName='password'>
         </mat-form-field>
         <mat-form-field>
-            <mat-label for="age" translate>dob</mat-label>
+            <mat-label for="age" translate>DOB</mat-label>
             <input matInput id="age" type=" number" formControlName='age'>
         </mat-form-field>
-        <button mat-raised-button type="submit" [disabled]="!registerForm.valid"><span translate>register</span></button>
+        <button mat-raised-button type="submit" [disabled]="!registerForm.valid"><span translate>REGISTER</span></button>
     </form>
     <div class="helpers">
-        <mat-error *ngIf="email?.touched && email?.invalid" translate>input-error-email</mat-error>
-        <mat-error *ngIf="password?.touched && password?.invalid" translate>input-error-pass-min</mat-error>
-        <mat-error *ngIf="age?.touched && age?.invalid" translate>input-error-age-min</mat-error>
+        <mat-error *ngIf="email?.touched && email?.invalid" translate>INPUT_ERROR_EMAIL</mat-error>
+        <mat-error *ngIf="password?.touched && password?.invalid" translate>INPUT_ERROR_PASS_MIN</mat-error>
+        <mat-error *ngIf="age?.touched && age?.invalid" translate>INPUT_ERROR_AGE_MIN</mat-error>
     </div>
 </div>
