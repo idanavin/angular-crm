@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { TranslateService } from '@ngx-translate/core';
+import { LanguageService } from 'src/app/language/language.service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -12,13 +14,16 @@ export class NavbarComponent implements OnInit {
   themeEvent: EventEmitter<string> = new EventEmitter<string>();
   isChecked: boolean = false;
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private languageService: LanguageService
+  ) {}
 
   ngOnInit(): void {
-    const storageTheme = localStorage.getItem('theme')
+    const storageTheme = localStorage.getItem('theme');
     if (storageTheme) {
       this.themeEvent.emit(storageTheme);
-      this.isChecked = storageTheme === 'dark'
+      this.isChecked = storageTheme === 'dark';
     }
   }
 
@@ -27,10 +32,13 @@ export class NavbarComponent implements OnInit {
   }
 
   toggleTheme($event: MatSlideToggleChange): void {
-    this.isChecked = $event.checked
-    const mode = this.isChecked ? 'dark' : 'light'
+    this.isChecked = $event.checked;
+    const mode = this.isChecked ? 'dark' : 'light';
     this.themeEvent.emit(mode);
     localStorage.setItem('theme', mode);
   }
 
+  changeLanguage(language: string): void {
+    this.languageService.changeLanguage(language);
+  }
 }

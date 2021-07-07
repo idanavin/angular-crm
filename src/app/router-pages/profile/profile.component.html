@@ -3,8 +3,10 @@
         <div class="card_profile" *ngIf="user">
             <img *ngIf="user.image" [src]="user.image" alt="" class="logo">
             <div class="card_profile__info">
+                <span translate>welcome</span>
                 <div>
-                    <span>First Name: {{user.firstName}}</span>
+                    <span translate>name-first</span>
+                    <span>: {{user.firstName}}</span>
                 </div>
                 <div>
                     <span>Last Name: {{user.lastName}}</span>

@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     ]]
   });
 
-  constructor(private fb: FormBuilder, private authServiece: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
     this.loginError = false;
     this.success = false; 
   }
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     try {
       this.loginError = false;
       this.loading = true;
-      await this.authServiece.login(this.loginForm.value)
+      await this.authService.login(this.loginForm.value)
       this.success = true
     }
     catch (error) {

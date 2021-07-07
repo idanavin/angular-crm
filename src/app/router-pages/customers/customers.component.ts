@@ -69,7 +69,7 @@ export class CustomersComponent implements OnInit {
     else return false;
   }
 
-  editSelcted(): void {
+  editSelected(): void {
     const usersToEdit: RandomUser[] = this.getSelectedUsers();
     if (!usersToEdit) return;
     this.customersService.setCustomersToEdit(usersToEdit);

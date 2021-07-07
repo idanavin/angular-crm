@@ -1,5 +1,9 @@
 <app-login @insertRemoveTrigger *ngIf="!login"></app-login>
 <div class="cover">
-    <button mat-raised-button (click)="switchLoginRegister()">{{ login ? 'Login' : 'Register'}}</button>
+    <button mat-raised-button (click)="switchLoginRegister()">
+        <span>
+            {{ login ? 'login' : 'register'}}
+        </span>
+    </button>
 </div>
 <app-register @insertRemoveTrigger *ngIf="login" (success)="login = false"></app-register>

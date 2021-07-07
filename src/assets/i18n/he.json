@@ -1,0 +1,21 @@
+{
+  "login-welcome": "ברוך הבא, התחבר כדי להמשיך",
+  "login": "התחבר",
+  "loading": "טוען",
+  "success": "הצלחה",
+  "register-welcome": "ברוך הבא, הרשם כדי להתחבר",
+  "register": "הרשם",
+  "email": "אימייל",
+  "password": "סיסמא",
+  "name-first": "שם פרטי",
+  "name-last": "שם משפחה",
+  "dob": "תאריך לידה",
+  "login-error-try-this": "פרטי ההתחברות אינם נכונים, נסה את זה:",
+  "input-error-email": "הכנס אימייל תקין",
+  "input-error-pass-min": "סיסמא חייבת לפחות 3 תווים",
+  "input-error-age-min": "הגיל המינימלי הוא 18",
+  "language": "שפה",
+  "dark-mode": "מצב חשוך",
+  "welcome": "ברוכים הבאים",
+  "hi": "שלום"
+}

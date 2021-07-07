@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxEchartsModule } from 'ngx-echarts';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
@@ -29,17 +28,14 @@ import { CustomersComponent } from './router-pages/customers/customers.component
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NavbarComponent } from './main/navbar/navbar.component';
 import { ProfileComponent } from './router-pages/profile/profile.component';
-import { ChartComponent } from './shared/chart/chart.component';
-import { CustomAltComponent } from './shared/custom-alt/custom-alt.component';
 import { LoginComponent } from './login-register/login/login.component';
 import { RegisterComponent } from './login-register/register/register.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import { CustomerListComponent } from './router-pages/customers/customer-list/customer-list.component';
 import { NewCustomersComponent } from './router-pages/customers/new-customers/new-customers.component';
-import { InputModule } from './shared/form/input/input.module';
-import { FormErrorsModule } from './shared/form/form-errors/form-errors.module';
-import { DialogModule } from './shared/dialog/dialog.module';
 import { CustomersEditComponent } from './router-pages/customers/customers-edit/customers-edit.component';
+import { SharedModule } from './shared/shared.module';
+import { LanguageModule } from './language/language.module';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, data: { animation: 'home' } },
@@ -79,8 +75,6 @@ const routes: Routes = [
     CustomersComponent,
     NavbarComponent,
     ProfileComponent,
-    ChartComponent,
-    CustomAltComponent,
     LoginComponent,
     RegisterComponent,
     LoginRegisterComponent,
@@ -92,9 +86,6 @@ const routes: Routes = [
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    NgxEchartsModule.forRoot({
-      echarts: () => import('echarts'),
-    }),
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
@@ -113,9 +104,8 @@ const routes: Routes = [
     MatNativeDateModule,
     MatCardModule,
     HttpClientModule,
-    InputModule,
-    FormErrorsModule,
-    DialogModule,
+    SharedModule,
+    LanguageModule
   ],
   exports: [RouterModule],
   providers: [],

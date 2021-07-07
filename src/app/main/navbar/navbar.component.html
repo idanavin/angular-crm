@@ -3,26 +3,46 @@
     <span>CRM</span>
   </div>
   <mat-list>
-    <a mat-list-item [routerLink]="'/dashboard'" [routerLinkActive]="'active'" matTooltip="Dashboard"
-      [matTooltipPosition]="'after'">
+    <a
+      mat-list-item
+      [routerLink]="'/dashboard'"
+      [routerLinkActive]="'active'"
+      matTooltip="Dashboard"
+      [matTooltipPosition]="'after'"
+    >
       <button mat-button>
         <mat-icon>dashboard</mat-icon>
       </button>
     </a>
-    <a mat-list-item [routerLink]="'/about'" [routerLinkActive]="'active'" matTooltip="About"
-      [matTooltipPosition]="'after'">
+    <a
+      mat-list-item
+      [routerLink]="'/about'"
+      [routerLinkActive]="'active'"
+      matTooltip="About"
+      [matTooltipPosition]="'after'"
+    >
       <button mat-button>
         <mat-icon>info</mat-icon>
       </button>
     </a>
-    <a mat-list-item [routerLink]="'/customers'" [routerLinkActive]="'active'" matTooltip="Customers"
-      [matTooltipPosition]="'after'">
+    <a
+      mat-list-item
+      [routerLink]="'/customers'"
+      [routerLinkActive]="'active'"
+      matTooltip="Customers"
+      [matTooltipPosition]="'after'"
+    >
       <button mat-button>
         <mat-icon>people_outline</mat-icon>
       </button>
     </a>
-    <a mat-list-item [routerLink]="'/profile'" [routerLinkActive]="'active'" matTooltip="Profile"
-      [matTooltipPosition]="'after'">
+    <a
+      mat-list-item
+      [routerLink]="'/profile'"
+      [routerLinkActive]="'active'"
+      matTooltip="Profile"
+      [matTooltipPosition]="'after'"
+    >
       <button mat-button>
         <mat-icon>person</mat-icon>
       </button>
@@ -34,14 +54,34 @@
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>
-        <mat-slide-toggle [checked]="isChecked" (change)="toggleTheme($event)">Dark Mode</mat-slide-toggle>
+        <mat-slide-toggle
+          [checked]="isChecked"
+          (change)="toggleTheme($event)"
+          translate
+          >dark-mode</mat-slide-toggle
+        >
       </button>
-      <button mat-menu-item disabled>
+      <button mat-menu-item [matMenuTriggerFor]="subMenu">
         <mat-icon>voicemail</mat-icon>
-        <span>Language</span>
+        <span translate>language</span>
       </button>
     </mat-menu>
-    <button mat-button (click)="logout()" matTooltip="Logout" [matTooltipPosition]="'after'">
+    <mat-menu #subMenu="matMenu">
+      <button mat-menu-item (click)="changeLanguage('en')">
+        <mat-icon>voicemail</mat-icon>
+        <span>English</span>
+      </button>
+      <button mat-menu-item (click)="changeLanguage('he')">
+        <mat-icon>voicemail</mat-icon>
+        <span>עברית</span>
+      </button>
+    </mat-menu>
+    <button
+      mat-button
+      (click)="logout()"
+      matTooltip="Logout"
+      [matTooltipPosition]="'after'"
+    >
       <mat-icon>exit_to_app</mat-icon>
     </button>
   </div>

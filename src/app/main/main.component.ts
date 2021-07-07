@@ -1,30 +1,32 @@
-import { stringify } from '@angular/compiler/src/util';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { User } from '../interface/user';
 import { AuthService } from '../services/auth.service';
 import { routeSlider } from '../animations';
+import { LanguageService } from '../language/language.service';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
-  animations: [routeSlider]
+  animations: [routeSlider],
 })
 export class MainComponent implements OnInit {
-
   user: User | undefined;
   theme: string = '';
 
-
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private languageService: LanguageService) {
+    this.languageService.changeLanguage('en');
+  }
 
   ngOnInit(): void {
-    this.authService.authSuccess$.subscribe(user => { this.user = user })
-    this.isLogged()
+    this.authService.authSuccess$.subscribe((user) => {
+      this.user = user;
+    });
+    this.isLogged();
   }
 
   isLogged() {
-    const user = this.authService.getUserForLocalToken()
+    const user = this.authService.getUserForLocalToken();
 
     if (user) {
       this.user = user;
@@ -32,11 +34,13 @@ export class MainComponent implements OnInit {
   }
 
   prepareRoute(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
+    return (
+      outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation
+    );
   }
 
   toggleTheme(theme: string): void {
-    this.theme = theme
+    this.theme = theme;
   }
 
 }
