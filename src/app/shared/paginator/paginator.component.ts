@@ -33,7 +33,7 @@ export class PaginatorComponent implements OnInit {
     );
     paginatorIntl.firstPageLabel = this.translate.instant('FIRST_PAGE_LABEL');
     paginatorIntl.lastPageLabel = this.translate.instant('LAST_PAGE_LABEL');
-    // paginatorIntl.getRangeLabel = this.getRangeLabel.bind(this);
+    paginatorIntl.getRangeLabel = this.getRangeLabel.bind(this);
     return paginatorIntl;
   }
 

@@ -79,7 +79,7 @@ export class CustomersEditComponent implements OnInit, OnDestroy {
     this.saveCurrent();
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '250px',
-      data: { header: 'Edit Users', content: 'Are you sure you want to edit all?' },
+      data: { header: 'DIALOG_HEAD_EDIT', content: 'DIALOG_CONTENT_EDIT' },
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) this.submitEditUsers();
@@ -89,7 +89,7 @@ export class CustomersEditComponent implements OnInit, OnDestroy {
   openAddNewDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '250px',
-      data: {header: 'Add new customer', content: 'Are you sure'}
+      data: {header: 'DIALOG_HEAD_NEW', content: 'DIALOG_CONTENT_NEW'}
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) this.submitNewUser();

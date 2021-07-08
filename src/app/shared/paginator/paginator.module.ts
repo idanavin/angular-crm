@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PaginatorComponent } from './paginator.component';
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { TranslateService } from '@ngx-translate/core';
+import { LanguageModule } from 'src/app/language/language.module';
 
 
 
@@ -12,7 +13,8 @@ import { TranslateService } from '@ngx-translate/core';
   ],
   imports: [
     CommonModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    LanguageModule
   ],
   providers: [
     {

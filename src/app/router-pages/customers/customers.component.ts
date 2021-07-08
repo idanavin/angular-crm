@@ -92,8 +92,8 @@ export class CustomersComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '250px',
       data: {
-        header: 'Delete Users',
-        content: 'Are you sure you want to DELETE all?',
+        header: 'DIALOG_HEAD_DELETE',
+        content: 'DIALOG_CONTENT_DELETE',
       },
     });
     dialogRef.afterClosed().subscribe((result) => {
