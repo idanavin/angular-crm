@@ -46,5 +46,10 @@
   "FIRST_PAGE_LABEL": "עמוד ראשון",
   "LAST_PAGE_LABEL": "עמוד אחרון",
   "RANGE_PAGE_LABEL_1": "0 מתוך {{length}}",
-  "RANGE_PAGE_LABEL_2": "{{startIndex}} - {{endIndex}} מתוך {{length}}"
+  "RANGE_PAGE_LABEL_2": "{{startIndex}} - {{endIndex}} מתוך {{length}}",
+  "NAV_DASHBOARD": "דאשבורד",
+  "NAV_ABOUT": "אודות",
+  "NAV_CUSTOMERS": "לקוחות",
+  "NAV_PROFILE": "פרופיל",
+  "NAV_LOGOUT": "התנתקות"
 }

@@ -7,7 +7,7 @@
       mat-list-item
       [routerLink]="'/dashboard'"
       [routerLinkActive]="'active'"
-      matTooltip="Dashboard"
+      matTooltip="{{'NAV_DASHBOARD' | translate}}"
       [matTooltipPosition]="'after'"
     >
       <button mat-button>
@@ -18,7 +18,7 @@
       mat-list-item
       [routerLink]="'/about'"
       [routerLinkActive]="'active'"
-      matTooltip="About"
+      matTooltip="{{'NAV_ABOUT' | translate}}"
       [matTooltipPosition]="'after'"
     >
       <button mat-button>
@@ -29,7 +29,7 @@
       mat-list-item
       [routerLink]="'/customers'"
       [routerLinkActive]="'active'"
-      matTooltip="Customers"
+      matTooltip="{{'NAV_CUSTOMERS' | translate}}"
       [matTooltipPosition]="'after'"
     >
       <button mat-button>
@@ -40,7 +40,7 @@
       mat-list-item
       [routerLink]="'/profile'"
       [routerLinkActive]="'active'"
-      matTooltip="Profile"
+      matTooltip="{{'NAV_PROFILE' | translate}}"
       [matTooltipPosition]="'after'"
     >
       <button mat-button>
@@ -79,7 +79,7 @@
     <button
       mat-button
       (click)="logout()"
-      matTooltip="Logout"
+      matTooltip="{{'NAV_LOGOUT' | translate}}"
       [matTooltipPosition]="'after'"
     >
       <mat-icon>exit_to_app</mat-icon>
