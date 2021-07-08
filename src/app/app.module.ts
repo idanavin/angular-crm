@@ -32,11 +32,10 @@ import { LoginComponent } from './login-register/login/login.component';
 import { RegisterComponent } from './login-register/register/register.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import { CustomerListComponent } from './router-pages/customers/customer-list/customer-list.component';
-import { NewCustomersComponent } from './router-pages/customers/new-customers/new-customers.component';
-import { CustomersEditComponent } from './router-pages/customers/customers-edit/customers-edit.component';
 import { SharedModule } from './shared/shared.module';
 import { LanguageModule } from './language/language.module';
 import { HeadCardsComponent } from './router-pages/customers/head-cards/head-cards.component';
+import { CustomersInputComponent } from './router-pages/customers-input/customers-input.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, data: { animation: 'home' } },
@@ -57,12 +56,12 @@ const routes: Routes = [
   },
   {
     path: 'customers/add',
-    component: NewCustomersComponent,
+    component: CustomersInputComponent,
     data: { animation: 'newcostumer' },
   },
   {
     path: 'customers/edit',
-    component: CustomersEditComponent,
+    component: CustomersInputComponent,
     data: { animation: 'customersedit' },
   },
   { path: '**', component: NotFoundComponent, data: { animation: 'notFound' } }, // Wildcard route for a 404 page
@@ -80,9 +79,8 @@ const routes: Routes = [
     RegisterComponent,
     LoginRegisterComponent,
     CustomerListComponent,
-    NewCustomersComponent,
-    CustomersEditComponent,
     HeadCardsComponent,
+    CustomersInputComponent,
   ],
   imports: [
     BrowserModule,
@@ -107,7 +105,7 @@ const routes: Routes = [
     MatCardModule,
     HttpClientModule,
     SharedModule,
-    LanguageModule
+    LanguageModule,
   ],
   exports: [RouterModule],
   providers: [],
