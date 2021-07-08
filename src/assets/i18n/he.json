@@ -31,5 +31,12 @@
   "Ms": "גברת",
   "Mrs": "גברת",
   "Mr": "מר",
-  "Miss": "עלמה"
+  "Miss": "עלמה",
+  "ITEMS_PER_PAGE_LABEL": "Items per page",
+  "NEXT_PAGE_LABEL": "Next page",
+  "PREVIOUS_PAGE_LABEL": "Previous page",
+  "FIRST_PAGE_LABEL": "First page",
+  "LAST_PAGE_LABEL": "Last page",
+  "RANGE_PAGE_LABEL_1": "RANGE_PAGE_LABEL_1",
+  "RANGE_PAGE_LABEL_2": "RANGE_PAGE_LABEL_2"
 }

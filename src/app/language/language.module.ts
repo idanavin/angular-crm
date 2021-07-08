@@ -21,6 +21,6 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  exports: [TranslateModule]
+  exports: [TranslateModule],
 })
 export class LanguageModule { }

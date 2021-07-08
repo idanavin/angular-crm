@@ -4,21 +4,25 @@ import { ChartModule } from './chart/chart.module';
 import { DialogModule } from './dialog/dialog.module';
 import { FormErrorsModule } from './form/form-errors/form-errors.module';
 import { InputModule } from './form/input/input.module';
+import { PaginatorModule } from './paginator/paginator.module';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
     ChartModule,
     DialogModule,
     FormErrorsModule,
     InputModule,
+    PaginatorModule
   ],
   exports: [
     ChartModule, 
     DialogModule, 
     FormErrorsModule, 
-    InputModule
+    InputModule,
+    PaginatorModule
   ]
 })
 export class SharedModule {}

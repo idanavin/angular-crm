@@ -32,12 +32,11 @@
     >
       <app-customer-list [customers]="customers"></app-customer-list>
     </mat-selection-list>
-    <mat-paginator
+    <app-paginator
       [length]="amountOfCustomers"
       [pageSize]="customersPerPage"
       [pageSizeOptions]="[3, 5, 7]"
-      (page)="loadRandomUsers($event)"
-    >
-    </mat-paginator>
+      (clicked)="loadRandomUsers($event)"
+    ></app-paginator>
   </main>
 </div>
