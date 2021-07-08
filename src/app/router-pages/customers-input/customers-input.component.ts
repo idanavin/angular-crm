@@ -6,13 +6,12 @@ import { RandomUser } from 'src/app/domain-layer/entities/random-users';
 import { CustomersFormService } from 'src/app/services/customers-form.service';
 import { CustomersService } from 'src/app/services/customers.service';
 import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
-
 @Component({
-  selector: 'app-customers-edit',
-  templateUrl: './customers-edit.component.html',
-  styleUrls: ['./customers-edit.component.scss'],
+  selector: 'app-customers-input',
+  templateUrl: './customers-input.component.html',
+  styleUrls: ['./customers-input.component.scss'],
 })
-export class CustomersEditComponent implements OnInit, OnDestroy {
+export class CustomersInputComponent implements OnInit {
   customers?: RandomUser[];
   currentEditingIndex: number = 0;
   form: FormGroup;
@@ -57,21 +56,24 @@ export class CustomersEditComponent implements OnInit, OnDestroy {
   }
 
   saveCurrent(): void {
-    this.setAgeForBirthday()
-    if (this.customers) this.customers[this.currentEditingIndex] = this.form.value
+    this.setAgeForBirthday();
+    if (this.customers)
+      this.customers[this.currentEditingIndex] = this.form.value;
   }
 
   setAgeForBirthday() {
     const date = new Date();
-    const customerDOBYear: number = this.customersFormService.getMoment(this.form.value.dob.date)
+    const customerDOBYear: number = this.customersFormService.getMoment(
+      this.form.value.dob.date
+    );
     const age = date.getFullYear() - customerDOBYear;
     this.form.get('dob')?.patchValue({
-      age: age
-    })
+      age: age,
+    });
   }
 
   submitEditUsers(): void {
-    this.customersService.findAndReplaceEdited(this.customers!)
+    this.customersService.findAndReplaceEdited(this.customers!);
     this.router.navigateByUrl('/customers');
   }
 
@@ -89,32 +91,28 @@ export class CustomersEditComponent implements OnInit, OnDestroy {
   openAddNewDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '250px',
-      data: {header: 'DIALOG_HEAD_NEW', content: 'DIALOG_CONTENT_NEW'}
+      data: { header: 'DIALOG_HEAD_NEW', content: 'DIALOG_CONTENT_NEW' },
     });
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) this.submitNewUser();
     });
   }
 
   submitNewUser() {
     const customer = this.form.value;
-    const date = new Date();
-    this.form.get('dob')?.patchValue({
-      date: customer.dob.date.toISOString(),
-      age: date.getFullYear() - customer.dob.date.get('year'),
-    });
+    this.setAgeForBirthday();
     this.form.get('location')?.get('street')?.patchValue({
       name: customer.location.street,
-      number: '1'
+      number: '1',
     });
     this.form.get('id')?.patchValue({
-      number: Math.floor((Math.random() * 1000))
+      number: Math.floor(Math.random() * 1000),
     });
     this.customersService.addNewCustomers(this.form.value);
     this.router.navigateByUrl('/customers');
   }
 
   navigateToCustomers(): void {
-    this.router.navigateByUrl('/customers')
+    this.router.navigateByUrl('/customers');
   }
 }

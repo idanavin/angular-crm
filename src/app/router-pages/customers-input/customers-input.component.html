@@ -1,5 +1,16 @@
 <div class="wrapper">
-  <h1>Add new customer</h1>
+  <div class="customers-cards" *ngIf="customers">
+    <mat-card
+      *ngFor="let customer of customers; let i = index"
+      (click)="setEditingCostumer(i)"
+    >
+      <mat-card-title>{{ customer.name.title }}</mat-card-title>
+      <mat-card-subtitle>
+        {{ customer.name.first }} {{ customer.name.last }}
+      </mat-card-subtitle>
+      <img mat-card-avatar [src]="customer?.picture?.thumbnail" alt="" />
+    </mat-card>
+  </div>
   <form id="form" [formGroup]="form">
     <div class="row" [formGroup]="getFormGroup('name')">
       <app-input
@@ -61,13 +72,13 @@
         [label]="'Phone Number'"
       ></app-input>
       <!-- <app-input
-        formControlName="gender"
-        [select]="['male', 'female']"
-        [parentForm]="form"
-        [fieldName]="'gender'"
-        [label]="'Gender'"
-      >
-      </app-input> -->
+              formControlName="gender"
+              [select]="['male', 'female']"
+              [parentForm]="form"
+              [fieldName]="'gender'"
+              [label]="'Gender'"
+            >
+            </app-input> -->
       <mat-form-field appearance="outline">
         <mat-label>Gender</mat-label>
         <mat-select formControlName="gender">
@@ -78,7 +89,7 @@
     </div>
     <div class="row" [formGroup]="getFormGroup('dob')">
       <mat-form-field appearance="outline">
-        <mat-label for="date">Birth Day</mat-label>
+        <mat-label for="date" translate>DOB</mat-label>
         <input
           id="date"
           matInput
@@ -91,7 +102,18 @@
     </div>
   </form>
   <section>
-    <button mat-stroked-button type="submit" [disabled]="!form.valid" (click)="openDialog()">Add</button>
-    <button mat-stroked-button>Cancel</button>
+    <button
+      mat-stroked-button
+      type="submit"
+      [disabled]="!form.valid"
+      (click)="customers ? openEditDialog() : openAddNewDialog()"
+    >
+      <span translate>
+        {{ customers ? "EDIT_ALL" : "ADD_NEW" }}
+      </span>
+    </button>
+    <button mat-stroked-button (click)="navigateToCustomers()">
+      <span translate>CANCEL</span>
+    </button>
   </section>
 </div>

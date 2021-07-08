@@ -1,4 +1,5 @@
-@use '../../../style/base';
+@use '../../style/base';
+@use '../../style/responsive';
 
 .wrapper {
     display: flex;
@@ -7,8 +8,10 @@
     padding: 0 1vmin;
     min-height: 100%;
     // background-image: linear-gradient(to bottom, base.$color-bright-1, base.$color-bright-2);
-    h1 {
-        padding: 3vmin 0 0 3vmin;
+    .customers-cards {
+        display: flex;
+        gap: 1.5vmin;
+        padding: 1.5vmin;
     }
     form {
         display: flex;
