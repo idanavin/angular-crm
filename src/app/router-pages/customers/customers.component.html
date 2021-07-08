@@ -1,18 +1,7 @@
 <div class="wrapper">
-  <div class="head_row">
-    <div class="card">
-      <div class="text" translate>CUSTOMERS</div>
-      <div class="number">{{ amountOfCustomers }}</div>
-    </div>
-    <div class="card">
-      <div class="text">ipsum</div>
-      <div class="number">23/50</div>
-    </div>
-    <div class="card">
-      <div class="text">Lorem</div>
-      <div class="number">65</div>
-    </div>
-  </div>
+  <!-- <div class="head_row">
+  </div> -->
+  <app-head-cards [amountOfCustomers]="amountOfCustomers"></app-head-cards>
   <main>
     <mat-toolbar>
       <button mat-button (click)="goToNewCostumer()">
@@ -21,7 +10,11 @@
       <button mat-button (click)="editSelected()" [disabled]="haveSelected()">
         <mat-icon>person_add</mat-icon><span translate>CUSTOMERS_EDIT</span>
       </button>
-      <button mat-button (click)="opendDeleteDialog()" [disabled]="haveSelected()">
+      <button
+        mat-button
+        (click)="opendDeleteDialog()"
+        [disabled]="haveSelected()"
+      >
         <mat-icon>person_add</mat-icon><span translate>CUSTOMERS_DELETE</span>
       </button>
     </mat-toolbar>

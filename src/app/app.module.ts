@@ -36,6 +36,7 @@ import { NewCustomersComponent } from './router-pages/customers/new-customers/ne
 import { CustomersEditComponent } from './router-pages/customers/customers-edit/customers-edit.component';
 import { SharedModule } from './shared/shared.module';
 import { LanguageModule } from './language/language.module';
+import { HeadCardsComponent } from './router-pages/customers/head-cards/head-cards.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, data: { animation: 'home' } },
@@ -81,6 +82,7 @@ const routes: Routes = [
     CustomerListComponent,
     NewCustomersComponent,
     CustomersEditComponent,
+    HeadCardsComponent,
   ],
   imports: [
     BrowserModule,

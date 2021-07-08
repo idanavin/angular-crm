@@ -100,4 +100,8 @@ export class CustomersComponent implements OnInit {
       if (result) this.deleteSelected();
     });
   }
+
+  setCustomersAmount(): void {
+    this.customers.then(customers => this.amountOfCustomers = customers.length + 10)
+  }
 }

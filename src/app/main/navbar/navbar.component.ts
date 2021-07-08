@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
-import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from 'src/app/language/language.service';
 import { AuthService } from '../../services/auth.service';
 
