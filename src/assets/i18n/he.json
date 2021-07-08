@@ -45,6 +45,6 @@
   "PREVIOUS_PAGE_LABEL": "עמוד קודם",
   "FIRST_PAGE_LABEL": "עמוד ראשון",
   "LAST_PAGE_LABEL": "עמוד אחרון",
-  "RANGE_PAGE_LABEL_1": "מתוך",
-  "RANGE_PAGE_LABEL_2": "RANGE_PAGE_LABEL_2"
+  "RANGE_PAGE_LABEL_1": "0 מתוך {{length}}",
+  "RANGE_PAGE_LABEL_2": "{{startIndex}} - {{endIndex}} מתוך {{length}}"
 }

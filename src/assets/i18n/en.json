@@ -41,6 +41,6 @@
   "PREVIOUS_PAGE_LABEL": "Previous page",
   "FIRST_PAGE_LABEL": "First page",
   "LAST_PAGE_LABEL": "Last page",
-  "RANGE_PAGE_LABEL_1": "of",
-  "RANGE_PAGE_LABEL_2": "RANGE_PAGE_LABEL_2"
+  "RANGE_PAGE_LABEL_1": "0 of {{length}}",
+  "RANGE_PAGE_LABEL_2": "{{startIndex}} - {{endIndex}} of {{length}}"
 }
