@@ -21,6 +21,10 @@
     height: 83%;
     border-radius: 1%;
     box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+    mat-toolbar {
+      height: 9vmin;
+      gap: 1vmin;
+    }
     mat-selection-list {
       overflow: auto;
       flex: 1;
