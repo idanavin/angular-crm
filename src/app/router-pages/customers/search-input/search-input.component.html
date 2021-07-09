@@ -1,0 +1,24 @@
+<mat-form-field class="example-full-width">
+  <input
+    matInput
+    placeholder="{{'CUSTOMERS_SEARCH_LABEL' | translate}}"
+    [matAutocomplete]="auto"
+    [formControl]="searchFormControl"
+  />
+
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option
+      *ngFor="let customer in filteredCustomers | async"
+      [value]="customer.name.first + ' ' + customer.name.last"
+    >
+      <img
+        class="option-img"
+        aria-hidden
+        [src]="customer?.picture?.thumbnail"
+        height="25"
+      />
+      <span>{{ customer.name.first }} {{ customer.name.last }}</span>
+      <!-- <small>Email: {{ customer.email }}</small> -->
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

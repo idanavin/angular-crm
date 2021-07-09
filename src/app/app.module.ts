@@ -19,6 +19,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -36,6 +37,7 @@ import { SharedModule } from './shared/shared.module';
 import { LanguageModule } from './language/language.module';
 import { HeadCardsComponent } from './router-pages/customers/head-cards/head-cards.component';
 import { CustomersInputComponent } from './router-pages/customers-input/customers-input.component';
+import { SearchInputComponent } from './router-pages/customers/search-input/search-input.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, data: { animation: 'home' } },
@@ -81,6 +83,7 @@ const routes: Routes = [
     CustomerListComponent,
     HeadCardsComponent,
     CustomersInputComponent,
+    SearchInputComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,6 +106,7 @@ const routes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
+    MatAutocompleteModule,
     HttpClientModule,
     SharedModule,
     LanguageModule,

@@ -47,5 +47,6 @@
   "NAV_ABOUT": "About",
   "NAV_CUSTOMERS": "Customers",
   "NAV_PROFILE": "Profile",
-  "NAV_LOGOUT": "Logout"
+  "NAV_LOGOUT": "Logout",
+  "CUSTOMERS_SEARCH_LABEL": "Search customer"
 }

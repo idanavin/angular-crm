@@ -18,6 +18,10 @@ export class CustomersService {
     this.users.set('unsorted', [])
   }
 
+  get unsortedUsers(): RandomUser[] {
+    return this.users.get('unsorted')!
+  }
+
   getCustomersByPage(itemsPerPage: number, page: number, order: Sort): Promise<RandomUser[]> {
     const lastIndex = itemsPerPage * (page + 1);
     const firstIndex = lastIndex - itemsPerPage;

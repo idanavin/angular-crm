@@ -56,6 +56,7 @@ export class CustomersComponent implements OnInit {
   }
 
   goToNewCostumer(): void {
+    this.selected = [];
     this.router.navigateByUrl('/customers/add');
   }
 

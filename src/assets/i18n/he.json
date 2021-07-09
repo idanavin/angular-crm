@@ -51,5 +51,6 @@
   "NAV_ABOUT": "אודות",
   "NAV_CUSTOMERS": "לקוחות",
   "NAV_PROFILE": "פרופיל",
-  "NAV_LOGOUT": "התנתקות"
+  "NAV_LOGOUT": "התנתקות",
+  "CUSTOMERS_SEARCH_LABEL": "חיפוש לקוח"
 }
