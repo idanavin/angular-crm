@@ -8,7 +8,7 @@
 
   <mat-autocomplete #auto="matAutocomplete">
     <mat-option
-      *ngFor="let customer in filteredCustomers | async"
+      *ngFor="let customer of filteredCustomers | async"
       [value]="customer.name.first + ' ' + customer.name.last"
     >
       <img

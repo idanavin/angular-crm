@@ -12,7 +12,7 @@ import { CustomersService } from 'src/app/services/customers.service';
 })
 export class SearchInputComponent implements OnInit {
   searchFormControl: FormControl = new FormControl();
-  filteredCustomers?: Observable<void | RandomUser[]>;
+  filteredCustomers?: Observable<RandomUser[]>;
   allCustomers?: RandomUser[];
 
   constructor(private customersService: CustomersService) {
@@ -20,7 +20,7 @@ export class SearchInputComponent implements OnInit {
     this.filteredCustomers = this.searchFormControl.valueChanges.pipe(
       startWith(''),
       map((customer) =>
-        customer ? this._filter(customer) : this.allCustomers?.slice()
+        customer ? this._filter(customer)! : this.allCustomers?.slice()!
       )
     )
   }
@@ -31,6 +31,6 @@ export class SearchInputComponent implements OnInit {
 
   private _filter(value: string) {
     const filterValue = value.toLowerCase();
-    this.allCustomers?.filter(state => state.name.first.toLowerCase().indexOf(filterValue) === 0)
+    return this.allCustomers?.filter(state => state.name.first.toLowerCase().indexOf(filterValue) === 0)
   }
 }
