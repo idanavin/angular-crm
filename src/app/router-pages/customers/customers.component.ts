@@ -111,6 +111,7 @@ export class CustomersComponent implements OnInit {
   setFilteredCustomers(filteredCustomers: RandomUser[]): void {
     if (filteredCustomers.length) {
       this.page = 0;
+      this.selected = [];
       this.customers = new Promise((resolve) => resolve(filteredCustomers))
     } else {
       this.getCustomersByPage();
