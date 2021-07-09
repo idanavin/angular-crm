@@ -44,13 +44,13 @@ export class CustomersComponent implements OnInit {
     );
   }
 
-  loadRandomUsers(event: PageEvent) {
+  loadRandomUsers(event: PageEvent): void {
     this.page = event.pageIndex;
     this.customersPerPage = event.pageSize;
     this.getCustomersByPage();
   }
 
-  sortData(event: Sort) {
+  sortData(event: Sort): void {
     this.sort = event;
     this.getCustomersByPage();
   }
@@ -103,6 +103,17 @@ export class CustomersComponent implements OnInit {
   }
 
   setCustomersAmount(): void {
-    this.customers.then(customers => this.amountOfCustomers = customers.length + 10)
+    this.customers.then(
+      (customers) => (this.amountOfCustomers = customers.length + 10)
+    );
+  }
+
+  setFilteredCustomers(filteredCustomers: RandomUser[]): void {
+    if (filteredCustomers.length) {
+      this.page = 0;
+      this.customers = new Promise((resolve) => resolve(filteredCustomers))
+    } else {
+      this.getCustomersByPage();
+    }
   }
 }

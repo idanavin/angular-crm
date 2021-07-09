@@ -17,7 +17,7 @@
       >
         <mat-icon>person_add</mat-icon><span translate>CUSTOMERS_DELETE</span>
       </button>
-      <app-customer-search-input></app-customer-search-input>
+      <app-customer-search-input (filtered)="setFilteredCustomers($event)"></app-customer-search-input>
     </mat-toolbar>
     <mat-list matSort (matSortChange)="sortData($event)">
       <h3 matLine class="flex">

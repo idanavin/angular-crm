@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Output, OnInit, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { RandomUser } from 'src/app/domain-layer/entities/random-users';
 import { map, startWith } from 'rxjs/operators';
@@ -14,23 +14,33 @@ export class SearchInputComponent implements OnInit {
   searchFormControl: FormControl = new FormControl();
   filteredCustomers?: Observable<RandomUser[]>;
   allCustomers?: RandomUser[];
+  @Output() filtered: EventEmitter<RandomUser[]> = new EventEmitter<
+    RandomUser[]
+  >();
 
   constructor(private customersService: CustomersService) {
-    this.allCustomers = this.customersService.unsortedUsers
+    this.allCustomers = this.customersService.unsortedUsers;
     this.filteredCustomers = this.searchFormControl.valueChanges.pipe(
       startWith(''),
-      map((customer) =>
-        customer ? this._filter(customer)! : this.allCustomers?.slice()!
-      )
-    )
+      map((customer) => {
+        if (customer) {
+          const filtered = this._filter(customer)!
+          this.filtered.emit(filtered)
+          return filtered
+        } else {
+          this.filtered.emit([]);
+          return this.allCustomers?.slice()!;
+        }
+      })
+    );
   }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   private _filter(value: string) {
     const filterValue = value.toLowerCase();
-    return this.allCustomers?.filter(state => state.name.first.toLowerCase().indexOf(filterValue) === 0)
+    return this.allCustomers?.filter(
+      (state) => state.name.first.toLowerCase().indexOf(filterValue) === 0
+    );
   }
 }

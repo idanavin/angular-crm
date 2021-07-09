@@ -27,14 +27,16 @@ export class CustomersService {
     const firstIndex = lastIndex - itemsPerPage;
     
     //! BUG on unsorted if direction changed, when moving pages it loading new random users
-    if (!this.users.has(`${order.active}${order.direction}`)) this.sortUsers(order)
+    if (!this.users.has(`${order.active}${order.direction}`)) {
+      this.sortUsers(order)
+    }
+    
     let list: RandomUser[] = this.users.get(`${order.active}${order.direction}`)!;
 
     if (lastIndex <= list.length) {
       return this.getLocalCustomers(firstIndex, lastIndex, list);
-    } else {
-      return this.loadRandomUsers(itemsPerPage)
     }
+    return this.loadRandomUsers(itemsPerPage)
   }
 
   private async getLocalCustomers(firstIndex: number, lastIndex: number, users: RandomUser[]): Promise<RandomUser[]> {
