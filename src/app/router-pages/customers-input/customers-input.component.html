@@ -42,9 +42,9 @@
         [label]="'Avatar'"
       ></app-input>
     </div>
+    <!-- !TOFIX: app-location -->
+    <!-- <app-location [parentForm]="getFormGroup('location')"></app-location> -->
     <div class="row" [formGroup]="getFormGroup('location')">
-      <!-- !TOFIX: app-location -->
-      <!-- <app-location [parentForm]="getFormGroup('location')"></app-location> -->
       <app-input
       formControlName="state"
       [parentForm]="getFormGroup('location')"

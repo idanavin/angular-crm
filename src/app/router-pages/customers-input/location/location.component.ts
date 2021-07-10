@@ -16,9 +16,7 @@ export class LocationComponent implements OnInit {
 
   constructor() {
     // !Gives a weird error, not compiling
-    // this.countries = countryStateData.map((data) => {
-    //   return data.country
-    // })
+    // this.countries = countryStateData.map((data) => data.country)
   }
   
   ngOnInit(): void {
