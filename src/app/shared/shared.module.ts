@@ -5,7 +5,6 @@ import { DialogModule } from './dialog/dialog.module';
 import { FormErrorsModule } from './form/form-errors/form-errors.module';
 import { InputModule } from './form/input/input.module';
 import { PaginatorModule } from './paginator/paginator.module';
-import { LanguageModule } from '../language/language.module';
 
 @NgModule({
   declarations: [

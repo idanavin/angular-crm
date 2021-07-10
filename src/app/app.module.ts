@@ -38,6 +38,7 @@ import { LanguageModule } from './language/language.module';
 import { HeadCardsComponent } from './router-pages/customers/head-cards/head-cards.component';
 import { CustomersInputComponent } from './router-pages/customers-input/customers-input.component';
 import { SearchInputComponent } from './router-pages/customers/search-input/search-input.component';
+import { LocationComponent } from './router-pages/customers-input/location/location.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, data: { animation: 'home' } },
@@ -84,6 +85,7 @@ const routes: Routes = [
     HeadCardsComponent,
     CustomersInputComponent,
     SearchInputComponent,
+    LocationComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,19 @@
+<mat-form-field appearance="outline">
+  <mat-label>{{ label }}</mat-label>
+  <input
+    *ngIf="!select"
+    matInput
+    [value]="value"
+    [disabled]="isDisabled"
+    (input)="onChange($event)"
+    (blur)="touched()"
+    [id]="fieldName"
+    [matAutocomplete]="auto"
+  />
+</mat-form-field>
+<mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let option in options | async" [value]="option">
+      {{ option }}
+    </mat-option>
+  </mat-autocomplete>
+<app-form-errors [formField]="formField"></app-form-errors>

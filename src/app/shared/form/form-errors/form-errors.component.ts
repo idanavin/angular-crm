@@ -18,6 +18,8 @@ export class FormErrorsComponent {
   getErrorMessage(): string {
     if (this.formField?.hasError('required')) {
       return 'You must enter a value';
+    } else if (this.formField?.hasError('minlength')) {
+      return 'Not long enough'
     }
 
     return this.formField?.hasError('email') ? 'Not a valid email' : '';
