@@ -19,7 +19,7 @@ export class SearchInputComponent implements OnInit {
   >();
 
   constructor(private customersService: CustomersService) {
-    this.allCustomers = this.customersService.unsortedUsers;
+    this.allCustomers = this.customersService.UnsortedUsers;
     this.filteredCustomers = this.searchFormControl.valueChanges.pipe(
       startWith(''),
       map((customer) => {

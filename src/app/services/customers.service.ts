@@ -18,32 +18,26 @@ export class CustomersService {
     this.users.set('unsorted', [])
   }
 
-  get unsortedUsers(): RandomUser[] {
+  get UnsortedUsers(): RandomUser[] {
     return this.users.get('unsorted')!
   }
 
   getCustomersByPage(itemsPerPage: number, page: number, order: Sort): Promise<RandomUser[]> {
     const lastIndex = itemsPerPage * (page + 1);
     const firstIndex = lastIndex - itemsPerPage;
-    
-    //! BUG on unsorted if direction changed, when moving pages it loading new random users
-    if (!this.users.has(`${order.active}${order.direction}`)) {
-      this.sortUsers(order)
-    }
-    
-    let list: RandomUser[] = this.users.get(`${order.active}${order.direction}`)!;
+    const list: RandomUser[] = this._getListInOrder(order);
 
     if (lastIndex <= list.length) {
       return this.getLocalCustomers(firstIndex, lastIndex, list);
     }
-    return this.loadRandomUsers(itemsPerPage)
+    return this._loadRandomUsers(itemsPerPage)
   }
 
   private async getLocalCustomers(firstIndex: number, lastIndex: number, users: RandomUser[]): Promise<RandomUser[]> {
     return users.slice(firstIndex, lastIndex);
   }
 
-  private async loadRandomUsers(itemsPerPage: number): Promise<RandomUser[]> {
+  private async _loadRandomUsers(itemsPerPage: number): Promise<RandomUser[]> {
     const pageNumber = 1;
     const users = await this.httpClient
       .get<RandomUsers>(
@@ -52,30 +46,49 @@ export class CustomersService {
       .toPromise();
 
     this.users.set('unsorted', [... this.users.get('unsorted')!, ...users.results])
-    this.saveToLocalstorage();
+    this._saveToLocalstorage();
     return users.results
   }
 
-  private saveToLocalstorage(): void {
+  private _getListInOrder(sortOrder: Sort): RandomUser[] {
+    sortOrder = this._changeSortDirectionIfUnsorted(sortOrder)
+    this._sortIfNotExist(sortOrder);
+    return this.users.get(`${sortOrder.active}${sortOrder.direction}`)!
+  }
+
+  private _sortIfNotExist(sortOrder: Sort): void {
+    if (!this.users.has(`${sortOrder.active}${sortOrder.direction}`)) {
+      this._sortUsers(sortOrder)
+    }
+  }
+
+  private _changeSortDirectionIfUnsorted(sort: Sort): Sort {
+    if (sort.active === "unsorted") {
+      sort.direction = "";
+    }
+    return sort
+  }
+
+  private _saveToLocalstorage(): void {
     localStorage.setItem(`customers`, JSON.stringify(this.users.get('unsorted')))
   }
 
-  loadLocalstorage(): void {
+  public loadLocalstorage(): void {
     const customers = localStorage.getItem('customers')
     if (customers) this.users.set('unsorted', JSON.parse(customers) as RandomUser[])
   }
 
-  private sortUsers(sort: Sort): void {
+  private _sortUsers(sort: Sort): void {
     const { active, direction } = sort
     const unorderedList: RandomUser[] = this.users.get('unsorted')!;
     
     this.users.set(`${active}${direction}`, [...unorderedList].sort((userA, userB) => {
-      if (direction === 'asc') return this.sortByType(userA, userB, sort.active);
-      else return this.sortByType(userB, userA, sort.active);
+      if (direction === 'asc') return this._sortByType(userA, userB, sort.active);
+      else return this._sortByType(userB, userA, sort.active);
     }))
   }
 
-  sortByType(userA: RandomUser, userB: RandomUser, sortType: string) {
+  private _sortByType(userA: RandomUser, userB: RandomUser, sortType: string) {
     if (sortType === 'age') return userA.dob.age - userB.dob.age
     else return (userA.name.last > userB.name.last) ? 1 : ((userB.name.last > userA.name.last) ? -1 : 0)
   }
@@ -86,9 +99,9 @@ export class CustomersService {
   }
 
   resetUsersWithUnsorted(customers: RandomUser[]) {
-    this.users = new Map<string, RandomUser[]>();
+    this.users.clear();
     this.users.set('unsorted', customers);
-    this.saveToLocalstorage();
+    this._saveToLocalstorage();
   }
 
   setCustomersToEdit(customers: RandomUser[]): void {

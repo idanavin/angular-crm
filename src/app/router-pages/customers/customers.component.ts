@@ -27,17 +27,13 @@ export class CustomersComponent implements OnInit {
     private router: Router
   ) {
     this.customersService.loadLocalstorage();
-    this.customers = this.customersService.getCustomersByPage(
-      this.customersPerPage,
-      this.page,
-      this.sort
-    );
+    this.customers = this.getCustomersByPage();
   }
 
   ngOnInit(): void {}
 
-  getCustomersByPage(): void {
-    this.customers = this.customersService.getCustomersByPage(
+  getCustomersByPage(): Promise<RandomUser[]> {
+    return this.customersService.getCustomersByPage(
       this.customersPerPage,
       this.page,
       this.sort
@@ -47,16 +43,17 @@ export class CustomersComponent implements OnInit {
   loadRandomUsers(event: PageEvent): void {
     this.page = event.pageIndex;
     this.customersPerPage = event.pageSize;
-    this.getCustomersByPage();
+    this.customers = this.getCustomersByPage();
   }
 
   sortData(event: Sort): void {
     this.sort = event;
-    this.getCustomersByPage();
+    this.customers = this.getCustomersByPage();
   }
 
   goToNewCostumer(): void {
     this.selected = [];
+    this.customersService.setCustomersToEdit([]);
     this.router.navigateByUrl('/customers/add');
   }
 
@@ -85,7 +82,7 @@ export class CustomersComponent implements OnInit {
     const usersToDelete: RandomUser[] = this.getSelectedUsers();
     if (!usersToDelete) return;
     this.customersService.removeCustomers(usersToDelete);
-    this.getCustomersByPage();
+    this.customers = this.getCustomersByPage();
     this.selected = undefined;
   }
 
@@ -114,7 +111,7 @@ export class CustomersComponent implements OnInit {
       this.selected = [];
       this.customers = new Promise((resolve) => resolve(filteredCustomers))
     } else {
-      this.getCustomersByPage();
+      this.customers = this.getCustomersByPage();
     }
   }
 }
