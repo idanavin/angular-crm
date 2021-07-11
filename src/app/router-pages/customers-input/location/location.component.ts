@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { countries as countryStateData } from 'src/assets/country_state.json';
+import { CountriesData } from 'src/assets/country_state';
 
 @Component({
   selector: 'app-location',
@@ -12,12 +11,11 @@ export class LocationComponent implements OnInit {
 
   @Input() parentForm?: FormGroup
 
-  countries: string[] = ['1', '2'];
+  countries: string[];
   states: string[] = []
 
-  constructor() {
-    // !Gives a weird error, not compiling
-    // this.countries = countryStateData.map((data) => data.country)
+  constructor(private readonly countriesData: CountriesData) {
+    this.countries = this.countriesData.countries.map((data) => data.country)
   }
   
   ngOnInit(): void {
