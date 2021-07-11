@@ -12,7 +12,6 @@ export class LocationComponent implements OnInit {
 
   @Input() parentForm?: FormGroup
 
-  filteredResults?: Observable<string>;
   countries: string[] = ['1', '2'];
   states: string[] = []
 
