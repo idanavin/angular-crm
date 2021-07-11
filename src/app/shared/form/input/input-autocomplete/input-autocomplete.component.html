@@ -9,11 +9,11 @@
     (blur)="touched()"
     [id]="fieldName"
     [matAutocomplete]="auto"
-  />
+  >
   <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let option in options" [value]="option">
-        {{ option }}
-      </mat-option>
-    </mat-autocomplete>
-  <app-form-errors [formField]="formField"></app-form-errors>
+    <mat-option *ngFor="let option; of options" [value]="option">
+      {{ option }}
+    </mat-option>
+  </mat-autocomplete>
 </mat-form-field>
+<app-form-errors [formField]="formField"></app-form-errors>

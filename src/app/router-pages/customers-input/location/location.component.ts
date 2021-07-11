@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { countries as countryStateData } from 'src/assets/country_state.json';
 
 @Component({
@@ -11,6 +12,7 @@ export class LocationComponent implements OnInit {
 
   @Input() parentForm?: FormGroup
 
+  filteredResults?: Observable<string>;
   countries: string[] = ['1', '2'];
   states: string[] = []
 
@@ -22,4 +24,7 @@ export class LocationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getFormGroup(groupName: any): FormGroup {
+    return this.parentForm?.get(groupName) as FormGroup;
+  }
 }

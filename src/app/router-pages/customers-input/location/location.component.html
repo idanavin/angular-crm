@@ -1,10 +1,13 @@
-<app-input-autocomplete
-  formControlName="state"
-  [parentForm]="parentForm"
-  [fieldName]="'state'"
-  [label]="'State'"
-  [options]="countries"
-></app-input-autocomplete>
+<div class="location" *ngIf="parentForm" [formGroup]="getFormGroup('location')">
+  <app-input-autocomplete
+    formControlName="state"
+    [parentForm]="getFormGroup('location')"
+    [fieldName]="'state'"
+    [label]="'State'"
+    [options]="countries"
+  ></app-input-autocomplete>
+</div>
+
 <!-- <app-input
   formControlName="city"
   [parentForm]="parentForm"
