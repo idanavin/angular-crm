@@ -42,30 +42,15 @@
         [label]="'Avatar'"
       ></app-input>
     </div>
-    
-    <div class="row" [formGroup]="getFormGroup('location')">
-      <!-- !TOFIX: app-location -->
-      <app-location [parentForm]="form"></app-location>
-      <!-- <app-input
-      formControlName="state"
-      [parentForm]="getFormGroup('location')"
-      [fieldName]="'state'"
-      [label]="'State'"
-    ></app-input> -->
-    <app-input
-      formControlName="city"
-      [parentForm]="getFormGroup('location')"
-      [fieldName]="'city'"
-      [label]="'City'"
-    ></app-input>
-      <div [formGroup]="getSubFormGroup('location', 'street')">
-        <app-input
-          formControlName="name"
-          [parentForm]="getSubFormGroup('location', 'street')"
-          [fieldName]="'name'"
-          [label]="'Street'"
-        ></app-input>
-      </div>
+
+    <app-location [parentForm]="form"></app-location>
+    <div [formGroup]="getSubFormGroup('location', 'street')">
+      <app-input
+        formControlName="name"
+        [parentForm]="getSubFormGroup('location', 'street')"
+        [fieldName]="'name'"
+        [label]="'Street'"
+      ></app-input>
     </div>
     <div class="row">
       <app-input

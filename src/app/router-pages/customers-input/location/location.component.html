@@ -5,6 +5,14 @@
     [fieldName]="'state'"
     [label]="'State'"
     [options]="countries"
+    (emitter)="setState($event)"
+  ></app-input-autocomplete>
+  <app-input-autocomplete
+    formControlName="city"
+    [parentForm]="getFormGroup('location')"
+    [fieldName]="'city'"
+    [label]="'City'"
+    [options]="states"
   ></app-input-autocomplete>
 </div>
 
