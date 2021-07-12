@@ -14,11 +14,12 @@
     [label]="'City'"
     [options]="states"
   ></app-input-autocomplete>
+  <div [formGroup]="getSubFormGroup('location', 'street')">
+    <app-input
+      formControlName="name"
+      [parentForm]="getSubFormGroup('location', 'street')"
+      [fieldName]="'name'"
+      [label]="'Street'"
+    ></app-input>
+  </div>
 </div>
-
-<!-- <app-input
-  formControlName="city"
-  [parentForm]="parentForm"
-  [fieldName]="'city'"
-  [label]="'City'"
-></app-input> -->

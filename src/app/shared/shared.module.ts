@@ -6,6 +6,7 @@ import { FormErrorsModule } from './form/form-errors/form-errors.module';
 import { InputModule } from './form/input/input.module';
 import { PaginatorModule } from './paginator/paginator.module';
 
+
 @NgModule({
   declarations: [
   ],

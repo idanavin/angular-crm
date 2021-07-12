@@ -35,11 +35,11 @@ export class InputAutocompleteComponent extends InputComponent {
   ngOnInit(): void {
     this.filteredOptions = this.formField?.valueChanges.pipe(
       startWith(''),
-      map((option) => {
-        if (option) {
-          const lowerCaseOption = option.toLowerCase();
-          const filtered = this._filter(lowerCaseOption)!;
-          this._emitIfEqual(lowerCaseOption)
+      map((userInput) => {
+        if (userInput) {
+          const lowerCaseInput = userInput.toLowerCase();
+          const filtered = this._filter(lowerCaseInput)!;
+          this._emitIfEqual(lowerCaseInput)
           return filtered;
         } else {
           // this.filtered.emit([]);

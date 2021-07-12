@@ -42,16 +42,7 @@
         [label]="'Avatar'"
       ></app-input>
     </div>
-
     <app-location [parentForm]="form"></app-location>
-    <div [formGroup]="getSubFormGroup('location', 'street')">
-      <app-input
-        formControlName="name"
-        [parentForm]="getSubFormGroup('location', 'street')"
-        [fieldName]="'name'"
-        [label]="'Street'"
-      ></app-input>
-    </div>
     <div class="row">
       <app-input
         formControlName="phone"
@@ -59,21 +50,14 @@
         [fieldName]="'phone'"
         [label]="'Phone Number'"
       ></app-input>
-      <!-- <app-input
-              formControlName="gender"
-              [select]="['male', 'female']"
-              [parentForm]="form"
-              [fieldName]="'gender'"
-              [label]="'Gender'"
-            >
-            </app-input> -->
-      <mat-form-field appearance="outline">
-        <mat-label>Gender</mat-label>
-        <mat-select formControlName="gender">
-          <mat-option value="male">Male</mat-option>
-          <mat-option value="female">Female</mat-option>
-        </mat-select>
-      </mat-form-field>
+      <app-input-select
+        formControlName="gender"
+        [select]="['male', 'female']"
+        [parentForm]="form"
+        [fieldName]="'gender'"
+        [label]="'Gender'"
+      >
+      </app-input-select>
     </div>
     <div class="row" [formGroup]="getFormGroup('dob')">
       <mat-form-field appearance="outline">

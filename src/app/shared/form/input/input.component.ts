@@ -19,9 +19,6 @@ import { _MatAutocompleteBase } from '@angular/material/autocomplete';
 export class InputComponent implements ControlValueAccessor  {
 
   @Input()
-  public select: string[] | undefined
-
-  @Input()
   public parentForm?: FormGroup
 
   @Input()

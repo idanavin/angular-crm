@@ -23,6 +23,10 @@ export class LocationComponent implements OnInit {
     return this.parentForm?.get(groupName) as FormGroup;
   }
 
+  getSubFormGroup(groupName: string, subGroupName: string): FormGroup {
+    return this.parentForm?.get(groupName)?.get(subGroupName) as FormGroup;
+  }
+
   setState(country: string): void {
     const countries = this.countriesData.countries.find(
       (countries) => countries.country === country

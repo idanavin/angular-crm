@@ -6,11 +6,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormErrorsModule } from '../form-errors/form-errors.module';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { InputAutocompleteComponent } from './input-autocomplete/input-autocomplete.component';
+import { InputSelectComponent } from './input-select/input-select.component';
 
 @NgModule({
   declarations: [
     InputComponent,
-    InputAutocompleteComponent
+    InputAutocompleteComponent,
+    InputSelectComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { InputAutocompleteComponent } from './input-autocomplete/input-autocompl
   ],
   exports: [
     InputComponent,
-    InputAutocompleteComponent
+    InputAutocompleteComponent,
+    InputSelectComponent
   ]
 })
 export class InputModule { }
