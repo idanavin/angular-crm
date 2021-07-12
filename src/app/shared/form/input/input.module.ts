@@ -7,12 +7,14 @@ import { FormErrorsModule } from '../form-errors/form-errors.module';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { InputAutocompleteComponent } from './input-autocomplete/input-autocomplete.component';
 import { InputSelectComponent } from './input-select/input-select.component';
+import { InputAutocompleteCustomerSearch } from './input-autocomplete/input-autocomplete-customer-search';
 
 @NgModule({
   declarations: [
     InputComponent,
     InputAutocompleteComponent,
-    InputSelectComponent
+    InputSelectComponent,
+    InputAutocompleteCustomerSearch
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { InputSelectComponent } from './input-select/input-select.component';
   exports: [
     InputComponent,
     InputAutocompleteComponent,
-    InputSelectComponent
+    InputSelectComponent,
+    InputAutocompleteCustomerSearch
   ]
 })
 export class InputModule { }

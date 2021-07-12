@@ -3,6 +3,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { _MatAutocompleteBase } from '@angular/material/autocomplete';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { RandomUser } from 'src/app/domain-layer/entities/random-users';
 import { InputComponent } from '../input.component';
 
 @Component({
@@ -24,15 +25,19 @@ export class InputAutocompleteComponent extends InputComponent {
 
   @Input() options: string[] = [];
 
-  filteredOptions?: Observable<string[]>;
+  filteredOptions!: Observable<string[]>;
 
   @Output() emitter: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { 
     super();
   }
-
+  
   ngOnInit(): void {
+    this._setFilteredOptions()
+  }
+
+  private _setFilteredOptions(): void {
     this.filteredOptions = this.formField?.valueChanges.pipe(
       startWith(''),
       map((userInput) => {
@@ -50,9 +55,10 @@ export class InputAutocompleteComponent extends InputComponent {
   }
 
   private _filter(value: string) {
-    return this.options?.filter((option) => {
+    return this.options?.filter((option: string) => {
       return option.toLowerCase().indexOf(value) === 0
     });
+    
   }
 
   private _emitIfEqual(value: string): void {
@@ -60,6 +66,10 @@ export class InputAutocompleteComponent extends InputComponent {
     if (option) {
       this.emitter.emit(option)
     }
+  }
+
+  getStringFromOption(option: string): string {
+    return option
   }
 
 }
