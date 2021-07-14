@@ -3,15 +3,13 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-head-cards',
   templateUrl: './head-cards.component.html',
-  styleUrls: ['./head-cards.component.scss']
+  styleUrls: ['./head-cards.component.scss'],
 })
 export class HeadCardsComponent implements OnInit {
+  //TBA More stats regarding customers
+  @Input() amountOfCustomers: string = '';
 
-  @Input() amountOfCustomers?: number
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -1,12 +1,3 @@
-<div class="card">
-  <div class="text" translate>CUSTOMERS</div>
-  <div class="number">{{ amountOfCustomers }}</div>
-</div>
-<div class="card">
-  <div class="text">ipsum</div>
-  <div class="number">23/50</div>
-</div>
-<div class="card">
-  <div class="text">Lorem</div>
-  <div class="number">65</div>
-</div>
+<app-card [header]="'CUSTOMERS'" [subHeader]="amountOfCustomers"></app-card>
+<app-card [header]="'ipsum'" [subHeader]="'65'"></app-card>
+<app-card [header]="'Lorem'" [subHeader]="'23/50'"></app-card>

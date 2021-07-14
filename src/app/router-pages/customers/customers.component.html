@@ -1,7 +1,5 @@
 <div class="wrapper">
-  <!-- <div class="head_row">
-  </div> -->
-  <app-head-cards [amountOfCustomers]="amountOfCustomers"></app-head-cards>
+  <app-head-cards [amountOfCustomers]="amountOfCustomers.toString()"></app-head-cards>
   <main>
     <mat-toolbar>
       <button mat-button (click)="goToNewCostumer()">
