@@ -7,6 +7,13 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class CrmFormsService {
   constructor(private formBuilder: FormBuilder) {}
 
+  getProductCategoryForm() {
+    const fg: FormGroup = this.formBuilder.group({
+      category: ['']
+    })
+    return fg;
+  }
+
   getCustomersForm() {
     const fg: FormGroup = this.formBuilder.group({
       name: this.formBuilder.group({

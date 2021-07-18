@@ -1,7 +1,13 @@
-<mat-list-option mat *ngFor="let product of products | async" [value]="product">
+<mat-list-option
+  mat
+  *ngFor="let product of products | async"
+  [value]="product"
+  matTooltip="{{ product.title }}"
+  [matTooltipPosition]="'above'"
+>
   <img matListAvatar [src]="product?.image" alt="..." />
   <h3 matLine class="flex">
-    <span>{{ product.title }}</span>
+    <span>{{ product.title | slice: 0:15 }}...</span>
     <span>{{ product.price }}$</span>
   </h3>
   <p matLine class="flex">

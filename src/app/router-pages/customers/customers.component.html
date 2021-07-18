@@ -6,14 +6,14 @@
         <mat-icon>person_add</mat-icon><span translate>CUSTOMERS_NEW</span>
       </button>
       <button mat-button (click)="editSelected()" [disabled]="haveSelected()">
-        <mat-icon>person_add</mat-icon><span translate>CUSTOMERS_EDIT</span>
+        <mat-icon>person_add</mat-icon><span translate>EDIT_SELECTED</span>
       </button>
       <button
         mat-button
         (click)="opendDeleteDialog()"
         [disabled]="haveSelected()"
       >
-        <mat-icon>person_add</mat-icon><span translate>CUSTOMERS_DELETE</span>
+        <mat-icon>person_add</mat-icon><span translate>DELETE_SELECTED</span>
       </button>
       <app-customer-search-input (filtered)="setFilteredCustomers($event)"></app-customer-search-input>
     </mat-toolbar>

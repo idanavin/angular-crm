@@ -20,8 +20,8 @@
   "EDIT": "Edit",
   "CUSTOMERS": "Customers",
   "CUSTOMERS_NEW": "New customer",
-  "CUSTOMERS_EDIT": "Edit selected",
-  "CUSTOMERS_DELETE": "Delete selected",
+  "EDIT_SELECTED": "Edit selected",
+  "DELETE_SELECTED": "Delete selected",
   "SORT_BY": "Sort by: ",
   "EDIT_ALL": "Edit all",
   "ADD_NEW": "Add new",
@@ -49,5 +49,7 @@
   "NAV_CUSTOMERS": "Customers",
   "NAV_PROFILE": "Profile",
   "NAV_LOGOUT": "Logout",
+  "PRODUCTS_NEW": "New product",
+  "CATEGORY": "Category",
   "CUSTOMERS_SEARCH_LABEL": "Search customer"
 }

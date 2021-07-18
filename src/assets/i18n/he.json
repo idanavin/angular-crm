@@ -20,8 +20,8 @@
   "EDIT": "עריכה",
   "CUSTOMERS": "לקוחות",
   "CUSTOMERS_NEW": "לקוח חדש",
-  "CUSTOMERS_EDIT": "עריכת נבחרים",
-  "CUSTOMERS_DELETE": "מחיקת נבחרים",
+  "EDIT_SELECTED": "עריכת נבחרים",
+  "DELETE_SELECTED": "מחיקת נבחרים",
   "SORT_BY": "סידור לפי: ",
   "EDIT_ALL": "עריכה",
   "ADD_NEW": "הוספה",
@@ -53,5 +53,7 @@
   "NAV_CUSTOMERS": "לקוחות",
   "NAV_PROFILE": "פרופיל",
   "NAV_LOGOUT": "התנתקות",
+  "PRODUCTS_NEW": "מוצר חדש",
+  "CATEGORY": "קטגוריה",
   "CUSTOMERS_SEARCH_LABEL": "חיפוש לקוח"
 }

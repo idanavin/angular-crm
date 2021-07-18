@@ -1,5 +1,6 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { MatFormFieldAppearance, MatFormFieldDefaultOptions } from '@angular/material/form-field';
 import { InputComponent } from '../input.component';
 
 @Component({
@@ -16,6 +17,8 @@ import { InputComponent } from '../input.component';
 })
 // * Does not include input but extend ControlValueAccessor implemented on InputComponent
 export class InputSelectComponent extends InputComponent {
+  @Input() appearance: MatFormFieldAppearance = "outline";
+
   @Input()
   public select: string[] | undefined;
 

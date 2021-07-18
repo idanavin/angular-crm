@@ -1,10 +1,33 @@
 <div class="wrapper">
-    <main>
-        <mat-selection-list
-        #productSelect
-        (selectionChange)="onSelections(productSelect.selectedOptions.selected)"
-        >
-        <app-products-list [products]="products"></app-products-list>
-        </mat-selection-list>
-    </main>
+  <main>
+    <mat-toolbar>
+      <button mat-button>
+        <mat-icon>note_add</mat-icon><span translate>PRODUCTS_NEW</span>
+      </button>
+      <button mat-button>
+        <mat-icon>edit</mat-icon><span translate>EDIT_SELECTED</span>
+      </button>
+      <button mat-button>
+        <mat-icon>remove_circle_outline</mat-icon
+        ><span translate>DELETE_SELECTED</span>
+      </button>
+      <div [formGroup]="categoryFormGroup">
+          <app-input-select
+            formControlName="category"
+            [select]="categories"
+            [parentForm]="categoryFormGroup"
+            [fieldName]="'category'"
+            [label]="'CATEGORY' | translate"
+            [appearance]="'standard'"
+          >
+          </app-input-select>
+      </div>
+    </mat-toolbar>
+    <mat-selection-list
+      #productSelect
+      (selectionChange)="onSelections(productSelect.selectedOptions.selected)"
+    >
+      <app-products-list [products]="products"></app-products-list>
+    </mat-selection-list>
+  </main>
 </div>
