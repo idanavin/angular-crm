@@ -49,6 +49,7 @@
   "RANGE_PAGE_LABEL_2": "{{startIndex}} - {{endIndex}} מתוך {{length}}",
   "NAV_DASHBOARD": "דאשבורד",
   "NAV_ABOUT": "אודות",
+  "NAV_PRODUCTS": "מוצרים",
   "NAV_CUSTOMERS": "לקוחות",
   "NAV_PROFILE": "פרופיל",
   "NAV_LOGOUT": "התנתקות",

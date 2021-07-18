@@ -39,6 +39,8 @@ import { HeadCardsComponent } from './router-pages/customers/head-cards/head-car
 import { CustomersInputComponent } from './router-pages/customers-input/customers-input.component';
 import { SearchInputComponent } from './router-pages/customers/search-input/search-input.component';
 import { LocationComponent } from './router-pages/customers-input/location/location.component';
+import { ProductsComponent } from './router-pages/products/products.component';
+import { ProductsListComponent } from './router-pages/products/products-list/products-list.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, data: { animation: 'home' } },
@@ -51,6 +53,11 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     data: { animation: 'dashboard' },
+  },
+  {
+    path: 'products',
+    component: ProductsComponent,
+    data: { animation: 'products' },
   },
   {
     path: 'customers',
@@ -86,6 +93,8 @@ const routes: Routes = [
     CustomersInputComponent,
     SearchInputComponent,
     LocationComponent,
+    ProductsComponent,
+    ProductsListComponent,
   ],
   imports: [
     BrowserModule,

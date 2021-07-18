@@ -14,7 +14,10 @@ export class MainComponent implements OnInit {
   user: User | undefined;
   theme: string = 'light';
 
-  constructor(private authService: AuthService, private languageService: LanguageService) {
+  constructor(
+    private authService: AuthService,
+    private languageService: LanguageService
+  ) {
     this.languageService.setDefaultLanguage();
   }
 
@@ -42,5 +45,4 @@ export class MainComponent implements OnInit {
   toggleTheme(theme: string): void {
     this.theme = theme;
   }
-
 }

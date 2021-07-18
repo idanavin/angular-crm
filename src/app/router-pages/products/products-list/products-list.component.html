@@ -1,0 +1,10 @@
+<mat-list-option mat *ngFor="let product of products | async" [value]="product">
+  <img matListAvatar [src]="product?.image" alt="..." />
+  <h3 matLine class="flex">
+    <span>{{ product.title }}</span>
+    <span>{{ product.price }}$</span>
+  </h3>
+  <p matLine class="flex">
+    <span> {{ product.category }}</span>
+  </p>
+</mat-list-option>

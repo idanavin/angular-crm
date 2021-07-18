@@ -45,6 +45,7 @@
   "RANGE_PAGE_LABEL_2": "{{startIndex}} - {{endIndex}} of {{length}}",
   "NAV_DASHBOARD": "Dashboard",
   "NAV_ABOUT": "About",
+  "NAV_PRODUCTS": "Products",
   "NAV_CUSTOMERS": "Customers",
   "NAV_PROFILE": "Profile",
   "NAV_LOGOUT": "Logout",

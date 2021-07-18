@@ -1,0 +1,10 @@
+<div class="wrapper">
+    <main>
+        <mat-selection-list
+        #productSelect
+        (selectionChange)="onSelections(productSelect.selectedOptions.selected)"
+        >
+        <app-products-list [products]="products"></app-products-list>
+        </mat-selection-list>
+    </main>
+</div>
