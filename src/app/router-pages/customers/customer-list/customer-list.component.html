@@ -1,11 +1,15 @@
 <mat-list-option mat *ngFor="let user of customers | async" [value]="user">
-    <img matListAvatar [src]="user?.picture?.thumbnail" alt="...">
-    <h3 matLine class="flex">
-        <span translate>{{user.name.title}}</span>
-        <span>{{user.dob.age}}</span>
-    </h3>
-    <p matLine class="flex">
-        <span> {{user.name.first}} {{user.name.last}}</span>
-        <span>{{user.email}}</span>
-    </p>
+  <img matListAvatar [src]="user?.picture?.thumbnail" alt="..." />
+  <h3 matLine class="flex">
+    <span translate>{{ user.name.title }}</span>
+    <span>{{ user.dob.age }}</span>
+  </h3>
+  <p matLine class="flex">
+    <span>Purchased: {{ user.purchased ? user.purchased.length : "0" }}</span>
+    <span>Spent: {{ getTotalSpendingOfUser(user) | number: '1.2-2' }}$</span>
+  </p>
+  <p matLine class="flex">
+    <span>{{ user.name.first }} {{ user.name.last }}</span>
+    <span>{{ user.email }}</span>
+  </p>
 </mat-list-option>

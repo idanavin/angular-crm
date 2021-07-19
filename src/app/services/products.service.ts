@@ -10,23 +10,44 @@ export class ProductsService {
   products?: RandomProduct[];
   categories: string[];
 
-  constructor(private httpClient: HttpClient, private localSaveService: LocalSaveService) {
-    this.categories = this.localSaveService.loadCategories()
+  constructor(
+    private httpClient: HttpClient,
+    private localSaveService: LocalSaveService
+  ) {
+    this.categories = this.localSaveService.loadCategories();
   }
 
   async getProducts(amount: number): Promise<RandomProduct[]> {
     this.loadProducts();
     if (!this.products) {
-      return await this._getAmountOfProducts(amount).then(
-        (products) => {
-          this.products = products
-          this.setCategories(products)
-          this.localSaveService.saveToLocal('products', products)
-          return products
-        }
-      );
+      await this._setProducts(amount);
     }
-    return this.products
+    return this.products!;
+  }
+
+  async _setProducts(amount: number = 20) {
+    await this._getAmountOfProducts(amount).then((products) => {
+      this.products = products;
+      this.setCategories(products);
+      this.localSaveService.saveToLocal('products', products);
+    });
+  }
+
+  async getPurchasableIds(): Promise<number[]> {
+    if (!this.products) {
+      await this._setProducts();
+    }
+    return this.products?.map((product) => product.id)!;
+  }
+
+  getProductPrice(productId: number): string {
+    const product = this.products?.find(product => product.id === productId)
+    try {
+      return product!.price
+    } catch {
+      throw product
+    }
+
   }
 
   loadProducts() {
@@ -37,16 +58,20 @@ export class ProductsService {
   }
 
   setCategories(products: RandomProduct[]) {
-    products.map(product => {
-      const category = this.categories?.find(category => category === product.category)
+    products.map((product) => {
+      const category = this.categories?.find(
+        (category) => category === product.category
+      );
       if (!category) {
-        this.categories.push(product.category)
+        this.categories.push(product.category);
       }
-    })
-    this.localSaveService.saveToLocal('product_categories', this.categories)
+    });
+    this.localSaveService.saveToLocal('product_categories', this.categories);
   }
 
-  private async _getAmountOfProducts(amount: number = 20): Promise<RandomProduct[]> {
+  private async _getAmountOfProducts(
+    amount: number = 20
+  ): Promise<RandomProduct[]> {
     const products = await this.httpClient
       .get<RandomProduct[]>(`https://fakestoreapi.com/products?limit=${amount}`)
       .toPromise();

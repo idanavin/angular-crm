@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Sort } from '@angular/material/sort';
 import { RandomUser, RandomUsers } from '../domain-layer/entities/random-users';
+import { PurchaseService } from './purchase.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class CustomersService {
     RandomUser[]
   >();
 
-  constructor(private readonly httpClient: HttpClient) {
+  constructor(private readonly httpClient: HttpClient, private purchaseService: PurchaseService) {
     this.users.set('unsorted', [])
   }
 
@@ -44,10 +45,14 @@ export class CustomersService {
         `https://randomuser.me/api/?page=${pageNumber}&results=${itemsPerPage}`
       )
       .toPromise();
-
+    this._makeRandomPurchases(users.results);
     this.users.set('unsorted', [... this.users.get('unsorted')!, ...users.results])
     this._saveToLocalstorage();
     return users.results
+  }
+
+  private _makeRandomPurchases(users: RandomUser[]) {
+    users.forEach(user => this.purchaseService.setCustomerRandomPurchase(user))
   }
 
   private _getListInOrder(sortOrder: Sort): RandomUser[] {

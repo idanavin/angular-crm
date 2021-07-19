@@ -4,5 +4,6 @@ export interface RandomProduct {
     price: string,
     category: string,
     description: string,
-    image: string
+    image: string,
+    purchased?: number
 }

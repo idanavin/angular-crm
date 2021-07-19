@@ -16,4 +16,11 @@ export class CustomerListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getTotalSpendingOfUser(user: RandomUser): number {
+    const totalCostArray = user.purchased?.map(purchased => purchased.total_cost)
+    let totalCost = 0
+    totalCostArray?.forEach(purchase => totalCost += parseFloat(purchase))
+    return totalCost
+  }
+
 }
