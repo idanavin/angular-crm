@@ -11,6 +11,8 @@
   "NAME_LAST": "Last name",
   "DOB": "Birth day",
   "AGE": "Age",
+  "PURCHASED": "Purchased",
+  "SPENT": "Spent",
   "LOGIN_ERROR_TRY_THIS": "Your login is wrong, try this:",
   "INPUT_ERROR_EMAIL": "Please enter email",
   "INPUT_ERROR_PASS_MIN": "Password should be at least 3 letters",

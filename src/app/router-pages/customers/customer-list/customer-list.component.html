@@ -2,14 +2,23 @@
   <img matListAvatar [src]="user?.picture?.thumbnail" alt="..." />
   <h3 matLine class="flex">
     <span translate>{{ user.name.title }}</span>
-    <span>{{ user.dob.age }}</span>
+    <div>
+      <span translate>AGE</span>
+      <span>: {{ user.dob.age }}</span>
+    </div>
   </h3>
-  <p matLine class="flex">
-    <span>Purchased: {{ user.purchased ? user.purchased.length : "0" }}</span>
-    <span>Spent: {{ getTotalSpendingOfUser(user) | number: '1.2-2' }}$</span>
-  </p>
   <p matLine class="flex">
     <span>{{ user.name.first }} {{ user.name.last }}</span>
     <span>{{ user.email }}</span>
   </p>
+  <h1 matLine class="flex">
+    <div>
+      <span translate>PURCHASED</span>
+      <span>: {{ user.purchased ? user.purchased.length : "0" }}</span>
+    </div>
+    <div>
+      <span translate>SPENT</span>
+      <span>: {{ getTotalSpendingOfUser(user) | number: "1.2-2" }}$</span>
+    </div>
+  </h1>
 </mat-list-option>

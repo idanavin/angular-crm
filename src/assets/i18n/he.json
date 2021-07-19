@@ -11,6 +11,8 @@
   "NAME_LAST": "שם משפחה",
   "DOB": "תאריך לידה",
   "AGE": "גיל",
+  "PURCHASED": "מוצרים שנרכשו",
+  "SPENT": "הוציא",
   "LOGIN_ERROR_TRY_THIS": "פרטי ההתחברות אינם נכונים, נסה את זה:",
   "INPUT_ERROR_EMAIL": "הכנס אימייל תקין",
   "INPUT_ERROR_PASS_MIN": "סיסמא חייבת לפחות 3 תווים",
