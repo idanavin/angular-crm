@@ -17,7 +17,12 @@ export class ProductsService {
     this.categories = this.localSaveService.loadCategories();
   }
 
-  async getProducts(amount: number): Promise<RandomProduct[]> {
+  async getProductsAndCategories(amountOfProducts: number = 20) {
+    const products = await this.getProducts(amountOfProducts);
+    return [products, this.categories]
+  }
+
+  async getProducts(amount: number = 20): Promise<RandomProduct[]> {
     this.loadProducts();
     if (!this.products) {
       await this._setProducts(amount);
@@ -25,7 +30,7 @@ export class ProductsService {
     return this.products!;
   }
 
-  async _setProducts(amount: number = 20) {
+  private async _setProducts(amount: number = 20) {
     await this._getAmountOfProducts(amount).then((products) => {
       this.products = products;
       this.setCategories(products);

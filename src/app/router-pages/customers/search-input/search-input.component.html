@@ -8,12 +8,11 @@
 
   <mat-autocomplete #auto="matAutocomplete">
     <mat-option
+      class="custom-mat-panel"
       *ngFor="let customer of filteredCustomers | async"
       [value]="customer.name.first + ' ' + customer.name.last"
     >
       <img
-        class="option-img"
-        aria-hidden
         [src]="customer?.picture?.thumbnail"
         height="25"
       />

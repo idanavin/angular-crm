@@ -13,7 +13,7 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProductsComponent implements OnInit {
   categoryFormGroup: FormGroup;
   categoryFormControl: FormControl = new FormControl();
-  categories: string[] = [];
+  categories: string[];
   products: Promise<RandomProduct[]>;
   selected: MatListOption[] = [];
 
