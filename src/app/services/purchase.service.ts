@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { range } from 'rxjs';
 import { Purchased, RandomUser } from '../domain-layer/entities/random-users';
+import { RandomProduct } from '../interface/product';
 import { ProductsService } from './products.service';
 
 @Injectable({
@@ -25,8 +26,13 @@ export class PurchaseService {
     customer.purchased = []
     for (let i = 0; i < randomAmountOfPurchases; i++) {
       const randomPurchase = this._getRandomPurchase()
-      customer.purchased?.push(randomPurchase)
+      this._makeAPurchase(customer, randomPurchase);
     }
+  }
+
+  private _makeAPurchase(customer: RandomUser, purchasedObject: Purchased): void {
+    customer.purchased?.push(purchasedObject)
+    this.productsService.increasePurchaseCounter(purchasedObject.id);
   }
 
   private _getRandomPurchase(): Purchased {

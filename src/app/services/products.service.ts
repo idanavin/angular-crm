@@ -80,6 +80,14 @@ export class ProductsService {
     const products = await this.httpClient
       .get<RandomProduct[]>(`https://fakestoreapi.com/products?limit=${amount}`)
       .toPromise();
+    products.forEach((product) => product.purchased = 0);
     return products;
+  }
+
+  increasePurchaseCounter(productId: number) {
+    const product = this.products?.find(product => product.id === productId);
+    if (product) {
+      product.purchased! += 1
+    }
   }
 }
