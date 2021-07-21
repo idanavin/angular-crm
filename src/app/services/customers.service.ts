@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Sort } from '@angular/material/sort';
-import { RandomUser, RandomUsers } from '../domain-layer/entities/random-users';
+import { Purchased, RandomUser, RandomUsers } from '../domain-layer/entities/random-users';
 import { PurchaseService } from './purchase.service';
 
 @Injectable({
@@ -134,5 +134,21 @@ export class CustomersService {
       unsortedUsers = unsortedUsers.filter((costumerInMemory) => costumerInMemory != costumerToRemove)
     })
     this.resetUsersWithUnsorted(unsortedUsers)
+  }
+
+  getUnsortedPurchasedList(): Purchased[] {
+    let purchasedList: Purchased[] = [];
+    const unsortedUsersList = this.users.get('unsorted');
+
+    unsortedUsersList?.forEach((user) => {
+      user.purchased?.forEach((purchased) => purchasedList.push(purchased))
+    })
+    return purchasedList
+  }
+
+  sortListByDate(purchased: Purchased[]) {
+    return purchased.sort(function(purchasedA, purchasedB){
+      return (purchasedA.date > purchasedB.date) ? -1 : (purchasedB.date > purchasedA.date) ? 1 : 0;
+    });
   }
 }
