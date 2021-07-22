@@ -55,7 +55,8 @@ export interface Picture {
 }
 
 export interface Purchased {
-  id: number;
+  customer_email: string;
+  product_id: number;
   date: Date;
   total_cost: string;
 }

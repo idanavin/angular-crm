@@ -52,7 +52,8 @@ export class CustomersService {
   }
 
   private _makeRandomPurchases(users: RandomUser[]) {
-    users.forEach(user => this.purchaseService.setCustomerRandomPurchase(user))
+    users.forEach(user => this.purchaseService.setCustomerRandomPurchase(user));
+    this.purchaseService.saveToPurchaseHistory(users);
   }
 
   private _getListInOrder(sortOrder: Sort): RandomUser[] {
@@ -134,21 +135,5 @@ export class CustomersService {
       unsortedUsers = unsortedUsers.filter((costumerInMemory) => costumerInMemory != costumerToRemove)
     })
     this.resetUsersWithUnsorted(unsortedUsers)
-  }
-
-  getUnsortedPurchasedList(): Purchased[] {
-    let purchasedList: Purchased[] = [];
-    const unsortedUsersList = this.users.get('unsorted');
-
-    unsortedUsersList?.forEach((user) => {
-      user.purchased?.forEach((purchased) => purchasedList.push(purchased))
-    })
-    return purchasedList
-  }
-
-  sortListByDate(purchased: Purchased[]) {
-    return purchased.sort(function(purchasedA, purchasedB){
-      return (purchasedA.date > purchasedB.date) ? -1 : (purchasedB.date > purchasedA.date) ? 1 : 0;
-    });
   }
 }

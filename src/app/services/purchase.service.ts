@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-import { range } from 'rxjs';
-import { Purchased, RandomUser } from '../domain-layer/entities/random-users';
-import { RandomProduct } from '../interface/product';
-import { CustomersService } from './customers.service';
+import { Id, Purchased, RandomUser } from '../domain-layer/entities/random-users';
 import { LocalSaveService } from './local-save.service';
 import { ProductsService } from './products.service';
 
@@ -11,13 +8,14 @@ import { ProductsService } from './products.service';
 })
 export class PurchaseService {
   purchasableIds: number[] = [];
-  purchaseHistory?: Purchased[];
+  purchaseHistory: Purchased[];
 
   constructor(
     private readonly productsService: ProductsService,
-    private readonly customerService: CustomersService,
     private localSaveService: LocalSaveService
-  ) {}
+  ) {
+    this.purchaseHistory = this.localSaveService.loadPurchaseHistory();
+  }
 
   async getPurchasableIds(): Promise<number[]> {
     return await this.productsService.getPurchasableIds().then((ids) => ids);
@@ -30,7 +28,7 @@ export class PurchaseService {
     const randomAmountOfPurchases = Math.floor(Math.random() * 10);
     customer.purchased = [];
     for (let i = 0; i < randomAmountOfPurchases; i++) {
-      const randomPurchase = this._getRandomPurchase();
+      const randomPurchase = this._getRandomPurchase(customer.email);
       this._makeAPurchase(customer, randomPurchase);
     }
   }
@@ -40,16 +38,17 @@ export class PurchaseService {
     purchasedObject: Purchased
   ): void {
     customer.purchased?.push(purchasedObject);
-    this.productsService.increasePurchaseCounter(purchasedObject.id);
+    this.productsService.increasePurchaseCounter(purchasedObject.product_id);
   }
 
-  private _getRandomPurchase(): Purchased {
+  private _getRandomPurchase(customerEmail: string): Purchased {
     const randomIndex = Math.floor(Math.random() * this.purchasableIds.length);
     const productId = this.purchasableIds[randomIndex];
     const price = this.productsService.getProductPrice(productId);
 
     return {
-      id: productId,
+      customer_email: customerEmail,
+      product_id: productId,
       date: this.getRandomDate(),
       total_cost: price ? price : '',
     };
@@ -66,10 +65,24 @@ export class PurchaseService {
     return date;
   }
 
-  setPurchaseHistory() {
-    const unsortedPurchasedList = this.customerService.getUnsortedPurchasedList();
-    const sortedHistoryByDate = this.customerService.sortListByDate(unsortedPurchasedList);
-    this.purchaseHistory = sortedHistoryByDate;
+  saveToPurchaseHistory(users: RandomUser[]) {
+    const unsortedPurchasedList = this._getPurchaseList(users);
+    const sortedHistoryByDate = this._sortListByDate(unsortedPurchasedList);
+    this.purchaseHistory?.push(... sortedHistoryByDate);
     this.localSaveService.saveToLocal('purchaseHistory', this.purchaseHistory);
+  }
+
+  private _getPurchaseList(users: RandomUser[]): Purchased[] {
+    let purchasedList: Purchased[] = [];
+    users.forEach((user) => {
+      user.purchased?.forEach((purchased) => purchasedList.push(purchased))
+    })
+    return purchasedList
+  }
+
+  private _sortListByDate(purchased: Purchased[]): Purchased[] {
+    return purchased.sort((purchasedA, purchasedB) => {
+      return (purchasedA.date > purchasedB.date) ? -1 : (purchasedB.date > purchasedA.date) ? 1 : 0;
+    });
   }
 }

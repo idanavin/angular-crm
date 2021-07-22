@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RandomUser } from '../domain-layer/entities/random-users';
+import { Purchased, RandomUser } from '../domain-layer/entities/random-users';
 import { RandomProduct } from '../interface/product';
 
 @Injectable({
@@ -28,6 +28,14 @@ export class LocalSaveService {
     const categories = this.loadFromLocal('product_categories');
     if (categories) {
       return JSON.parse(categories);
+    }
+    return [];
+  }
+
+  loadPurchaseHistory(): Purchased[] {
+    const purchaseHistory = this.loadFromLocal('purchasedHistory');
+    if (purchaseHistory) {
+      return JSON.parse(purchaseHistory)
     }
     return [];
   }
