@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Id, Purchased, RandomUser } from '../domain-layer/entities/random-users';
+import {
+  Id,
+  Purchased,
+  RandomUser,
+} from '../domain-layer/entities/random-users';
 import { LocalSaveService } from './local-save.service';
 import { ProductsService } from './products.service';
 
@@ -68,21 +72,29 @@ export class PurchaseService {
   saveToPurchaseHistory(users: RandomUser[]) {
     const unsortedPurchasedList = this._getPurchaseList(users);
     const sortedHistoryByDate = this._sortListByDate(unsortedPurchasedList);
-    this.purchaseHistory?.push(... sortedHistoryByDate);
+    this.purchaseHistory?.push(...sortedHistoryByDate);
     this.localSaveService.saveToLocal('purchaseHistory', this.purchaseHistory);
   }
 
   private _getPurchaseList(users: RandomUser[]): Purchased[] {
-    let purchasedList: Purchased[] = [];
-    users.forEach((user) => {
-      user.purchased?.forEach((purchased) => purchasedList.push(purchased))
-    })
-    return purchasedList
+    const purchasedList: Purchased[] = users.reduce((acc: Purchased[], curr) => {
+      curr.purchased && acc.push(...curr.purchased);
+      return acc;
+    }, []);
+
+    // users.forEach((user) => {
+    //   purchasedList.push(...user.purchased!);
+    // });
+    return purchasedList;
   }
 
   private _sortListByDate(purchased: Purchased[]): Purchased[] {
     return purchased.sort((purchasedA, purchasedB) => {
-      return (purchasedA.date > purchasedB.date) ? -1 : (purchasedB.date > purchasedA.date) ? 1 : 0;
+      return purchasedA.date > purchasedB.date
+        ? -1
+        : purchasedB.date > purchasedA.date
+        ? 1
+        : 0;
     });
   }
 }
