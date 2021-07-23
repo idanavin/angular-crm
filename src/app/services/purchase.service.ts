@@ -53,12 +53,12 @@ export class PurchaseService {
     return {
       customer_email: customerEmail,
       product_id: productId,
-      date: this.getRandomDate(),
+      date: this._getRandomDate(),
       total_cost: price ? price : '',
     };
   }
 
-  getRandomDate(): Date {
+  private _getRandomDate(): Date {
     const date = new Date();
     const nowDay = date.getDay();
     const nowMonth = date.getMonth();

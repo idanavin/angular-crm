@@ -38,6 +38,17 @@
     </a>
     <a
       mat-list-item
+      [routerLink]="'/orders'"
+      [routerLinkActive]="'active'"
+      matTooltip="{{'NAV_ORDERS' | translate}}"
+      [matTooltipPosition]="'after'"
+    >
+      <button mat-button>
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
+    </a>
+    <a
+      mat-list-item
       [routerLink]="'/profile'"
       [routerLinkActive]="'active'"
       matTooltip="{{'NAV_PROFILE' | translate}}"
