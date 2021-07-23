@@ -33,7 +33,7 @@ export class LocalSaveService {
   }
 
   loadPurchaseHistory(): Purchased[] {
-    const purchaseHistory = this.loadFromLocal('purchasedHistory');
+    const purchaseHistory = this.loadFromLocal('purchaseHistory');
     if (purchaseHistory) {
       return JSON.parse(purchaseHistory)
     }

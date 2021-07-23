@@ -6,6 +6,7 @@ import { ProductsComponent } from './router-pages/products/products.component';
 import { CustomersComponent } from './router-pages/customers/customers.component';
 import { CustomersInputComponent } from './router-pages/customers-input/customers-input.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { OrdersComponent } from './router-pages/orders/orders.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, data: { animation: 'home' } },
@@ -23,6 +24,11 @@ const routes: Routes = [
     path: 'products',
     component: ProductsComponent,
     data: { animation: 'products' },
+  },
+  {
+    path: 'orders',
+    component: OrdersComponent,
+    data: { animation: 'animation' },
   },
   {
     path: 'customers',

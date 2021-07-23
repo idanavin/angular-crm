@@ -21,6 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material-module';
 import { MainModule } from './main/main.module';
 import { AuthModule } from './login-register/auth.module';
+import { OrdersComponent } from './router-pages/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { AuthModule } from './login-register/auth.module';
     LocationComponent,
     ProductsComponent,
     ProductsListComponent,
+    OrdersComponent,
   ],
   imports: [
     AppRoutingModule,

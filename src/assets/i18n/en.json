@@ -48,6 +48,7 @@
   "NAV_DASHBOARD": "Dashboard",
   "NAV_ABOUT": "About",
   "NAV_PRODUCTS": "Products",
+  "NAV_ORDERS": "Orders",
   "NAV_CUSTOMERS": "Customers",
   "NAV_PROFILE": "Profile",
   "NAV_LOGOUT": "Logout",

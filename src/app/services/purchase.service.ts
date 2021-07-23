@@ -69,6 +69,13 @@ export class PurchaseService {
     return date;
   }
 
+  getOrderList(): Purchased[] {
+    if (this.purchaseHistory === []) {
+      this.purchaseHistory = this.localSaveService.loadPurchaseHistory();
+    }
+    return this.purchaseHistory
+  }
+
   saveToPurchaseHistory(users: RandomUser[]) {
     const unsortedPurchasedList = this._getPurchaseList(users);
     const sortedHistoryByDate = this._sortListByDate(unsortedPurchasedList);
