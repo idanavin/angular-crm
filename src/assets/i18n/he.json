@@ -58,5 +58,6 @@
   "NAV_LOGOUT": "התנתקות",
   "PRODUCTS_NEW": "מוצר חדש",
   "CATEGORY": "קטגוריה",
-  "CUSTOMERS_SEARCH_LABEL": "חיפוש לקוח"
+  "CUSTOMERS_SEARCH_LABEL": "חיפוש לקוח",
+  "ORDERS_EXPLAINED": "אתר זה פועל ללא מסד נתונים וצריך למלא אותו בתוכן.\nאנא בקרו בעמוד לקוחות כדי לקבל מהם רכישות רנדומליות."
 }

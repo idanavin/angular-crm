@@ -34,10 +34,8 @@ export class LocalSaveService {
 
   loadPurchaseHistory(): Purchased[] {
     const purchaseHistory = this.loadFromLocal('purchaseHistory');
-    if (purchaseHistory) {
-      return JSON.parse(purchaseHistory)
-    }
-    return [];
+    
+    return purchaseHistory && JSON.parse(purchaseHistory) || []
   }
 
   loadFromLocal(localName: string) {

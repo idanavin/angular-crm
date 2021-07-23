@@ -1,0 +1,30 @@
+:host {
+    display: flex;
+    height: 100%;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    // height: 100%;
+    // justify-content: space-between;
+    gap: 1vmin;
+    padding: 1vmin;
+
+    main {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        height: 83%;
+        border-radius: 1%;
+        box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+        mat-toolbar {
+          height: 9vmin;
+          gap: 1vmin;
+        }
+        mat-selection-list {
+          overflow: auto;
+          flex: 1;
+        }
+      }
+}

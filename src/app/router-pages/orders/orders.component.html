@@ -1,3 +1,12 @@
 <div class="wrapper">
-    {{orders | json}}
+  <h1 *ngIf="orders?.length === 0" translate>ORDERS_EXPLAINED</h1>
+  <main>
+    <mat-selection-list
+      #orderSelect
+      (selectionChange)="onSelections(orderSelect.selectedOptions.selected)"
+    >
+      <!-- <app-customer-list [customers]="customers"></app-customer-list> -->
+      <app-orders-list [orders]="orders"></app-orders-list>
+    </mat-selection-list>
+  </main>
 </div>

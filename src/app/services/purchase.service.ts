@@ -78,8 +78,8 @@ export class PurchaseService {
 
   saveToPurchaseHistory(users: RandomUser[]) {
     const unsortedPurchasedList = this._getPurchaseList(users);
-    const sortedHistoryByDate = this._sortListByDate(unsortedPurchasedList);
-    this.purchaseHistory?.push(...sortedHistoryByDate);
+    this.purchaseHistory?.push(...unsortedPurchasedList);
+    this.purchaseHistory = this._sortListByDate(this.purchaseHistory);
     this.localSaveService.saveToLocal('purchaseHistory', this.purchaseHistory);
   }
 

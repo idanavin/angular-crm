@@ -22,6 +22,7 @@ import { MaterialModule } from './material-module';
 import { MainModule } from './main/main.module';
 import { AuthModule } from './login-register/auth.module';
 import { OrdersComponent } from './router-pages/orders/orders.component';
+import { OrdersListComponent } from './router-pages/orders/orders-list/orders-list.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { OrdersComponent } from './router-pages/orders/orders.component';
     ProductsComponent,
     ProductsListComponent,
     OrdersComponent,
+    OrdersListComponent,
   ],
   imports: [
     AppRoutingModule,

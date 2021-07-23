@@ -1,0 +1,18 @@
+<mat-list-option mat *ngFor="let order of orders" [value]="order">
+  <h3 matLine class="flex">
+    <span>{{ order.date | date }}</span>
+    <div>
+      <span>Total cost</span>
+      <span>: {{ order.total_cost }}$</span>
+    </div>
+  </h3>
+  <p matLine class="flex">
+    <span>{{ order.customer_email }}</span>
+  </p>
+  <h1 matLine class="flex">
+    <div>
+      <span translate>Product id</span>
+      <span>: {{ order.product_id }}</span>
+    </div>
+  </h1>
+</mat-list-option>

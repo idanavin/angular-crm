@@ -54,5 +54,6 @@
   "NAV_LOGOUT": "Logout",
   "PRODUCTS_NEW": "New product",
   "CATEGORY": "Category",
-  "CUSTOMERS_SEARCH_LABEL": "Search customer"
+  "CUSTOMERS_SEARCH_LABEL": "Search customer",
+  "ORDERS_EXPLAINED": "This site is working without a data base and needs to be populated with customers.\nPlease visit Customers page to get random purchases from them."
 }
