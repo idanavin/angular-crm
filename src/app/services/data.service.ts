@@ -43,12 +43,8 @@ export class DataService {
     })
   }
 
-  checkToken(localToken: string): User | undefined {
-    let returnUser;
-    this._users.map((user: User) => {
-      if (user.token === localToken) returnUser = user
-    })
-    return returnUser;
+  getUserByToken(localToken: string): User | undefined {
+    return this._users.find((user) => user.token === localToken)
   }
 
   removeToken(localToken: string) {

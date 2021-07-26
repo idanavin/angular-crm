@@ -43,7 +43,7 @@ export class AuthService {
     let user;
     const localToken = this.getLocalToken();
     if (localToken) {
-      user = this.dataService.checkToken(localToken)
+      user = this.dataService.getUserByToken(localToken)
     }
     return user
   }
