@@ -7,6 +7,7 @@ import { MaterialModule } from '../material-module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LanguageModule } from '../language/language.module';
 import { InputModule } from '../shared/form/input/input.module';
+import { FormErrorsModule } from '../shared/form/form-errors/form-errors.module';
 
 
 
@@ -17,7 +18,8 @@ import { InputModule } from '../shared/form/input/input.module';
     MaterialModule,
     ReactiveFormsModule,
     LanguageModule,
-    InputModule
+    InputModule,
+    FormErrorsModule
   ],
   exports: [LoginRegisterComponent, LoginComponent, RegisterComponent]
 })

@@ -7,6 +7,8 @@
     (input)="onChange($event)"
     (blur)="touched()"
     [id]="fieldName"
+    placeholder="{{ placeholder }}"
+    type="{{ type }}"
   />
 </mat-form-field>
 <app-form-errors [formField]="formField"></app-form-errors>

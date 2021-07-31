@@ -1,31 +1,44 @@
 <div class="wrapper">
-    <h1 translate>REGISTER_WELCOME</h1>
-    <form [formGroup]="registerForm" (ngSubmit)="register()">
-        <mat-form-field>
-            <mat-label for="first-name" translate>NAME_FIRST</mat-label>
-            <input matInput id="first-name"  type="text" formControlName='firstName'>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label for="last-name" translate>NAME_LAST</mat-label>
-            <input matInput id="last-name"  type="text" formControlName='lastName'>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label for="email" translate>EMAIL</mat-label>
-            <input matInput id="email" type ="text" placeholder="test@test.com" formControlName='email'>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label for="pass" translate>PASSWORD</mat-label>
-            <input matInput id="pass" type= "password" placeholder="123456" formControlName='password'>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label for="age" translate>DOB</mat-label>
-            <input matInput id="age" type=" number" formControlName='age'>
-        </mat-form-field>
-        <button mat-raised-button type="submit" [disabled]="!registerForm.valid"><span translate>REGISTER</span></button>
-    </form>
-    <div class="helpers">
-        <mat-error *ngIf="email?.touched && email?.invalid" translate>INPUT_ERROR_EMAIL</mat-error>
-        <mat-error *ngIf="password?.touched && password?.invalid" translate>INPUT_ERROR_PASS_MIN</mat-error>
-        <mat-error *ngIf="age?.touched && age?.invalid" translate>INPUT_ERROR_AGE_MIN</mat-error>
-    </div>
+  <h1 translate>REGISTER_WELCOME</h1>
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <app-input
+      formControlName="firstName"
+      [parentForm]="registerForm"
+      [fieldName]="'firstName'"
+      [label]="'NAME_FIRST' | translate"
+    >
+    </app-input>
+    <app-input
+      formControlName="lastName"
+      [parentForm]="registerForm"
+      [fieldName]="'lastName'"
+      [label]="'NAME_LAST' | translate"
+    >
+    </app-input>
+    <app-input
+      formControlName="email"
+      [parentForm]="registerForm"
+      [fieldName]="'email'"
+      [label]="'EMAIL' | translate"
+    >
+    </app-input>
+    <app-input
+      formControlName="password"
+      [parentForm]="registerForm"
+      [fieldName]="'password'"
+      [label]="'PASSWORD' | translate"
+      [type]="'password'"
+    >
+    </app-input>
+    <app-input
+      formControlName="age"
+      [parentForm]="registerForm"
+      [fieldName]="'age'"
+      [label]="'DOB' | translate"
+    >
+    </app-input>
+    <button mat-raised-button type="submit" [disabled]="!registerForm.valid">
+      <span translate>REGISTER</span>
+    </button>
+  </form>
 </div>

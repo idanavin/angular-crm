@@ -1,32 +1,21 @@
 <div class="wrapper">
   <h1 translate>LOGIN_WELCOME</h1>
   <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <!-- <mat-form-field>
-      <mat-label for="email" translate>EMAIL</mat-label>
-      <input
-        id="email"
-        matInput
-        type="text"
-        placeholder="test@test.com"
-        formControlName="email"
-      />
-    </mat-form-field> -->
     <app-input
       formControlName="email"
       [parentForm]="loginForm"
       [fieldName]="'email'"
-      [label]="'Email'"
+      [label]="'EMAIL' | translate"
+      [placeholder]="'EMAIL' | translate"
     >
     </app-input>
-    <!-- <mat-form-field>
-      <mat-label for="pass" translate>PASSWORD</mat-label>
-      <input id="pass" matInput type="password" formControlName="password" />
-    </mat-form-field> -->
     <app-input
       formControlName="password"
       [parentForm]="loginForm"
       [fieldName]="'password'"
-      [label]="'Password'"
+      [label]="'PASSWORD' | translate"
+      [placeholder]="'PASSWORD' | translate"
+      [type]="'password'"
     >
     </app-input>
     <button
@@ -39,16 +28,4 @@
       </span>
     </button>
   </form>
-  <div class="helpers">
-    <mat-error class="worng-login" *ngIf="loginError">
-      <span translate>LOGIN_ERROR_TRY_THIS</span>
-      <span>test@test.com:123456</span>
-    </mat-error>
-    <mat-error *ngIf="email?.touched && email?.invalid" translate>
-      INPUT_ERROR_EMAIL
-    </mat-error>
-    <mat-error *ngIf="password?.touched && password?.invalid" translate>
-      INPUT_ERROR_PASS_MIN
-    </mat-error>
-  </div>
 </div>
