@@ -5,6 +5,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { MaterialModule } from '../material-module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LanguageModule } from '../language/language.module';
+import { InputModule } from '../shared/form/input/input.module';
 
 
 
@@ -13,7 +15,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LanguageModule,
+    InputModule
   ],
   exports: [LoginRegisterComponent, LoginComponent, RegisterComponent]
 })

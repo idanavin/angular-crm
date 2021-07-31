@@ -1,7 +1,7 @@
 <div class="wrapper">
   <h1 translate>LOGIN_WELCOME</h1>
   <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <mat-form-field>
+    <!-- <mat-form-field>
       <mat-label for="email" translate>EMAIL</mat-label>
       <input
         id="email"
@@ -10,11 +10,25 @@
         placeholder="test@test.com"
         formControlName="email"
       />
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label for="pass" translate>password</mat-label>
+    </mat-form-field> -->
+    <app-input
+      formControlName="email"
+      [parentForm]="loginForm"
+      [fieldName]="'email'"
+      [label]="'Email'"
+    >
+    </app-input>
+    <!-- <mat-form-field>
+      <mat-label for="pass" translate>PASSWORD</mat-label>
       <input id="pass" matInput type="password" formControlName="password" />
-    </mat-form-field>
+    </mat-form-field> -->
+    <app-input
+      formControlName="password"
+      [parentForm]="loginForm"
+      [fieldName]="'password'"
+      [label]="'Password'"
+    >
+    </app-input>
     <button
       mat-raised-button
       type="submit"
