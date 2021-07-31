@@ -8,6 +8,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { InputAutocompleteComponent } from './input-autocomplete/input-autocomplete.component';
 import { InputSelectComponent } from './input-select/input-select.component';
 import { InputAutocompleteCustomerSearch } from './input-autocomplete/input-autocomplete-customer-search';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { InputAutocompleteCustomerSearch } from './input-autocomplete/input-auto
     MatInputModule,
     MatSelectModule,
     FormErrorsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatIconModule
   ],
   exports: [
     InputComponent,

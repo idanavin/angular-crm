@@ -10,5 +10,6 @@
     placeholder="{{ placeholder }}"
     type="{{ type }}"
   />
+  <mat-icon matPrefix *ngIf="icon">{{ icon }}</mat-icon>
 </mat-form-field>
 <app-form-errors [formField]="formField"></app-form-errors>

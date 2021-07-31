@@ -33,6 +33,9 @@ export class InputComponent implements ControlValueAccessor  {
   @Input()
   public type?: string;
 
+  @Input()
+  public icon?: string;
+
   public value: string = '';
   public changed!: (value: string) => void;
   public touched!: () => void;
