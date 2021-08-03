@@ -9,10 +9,6 @@ import { FormValidator } from '../../shared/form/input/form-validator';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  loading: boolean = false;
-  success: boolean;
-  loginError: boolean;
-
   loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(3)]],
@@ -22,28 +18,19 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private readonly formValidator: FormValidator,
     private authService: AuthService
-  ) {
-    this.loginError = false;
-    this.success = false;
-  }
+  ) {}
 
   ngOnInit(): void {}
 
-  async login() {
-    try {
-      if (!this.loginForm.valid) {
-        this.formValidator.validate(this.loginForm);
-        return;
-      }
+  loginAsync = () => this.login();
 
-      this.loginError = false;
-      this.loading = true;
-      await this.authService.login(this.loginForm.value);
-      this.success = true;
-    } catch (error) {
-      this.loginError = true;
+  private async login() {
+    if (!this.loginForm.valid) {
+      this.formValidator.validate(this.loginForm);
+      return;
     }
-    this.loading = false;
+
+    return await this.authService.login(this.loginForm.value);
   }
 
   get email() {

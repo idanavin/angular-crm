@@ -14,13 +14,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LanguageModule } from '../../../language/language.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
+import { ButtonComponent } from '../../form/button/button.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatButtonModule } from '@angular/material/button';
+
 @NgModule({
   declarations: [
     InputComponent,
     InputAutocompleteComponent,
     InputSelectComponent,
     InputAutocompleteCustomerSearch,
-    GenericInputComponent
+    GenericInputComponent,
+    ButtonComponent,
   ],
   imports: [
     CommonModule,
@@ -33,13 +38,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     LanguageModule,
     FormsModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatButtonModule,
   ],
   exports: [
     InputComponent,
     InputAutocompleteComponent,
     InputSelectComponent,
     InputAutocompleteCustomerSearch,
-    GenericInputComponent
-  ]
+    GenericInputComponent,
+    ButtonComponent,
+  ],
 })
-export class InputModule { }
+export class InputModule {}

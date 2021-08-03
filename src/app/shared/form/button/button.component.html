@@ -1,0 +1,24 @@
+<button
+  [disabled]="disabledMode"
+  mat-raised-button
+  [type]="type"
+  [color]="color"
+  (click)="execute()"
+>
+  <div class="loading-indicator">
+    <ng-container [ngSwitch]="status">
+      <span *ngSwitchCase="'pending'">{{ pendingText | translate }}</span>
+      <span *ngSwitchCase="'success'">{{ successMessage | translate }}</span>
+
+      <span *ngSwitchCase="'error'">{{ errorMessage | translate }}</span>
+
+      <span *ngSwitchDefault>{{ text | translate }}</span>
+    </ng-container>
+
+    <mat-spinner
+      [color]="color"
+      *ngIf="status == 'pending'"
+      [diameter]="24"
+    ></mat-spinner>
+  </div>
+</button>

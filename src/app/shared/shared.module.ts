@@ -8,8 +8,10 @@ import { PaginatorModule } from './paginator/paginator.module';
 import { CardModule } from './card/card.module';
 import { SelectModule } from './select/select.module';
 
+
 @NgModule({
   declarations: [
+
   ],
   imports: [
     CommonModule,

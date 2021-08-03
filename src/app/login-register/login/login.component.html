@@ -1,6 +1,21 @@
 <div class="wrapper">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="247.489"
+    height="227.821"
+    viewBox="0 0 247.489 227.821"
+  >
+    <path
+      id="Path_1"
+      data-name="Path 1"
+      d="M345.793,264.055c23.936-1.345,49.841-10.229,70.115,2.567,20.577,12.987,23.777,40.533,33.508,62.835,11.049,25.32,30.134,48.694,27.142,76.157-3.284,30.143-16.78,63.478-43.844,77.149-26.726,13.5-57.66-4.748-86.921-11.1-22.307-4.839-43.815-9.516-63.254-21.48-20.939-12.887-46.4-25.657-52.169-49.559-5.719-23.7,14.9-44.584,24-67.21,8.283-20.613,9.117-45.8,26.815-59.226,17.8-13.508,42.3-8.885,64.613-10.139"
+      transform="translate(-229.383 -259.802)"
+      fill="currentColor"
+    />
+  </svg>
+
   <h1 translate>LOGIN_WELCOME</h1>
-  <form [formGroup]="loginForm" (ngSubmit)="login()">
+  <form [formGroup]="loginForm">
     <!-- <app-input
       formControlName="email"
       [parentForm]="loginForm"
@@ -36,7 +51,7 @@
     </app-generic-input>
 
     <!-- todo-move code to button component -->
-    <button
+    <!-- <button
       [disabled]="loading"
       mat-raised-button
       type="submit"
@@ -48,6 +63,7 @@
         </span>
         <mat-spinner *ngIf="loading" [diameter]="24"></mat-spinner>
       </div>
-    </button>
+    </button> -->
+    <app-button [action]="loginAsync" text="LOGIN"> </app-button>
   </form>
 </div>

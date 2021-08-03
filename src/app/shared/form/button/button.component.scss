@@ -1,0 +1,15 @@
+button {
+    border-radius: 10rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 20rem;
+
+    .loading-indicator{
+      display:flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+  }
