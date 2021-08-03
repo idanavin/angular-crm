@@ -62,5 +62,11 @@
       "email":"Invalid email format",
       "minLength":"Minimumm length is {{requiredLength}}"
     }
+  },
+  "person":{
+    "firstName":"First name",
+    "lastName":"Last name",
+    "email":"Email",
+    "password":"Password"
   }
 }
