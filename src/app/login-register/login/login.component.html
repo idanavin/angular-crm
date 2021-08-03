@@ -28,7 +28,6 @@
       iconPrefix="email"
     >
     </app-generic-input>
-
     <app-generic-input
       formControlName="password"
       placeholder="person.password"
@@ -36,10 +35,19 @@
     >
     </app-generic-input>
 
-    <button [disabled]="loading" mat-raised-button type="submit">
-      <span translate>
-        {{ loading ? "LOADING" : !success ? "LOGIN" : "SUCCESS" }}
-      </span>
+    <!-- todo-move code to button component -->
+    <button
+      [disabled]="loading"
+      mat-raised-button
+      type="submit"
+      color="primary"
+    >
+      <div class="loading-indicator">
+        <span translate>
+          {{ loading ? "LOADING" : !success ? "LOGIN" : "SUCCESS" }}
+        </span>
+        <mat-spinner *ngIf="loading" [diameter]="24"></mat-spinner>
+      </div>
     </button>
   </form>
 </div>

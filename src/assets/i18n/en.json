@@ -68,5 +68,9 @@
     "lastName":"Last name",
     "email":"Email",
     "password":"Password"
+  },
+  "login":{
+    "registerText":"Not registered yet? Create an account.",
+    "alreadyRegisteredText":"Already registered? Login to your account."
   }
 }

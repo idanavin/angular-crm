@@ -8,6 +8,7 @@
     align-items: center;
     justify-content: center;
     border-radius: base.$border-radius-left;
+    background: var(--color-accent-gradient-1);
     padding-right: 10%;
     h1 {
       display: flex;
@@ -32,6 +33,13 @@
         text-transform: uppercase;
         font-weight: bold;
         width: 20rem;
+
+        .loading-indicator{
+          display:flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+        }
       }
     }
     .helpers {

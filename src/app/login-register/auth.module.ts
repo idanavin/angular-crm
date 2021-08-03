@@ -20,6 +20,7 @@ import { FormErrorsModule } from '../shared/form/form-errors/form-errors.module'
     LanguageModule,
     InputModule,
     FormErrorsModule
+
   ],
   exports: [LoginRegisterComponent, LoginComponent, RegisterComponent]
 })
