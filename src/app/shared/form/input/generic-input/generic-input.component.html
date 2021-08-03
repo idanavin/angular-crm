@@ -1,0 +1,44 @@
+<mat-form-field appearance="standard">
+  <mat-label>{{ label | translate }}</mat-label>
+  <input
+    matInput
+    [autocomplete]="autoComplete"
+    [type]="type"
+    [placeholder]="placeholder | translate"
+    [disabled]="isDisabled"
+    (input)="onChange($event)"
+    (blur)="touched()"
+    [formControlName]="formControlName"
+  />
+
+  <mat-icon matPrefix *ngIf="iconPrefix">{{ iconPrefix }}</mat-icon>
+  <mat-icon matPrefix *ngIf="iconSuffix">{{ iconSuffix }}</mat-icon>
+
+  <mat-error *ngIf="formField.touched && formField.hasError('required')">
+    {{ "form.validations.required" | translate }}
+  </mat-error>
+
+  <mat-error
+    *ngIf="
+      formField.touched &&
+      !formField.hasError('required') &&
+      formField.hasError('email')
+    "
+  >
+    {{ "form.validations.email" | translate }}
+  </mat-error>
+
+  <mat-error
+    *ngIf="
+      formField.touched &&
+      !formField.hasError('required') &&
+      formField.hasError('minlength')
+    "
+  >
+    {{
+      "form.validations.minLength"
+        | translate
+          : { requiredLength: formField.getError("minlength").requiredLength }
+    }}
+  </mat-error>
+</mat-form-field>

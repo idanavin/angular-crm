@@ -1,36 +1,51 @@
 @use '../../style/base';
 :host {
-    width: 100%;
-    .wrapper {
-        height: 100%;
+  width: 100%;
+  .wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: base.$border-radius-right;
+    padding-left: 10%;
+    h1 {
+      display: flex;
+      align-items: center;
+
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 3vmin;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      // app-input {
+      //     width: 70%;
+      // }
+
+      button {
+        border-radius: 10rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        width: 20rem;
+      }
+
+      & > * {
+        width: 70%;
+      }
+    }
+    .helpers {
+      height: 20%;
+      width: 30vw;
+      .worng-login {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        border-radius: base.$border-radius-right;
-        padding-left: 10%;
-        h1 {
-            display: flex;
-            align-items: center;
-            height: 30%;
-            text-align: center;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 3vmin;
-            width: 100%;
-            align-items: center;
-            app-input {
-                width: 70%;
-            }
-        }
-        .helpers {
-            height: 20%;
-            width: 30vw;
-            .worng-login {
-                display: flex;
-                flex-direction: column;
-            }
-        }
+      }
     }
+  }
 }

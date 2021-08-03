@@ -9,13 +9,18 @@ import { InputAutocompleteComponent } from './input-autocomplete/input-autocompl
 import { InputSelectComponent } from './input-select/input-select.component';
 import { InputAutocompleteCustomerSearch } from './input-autocomplete/input-autocomplete-customer-search';
 import { MatIconModule } from '@angular/material/icon';
+import { GenericInputComponent } from './generic-input/generic-input.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LanguageModule } from '../../../language/language.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
     InputComponent,
     InputAutocompleteComponent,
     InputSelectComponent,
-    InputAutocompleteCustomerSearch
+    InputAutocompleteCustomerSearch,
+    GenericInputComponent
   ],
   imports: [
     CommonModule,
@@ -23,13 +28,18 @@ import { MatIconModule } from '@angular/material/icon';
     MatSelectModule,
     FormErrorsModule,
     MatAutocompleteModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    LanguageModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     InputComponent,
     InputAutocompleteComponent,
     InputSelectComponent,
-    InputAutocompleteCustomerSearch
+    InputAutocompleteCustomerSearch,
+    GenericInputComponent
   ]
 })
 export class InputModule { }

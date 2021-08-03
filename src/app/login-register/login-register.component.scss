@@ -1,28 +1,34 @@
 @use '../style/base';
 
 :host {
-    display: flex;
-    width: 100%;
-    overflow: hidden;
-    .cover {
-        position: relative;
-        height: 100%;
-        width: 100%;
-        background-color: base.$color-dark-1;
-        border-radius: base.$border-radius / 2;
-        button {
-            position: absolute;
-            top: 70%;
-            left: 50%;
-            transform: translate(-50%, -70%);
-        }
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  .cover {
+    position: relative;
+    height: 100%;
+    width: 50%;
+    background-color: base.$color-dark-1;
+    border-radius: base.$border-radius / 2;
+    button {
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -70%);
+      border-radius: 10rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      width: 20rem;
     }
-    app-login {
-        padding-right: 1vmin;
-        margin-right: -3vmin;
-    }
-    app-register {
-        padding-left: 1vmin;
-        margin-left: -3vmin;
-    }
+  }
+  app-login {
+    padding-right: 1vmin;
+    margin-right: -3vmin;
+  }
+  app-register {
+    padding-left: 1vmin;
+    margin-left: -3vmin;
+  }
 }

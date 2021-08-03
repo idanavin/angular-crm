@@ -1,43 +1,65 @@
 <div class="wrapper">
   <h1 translate>REGISTER_WELCOME</h1>
   <form [formGroup]="registerForm" (ngSubmit)="register()">
-    <app-input
+    <!-- <app-input
       formControlName="firstName"
       [parentForm]="registerForm"
       [fieldName]="'firstName'"
       [label]="'NAME_FIRST' | translate"
     >
-    </app-input>
-    <app-input
+    </app-input> -->
+
+    <app-generic-input formControlName="firstName" placeholder="NAME_FIRST">
+    </app-generic-input>
+
+    <app-generic-input formControlName="lastName" placeholder="NAME_LAST">
+    </app-generic-input>
+
+    <app-generic-input
+      formControlName="email"
+      placeholder="test@test.com"
+      label="Email"
+      iconPrefix="email"
+    >
+    </app-generic-input>
+
+    <app-generic-input
+      formControlName="password"
+      placeholder="PASSWORD"
+      type="password"
+    >
+    </app-generic-input>
+
+    <!-- <app-input
       formControlName="lastName"
       [parentForm]="registerForm"
       [fieldName]="'lastName'"
       [label]="'NAME_LAST' | translate"
     >
-    </app-input>
-    <app-input
+    </app-input> -->
+    <!-- <app-input
       formControlName="email"
       [parentForm]="registerForm"
       [fieldName]="'email'"
       [label]="'EMAIL' | translate"
     >
-    </app-input>
-    <app-input
+    </app-input> -->
+    <!-- <app-input
       formControlName="password"
       [parentForm]="registerForm"
       [fieldName]="'password'"
       [label]="'PASSWORD' | translate"
       [type]="'password'"
     >
-    </app-input>
-    <app-input
+    </app-input> -->
+    <!-- <app-input
       formControlName="age"
       [parentForm]="registerForm"
       [fieldName]="'age'"
       [label]="'DOB' | translate"
     >
-    </app-input>
-    <button mat-raised-button type="submit" [disabled]="!registerForm.valid">
+    </app-input> -->
+    <button mat-raised-button type="submit" [disabled]="loading">
       <span translate>REGISTER</span>
     </button>
   </form>

@@ -1,7 +1,7 @@
 <div class="wrapper">
   <h1 translate>LOGIN_WELCOME</h1>
   <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <app-input
+    <!-- <app-input
       formControlName="email"
       [parentForm]="loginForm"
       [fieldName]="'email'"
@@ -9,8 +9,9 @@
       [placeholder]="'EMAIL' | translate"
       [icon]="'email'"
     >
-    </app-input>
-    <app-input
+    </app-input> -->
+
+    <!-- <app-input
       formControlName="password"
       [parentForm]="loginForm"
       [fieldName]="'password'"
@@ -18,12 +19,25 @@
       [placeholder]="'PASSWORD' | translate"
       [type]="'password'"
     >
-    </app-input>
-    <button
-      mat-raised-button
-      type="submit"
-      [disabled]="!loginForm.valid || loading"
+    </app-input> -->
+
+    <app-generic-input
+      formControlName="email"
+      placeholder="test@test.com"
+      label="Email"
+      iconPrefix="email"
     >
+    </app-generic-input>
+
+    <app-generic-input
+      formControlName="password"
+      placeholder="password"
+      label="Password"
+      type="password"
+    >
+    </app-generic-input>
+
+    <button [disabled]="loading" mat-raised-button type="submit">
       <span translate>
         {{ loading ? "LOADING" : !success ? "LOGIN" : "SUCCESS" }}
       </span>

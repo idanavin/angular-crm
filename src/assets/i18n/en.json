@@ -55,5 +55,12 @@
   "PRODUCTS_NEW": "New product",
   "CATEGORY": "Category",
   "CUSTOMERS_SEARCH_LABEL": "Search customer",
-  "ORDERS_EXPLAINED": "This site is working without a data base and needs to be populated with customers.\nPlease visit Customers page to get random purchases from them."
+  "ORDERS_EXPLAINED": "This site is working without a data base and needs to be populated with customers.\nPlease visit Customers page to get random purchases from them.",
+  "form":{
+    "validations":{
+      "required":"Field is required",
+      "email":"Invalid email format",
+      "minLength":"Minimumm length is {{requiredLength}}"
+    }
+  }
 }

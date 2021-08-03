@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../interface/user';
 import { DataService } from '../../services/data.service';
+import { FormValidator } from '../../shared/form/input/form-validator';
 
 @Component({
   selector: 'app-register',
@@ -37,13 +38,22 @@ export class RegisterComponent implements OnInit {
     ]]
   });
 
-  constructor(private fb: FormBuilder, private dataService: DataService) { }
+  constructor(private fb: FormBuilder, 
+    private readonly formValidator: FormValidator,
+    private dataService: DataService) { }
 
   ngOnInit(): void {
   }
 
   async register() {
     try {
+
+      if (!this.registerForm.valid) {
+        this.formValidator.validate(this.registerForm);
+        return;
+      }
+
+
       this.registerError = false;
       this.loading = true;
       const user: User = {... this.registerForm.value, token: null}
