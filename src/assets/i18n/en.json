@@ -72,5 +72,12 @@
   "login":{
     "registerText":"Not registered yet? Create an account.",
     "alreadyRegisteredText":"Already registered? Login to your account."
+  },
+  "button": {
+    "messages": {
+      "loading": "Loading",
+      "successMessage": "Success",
+      "errorMessage": "Error"
+    }
   }
 }

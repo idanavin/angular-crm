@@ -59,5 +59,29 @@
   "PRODUCTS_NEW": "מוצר חדש",
   "CATEGORY": "קטגוריה",
   "CUSTOMERS_SEARCH_LABEL": "חיפוש לקוח",
-  "ORDERS_EXPLAINED": "אתר זה פועל ללא מסד נתונים וצריך למלא אותו בתוכן.\nאנא בקרו בעמוד לקוחות כדי לקבל מהם רכישות רנדומליות."
+  "ORDERS_EXPLAINED": "אתר זה פועל ללא מסד נתונים וצריך למלא אותו בתוכן.\nאנא בקרו בעמוד לקוחות כדי לקבל מהם רכישות רנדומליות.",
+  "form":{
+    "validations":{
+      "required":"שדה חובה",
+      "email":"אימייל הוזן לא נכון",
+      "minLength":"שדה דורש {{requiredLength}} תווים"
+    }
+  },
+  "person":{
+    "firstName":"שם פרטי",
+    "lastName":"שם משפחה",
+    "email":"אימייל",
+    "password":"סיסמא"
+  },
+  "login":{
+    "registerText":"לא רשום עדיין? צור משתמש חדש",
+    "alreadyRegisteredText":"כבר רשום? התחבר למערכת"
+  },
+  "button": {
+    "messages": {
+      "loading": "טוען",
+      "successMessage": "הצלחה",
+      "errorMessage": "שגיאה"
+    }
+  }
 }
