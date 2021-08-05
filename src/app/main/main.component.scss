@@ -31,9 +31,8 @@
   }
   main {
     position: relative;
-    padding: 0 1vmin;
-    border-radius: 1%;
-    // overflow-y: auto;
+    margin-left: 1vmin;
+    border-radius: base.$border-radius-right;
     overflow: hidden;
     width: 100%;
   }
