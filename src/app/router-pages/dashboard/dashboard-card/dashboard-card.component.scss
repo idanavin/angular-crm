@@ -1,0 +1,11 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  gap: 1vmin;
+  min-width: auto;
+  flex: 1;
+  padding: 3vmin 2vmin;
+  border-radius: 1%;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+}

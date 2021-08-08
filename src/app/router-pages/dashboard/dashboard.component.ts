@@ -11,7 +11,7 @@ export class DashboardComponent implements OnInit {
   data = [
     [1, 6, 7, 5, 8, 1, 0],
     [3, 6, 7, 5, 8, 1, 0],
-    [8, 6, 7, 5, 8, 1, 0]
+    [8, 6, 7, 15, 18, 1, 0]
   ]
 
   constructor() { }

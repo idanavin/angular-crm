@@ -1,17 +1,17 @@
-<div class="header">
-    <h1 class="header__title">Sales</h1>
-    <h3 class="header__sub">Welcome to CRM dashboard</h3>
-</div>
-<div class="grid">
-    <div class="card" *ngFor="let cardData of data">
-        <div class="row">
-            <h2 class="custom-header">Card title</h2>
-            <select>
-                <option value="0">This week</option>
-                <option value="1">Last Week</option>
-                <option value="2">2 Weeks ago</option>
-            </select>
-        </div>
-        <app-chart [data]='cardData'></app-chart>
+<div class="wrapper">
+    <div class="header">
+        <h1 class="header__title">Dashboard</h1>
+        <h3 class="header__sub">Welcome to CRM dashboard</h3>
+    </div>
+    <div class="grid">
+        <app-dashboard-card [header]="'Sales'">
+            <app-chart [data]='data[0]'></app-chart>
+        </app-dashboard-card>
+        <app-dashboard-card [header]="'Sales'">
+            <app-chart [data]='data[1]'></app-chart>
+        </app-dashboard-card>
+        <app-dashboard-card [header]="'Sales'">
+            <app-chart [data]='data[2]'></app-chart>
+        </app-dashboard-card>
     </div>
 </div>
