@@ -1,6 +1,8 @@
-import { User } from "../interface/user";
+import { RandomProduct } from '../interface/product';
+import { User } from '../interface/user';
 
-export const users: User[] = [{
+export const users: User[] = [
+  {
     id: 1,
     image: '../../assets/avatar0.png',
     firstName: 'Larsen',
@@ -8,756 +10,733 @@ export const users: User[] = [{
     email: 'test@test.com',
     password: '123456',
     age: 26,
-    token: 'test@test.com-1234abcd'
-},
-{
+    token: 'test@test.com-1234abcd',
+  },
+  {
     id: 2,
     firstName: 'Rosseta',
     lastName: 'Wilson',
     email: 'test1@test.com',
     password: '123456',
     age: 18,
-    token: null
-},
-{
+    token: null,
+  },
+  {
     id: 3,
     firstName: 'William',
     lastName: 'Carney',
     email: 'test3@test.com',
     password: '123456',
     age: 44,
-    token: null
-}]
+    token: null,
+  },
+];
 
 export const customers: any[] = [
-    {
-        "isActive": false,
-        "age": 21,
-        "id": 2,
-        "firstName": "Larsen",
-        "lastName": "Shaw",
-        "email": "abc@test.com",
-        "avatar": "/assets/img/avatar3.png"
-    },
-    {
-        "isActive": false,
-        "age": 89,
-        "id": 4,
-        "firstName": "Rosseta",
-        "lastName": "Wilson",
-        "email": "test@test.com",
-        "avatar": "/assets/img/avatar4.png"
-    },
-    {
-        "isActive": false,
-        "age": 38,
-        "id": 5,
-        "firstName": "William",
-        "lastName": "Carney",
-        "email": "test@test.com",
-        "avatar": "/assets/img/avatar2.png"
-    },
-    {
-        "isActive": false,
-        "age": 24,
-        "id": 6,
-        "firstName": "Sarah",
-        "lastName": "Dunne",
-        "email": "test@test.com",
-        "avatar": "/assets/img/avatar1.png"
-    },
-    {
-        "isActive": true,
-        "age": 23,
-        "id": 8,
-        "firstName": "Merriana",
-        "lastName": "Sean",
-        "email": "test@test.com",
-        "avatar": "/assets/img/avatar5.png"
-    },
-    {
-        "isActive": true,
-        "age": 26,
-        "id": 9,
-        "firstName": "Jubino",
-        "lastName": "Gerret",
-        "email": "test@test.com",
-        "avatar": "/assets/img/avatar1.png"
-    },
-    {
-        "isActive": false,
-        "age": 22,
-        "id": 10,
-        "firstName": "Geneva",
-        "lastName": "Wilson",
-        "email": "test@test.com",
-        "avatar": "/assets/img/avatar2.png"
-    },
-    {
-        "isActive": true,
-        "age": 38,
-        "id": 11,
-        "firstName": "Mark",
-        "lastName": "Carney",
-        "email": "test@test.com",
-        "avatar": "/assets/img/avatar5.png"
-    },
-    {
-        "isActive": false,
-        "age": 27,
-        "id": 12,
-        "firstName": "Yann",
-        "lastName": "Larrel",
-        "email": "test@test.com",
-        "avatar": "/assets/img/avatar1.png"
-    },
-    {
-        "isActive": true,
-        "firstName": "John",
-        "lastName": "Doe",
-        "age": 88,
-        "email": "john.doe@test.com",
-        "id": 13
-    },
-    {
-        "avatar": null,
-        "firstName": "sdfsdf",
-        "lastName": "sdfsdf",
-        "age": 22,
-        "email": "sdfsdfsdfs",
-        "isActive": false,
-        "id": 14
-    }
-]
+  {
+    isActive: false,
+    age: 21,
+    id: 2,
+    firstName: 'Larsen',
+    lastName: 'Shaw',
+    email: 'abc@test.com',
+    avatar: '/assets/img/avatar3.png',
+  },
+  {
+    isActive: false,
+    age: 89,
+    id: 4,
+    firstName: 'Rosseta',
+    lastName: 'Wilson',
+    email: 'test@test.com',
+    avatar: '/assets/img/avatar4.png',
+  },
+  {
+    isActive: false,
+    age: 38,
+    id: 5,
+    firstName: 'William',
+    lastName: 'Carney',
+    email: 'test@test.com',
+    avatar: '/assets/img/avatar2.png',
+  },
+  {
+    isActive: false,
+    age: 24,
+    id: 6,
+    firstName: 'Sarah',
+    lastName: 'Dunne',
+    email: 'test@test.com',
+    avatar: '/assets/img/avatar1.png',
+  },
+  {
+    isActive: true,
+    age: 23,
+    id: 8,
+    firstName: 'Merriana',
+    lastName: 'Sean',
+    email: 'test@test.com',
+    avatar: '/assets/img/avatar5.png',
+  },
+  {
+    isActive: true,
+    age: 26,
+    id: 9,
+    firstName: 'Jubino',
+    lastName: 'Gerret',
+    email: 'test@test.com',
+    avatar: '/assets/img/avatar1.png',
+  },
+  {
+    isActive: false,
+    age: 22,
+    id: 10,
+    firstName: 'Geneva',
+    lastName: 'Wilson',
+    email: 'test@test.com',
+    avatar: '/assets/img/avatar2.png',
+  },
+  {
+    isActive: true,
+    age: 38,
+    id: 11,
+    firstName: 'Mark',
+    lastName: 'Carney',
+    email: 'test@test.com',
+    avatar: '/assets/img/avatar5.png',
+  },
+  {
+    isActive: false,
+    age: 27,
+    id: 12,
+    firstName: 'Yann',
+    lastName: 'Larrel',
+    email: 'test@test.com',
+    avatar: '/assets/img/avatar1.png',
+  },
+  {
+    isActive: true,
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 88,
+    email: 'john.doe@test.com',
+    id: 13,
+  },
+  {
+    avatar: null,
+    firstName: 'sdfsdf',
+    lastName: 'sdfsdf',
+    age: 22,
+    email: 'sdfsdfsdfs',
+    isActive: false,
+    id: 14,
+  },
+];
 export const orders: any[] = [
-    {
-        "id": 2,
-        "reference": "order-2-2-1-2",
-        "customerId": 2,
-        "products": [
-            {
-                "id": 1,
-                "productName": "Product HHYDP",
-                "categoryId": 1,
-                "unitInStock": null,
-                "unitPrice": 18
-            },
-            {
-                "id": 2,
-                "productName": "Product RECZE",
-                "categoryId": 1,
-                "unitInStock": null,
-                "unitPrice": 19
-            }
-        ],
-        "amount": 9.99,
-        "orderDate": "2017-01-01",
-        "shippedDate": "2017-01-01",
-        "shipAddress": {
-            "address": "Gran Vía, 0123",
-            "city": "Madrid",
-            "zipcode": "10298",
-            "country": "Spain"
-        }
+  {
+    id: 2,
+    reference: 'order-2-2-1-2',
+    customerId: 2,
+    products: [
+      {
+        id: 1,
+        productName: 'Product HHYDP',
+        categoryId: 1,
+        unitInStock: null,
+        unitPrice: 18,
+      },
+      {
+        id: 2,
+        productName: 'Product RECZE',
+        categoryId: 1,
+        unitInStock: null,
+        unitPrice: 19,
+      },
+    ],
+    amount: 9.99,
+    orderDate: '2017-01-01',
+    shippedDate: '2017-01-01',
+    shipAddress: {
+      address: 'Gran Vía, 0123',
+      city: 'Madrid',
+      zipcode: '10298',
+      country: 'Spain',
     },
-    {
-        "id": 3,
-        "reference": "order-4-3-1-21",
-        "customerId": 4,
-        "products": [
-            {
-                "id": 1,
-                "productName": "Product HHYDP",
-                "categoryId": 1,
-                "unitInStock": null,
-                "unitPrice": 18
-            },
-            {
-                "id": 2,
-                "productName": "Product RECZE",
-                "categoryId": 1,
-                "unitInStock": null,
-                "unitPrice": 19
-            }
-        ],
-        "amount": 5.99,
-        "orderDate": "2017-01-01",
-        "shippedDate": "1/12/2017",
-        "shipAddress": {
-            "address": "Gran Vía, 0123",
-            "city": "Madrid",
-            "zipcode": "10298",
-            "country": "Spain"
+  },
+  {
+    id: 3,
+    reference: 'order-4-3-1-21',
+    customerId: 4,
+    products: [
+      {
+        id: 1,
+        productName: 'Product HHYDP',
+        categoryId: 1,
+        unitInStock: null,
+        unitPrice: 18,
+      },
+      {
+        id: 2,
+        productName: 'Product RECZE',
+        categoryId: 1,
+        unitInStock: null,
+        unitPrice: 19,
+      },
+    ],
+    amount: 5.99,
+    orderDate: '2017-01-01',
+    shippedDate: '1/12/2017',
+    shipAddress: {
+      address: 'Gran Vía, 0123',
+      city: 'Madrid',
+      zipcode: '10298',
+      country: 'Spain',
+    },
+    customer: {
+      isActive: false,
+      age: 89,
+      id: 4,
+      firstName: 'Rosseta',
+      lastName: 'Wilson',
+      email: 'test@test.com',
+      avatar: '/assets/img/avatar4.png',
+    },
+    displayOrderDate: '2017-01-01T00:00:00.000Z',
+    displayShippedDate: '2017-01-11T13:00:00.000Z',
+  },
+  {
+    id: 4,
+    reference: 'order-4-4-1-2',
+    customerId: 4,
+    products: [
+      {
+        id: 3,
+        productName: 'Product IMEHJ',
+        categoryId: 2,
+        unitInStock: null,
+        unitPrice: 10,
+      },
+      {
+        id: 4,
+        productName: 'Product KSBRM',
+        categoryId: 2,
+        unitInStock: null,
+        unitPrice: 22,
+      },
+    ],
+    amount: 499.99,
+    orderDate: '2017-01-01T00:00:00.000Z',
+    shippedDate: '1/21/2017',
+    shipAddress: {
+      address: 'Gran Vía, 0123',
+      city: 'Madrid',
+      zipcode: '10298',
+      country: 'Spain',
+    },
+    customer: {
+      isActive: false,
+      age: 89,
+      id: 4,
+      firstName: 'Rosseta',
+      lastName: 'Wilson',
+      email: 'test@test.com',
+      avatar: '/assets/img/avatar4.png',
+    },
+    displayOrderDate: '2017-01-01T00:00:00.000Z',
+    displayShippedDate: '2017-01-20T13:00:00.000Z',
+    quantity: 3,
+  },
+  {
+    id: 5,
+    reference: 'order-5-5-1-2',
+    customerId: 5,
+    products: [
+      {
+        id: 5,
+        productName: 'Product EPEIM',
+        categoryId: 2,
+        unitInStock: null,
+        unitPrice: 21.5,
+      },
+    ],
+    amount: 399.99,
+    orderDate: '2017-01-01',
+    shippedDate: '2017-01-01',
+    shipAddress: {
+      address: 'Gran Vía, 0123',
+      city: 'Madrid',
+      zipcode: '10298',
+      country: 'Spain',
+    },
+    customer: {
+      isActive: false,
+      age: 38,
+      id: 5,
+      firstName: 'William',
+      lastName: 'Carney',
+      email: 'test@test.com',
+      avatar: '/assets/img/avatar2.png',
+    },
+    displayOrderDate: '2017-01-01T00:00:00.000Z',
+    displayShippedDate: '2017-01-01T00:00:00.000Z',
+    quantity: 3,
+    price: 399.95,
+  },
+  {
+    id: 6,
+    reference: 'order-6-6-1-2',
+    customerId: 6,
+    products: [
+      {
+        id: 5,
+        productName: 'Product EPEIM',
+        categoryId: 2,
+        unitInStock: null,
+        unitPrice: 21.5,
+      },
+    ],
+    amount: 329.99,
+    orderDate: '2017-01-01',
+    shippedDate: '1/19/2017',
+    shipAddress: {
+      address: 'Gran Vía, 0123',
+      city: 'Madrid',
+      zipcode: '10298',
+      country: 'Spain',
+    },
+    customer: {
+      isActive: false,
+      age: 23,
+      id: 6,
+      firstName: 'Sarah',
+      lastName: 'Dunne',
+      email: 'test@test.com',
+      avatar: '/assets/img/avatar1.png',
+    },
+    displayOrderDate: '2017-01-01T00:00:00.000Z',
+    displayShippedDate: '2017-01-18T13:00:00.000Z',
+  },
+  {
+    id: 8,
+    reference: 'order-8-8-1-2',
+    customerId: 8,
+    products: [
+      {
+        id: 5,
+        productName: 'Product EPEIM',
+        categoryId: 2,
+        unitInStock: null,
+        unitPrice: 21.5,
+      },
+    ],
+    amount: 89.99,
+    orderDate: '2017-01-01',
+    shippedDate: '2017-01-01',
+    shipAddress: {
+      address: 'Gran Vía, 0123',
+      city: 'Madrid',
+      zipcode: '10298',
+      country: 'Spain',
+    },
+  },
+  {
+    id: 9,
+    reference: 'order-9-9-1-2',
+    customerId: 9,
+    products: [
+      {
+        id: 5,
+        productName: 'Product EPEIM',
+        categoryId: 2,
+        unitInStock: null,
+        unitPrice: 21.5,
+      },
+    ],
+    amount: 59.99,
+    orderDate: '2017-01-01',
+    shippedDate: '2017-01-01',
+    shipAddress: {
+      address: 'Gran Vía, 0123',
+      city: 'Madrid',
+      zipcode: '10298',
+      country: 'Spain',
+    },
+  },
+  {
+    id: 10,
+    reference: 'order-10-10-1-2',
+    customerId: 10,
+    products: [
+      {
+        id: 5,
+        productName: 'Product EPEIM',
+        categoryId: 2,
+        unitInStock: null,
+        unitPrice: 21.5,
+      },
+    ],
+    amount: 49.99,
+    orderDate: '2017-01-01',
+    shippedDate: '2017-01-01',
+    shipAddress: {
+      address: 'Gran Vía, 0123',
+      city: 'Madrid',
+      zipcode: '10298',
+      country: 'Spain',
+    },
+    customer: {
+      isActive: false,
+      age: 22,
+      id: 10,
+      firstName: 'Geneva',
+      lastName: 'Wilson',
+      email: 'test@test.com',
+      avatar: '/assets/img/avatar2.png',
+    },
+    displayOrderDate: '2017-01-01T00:00:00.000Z',
+    displayShippedDate: '2017-01-01T00:00:00.000Z',
+    quantity: 2,
+  },
+  {
+    id: 12,
+    reference: 'order-2-12-1-2',
+    customerId: 2,
+    products: [
+      {
+        id: 5,
+        productName: 'Product EPEIM',
+        categoryId: 2,
+        unitInStock: null,
+        unitPrice: 21.5,
+      },
+    ],
+    amount: 49.99,
+    orderDate: '2017-01-01',
+    shippedDate: '2017-01-01',
+    shipAddress: {
+      address: 'Gran Vía, 0123',
+      city: 'Madrid',
+      zipcode: '10298',
+      country: 'Spain',
+    },
+  },
+  {
+    id: 14,
+    reference: 'order-2-14-1-2',
+    customerId: 4,
+    products: [
+      {
+        id: 5,
+        productName: 'Product EPEIM',
+        categoryId: 2,
+        unitInStock: null,
+        unitPrice: 21.5,
+      },
+    ],
+    amount: 19.99,
+    orderDate: '2017-01-09',
+    shippedDate: '2017-01-01',
+    shipAddress: {
+      address: 'Gran Vía, 0123',
+      city: 'Madrid',
+      zipcode: '10298',
+      country: 'Spain',
+    },
+  },
+  {
+    id: 15,
+    reference: 'order-11-15-1-2',
+    customerId: 11,
+    products: [
+      {
+        id: 5,
+        productName: 'Product EPEIM',
+        categoryId: 2,
+        unitInStock: null,
+        unitPrice: 21.5,
+      },
+      {
+        id: 19,
+        productName: 'Product XKXDO',
+        categoryId: 3,
+        unitInStock: null,
+        unitPrice: 9.2,
+        category: {
+          id: 3,
+          categoryName: 'Confections',
+          description: 'Desserts, candies, and sweet breads',
+          picture: null,
         },
-        "customer": {
-            "isActive": false,
-            "age": 89,
-            "id": 4,
-            "firstName": "Rosseta",
-            "lastName": "Wilson",
-            "email": "test@test.com",
-            "avatar": "/assets/img/avatar4.png"
+        text: 'Product XKXDO',
+        value: 19,
+      },
+    ],
+    amount: 222,
+    orderDate: '2017-01-19',
+    shippedDate: '2017-01-16',
+    shipAddress: {
+      address: 'Gran Vía, 0123',
+      city: 'Madrid',
+      zipcode: '10298',
+      country: 'Spain',
+    },
+    quantity: 12,
+    price: 33,
+  },
+  {
+    products: [
+      {
+        id: 4,
+        productName: 'Product KSBRM',
+        categoryId: 2,
+        unitInStock: 2,
+        unitPrice: 22,
+        category: {
+          id: 2,
+          categoryName: 'Condiments',
+          description:
+            'Sweet and savory sauces, relishes, spreads, and seasonings',
+          picture: null,
         },
-        "displayOrderDate": "2017-01-01T00:00:00.000Z",
-        "displayShippedDate": "2017-01-11T13:00:00.000Z"
-    },
-    {
-        "id": 4,
-        "reference": "order-4-4-1-2",
-        "customerId": 4,
-        "products": [
-            {
-                "id": 3,
-                "productName": "Product IMEHJ",
-                "categoryId": 2,
-                "unitInStock": null,
-                "unitPrice": 10
-            },
-            {
-                "id": 4,
-                "productName": "Product KSBRM",
-                "categoryId": 2,
-                "unitInStock": null,
-                "unitPrice": 22
-            }
-        ],
-        "amount": 499.99,
-        "orderDate": "2017-01-01T00:00:00.000Z",
-        "shippedDate": "1/21/2017",
-        "shipAddress": {
-            "address": "Gran Vía, 0123",
-            "city": "Madrid",
-            "zipcode": "10298",
-            "country": "Spain"
+        text: 'Product KSBRM',
+        value: 4,
+      },
+      {
+        id: 6,
+        productName: 'Product VAIIV',
+        categoryId: 2,
+        unitInStock: null,
+        unitPrice: 25,
+        category: {
+          id: 2,
+          categoryName: 'Condiments',
+          description:
+            'Sweet and savory sauces, relishes, spreads, and seasonings',
+          picture: null,
         },
-        "customer": {
-            "isActive": false,
-            "age": 89,
-            "id": 4,
-            "firstName": "Rosseta",
-            "lastName": "Wilson",
-            "email": "test@test.com",
-            "avatar": "/assets/img/avatar4.png"
-        },
-        "displayOrderDate": "2017-01-01T00:00:00.000Z",
-        "displayShippedDate": "2017-01-20T13:00:00.000Z",
-        "quantity": 3
+        text: 'Product VAIIV',
+        value: 6,
+      },
+    ],
+    customerId: 4,
+    orderDate: '2017-08-08',
+    shippedDate: null,
+    shipAddress: {
+      address: 'sss',
+      city: 'sss',
+      zipcode: 'sss',
+      country: 'sss',
     },
-    {
-        "id": 5,
-        "reference": "order-5-5-1-2",
-        "customerId": 5,
-        "products": [
-            {
-                "id": 5,
-                "productName": "Product EPEIM",
-                "categoryId": 2,
-                "unitInStock": null,
-                "unitPrice": 21.5
-            }
-        ],
-        "amount": 399.99,
-        "orderDate": "2017-01-01",
-        "shippedDate": "2017-01-01",
-        "shipAddress": {
-            "address": "Gran Vía, 0123",
-            "city": "Madrid",
-            "zipcode": "10298",
-            "country": "Spain"
-        },
-        "customer": {
-            "isActive": false,
-            "age": 38,
-            "id": 5,
-            "firstName": "William",
-            "lastName": "Carney",
-            "email": "test@test.com",
-            "avatar": "/assets/img/avatar2.png"
-        },
-        "displayOrderDate": "2017-01-01T00:00:00.000Z",
-        "displayShippedDate": "2017-01-01T00:00:00.000Z",
-        "quantity": 3,
-        "price": 399.95
-    },
-    {
-        "id": 6,
-        "reference": "order-6-6-1-2",
-        "customerId": 6,
-        "products": [
-            {
-                "id": 5,
-                "productName": "Product EPEIM",
-                "categoryId": 2,
-                "unitInStock": null,
-                "unitPrice": 21.5
-            }
-        ],
-        "amount": 329.99,
-        "orderDate": "2017-01-01",
-        "shippedDate": "1/19/2017",
-        "shipAddress": {
-            "address": "Gran Vía, 0123",
-            "city": "Madrid",
-            "zipcode": "10298",
-            "country": "Spain"
-        },
-        "customer": {
-            "isActive": false,
-            "age": 23,
-            "id": 6,
-            "firstName": "Sarah",
-            "lastName": "Dunne",
-            "email": "test@test.com",
-            "avatar": "/assets/img/avatar1.png"
-        },
-        "displayOrderDate": "2017-01-01T00:00:00.000Z",
-        "displayShippedDate": "2017-01-18T13:00:00.000Z"
-    },
-    {
-        "id": 8,
-        "reference": "order-8-8-1-2",
-        "customerId": 8,
-        "products": [
-            {
-                "id": 5,
-                "productName": "Product EPEIM",
-                "categoryId": 2,
-                "unitInStock": null,
-                "unitPrice": 21.5
-            }
-        ],
-        "amount": 89.99,
-        "orderDate": "2017-01-01",
-        "shippedDate": "2017-01-01",
-        "shipAddress": {
-            "address": "Gran Vía, 0123",
-            "city": "Madrid",
-            "zipcode": "10298",
-            "country": "Spain"
-        }
-    },
-    {
-        "id": 9,
-        "reference": "order-9-9-1-2",
-        "customerId": 9,
-        "products": [
-            {
-                "id": 5,
-                "productName": "Product EPEIM",
-                "categoryId": 2,
-                "unitInStock": null,
-                "unitPrice": 21.5
-            }
-        ],
-        "amount": 59.99,
-        "orderDate": "2017-01-01",
-        "shippedDate": "2017-01-01",
-        "shipAddress": {
-            "address": "Gran Vía, 0123",
-            "city": "Madrid",
-            "zipcode": "10298",
-            "country": "Spain"
-        }
-    },
-    {
-        "id": 10,
-        "reference": "order-10-10-1-2",
-        "customerId": 10,
-        "products": [
-            {
-                "id": 5,
-                "productName": "Product EPEIM",
-                "categoryId": 2,
-                "unitInStock": null,
-                "unitPrice": 21.5
-            }
-        ],
-        "amount": 49.99,
-        "orderDate": "2017-01-01",
-        "shippedDate": "2017-01-01",
-        "shipAddress": {
-            "address": "Gran Vía, 0123",
-            "city": "Madrid",
-            "zipcode": "10298",
-            "country": "Spain"
-        },
-        "customer": {
-            "isActive": false,
-            "age": 22,
-            "id": 10,
-            "firstName": "Geneva",
-            "lastName": "Wilson",
-            "email": "test@test.com",
-            "avatar": "/assets/img/avatar2.png"
-        },
-        "displayOrderDate": "2017-01-01T00:00:00.000Z",
-        "displayShippedDate": "2017-01-01T00:00:00.000Z",
-        "quantity": 2
-    },
-    {
-        "id": 12,
-        "reference": "order-2-12-1-2",
-        "customerId": 2,
-        "products": [
-            {
-                "id": 5,
-                "productName": "Product EPEIM",
-                "categoryId": 2,
-                "unitInStock": null,
-                "unitPrice": 21.5
-            }
-        ],
-        "amount": 49.99,
-        "orderDate": "2017-01-01",
-        "shippedDate": "2017-01-01",
-        "shipAddress": {
-            "address": "Gran Vía, 0123",
-            "city": "Madrid",
-            "zipcode": "10298",
-            "country": "Spain"
-        }
-    },
-    {
-        "id": 14,
-        "reference": "order-2-14-1-2",
-        "customerId": 4,
-        "products": [
-            {
-                "id": 5,
-                "productName": "Product EPEIM",
-                "categoryId": 2,
-                "unitInStock": null,
-                "unitPrice": 21.5
-            }
-        ],
-        "amount": 19.99,
-        "orderDate": "2017-01-09",
-        "shippedDate": "2017-01-01",
-        "shipAddress": {
-            "address": "Gran Vía, 0123",
-            "city": "Madrid",
-            "zipcode": "10298",
-            "country": "Spain"
-        }
-    },
-    {
-        "id": 15,
-        "reference": "order-11-15-1-2",
-        "customerId": 11,
-        "products": [
-            {
-                "id": 5,
-                "productName": "Product EPEIM",
-                "categoryId": 2,
-                "unitInStock": null,
-                "unitPrice": 21.5
-            },
-            {
-                "id": 19,
-                "productName": "Product XKXDO",
-                "categoryId": 3,
-                "unitInStock": null,
-                "unitPrice": 9.2,
-                "category": {
-                    "id": 3,
-                    "categoryName": "Confections",
-                    "description": "Desserts, candies, and sweet breads",
-                    "picture": null
-                },
-                "text": "Product XKXDO",
-                "value": 19
-            }
-        ],
-        "amount": 222,
-        "orderDate": "2017-01-19",
-        "shippedDate": "2017-01-16",
-        "shipAddress": {
-            "address": "Gran Vía, 0123",
-            "city": "Madrid",
-            "zipcode": "10298",
-            "country": "Spain"
-        },
-        "quantity": 12,
-        "price": 33
-    },
-    {
-        "products": [
-            {
-                "id": 4,
-                "productName": "Product KSBRM",
-                "categoryId": 2,
-                "unitInStock": 2,
-                "unitPrice": 22,
-                "category": {
-                    "id": 2,
-                    "categoryName": "Condiments",
-                    "description": "Sweet and savory sauces, relishes, spreads, and seasonings",
-                    "picture": null
-                },
-                "text": "Product KSBRM",
-                "value": 4
-            },
-            {
-                "id": 6,
-                "productName": "Product VAIIV",
-                "categoryId": 2,
-                "unitInStock": null,
-                "unitPrice": 25,
-                "category": {
-                    "id": 2,
-                    "categoryName": "Condiments",
-                    "description": "Sweet and savory sauces, relishes, spreads, and seasonings",
-                    "picture": null
-                },
-                "text": "Product VAIIV",
-                "value": 6
-            }
-        ],
-        "customerId": 4,
-        "orderDate": "2017-08-08",
-        "shippedDate": null,
-        "shipAddress": {
-            "address": "sss",
-            "city": "sss",
-            "zipcode": "sss",
-            "country": "sss"
-        },
-        "reference": "ss-2-22-22",
-        "amount": 2323,
-        "id": 16
-    }
-]
-export const products: any[] = [
-    {
-        "id": 1,
-        "productName": "Product HHYDP",
-        "categoryId": 1,
-        "unitInStock": 23,
-        "unitPrice": 18
-    },
-    {
-        "id": 2,
-        "productName": "Product RECZE",
-        "categoryId": 1,
-        "unitInStock": 10,
-        "unitPrice": 19
-    },
-    {
-        "id": 3,
-        "productName": "Product IMEHJ",
-        "categoryId": 2,
-        "unitInStock": null,
-        "unitPrice": 10
-    },
-    {
-        "id": 4,
-        "productName": "Product KSBRM",
-        "categoryId": 2,
-        "unitInStock": 2,
-        "unitPrice": 22
-    },
-    {
-        "id": 5,
-        "productName": "Product EPEIM",
-        "categoryId": 2,
-        "unitInStock": 333,
-        "unitPrice": 21.5
-    },
-    {
-        "id": 6,
-        "productName": "Product VAIIV",
-        "categoryId": 2,
-        "unitInStock": null,
-        "unitPrice": 25
-    },
-    {
-        "id": 7,
-        "productName": "Product HMLNI",
-        "categoryId": 7,
-        "unitInStock": null,
-        "unitPrice": 30
-    },
-    {
-        "id": 8,
-        "productName": "Product WVJFP",
-        "categoryId": 2,
-        "unitInStock": null,
-        "unitPrice": 40
-    },
-    {
-        "id": 9,
-        "productName": "Product AOZBW",
-        "categoryId": 6,
-        "unitInStock": null,
-        "unitPrice": 97
-    },
-    {
-        "id": 10,
-        "productName": "Product YHXGE",
-        "categoryId": 8,
-        "unitInStock": null,
-        "unitPrice": 31
-    },
-    {
-        "id": 11,
-        "productName": "Product QMVUN",
-        "categoryId": 4,
-        "unitInStock": null,
-        "unitPrice": 21
-    },
-    {
-        "id": 12,
-        "productName": "Product OSFNS",
-        "categoryId": 4,
-        "unitInStock": null,
-        "unitPrice": 38
-    },
-    {
-        "id": 13,
-        "productName": "Product POXFU",
-        "categoryId": 8,
-        "unitInStock": null,
-        "unitPrice": 6
-    },
-    {
-        "id": 14,
-        "productName": "Product PWCJB",
-        "categoryId": 7,
-        "unitInStock": null,
-        "unitPrice": 23.5
-    },
-    {
-        "id": 15,
-        "productName": "Product KSZOI",
-        "categoryId": 2,
-        "unitInStock": 33,
-        "unitPrice": 15.5
-    },
-    {
-        "id": 16,
-        "productName": "Product PAFRH",
-        "categoryId": 3,
-        "unitInStock": null,
-        "unitPrice": 17.5
-    },
-    {
-        "id": 17,
-        "productName": "Product BLCAX",
-        "categoryId": 6,
-        "unitInStock": null,
-        "unitPrice": 39
-    },
-    {
-        "id": 18,
-        "productName": "Product CKEDC",
-        "categoryId": 8,
-        "unitInStock": null,
-        "unitPrice": 62.5
-    },
-    {
-        "id": 19,
-        "productName": "Product XKXDO",
-        "categoryId": 3,
-        "unitInStock": null,
-        "unitPrice": 9.2
-    },
-    {
-        "id": 20,
-        "productName": "Product QHFFP",
-        "categoryId": 3,
-        "unitInStock": 23,
-        "unitPrice": 81
-    },
-    {
-        "id": 21,
-        "productName": "Product VJZZH",
-        "categoryId": 3,
-        "unitInStock": null,
-        "unitPrice": 18
-    },
-    {
-        "id": 22,
-        "productName": "Product CPHFY",
-        "categoryId": 5,
-        "unitInStock": null,
-        "unitPrice": 21
-    },
-    {
-        "id": 23,
-        "productName": "Product JLUDZ",
-        "categoryId": 5,
-        "unitInStock": null,
-        "unitPrice": 9.5
-    },
-    {
-        "id": 24,
-        "productName": "Product QOGNU",
-        "categoryId": 2,
-        "unitInStock": null,
-        "unitPrice": 4.5
-    },
-    {
-        "categoryId": 3,
-        "productName": "aaa",
-        "unitPrice": 22,
-        "unitInStock": 2323,
-        "id": 25
-    },
-    {
-        "categoryId": 3,
-        "productName": "Product ABCD",
-        "unitPrice": 222,
-        "unitInStock": 23,
-        "id": 26
-    }
-]
-export const categories: any[] = [
-    {
-        "id": 1,
-        "categoryName": "Beverages",
-        "description": "Soft drinks, coffees, teas, beers, and ales",
-        "picture": null
-    },
-    {
-        "id": 2,
-        "categoryName": "Condiments",
-        "description": "Sweet and savory sauces, relishes, spreads, and seasonings",
-        "picture": null
-    },
-    {
-        "id": 3,
-        "categoryName": "Confections",
-        "description": "Desserts, candies, and sweet breads",
-        "picture": null
-    },
-    {
-        "id": 4,
-        "categoryName": "Dairy Products",
-        "description": "Cheeses",
-        "picture": null
-    },
-    {
-        "id": 5,
-        "categoryName": "Grains/Cereals",
-        "description": "Breads, crackers, pasta, and cereal",
-        "picture": null
-    },
-    {
-        "id": 6,
-        "categoryName": "Meat/Poultry",
-        "description": "Prepared meats",
-        "picture": null
-    },
-    {
-        "id": 7,
-        "categoryName": "Produce",
-        "description": "Dried fruit and bean curd",
-        "picture": null
-    },
-    {
-        "id": 8,
-        "categoryName": "Seafood",
-        "description": "Seaweed and fish",
-        "picture": null
-    }
-]
+    reference: 'ss-2-22-22',
+    amount: 2323,
+    id: 16,
+  },
+];
+export const products: RandomProduct[] = [
+  {
+    id: 1,
+    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
+    price: '109.95',
+    description:
+      'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
+    category: "men's clothing",
+    image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+    purchased: 0,
+  },
+  {
+    id: 2,
+    title: 'Mens Casual Premium Slim Fit T-Shirts ',
+    price: '22.3',
+    description:
+      'Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.',
+    category: "men's clothing",
+    image:
+      'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
+    purchased: 0,
+  },
+  {
+    id: 3,
+    title: 'Mens Cotton Jacket',
+    price: '55.99',
+    description:
+      'great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.',
+    category: "men's clothing",
+    image: 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg',
+    purchased: 0,
+  },
+  {
+    id: 4,
+    title: 'Mens Casual Slim Fit',
+    price: '15.99',
+    description:
+      'The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.',
+    category: "men's clothing",
+    image: 'https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg',
+    purchased: 0,
+  },
+  {
+    id: 5,
+    title:
+      "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
+    price: '695',
+    description:
+      "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
+    category: 'jewelery',
+    image: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg',
+    purchased: 0,
+  },
+  {
+    id: 6,
+    title: 'Solid Gold Petite Micropave ',
+    price: '168',
+    description:
+      'Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.',
+    category: 'jewelery',
+    image: 'https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg',
+    purchased: 0,
+  },
+  {
+    id: 7,
+    title: 'White Gold Plated Princess',
+    price: '9.99',
+    description:
+      "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
+    category: 'jewelery',
+    image: 'https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg',
+    purchased: 0,
+  },
+  {
+    id: 8,
+    title: 'Pierced Owl Rose Gold Plated Stainless Steel Double',
+    price: '10.99',
+    description:
+      'Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel',
+    category: 'jewelery',
+    image: 'https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg',
+    purchased: 0,
+  },
+  {
+    id: 9,
+    title: 'WD 2TB Elements Portable External Hard Drive - USB 3.0 ',
+    price: '64',
+    description:
+      'USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system',
+    category: 'electronics',
+    image: 'https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg',
+    purchased: 0,
+  },
+  {
+    id: 10,
+    title: 'SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s',
+    price: '109',
+    description:
+      'Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)',
+    category: 'electronics',
+    image: 'https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg',
+    purchased: 0,
+  },
+  {
+    id: 11,
+    title:
+      'Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5',
+    price: '109',
+    description:
+      '3D NAND flash are applied to deliver high transfer speeds Remarkable transfer speeds that enable faster bootup and improved overall system performance. The advanced SLC Cache Technology allows performance boost and longer lifespan 7mm slim design suitable for Ultrabooks and Ultra-slim notebooks. Supports TRIM command, Garbage Collection technology, RAID, and ECC (Error Checking & Correction) to provide the optimized performance and enhanced reliability.',
+    category: 'electronics',
+    image: 'https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg',
+    purchased: 0,
+  },
+  {
+    id: 12,
+    title:
+      'WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive',
+    price: '114',
+    description:
+      "Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty",
+    category: 'electronics',
+    image: 'https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg',
+    purchased: 0,
+  },
+  {
+    id: 13,
+    title: 'Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin',
+    price: '599',
+    description:
+      '21. 5 inches Full HD (1920 x 1080) widescreen IPS display And Radeon free Sync technology. No compatibility for VESA Mount Refresh Rate: 75Hz - Using HDMI port Zero-frame design | ultra-thin | 4ms response time | IPS panel Aspect ratio - 16: 9. Color Supported - 16. 7 million colors. Brightness - 250 nit Tilt angle -5 degree to 15 degree. Horizontal viewing angle-178 degree. Vertical viewing angle-178 degree 75 hertz',
+    category: 'electronics',
+    image: 'https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg',
+    purchased: 0,
+  },
+  {
+    id: 14,
+    title:
+      'Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ',
+    price: '999.99',
+    description:
+      '49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag',
+    category: 'electronics',
+    image: 'https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg',
+    purchased: 0,
+  },
+  {
+    id: 15,
+    title: "BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats",
+    price: '56.99',
+    description:
+      'Note:The Jackets is US standard size, Please choose size as your usual wear Material: 100% Polyester; Detachable Liner Fabric: Warm Fleece. Detachable Functional Liner: Skin Friendly, Lightweigt and Warm.Stand Collar Liner jacket, keep you warm in cold weather. Zippered Pockets: 2 Zippered Hand Pockets, 2 Zippered Pockets on Chest (enough to keep cards or keys)and 1 Hidden Pocket Inside.Zippered Hand Pockets and Hidden Pocket keep your things secure. Humanized Design: Adjustable and Detachable Hood and Adjustable cuff to prevent the wind and water,for a comfortable fit. 3 in 1 Detachable Design provide more convenience, you can separate the coat and inner as needed, or wear it together. It is suitable for different season and help you adapt to different climates',
+    category: "women's clothing",
+    image: 'https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg',
+    purchased: 0,
+  },
+  {
+    id: 16,
+    title:
+      "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
+    price: '29.95',
+    description:
+      '100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON',
+    category: "women's clothing",
+    image: 'https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg',
+    purchased: 0,
+  },
+  {
+    id: 17,
+    title: 'Rain Jacket Women Windbreaker Striped Climbing Raincoats',
+    price: '39.99',
+    description:
+      "Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things, it covers the hips, and the hood is generous but doesn't overdo it.Attached Cotton Lined Hood with Adjustable Drawstrings give it a real styled look.",
+    category: "women's clothing",
+    image: 'https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg',
+    purchased: 0,
+  },
+  {
+    id: 18,
+    title: "MBJ Women's Solid Short Sleeve Boat Neck V ",
+    price: '9.85',
+    description:
+      '95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem',
+    category: "women's clothing",
+    image: 'https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg',
+    purchased: 0,
+  },
+  {
+    id: 19,
+    title: "Opna Women's Short Sleeve Moisture",
+    price: '7.95',
+    description:
+      '100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort',
+    category: "women's clothing",
+    image: 'https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg',
+    purchased: 0,
+  },
+  {
+    id: 20,
+    title: 'DANVOUY Womens T Shirt Casual Cotton Short',
+    price: '12.99',
+    description:
+      '95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.',
+    category: "women's clothing",
+    image: 'https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg',
+    purchased: 0,
+  },
+];

@@ -3,7 +3,6 @@
     <div class="card_profile" *ngIf="user">
       <img *ngIf="user.image" [src]="user.image" alt="" class="logo" />
       <div class="card_profile__info">
-        <span translate>welcome</span>
         <div>
           <span translate>NAME_FIRST</span>
           <span>: {{ user.firstName }}</span>

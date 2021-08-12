@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RandomProduct } from '../interface/product';
 import { LocalSaveService } from './local-save.service';
+import { products as localProducts} from '../data/data'
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,7 @@ export class ProductsService {
 
   async getProductsAndCategories(amountOfProducts: number = 20) {
     const products = await this.getProducts(amountOfProducts);
-    return [products, this.categories]
+    return [products, this.categories];
   }
 
   async getProducts(amount: number = 20): Promise<RandomProduct[]> {
@@ -31,11 +32,16 @@ export class ProductsService {
   }
 
   private async _setProducts(amount: number = 20) {
-    await this._getAmountOfProducts(amount).then((products) => {
+    try {
+      const products = await this._getAmountOfProducts(amount);
       this.products = products;
-      this.setCategories(products);
-      this.localSaveService.saveToLocal('products', products);
-    });
+    } catch (error) {
+      console.log(`couldn't get online products, getting from data`);
+      console.log(error);
+      this.products = localProducts;
+    }
+    this.setCategories(this.products!);
+    this.localSaveService.saveToLocal('products', this.products!);
   }
 
   async getPurchasableIds(): Promise<number[]> {
@@ -46,13 +52,12 @@ export class ProductsService {
   }
 
   getProductPrice(productId: number): string {
-    const product = this.products?.find(product => product.id === productId)
+    const product = this.products?.find((product) => product.id === productId);
     try {
-      return product!.price
+      return product!.price;
     } catch {
-      throw product
+      throw product;
     }
-
   }
 
   loadProducts() {
@@ -80,14 +85,14 @@ export class ProductsService {
     const products = await this.httpClient
       .get<RandomProduct[]>(`https://fakestoreapi.com/products?limit=${amount}`)
       .toPromise();
-    products.forEach((product) => product.purchased = 0);
+    products.forEach((product) => (product.purchased = 0));
     return products;
   }
 
   increasePurchaseCounter(productId: number) {
-    const product = this.products?.find(product => product.id === productId);
+    const product = this.products?.find((product) => product.id === productId);
     if (product) {
-      product.purchased! += 1
+      product.purchased! += 1;
     }
   }
 }
