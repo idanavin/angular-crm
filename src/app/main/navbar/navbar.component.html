@@ -7,7 +7,7 @@
       mat-list-item
       [routerLink]="'/dashboard'"
       [routerLinkActive]="'active'"
-      matTooltip="{{'NAV_DASHBOARD' | translate}}"
+      matTooltip="{{ 'navbar.dashboard' | translate }}"
       [matTooltipPosition]="'after'"
     >
       <button mat-button>
@@ -18,7 +18,7 @@
       mat-list-item
       [routerLink]="'/products'"
       [routerLinkActive]="'active'"
-      matTooltip="{{'NAV_PRODUCTS' | translate}}"
+      matTooltip="{{ 'navbar.products' | translate }}"
       [matTooltipPosition]="'after'"
     >
       <button mat-button>
@@ -29,7 +29,7 @@
       mat-list-item
       [routerLink]="'/customers'"
       [routerLinkActive]="'active'"
-      matTooltip="{{'NAV_CUSTOMERS' | translate}}"
+      matTooltip="{{ 'navbar.customers' | translate }}"
       [matTooltipPosition]="'after'"
     >
       <button mat-button>
@@ -40,7 +40,7 @@
       mat-list-item
       [routerLink]="'/orders'"
       [routerLinkActive]="'active'"
-      matTooltip="{{'NAV_ORDERS' | translate}}"
+      matTooltip="{{ 'navbar.orders' | translate }}"
       [matTooltipPosition]="'after'"
     >
       <button mat-button>
@@ -51,7 +51,7 @@
       mat-list-item
       [routerLink]="'/profile'"
       [routerLinkActive]="'active'"
-      matTooltip="{{'NAV_PROFILE' | translate}}"
+      matTooltip="{{ 'navbar.profile' | translate }}"
       [matTooltipPosition]="'after'"
     >
       <button mat-button>
@@ -65,12 +65,9 @@
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>
-        <mat-slide-toggle
-          [checked]="isChecked"
-          (change)="toggleTheme($event)">
+        <mat-slide-toggle [checked]="isChecked" (change)="toggleTheme($event)">
           <span translate>DARK_MODE</span>
-          </mat-slide-toggle
-        >
+        </mat-slide-toggle>
       </button>
       <button mat-menu-item [matMenuTriggerFor]="subMenu">
         <mat-icon>voicemail</mat-icon>
@@ -90,7 +87,7 @@
     <button
       mat-button
       (click)="logout()"
-      matTooltip="{{'NAV_LOGOUT' | translate}}"
+      matTooltip="{{ 'navbar.logout' | translate }}"
       [matTooltipPosition]="'after'"
     >
       <mat-icon>exit_to_app</mat-icon>
