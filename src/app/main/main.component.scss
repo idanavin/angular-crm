@@ -2,12 +2,12 @@
 @use '../style/responsive';
 @use '../style/theme';
 
-.wrapper {
-  @include theme.theme() {
-    color: theme.theme-get("text-color");
-    background-color: theme.theme-get("bg-color");
-  }
-}
+// .wrapper {
+//   @include theme.theme() {
+//     color: theme.theme-get("text-color");
+//     background-color: theme.theme-get("bg-color");
+//   }
+// }
 
 .wrapper {
   display: flex;
