@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomersService } from 'src/app/services/customers.service';
+
+export interface AgeRange {
+  min: number,
+  max: number
+}
 
 @Component({
   selector: 'app-customers-filters',
@@ -7,7 +13,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomersFiltersComponent implements OnInit {
 
-  constructor() { }
+  customersAgeRange: AgeRange = {min: 0, max: 100}
+
+  constructor(private customersService: CustomersService) { }
 
   ngOnInit(): void {
   }
@@ -16,4 +24,7 @@ export class CustomersFiltersComponent implements OnInit {
     return `${value} Years old`
   }
 
+  onMenuClick() {
+    this.customersAgeRange = this.customersService.getCustomersAgeRanges();
+  }
 }

@@ -1,13 +1,22 @@
-<button mat-button [matMenuTriggerFor]="menu" aria-label="Filter options">
+<button
+  mat-button
+  [matMenuTriggerFor]="menu"
+  aria-label="Filter options"
+  (click)="onMenuClick()"
+>
   <mat-icon>more_vert</mat-icon>
   <span class="filter_button">Filters</span>
 </button>
-<mat-menu #menu="matMenu" (click)="$event.stopPropagation()">
-  <button mat-menu-item>
+<mat-menu
+  #menu="matMenu"
+  class="slider_menu_item"
+  (click)="$event.stopPropagation()"
+>
+  <div mat-menu-item (click)="$event.stopPropagation()">
     <mat-icon>dialpad</mat-icon>
     <span>Age</span>
-  </button>
-  <button
+  </div>
+  <div
     mat-menu-item
     class="slider_menu_item"
     (click)="$event.stopPropagation()"
@@ -17,12 +26,16 @@
       [displayWith]="formatLabel"
       tickInterval="1000"
       step="1"
-      min="0"
-      max="100000"
+      [min]="customersAgeRange.min"
+      [max]="customersAgeRange.max"
       [color]="'primary'"
     ></mat-slider>
     <button mat-button>
       <mat-icon>arrow_forward_ios</mat-icon>
     </button>
+  </div>
+  <button mat-menu-item>
+    <mat-icon>dialpad</mat-icon>
+    <span>Remove all filters</span>
   </button>
 </mat-menu>

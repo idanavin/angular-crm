@@ -1,29 +1,37 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Sort } from '@angular/material/sort';
-import { Purchased, RandomUser, RandomUsers } from '../domain-layer/entities/random-users';
+import {
+  Purchased,
+  RandomUser,
+  RandomUsers,
+} from '../domain-layer/entities/random-users';
+import { AgeRange } from '../router-pages/customers/customers-filters/customers-filters.component';
 import { PurchaseService } from './purchase.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CustomersService {
+  usersToEdit?: RandomUser[];
+  users: Map<string, RandomUser[]> = new Map<string, RandomUser[]>();
 
-  usersToEdit?: RandomUser[]
-  users: Map<string, RandomUser[]> = new Map<
-    string,
-    RandomUser[]
-  >();
-
-  constructor(private readonly httpClient: HttpClient, private purchaseService: PurchaseService) {
-    this.users.set('unsorted', [])
+  constructor(
+    private readonly httpClient: HttpClient,
+    private purchaseService: PurchaseService
+  ) {
+    this.users.set('unsorted', []);
   }
 
   get UnsortedUsers(): RandomUser[] {
-    return this.users.get('unsorted')!
+    return this.users.get('unsorted')!;
   }
 
-  getCustomersByPage(itemsPerPage: number, page: number, order: Sort): Promise<RandomUser[]> {
+  getCustomersByPage(
+    itemsPerPage: number,
+    page: number,
+    order: Sort
+  ): Promise<RandomUser[]> {
     const lastIndex = itemsPerPage * (page + 1);
     const firstIndex = lastIndex - itemsPerPage;
     const list: RandomUser[] = this._getListInOrder(order);
@@ -31,10 +39,14 @@ export class CustomersService {
     if (lastIndex <= list.length) {
       return this.getLocalCustomers(firstIndex, lastIndex, list);
     }
-    return this._loadRandomUsers(itemsPerPage)
+    return this._loadRandomUsers(itemsPerPage);
   }
 
-  private async getLocalCustomers(firstIndex: number, lastIndex: number, users: RandomUser[]): Promise<RandomUser[]> {
+  private async getLocalCustomers(
+    firstIndex: number,
+    lastIndex: number,
+    users: RandomUser[]
+  ): Promise<RandomUser[]> {
     return users.slice(firstIndex, lastIndex);
   }
 
@@ -46,62 +58,80 @@ export class CustomersService {
       )
       .toPromise();
     this._makeRandomPurchases(users.results);
-    this.users.set('unsorted', [... this.users.get('unsorted')!, ...users.results])
+    this.users.set('unsorted', [
+      ...this.users.get('unsorted')!,
+      ...users.results,
+    ]);
     this._saveToLocalstorage();
-    return users.results
+    return users.results;
   }
 
   private _makeRandomPurchases(users: RandomUser[]) {
-    users.forEach(user => this.purchaseService.setCustomerRandomPurchase(user));
+    users.forEach((user) =>
+      this.purchaseService.setCustomerRandomPurchase(user)
+    );
     this.purchaseService.saveToPurchaseHistory(users);
   }
 
   private _getListInOrder(sortOrder: Sort): RandomUser[] {
-    sortOrder = this._changeSortDirectionIfUnsorted(sortOrder)
+    sortOrder = this._changeSortDirectionIfUnsorted(sortOrder);
     this._sortIfNotExist(sortOrder);
-    return this.users.get(`${sortOrder.active}${sortOrder.direction}`)!
+    return this.users.get(`${sortOrder.active}${sortOrder.direction}`)!;
   }
 
   private _sortIfNotExist(sortOrder: Sort): void {
     if (!this.users.has(`${sortOrder.active}${sortOrder.direction}`)) {
-      this._sortUsers(sortOrder)
+      this._sortUsers(sortOrder);
     }
   }
 
   private _changeSortDirectionIfUnsorted(sort: Sort): Sort {
-    if (sort.active === "unsorted") {
-      sort.direction = "";
+    if (sort.active === 'unsorted') {
+      sort.direction = '';
     }
-    return sort
+    return sort;
   }
 
   private _saveToLocalstorage(): void {
-    localStorage.setItem(`customers`, JSON.stringify(this.users.get('unsorted')))
+    localStorage.setItem(
+      `customers`,
+      JSON.stringify(this.users.get('unsorted'))
+    );
   }
 
   public loadLocalstorage(): void {
-    const customers = localStorage.getItem('customers')
-    if (customers) this.users.set('unsorted', JSON.parse(customers) as RandomUser[])
+    const customers = localStorage.getItem('customers');
+    if (customers)
+      this.users.set('unsorted', JSON.parse(customers) as RandomUser[]);
   }
 
   private _sortUsers(sort: Sort): void {
-    const { active, direction } = sort
+    const { active, direction } = sort;
     const unorderedList: RandomUser[] = this.users.get('unsorted')!;
-    
-    this.users.set(`${active}${direction}`, [...unorderedList].sort((userA, userB) => {
-      if (direction === 'asc') return this._sortByType(userA, userB, sort.active);
-      else return this._sortByType(userB, userA, sort.active);
-    }))
+
+    this.users.set(
+      `${active}${direction}`,
+      [...unorderedList].sort((userA, userB) => {
+        if (direction === 'asc')
+          return this._sortByType(userA, userB, sort.active);
+        else return this._sortByType(userB, userA, sort.active);
+      })
+    );
   }
 
   private _sortByType(userA: RandomUser, userB: RandomUser, sortType: string) {
-    if (sortType === 'age') return userA.dob.age - userB.dob.age
-    else return (userA.name.last > userB.name.last) ? 1 : ((userB.name.last > userA.name.last) ? -1 : 0)
+    if (sortType === 'age') return userA.dob.age - userB.dob.age;
+    else
+      return userA.name.last > userB.name.last
+        ? 1
+        : userB.name.last > userA.name.last
+        ? -1
+        : 0;
   }
 
   addNewCustomers(customer: RandomUser): void {
     const customers: RandomUser[] = [customer, ...this.users.get('unsorted')!];
-    this.resetUsersWithUnsorted(customers)
+    this.resetUsersWithUnsorted(customers);
   }
 
   resetUsersWithUnsorted(customers: RandomUser[]) {
@@ -115,25 +145,36 @@ export class CustomersService {
   }
 
   customersToEdit(): RandomUser[] {
-    return this.usersToEdit!
+    return this.usersToEdit!;
   }
 
   findAndReplaceEdited(editedCustomers: RandomUser[]): void {
     let unsortedUsers = this.users.get('unsorted')!;
     this.usersToEdit?.forEach((costumer, index) => {
       const indexToEdit = unsortedUsers.findIndex((unsortedCostumer) => {
-        return unsortedCostumer.id.value === costumer.id.value
-      })
+        return unsortedCostumer.id.value === costumer.id.value;
+      });
       unsortedUsers[indexToEdit] = editedCustomers[index];
-    })
+    });
     this.resetUsersWithUnsorted(unsortedUsers);
   }
 
   removeCustomers(customers: RandomUser[]): void {
     let unsortedUsers = this.users.get('unsorted')!;
     customers.map((costumerToRemove) => {
-      unsortedUsers = unsortedUsers.filter((costumerInMemory) => costumerInMemory != costumerToRemove)
-    })
-    this.resetUsersWithUnsorted(unsortedUsers)
+      unsortedUsers = unsortedUsers.filter(
+        (costumerInMemory) => costumerInMemory != costumerToRemove
+      );
+    });
+    this.resetUsersWithUnsorted(unsortedUsers);
+  }
+
+  getCustomersAgeRanges(): AgeRange {
+    const customersAges: number[] = this.users.get('unsorted')!.map((user) => {
+      return user.dob.age;
+    });
+    const minAge = Math.min(...customersAges);
+    const maxAge = Math.max(...customersAges);
+    return { min: minAge, max: maxAge };
   }
 }
