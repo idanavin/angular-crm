@@ -46,7 +46,7 @@ export class CustomersComponent implements OnInit {
     this.customers = this.getCustomersByPage();
   }
 
-  sortData(event: Sort): void {
+  onSortChange(event: Sort): void {
     this.sort = event;
     this.customers = this.getCustomersByPage();
   }

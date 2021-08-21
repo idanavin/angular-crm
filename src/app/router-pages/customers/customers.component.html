@@ -17,14 +17,7 @@
       </button>
       <app-customer-search-input (filtered)="setFilteredCustomers($event)"></app-customer-search-input>
     </mat-toolbar>
-    <mat-list matSort (matSortChange)="sortData($event)">
-      <h3 matLine class="flex">
-        <span translate>SORT_BY</span>
-        <span mat-sort-header="name"><span translate>NAME_LAST</span></span>
-        <span mat-sort-header="age"><span translate>AGE</span></span>
-        <mat-checkbox></mat-checkbox>
-      </h3>
-    </mat-list>
+    <app-customers-sort (sortChanged)="onSortChange($event)"></app-customers-sort>
     <mat-selection-list
       #costumerSelect
       (selectionChange)="onSelections(costumerSelect.selectedOptions.selected)"

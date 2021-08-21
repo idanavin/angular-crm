@@ -1,0 +1,8 @@
+<mat-list matSort (matSortChange)="changeSort($event)">
+  <div matLine class="flex">
+    <span translate>SORT_BY</span>
+    <span mat-sort-header="name"><span translate>NAME_LAST</span></span>
+    <span mat-sort-header="age"><span translate>AGE</span></span>
+    <mat-checkbox></mat-checkbox>
+  </div>
+</mat-list>

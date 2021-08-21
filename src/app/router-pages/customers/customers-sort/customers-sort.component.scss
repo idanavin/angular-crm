@@ -1,0 +1,10 @@
+.flex.mat-line {
+  display: flex;
+  gap: 3vmin;
+  padding: 0 2vmin;
+  mat-checkbox {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

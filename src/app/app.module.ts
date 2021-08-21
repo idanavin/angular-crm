@@ -24,6 +24,7 @@ import { AuthModule } from './login-register/auth.module';
 import { OrdersComponent } from './router-pages/orders/orders.component';
 import { OrdersListComponent } from './router-pages/orders/orders-list/orders-list.component';
 import { DashboardCardComponent } from './router-pages/dashboard/dashboard-card/dashboard-card.component';
+import { CustomersSortComponent } from './router-pages/customers/customers-sort/customers-sort.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { DashboardCardComponent } from './router-pages/dashboard/dashboard-card/
     OrdersComponent,
     OrdersListComponent,
     DashboardCardComponent,
+    CustomersSortComponent,
   ],
   imports: [
     AppRoutingModule,
