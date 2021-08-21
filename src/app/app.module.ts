@@ -26,7 +26,6 @@ import { OrdersListComponent } from './router-pages/orders/orders-list/orders-li
 import { DashboardCardComponent } from './router-pages/dashboard/dashboard-card/dashboard-card.component';
 import { CustomersSortComponent } from './router-pages/customers/customers-sort/customers-sort.component';
 import { CustomersFiltersComponent } from './router-pages/customers/customers-filters/customers-filters.component';
-
 @NgModule({
   declarations: [
     AppComponent,

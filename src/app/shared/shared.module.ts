@@ -7,6 +7,7 @@ import { InputModule } from './form/input/input.module';
 import { PaginatorModule } from './paginator/paginator.module';
 import { CardModule } from './card/card.module';
 import { SelectModule } from './select/select.module';
+import { RangeSliderModule } from './range-slider/range-slider.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { SelectModule } from './select/select.module';
     InputModule,
     PaginatorModule,
     CardModule,
-    SelectModule
+    SelectModule,
+    RangeSliderModule
   ],
   exports: [
     ChartModule, 
@@ -30,7 +32,8 @@ import { SelectModule } from './select/select.module';
     InputModule,
     PaginatorModule,
     CardModule,
-    SelectModule
+    SelectModule,
+    RangeSliderModule
   ]
 })
 export class SharedModule {}
