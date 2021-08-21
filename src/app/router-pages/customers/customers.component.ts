@@ -86,7 +86,7 @@ export class CustomersComponent implements OnInit {
     this.selected = undefined;
   }
 
-  opendDeleteDialog(): void {
+  openedDeleteDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '250px',
       data: {

@@ -1,0 +1,28 @@
+<button mat-button [matMenuTriggerFor]="menu" aria-label="Filter options">
+  <mat-icon>more_vert</mat-icon>
+  <span class="filter_button">Filters</span>
+</button>
+<mat-menu #menu="matMenu" (click)="$event.stopPropagation()">
+  <button mat-menu-item>
+    <mat-icon>dialpad</mat-icon>
+    <span>Age</span>
+  </button>
+  <button
+    mat-menu-item
+    class="slider_menu_item"
+    (click)="$event.stopPropagation()"
+  >
+    <mat-slider
+      thumbLabel
+      [displayWith]="formatLabel"
+      tickInterval="1000"
+      step="1"
+      min="0"
+      max="100000"
+      [color]="'primary'"
+    ></mat-slider>
+    <button mat-button>
+      <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
+  </button>
+</mat-menu>

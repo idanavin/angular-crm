@@ -1,5 +1,7 @@
 <div class="wrapper">
-  <app-head-cards [amountOfCustomers]="amountOfCustomers.toString()"></app-head-cards>
+  <app-head-cards
+    [amountOfCustomers]="amountOfCustomers.toString()"
+  ></app-head-cards>
   <main>
     <mat-toolbar>
       <button mat-button (click)="goToNewCostumer()">
@@ -10,14 +12,21 @@
       </button>
       <button
         mat-button
-        (click)="opendDeleteDialog()"
+        (click)="openedDeleteDialog()"
         [disabled]="haveSelected()"
       >
         <mat-icon>person_add</mat-icon><span translate>DELETE_SELECTED</span>
       </button>
-      <app-customer-search-input (filtered)="setFilteredCustomers($event)"></app-customer-search-input>
+      <app-customer-search-input
+        (filtered)="setFilteredCustomers($event)"
+      ></app-customer-search-input>
     </mat-toolbar>
-    <app-customers-sort (sortChanged)="onSortChange($event)"></app-customers-sort>
+    <mat-toolbar>
+      <app-customers-sort
+        (sortChanged)="onSortChange($event)"
+      ></app-customers-sort>
+      <app-customers-filters></app-customers-filters>
+    </mat-toolbar>
     <mat-selection-list
       #costumerSelect
       (selectionChange)="onSelections(costumerSelect.selectedOptions.selected)"
