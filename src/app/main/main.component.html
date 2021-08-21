@@ -1,5 +1,5 @@
-<mat-card class="wrapper" [ngClass]="theme">
-    <app-navbar *ngIf="user" (themeEvent)="toggleTheme($event)"></app-navbar>
+<mat-card class="wrapper">
+    <app-navbar *ngIf="user"></app-navbar>
     <main *ngIf="user" [@routeAnimations]="prepareRoute(outlet)">
         <router-outlet #outlet="outlet"></router-outlet>
     </main>

@@ -1,8 +1,10 @@
+@use '../../../style/base';
+
 .filter_button {
     font-size: 1.3em;
 }
 .slider_menu_item {
-    background: var(--color-primary-700);
+    background-color: var(--color-primary-700);
     padding-left: 48px;
     padding-top: 20px;
 }

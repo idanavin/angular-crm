@@ -12,7 +12,6 @@ import { LanguageService } from '../language/language.service';
 })
 export class MainComponent implements OnInit {
   user: User | undefined;
-  theme: string = 'light';
 
   constructor(
     private authService: AuthService,
@@ -40,9 +39,5 @@ export class MainComponent implements OnInit {
     return (
       outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation
     );
-  }
-
-  toggleTheme(theme: string): void {
-    this.theme = theme;
   }
 }

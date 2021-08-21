@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { LanguageService } from 'src/app/language/language.service';
 import { AuthService } from '../../services/auth.service';
@@ -9,21 +10,33 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  @Output()
-  themeEvent: EventEmitter<string> = new EventEmitter<string>();
+  // @Output()
+  // themeEvent: EventEmitter<string> = new EventEmitter<string>();
   isChecked: boolean = false;
 
   constructor(
     private authService: AuthService,
-    private languageService: LanguageService
+    private languageService: LanguageService,
+    @Inject(DOCUMENT) private document: Document
   ) {}
 
   ngOnInit(): void {
     const storageTheme = localStorage.getItem('theme');
     if (storageTheme) {
-      this.themeEvent.emit(storageTheme);
+      // this.themeEvent.emit(storageTheme);
+      this.setTheme(storageTheme)
       this.isChecked = storageTheme === 'dark';
+    } else {
+      this.setTheme('light');
     }
+  }
+
+  setTheme(themeName: string) {
+    const bodyTag = this.document.getElementsByTagName("body")[0] as HTMLBodyElement;
+    const bodyClassList = bodyTag.classList;
+    bodyClassList.remove('dark');
+    bodyClassList.remove('light');
+    bodyClassList.add(themeName);
   }
 
   logout() {
@@ -33,7 +46,8 @@ export class NavbarComponent implements OnInit {
   toggleTheme($event: MatSlideToggleChange): void {
     this.isChecked = $event.checked;
     const mode = this.isChecked ? 'dark' : 'light';
-    this.themeEvent.emit(mode);
+    this.setTheme(mode);
+    // this.themeEvent.emit(mode);
     localStorage.setItem('theme', mode);
   }
 
