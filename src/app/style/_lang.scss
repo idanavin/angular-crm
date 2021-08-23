@@ -1,16 +1,20 @@
 @use './base';
 
+
 .ltr {
-    --border-radius-right-for-ltr: base.$border-radius-right;
-    --border-radius-left-for-ltr: base.$border-radius-left;
-    --small-gap-right-for-ltr: 0 base.$small-gap 0 0;
-    --small-gap-left-for-ltr: 0 0 0 base.$small-gap;
+    // Can't figure out why scss variables not working
+    // --border-radius-right-for-ltr: base.$border-radius-right;
+    // --border-radius-left-for-ltr: base.$border-radius-left;
+    --border-radius-right-for-ltr: 0 6px 6px 0;
+    --border-radius-left-for-ltr: 6px 0 0 6px;
+    --small-gap-right-for-ltr: 0 1vmin 0 0;
+    --small-gap-left-for-ltr: 0 0 0 1vmin;
 }
 
 
 .rtl {
-    --border-radius-right-for-ltr: base.$border-radius-left;
-    --border-radius-left-for-ltr: base.$border-radius-right;
-    --small-gap-right-for-ltr: 0 0 0 base.$small-gap;
-    --small-gap-left-for-ltr: 0 base.$small-gap 0 0;
+    --border-radius-right-for-ltr: 6px 0 0 6px;
+    --border-radius-left-for-ltr: 0 6px 6px 0;
+    --small-gap-right-for-ltr: 0 0 0 1vmin;
+    --small-gap-left-for-ltr: 0 1vmin 0 0;
 }
