@@ -1,0 +1,16 @@
+@use './base';
+
+.ltr {
+    --border-radius-right-for-ltr: base.$border-radius-right;
+    --border-radius-left-for-ltr: base.$border-radius-left;
+    --small-gap-right-for-ltr: 0 base.$small-gap 0 0;
+    --small-gap-left-for-ltr: 0 0 0 base.$small-gap;
+}
+
+
+.rtl {
+    --border-radius-right-for-ltr: base.$border-radius-left;
+    --border-radius-left-for-ltr: base.$border-radius-right;
+    --small-gap-right-for-ltr: 0 0 0 base.$small-gap;
+    --small-gap-left-for-ltr: 0 base.$small-gap 0 0;
+}

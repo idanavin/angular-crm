@@ -1,6 +1,6 @@
 @use '../style/base';
 @use '../style/responsive';
-@use '../style/theme';
+// @use '../style/theme';
 
 // .wrapper {
 //   @include theme.theme() {
@@ -31,8 +31,10 @@
   }
   main {
     position: relative;
-    margin-left: 1vmin;
-    border-radius: base.$border-radius-right;
+    // margin-left: 1vmin;
+    // border-radius: base.$border-radius-right;
+    border-radius: var(--border-radius-right-for-ltr);
+    margin: var(--small-gap-left-for-ltr);
     overflow: hidden;
     width: 100%;
   }

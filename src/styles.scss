@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @use './app/style/base';
 @import "./app/style/material";
+@import "./app/style/lang";
 
 * {
   margin: 0;

@@ -13,6 +13,9 @@ $border-radius-left: 6px 0 0 6px;
 $border-radius-right: 0 6px 6px 0;
 $font-family-header: 'Poppins', sans-serif;
 $font-family-sub: 'Poppins', sans-serif;
+$small-gap: 1vmin;
+$medium-gap: 1.5vmin;
+$big-gap: 3vmin;
 
 @mixin custom-header {
     font-family: $font-family-header;
