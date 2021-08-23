@@ -2,6 +2,7 @@
     <mat-slider
       (change)="valueChange()"
       (input)="minValueInput($event)"
+      [(ngModel)]="minValue"
       [color]="minColor"
       [displayWith]="formatLabel"
       [max]="max"
@@ -13,6 +14,7 @@
     <mat-slider
       (change)="valueChange()"
       (input)="maxValueInput($event)"
+      [(ngModel)]="maxValue"
       [color]="maxColor"
       [displayWith]="formatLabel"
       [max]="max"

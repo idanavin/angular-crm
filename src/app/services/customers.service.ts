@@ -6,7 +6,7 @@ import {
   RandomUser,
   RandomUsers,
 } from '../domain-layer/entities/random-users';
-import { AgeRange } from '../router-pages/customers/customers-filters/customers-filters.component';
+import { RangeType } from '../shared/range-slider/range-slider.component';
 import { PurchaseService } from './purchase.service';
 
 @Injectable({
@@ -169,7 +169,7 @@ export class CustomersService {
     this.resetUsersWithUnsorted(unsortedUsers);
   }
 
-  getCustomersAgeRanges(): AgeRange {
+  getCustomersAgeRanges(): RangeType {
     const customersAges: number[] = this.users.get('unsorted')!.map((user) => {
       return user.dob.age;
     });

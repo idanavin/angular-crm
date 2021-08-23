@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomersService } from 'src/app/services/customers.service';
-
-export interface AgeRange {
-  min: number,
-  max: number
-}
+import { RangeType } from 'src/app/shared/range-slider/range-slider.component';
 
 @Component({
   selector: 'app-customers-filters',
@@ -13,9 +9,12 @@ export interface AgeRange {
 })
 export class CustomersFiltersComponent implements OnInit {
 
-  customersAgeRange: AgeRange = {min: 0, max: 100}
+  customersAgeRange: RangeType
+  filterAgeRange?: RangeType
 
-  constructor(private customersService: CustomersService) { }
+  constructor(private customersService: CustomersService) { 
+    this.customersAgeRange = this.customersService.getCustomersAgeRanges();
+  }
 
   ngOnInit(): void {
   }
@@ -26,5 +25,14 @@ export class CustomersFiltersComponent implements OnInit {
 
   onMenuClick() {
     this.customersAgeRange = this.customersService.getCustomersAgeRanges();
+    this.filterAgeRange = this.customersAgeRange;
+  }
+
+  setRangeForFilter(range: RangeType) {
+    this.filterAgeRange = range;
+  }
+
+  //Filter all options
+  onGoFilterClick() {
   }
 }

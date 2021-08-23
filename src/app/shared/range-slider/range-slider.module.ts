@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RangeSliderComponent } from './range-slider.component'
 import { MatSliderModule } from '@angular/material/slider';
 import { MatDividerModule } from '@angular/material/divider';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,8 @@ import { MatDividerModule } from '@angular/material/divider';
   imports: [
     CommonModule,
     MatSliderModule,
-    MatDividerModule
+    MatDividerModule,
+    FormsModule
   ],
   exports: [
     RangeSliderComponent

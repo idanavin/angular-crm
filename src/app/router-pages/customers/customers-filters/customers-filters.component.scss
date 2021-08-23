@@ -4,7 +4,12 @@
     font-size: 1.3em;
 }
 .slider_menu_item {
-    background-color: var(--color-primary-700);
-    padding-left: 48px;
-    padding-top: 20px;
+    display: flex;
+    height: 70px;
+    width: 220px;
+    // background-color: var(--color-primary-700);
+
+    app-range-slider {
+        width: 100%;
+    }
 }

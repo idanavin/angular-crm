@@ -21,7 +21,7 @@
     class="slider_menu_item"
     (click)="$event.stopPropagation()"
   >
-    <mat-slider
+    <!-- <mat-slider
       thumbLabel
       [displayWith]="formatLabel"
       tickInterval="1000"
@@ -29,8 +29,14 @@
       [min]="customersAgeRange.min"
       [max]="customersAgeRange.max"
       [color]="'primary'"
-    ></mat-slider>
-    <button mat-button>
+    ></mat-slider> -->
+    <app-range-slider
+      [min]="customersAgeRange.min"
+      [max]="customersAgeRange.max"
+      [value]="customersAgeRange"
+      (output)="setRangeForFilter($event)"
+    ></app-range-slider>
+    <button mat-button (click)="onGoFilterClick()">
       <mat-icon>arrow_forward_ios</mat-icon>
     </button>
   </div>
