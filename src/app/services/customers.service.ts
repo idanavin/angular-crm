@@ -6,6 +6,7 @@ import {
   RandomUser,
   RandomUsers,
 } from '../domain-layer/entities/random-users';
+import { RandomProduct } from '../interface/product';
 import { RangeType } from '../shared/range-slider/range-slider.component';
 import { PurchaseService } from './purchase.service';
 
@@ -27,6 +28,19 @@ export class CustomersService {
     return this.users.get('unsorted')!;
   }
 
+  get CustomersCount(): number {
+    return this.UnsortedUsers.length;
+  }
+
+  getCustomersWithProducts(amount: number, products: RandomProduct[]) {
+    this.loadLocalstorage();
+    const customers = this.UnsortedUsers
+    if (customers.length < amount) {
+      amount -= customers.length;
+      this._loadRandomUsers(amount, products);
+    }  
+  }
+
   getCustomersByPage(
     itemsPerPage: number,
     page: number,
@@ -39,7 +53,8 @@ export class CustomersService {
     if (lastIndex <= list.length) {
       return this.getLocalCustomers(firstIndex, lastIndex, list);
     }
-    return this._loadRandomUsers(itemsPerPage);
+    // return this._loadRandomUsers(itemsPerPage);
+    return Promise.reject('Unable to get customers')
   }
 
   private async getLocalCustomers(
@@ -50,14 +65,14 @@ export class CustomersService {
     return users.slice(firstIndex, lastIndex);
   }
 
-  private async _loadRandomUsers(itemsPerPage: number): Promise<RandomUser[]> {
+  private async _loadRandomUsers(itemsPerPage: number, products: RandomProduct[]): Promise<RandomUser[]> {
     const pageNumber = 1;
     const users = await this.httpClient
       .get<RandomUsers>(
         `https://randomuser.me/api/?page=${pageNumber}&results=${itemsPerPage}`
       )
       .toPromise();
-    this._makeRandomPurchases(users.results);
+    this._makeRandomPurchases(users.results, products);
     this.users.set('unsorted', [
       ...this.users.get('unsorted')!,
       ...users.results,
@@ -66,7 +81,8 @@ export class CustomersService {
     return users.results;
   }
 
-  private _makeRandomPurchases(users: RandomUser[]) {
+  private _makeRandomPurchases(users: RandomUser[], products: RandomProduct[]) {
+    this.purchaseService.setPurchaseableIds(products);
     users.forEach((user) =>
       this.purchaseService.setCustomerRandomPurchase(user)
     );

@@ -4,6 +4,7 @@ import {
   Purchased,
   RandomUser,
 } from '../domain-layer/entities/random-users';
+import { RandomProduct } from '../interface/product';
 import { LocalSaveService } from './local-save.service';
 import { ProductsService } from './products.service';
 
@@ -23,6 +24,10 @@ export class PurchaseService {
 
   async getPurchasableIds(): Promise<number[]> {
     return await this.productsService.getPurchasableIds().then((ids) => ids);
+  }
+
+  setPurchaseableIds(products: RandomProduct[]) {
+    this.purchasableIds = products.map((product) => product.id)
   }
 
   async setCustomerRandomPurchase(customer: RandomUser) {

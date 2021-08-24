@@ -17,7 +17,7 @@ export class CustomersComponent implements OnInit {
   customers: Promise<RandomUser[]>;
   page: number = 0;
   customersPerPage: number = 5;
-  amountOfCustomers: number = 50;
+  amountOfCustomers: number = 0;
   sort: Sort = { active: 'unsorted', direction: '' };
   selected?: MatListOption[];
 
@@ -28,6 +28,7 @@ export class CustomersComponent implements OnInit {
   ) {
     this.customersService.loadLocalstorage();
     this.customers = this.getCustomersByPage();
+    this.amountOfCustomers = this.customersService.CustomersCount
   }
 
   ngOnInit(): void {}

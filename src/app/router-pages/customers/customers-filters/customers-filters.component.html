@@ -12,7 +12,7 @@
   class="slider_menu_item"
   (click)="$event.stopPropagation()"
 >
-  <div mat-menu-item (click)="$event.stopPropagation()">
+  <div mat-menu-item [disableRipple]="true" (click)="$event.stopPropagation()">
     <mat-icon>dialpad</mat-icon>
     <span>Age</span>
   </div>

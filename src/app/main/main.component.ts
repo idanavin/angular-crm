@@ -5,6 +5,8 @@ import { AuthService } from '../services/auth.service';
 import { routeSlider } from '../animations';
 import { LanguageService } from '../language/language.service';
 import { ThemeService } from '../services/theme.service';
+import { CustomersService } from '../services/customers.service';
+import { ProductsService } from '../services/products.service';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -18,8 +20,11 @@ export class MainComponent implements OnInit {
     private authService: AuthService,
     private languageService: LanguageService,
     private themeService: ThemeService,
+    private customersService: CustomersService,
+    private productService: ProductsService,
   ) {
     this.languageService.setDefaultLanguage();
+    this.getInitData();
   }
 
   ngOnInit(): void {
@@ -28,6 +33,11 @@ export class MainComponent implements OnInit {
     });
     this.isLogged();
     this.themeService.setDefaultTheme();
+  }
+  
+  async getInitData() {
+    const products = await this.productService.getProducts();
+    this.customersService.getCustomersWithProducts(50, products);
   }
 
   isLogged() {
