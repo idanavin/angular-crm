@@ -4,6 +4,7 @@ import { User } from '../interface/user';
 import { AuthService } from '../services/auth.service';
 import { routeSlider } from '../animations';
 import { LanguageService } from '../language/language.service';
+import { ThemeService } from '../services/theme.service';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -15,7 +16,8 @@ export class MainComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private languageService: LanguageService
+    private languageService: LanguageService,
+    private themeService: ThemeService,
   ) {
     this.languageService.setDefaultLanguage();
   }
@@ -25,6 +27,7 @@ export class MainComponent implements OnInit {
       this.user = user;
     });
     this.isLogged();
+    this.themeService.setDefaultTheme();
   }
 
   isLogged() {
