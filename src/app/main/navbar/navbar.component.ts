@@ -17,10 +17,11 @@ export class NavbarComponent implements OnInit {
     private authService: AuthService,
     private languageService: LanguageService,
     private themeService: ThemeService,
-    @Inject(DOCUMENT) private document: Document
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isChecked = this.themeService.IsDarkMode;
+  }
 
   logout() {
     this.authService.logout();

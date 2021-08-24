@@ -7,16 +7,19 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 })
 export class ThemeService {
 
-  isChecked: boolean = false;
+  private isDarkMode: boolean = false;
 
   constructor(@Inject(DOCUMENT) private document: Document) { }
+
+  get IsDarkMode() {
+    return this.isDarkMode;
+  }
 
   setDefaultTheme() {
     const storageTheme = localStorage.getItem('theme');
     if (storageTheme) {
-      // this.themeEvent.emit(storageTheme);
       this.setTheme(storageTheme)
-      this.isChecked = storageTheme === 'dark';
+      this.isDarkMode = storageTheme === 'dark';
     } else {
       this.setTheme('light');
     }
@@ -31,8 +34,8 @@ export class ThemeService {
   }
 
   toggleTheme(isChecked: MatSlideToggleChange): void {
-    this.isChecked = isChecked.checked;
-    const mode = this.isChecked ? 'dark' : 'light';
+    this.isDarkMode = isChecked.checked;
+    const mode = this.isDarkMode ? 'dark' : 'light';
     this.setTheme(mode);
     localStorage.setItem('theme', mode);
   }
