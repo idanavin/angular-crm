@@ -156,7 +156,7 @@ $custom-typography: mat.define-typography-config(
   $body-1: mat.define-typography-level(14px, 20px, 400),
   $caption: mat.define-typography-level(12px, 20px, 400),
   $button: mat.define-typography-level(14px, 14px, 500),
-  $input: mat.define-typography-level(24px, 1.125, 400),
+  $input: mat.define-typography-level(1em, 1.125, 400),
 );
 
 @include mat-core($custom-typography);

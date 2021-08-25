@@ -1,8 +1,14 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
-import { MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
+import { Component, Input, Output } from '@angular/core';
+import {
+  MatPaginatorIntl,
+  MAT_PAGINATOR_DEFAULT_OPTIONS,
+  PageEvent,
+} from '@angular/material/paginator';
 import { EventEmitter } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Subject } from 'rxjs';
 
+//! Need to fix translation not working if displayed and language changed
 @Component({
   selector: 'app-paginator',
   templateUrl: './paginator.component.html',
@@ -14,16 +20,19 @@ import { TranslateService } from '@ngx-translate/core';
       useFactory: (translateService: TranslateService) =>
         new PaginatorComponent(translateService).getPaginatorIntl(),
     },
+    // {
+    //   provide: MAT_PAGINATOR_DEFAULT_OPTIONS,
+    //   useValue: { formFieldAppearance: 'standard' },
+    // },
   ],
 })
-export class PaginatorComponent implements OnInit {
+export class PaginatorComponent {
   @Input() length?: number;
   @Input() pageSize?: number;
   @Input() pageSizeOptions: number[] = [1];
   @Output() clicked = new EventEmitter<PageEvent>();
 
   constructor(private readonly translate: TranslateService) {}
-
   ngOnInit(): void {}
 
   action(event: PageEvent) {
