@@ -33,7 +33,7 @@
     <app-range-slider
       [min]="customersAgeRange.min"
       [max]="customersAgeRange.max"
-      [value]="customersAgeRange"
+      [value]="customersAgeRangeSliderValue"
       (output)="setRangeForFilter($event)"
     ></app-range-slider>
     <button mat-button (click)="onGoFilterClick()">

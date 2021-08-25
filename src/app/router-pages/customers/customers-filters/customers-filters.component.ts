@@ -1,5 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { CustomersFilterService, Filter } from 'src/app/services/customers-filter.service';
+import {
+  CustomersFilterService,
+  Filter,
+} from 'src/app/services/customers-filter.service';
 import { CustomersService } from 'src/app/services/customers.service';
 import { RangeType } from 'src/app/shared/range-slider/range-slider.component';
 
@@ -12,6 +15,7 @@ export class CustomersFiltersComponent implements OnInit {
   @Output() filtered: EventEmitter<boolean> = new EventEmitter<boolean>();
   customersAgeRange: RangeType;
   filter: Filter;
+  customersAgeRangeSliderValue: RangeType
 
   constructor(
     private customersService: CustomersService,
@@ -19,6 +23,7 @@ export class CustomersFiltersComponent implements OnInit {
   ) {
     this.customersAgeRange = this.customersService.getCustomersAgeRanges();
     this.filter = this.getEmptyFilter();
+    this.customersAgeRangeSliderValue = this.filter.age.range!;
   }
 
   getEmptyFilter(): Filter {
@@ -27,10 +32,10 @@ export class CustomersFiltersComponent implements OnInit {
         filtered: false,
         range: {
           min: 0,
-          max: 100
-        }
+          max: 100,
+        },
       },
-    }
+    };
   }
 
   ngOnInit(): void {}
@@ -41,14 +46,20 @@ export class CustomersFiltersComponent implements OnInit {
 
   onMenuClick() {
     this.customersAgeRange = this.customersService.getCustomersAgeRanges();
-    this.filter.age.range = this.customersAgeRange;
+    if (this.filterService.filtered) {
+      this.customersAgeRangeSliderValue = this.filter.age.range!;
+    } else {
+      this.customersAgeRangeSliderValue = this.customersAgeRange;
+    }
   }
 
   setRangeForFilter(range: RangeType) {
-    if (range != this.customersAgeRange)
-    {
+    this.filter.age.range = range;
+
+    if (range != this.customersAgeRange) {
       this.filter.age.filtered = true;
-      this.filter.age.range = range;
+    } else {
+      this.filter.age.filtered = false;
     }
   }
 
