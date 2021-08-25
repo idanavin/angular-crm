@@ -25,7 +25,7 @@
       <app-customers-sort
         (sortChanged)="onSortChange($event)"
       ></app-customers-sort>
-      <app-customers-filters></app-customers-filters>
+      <app-customers-filters (filtered)="onFilter()"></app-customers-filters>
     </mat-toolbar>
     <mat-selection-list
       #costumerSelect

@@ -8,6 +8,7 @@ import {
 } from '../domain-layer/entities/random-users';
 import { RandomProduct } from '../interface/product';
 import { RangeType } from '../shared/range-slider/range-slider.component';
+import { CustomersFilterService } from './customers-filter.service';
 import { PurchaseService } from './purchase.service';
 
 @Injectable({
@@ -19,7 +20,8 @@ export class CustomersService {
 
   constructor(
     private readonly httpClient: HttpClient,
-    private purchaseService: PurchaseService
+    private purchaseService: PurchaseService,
+    private filterService: CustomersFilterService
   ) {
     this.users.set('unsorted', []);
   }
@@ -49,9 +51,10 @@ export class CustomersService {
     const lastIndex = itemsPerPage * (page + 1);
     const firstIndex = lastIndex - itemsPerPage;
     const list: RandomUser[] = this._getListInOrder(order);
+    const filteredList = this.filterService.getFilteredFromCustomersList(list);
 
-    if (lastIndex <= list.length) {
-      return this.getLocalCustomers(firstIndex, lastIndex, list);
+    if (lastIndex <= filteredList.length) {
+      return this.getLocalCustomers(firstIndex, lastIndex, filteredList);
     }
     // return this._loadRandomUsers(itemsPerPage);
     return Promise.reject('Unable to get customers')

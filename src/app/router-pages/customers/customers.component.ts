@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatListOption } from '@angular/material/list';
 import { PageEvent } from '@angular/material/paginator';
 import { Sort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { RandomUser } from 'src/app/domain-layer/entities/random-users';
+import { CustomersFilterService } from 'src/app/services/customers-filter.service';
 import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
 import { CustomersService } from '../../services/customers.service';
 
@@ -13,7 +14,7 @@ import { CustomersService } from '../../services/customers.service';
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.scss'],
 })
-export class CustomersComponent implements OnInit {
+export class CustomersComponent implements OnDestroy {
   customers: Promise<RandomUser[]>;
   page: number = 0;
   customersPerPage: number = 5;
@@ -23,6 +24,7 @@ export class CustomersComponent implements OnInit {
 
   constructor(
     public readonly customersService: CustomersService,
+    private filterService: CustomersFilterService,
     private dialog: MatDialog,
     private router: Router
   ) {
@@ -31,7 +33,9 @@ export class CustomersComponent implements OnInit {
     this.amountOfCustomers = this.customersService.CustomersCount
   }
 
-  ngOnInit(): void {}
+  ngOnDestroy() {
+    this.filterService.removeFilters();
+  }
 
   getCustomersByPage(): Promise<RandomUser[]> {
     return this.customersService.getCustomersByPage(
@@ -39,6 +43,10 @@ export class CustomersComponent implements OnInit {
       this.page,
       this.sort
     );
+  }
+
+  onFilter() {
+    this.customers = this.getCustomersByPage();
   }
 
   loadRandomUsers(event: PageEvent): void {
