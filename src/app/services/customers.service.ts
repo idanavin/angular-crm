@@ -36,11 +36,11 @@ export class CustomersService {
 
   getCustomersWithProducts(amount: number, products: RandomProduct[]) {
     this.loadLocalstorage();
-    const customers = this.UnsortedUsers
+    const customers = this.UnsortedUsers;
     if (customers.length < amount) {
       amount -= customers.length;
       this._loadRandomUsers(amount, products);
-    }  
+    }
   }
 
   getCustomersByPage(
@@ -57,7 +57,7 @@ export class CustomersService {
       return this.getLocalCustomers(firstIndex, lastIndex, filteredList);
     }
     // return this._loadRandomUsers(itemsPerPage);
-    return Promise.reject('Unable to get customers')
+    return Promise.reject('Unable to get customers');
   }
 
   private async getLocalCustomers(
@@ -68,7 +68,10 @@ export class CustomersService {
     return users.slice(firstIndex, lastIndex);
   }
 
-  private async _loadRandomUsers(itemsPerPage: number, products: RandomProduct[]): Promise<RandomUser[]> {
+  private async _loadRandomUsers(
+    itemsPerPage: number,
+    products: RandomProduct[]
+  ): Promise<RandomUser[]> {
     const pageNumber = 1;
     const users = await this.httpClient
       .get<RandomUsers>(
@@ -90,6 +93,17 @@ export class CustomersService {
       this.purchaseService.setCustomerRandomPurchase(user)
     );
     this.purchaseService.saveToPurchaseHistory(users);
+  }
+
+  getCustomersPurchasesRanges(): RangeType {
+    const customers = this.UnsortedUsers;
+    const customersPurchasesLength = customers.map(
+      (customer): number => customer.purchased?.length!
+    );
+    return {
+      min: Math.min(...customersPurchasesLength),
+      max: Math.max(...customersPurchasesLength),
+    };
   }
 
   private _getListInOrder(sortOrder: Sort): RandomUser[] {

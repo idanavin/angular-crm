@@ -21,25 +21,33 @@
     class="slider_menu_item"
     (click)="$event.stopPropagation()"
   >
-    <!-- <mat-slider
-      thumbLabel
-      [displayWith]="formatLabel"
-      tickInterval="1000"
-      step="1"
-      [min]="customersAgeRange.min"
-      [max]="customersAgeRange.max"
-      [color]="'primary'"
-    ></mat-slider> -->
     <app-range-slider
       [min]="customersAgeRange.min"
       [max]="customersAgeRange.max"
       [value]="customersAgeRangeSliderValue"
-      (output)="setRangeForFilter($event)"
+      (output)="setRangeForFilter($event, 'age')"
     ></app-range-slider>
-    <button mat-button (click)="onGoFilterClick()">
-      <mat-icon>arrow_forward_ios</mat-icon>
-    </button>
   </div>
+  <div mat-menu-item [disableRipple]="true" (click)="$event.stopPropagation()">
+    <mat-icon>dialpad</mat-icon>
+    <span>Purchases</span>
+  </div>
+  <div
+    mat-menu-item
+    class="slider_menu_item"
+    (click)="$event.stopPropagation()"
+  >
+    <app-range-slider
+      [min]="customersPurchasesRange.min"
+      [max]="customersPurchasesRange.max"
+      [value]="customersPurchasesRangeSliderValue"
+      (output)="setRangeForFilter($event, 'purchases')"
+    ></app-range-slider>
+  </div>
+  <button mat-menu-item (click)="onGoFilterClick()">
+    <mat-icon>arrow_forward_ios</mat-icon>
+    <span>Filter</span>
+  </button>
   <button mat-menu-item (click)="onRemoveFilters()">
     <mat-icon>dialpad</mat-icon>
     <span>Remove all filters</span>

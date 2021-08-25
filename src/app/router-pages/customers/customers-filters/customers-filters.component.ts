@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import {
   CustomersFilterService,
   Filter,
@@ -11,19 +11,23 @@ import { RangeType } from 'src/app/shared/range-slider/range-slider.component';
   templateUrl: './customers-filters.component.html',
   styleUrls: ['./customers-filters.component.scss'],
 })
-export class CustomersFiltersComponent implements OnInit {
+export class CustomersFiltersComponent {
   @Output() filtered: EventEmitter<boolean> = new EventEmitter<boolean>();
   customersAgeRange: RangeType;
+  customersPurchasesRange: RangeType;
   filter: Filter;
-  customersAgeRangeSliderValue: RangeType
+  customersAgeRangeSliderValue: RangeType;
+  customersPurchasesRangeSliderValue: RangeType;
 
   constructor(
     private customersService: CustomersService,
     private filterService: CustomersFilterService
   ) {
     this.customersAgeRange = this.customersService.getCustomersAgeRanges();
+    this.customersPurchasesRange = this.customersService.getCustomersPurchasesRanges();
     this.filter = this.getEmptyFilter();
     this.customersAgeRangeSliderValue = this.filter.age.range!;
+    this.customersPurchasesRangeSliderValue = this.filter.purchases.range!;
   }
 
   getEmptyFilter(): Filter {
@@ -35,25 +39,31 @@ export class CustomersFiltersComponent implements OnInit {
           max: 100,
         },
       },
+      purchases: {
+        filtered: false,
+        range: {
+          min: 0,
+          max: 100,
+        },
+      },
     };
   }
 
-  ngOnInit(): void {}
-
-  formatLabel(value: number) {
-    return `${value} Years old`;
-  }
-
-  onMenuClick() {
-    this.customersAgeRange = this.customersService.getCustomersAgeRanges();
+  onMenuClick(): void {
+    // this.customersAgeRange = this.customersService.getCustomersAgeRanges();
     if (this.filterService.filtered) {
       this.customersAgeRangeSliderValue = this.filter.age.range!;
     } else {
       this.customersAgeRangeSliderValue = this.customersAgeRange;
+      this.customersPurchasesRangeSliderValue = this.customersPurchasesRange;
     }
   }
 
-  setRangeForFilter(range: RangeType) {
+  setRangeForFilter(range: RangeType, filter: string): void {
+    filter === 'age' ? this.setAgeRange(range) : this.setPurchasesRange(range);
+  }
+
+  setAgeRange(range: RangeType) {
     this.filter.age.range = range;
 
     if (range != this.customersAgeRange) {
@@ -63,13 +73,23 @@ export class CustomersFiltersComponent implements OnInit {
     }
   }
 
+  setPurchasesRange(range: RangeType) {
+    this.filter.purchases.range = range;
+
+    if (range != this.customersAgeRange) {
+      this.filter.purchases.filtered = true;
+    } else {
+      this.filter.purchases.filtered = false;
+    }
+  }
+
   //Filter all options
-  onGoFilterClick() {
+  onGoFilterClick(): void {
     this.filterService.setFilter(this.filter);
     this.filtered.emit(true);
   }
 
-  onRemoveFilters() {
+  onRemoveFilters(): void {
     this.filter = this.getEmptyFilter();
     this.filterService.removeFilters();
     this.filtered.emit(false);

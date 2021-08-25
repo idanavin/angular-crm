@@ -6,7 +6,11 @@ export interface Filter {
   age: {
     filtered: boolean;
     range?: RangeType;
-  };
+  },
+  purchases: {
+    filtered: boolean,
+    range: RangeType
+  }
 }
 
 @Injectable({
@@ -35,8 +39,18 @@ export class CustomersFilterService {
     if (this.filter?.age.filtered) {
       customers = this.filterAgeWithRange(customers);
     }
+    if (this.filter?.purchases.filtered) {
+      customers = this.filterPurchasedAmountWithRange(customers);
+    }
 
     return customers;
+  }
+
+  filterPurchasedAmountWithRange(customers: RandomUser[]): RandomUser[] {
+    const range = this.filter?.purchases.range!
+    return customers.filter(
+      (customer) => customer.purchased?.length! > range.min && customer.purchased?.length! < range.max
+    );
   }
 
   //Need to move to general filtering
