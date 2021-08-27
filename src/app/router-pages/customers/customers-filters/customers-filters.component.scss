@@ -3,13 +3,3 @@
 .filter_button {
     font-size: 1.3em;
 }
-.slider_menu_item {
-    display: flex;
-    height: 70px;
-    width: 220px;
-    // background-color: var(--color-primary-700);
-
-    app-range-slider {
-        width: 100%;
-    }
-}

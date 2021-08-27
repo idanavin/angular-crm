@@ -1,0 +1,12 @@
+<div mat-menu-item [disableRipple]="true" (click)="$event.stopPropagation()">
+  <mat-icon>{{ icon }}</mat-icon>
+  <span>{{ filterName | titlecase }}</span>
+</div>
+<div mat-menu-item class="slider_menu_item" (click)="$event.stopPropagation()">
+  <app-range-slider
+    [min]="range.min"
+    [max]="range.max"
+    [value]="rangeSliderValue"
+    (output)="setRangeForFilter($event)"
+  ></app-range-slider>
+</div>
