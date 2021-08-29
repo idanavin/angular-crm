@@ -13,6 +13,13 @@
   "AGE": "גיל",
   "PURCHASED": "מוצרים שנרכשו",
   "SPENT": "הוציא",
+  "customers": {
+    "age": "גיל",
+    "purchases": "רכישות",
+    "filters": "פילטרים",
+    "filter": "פילטר",
+    "removeFilters": "הסר פילטרים"
+  },
   "LOGIN_ERROR_TRY_THIS": "פרטי ההתחברות אינם נכונים, נסה את זה:",
   "INPUT_ERROR_EMAIL": "הכנס אימייל תקין",
   "INPUT_ERROR_PASS_MIN": "סיסמא חייבת לפחות 3 תווים",

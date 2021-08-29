@@ -5,21 +5,21 @@
   (click)="onMenuClick()"
 >
   <mat-icon>more_vert</mat-icon>
-  <span class="filter_button">Filters</span>
+  <span class="filter_button" translate>customers.filters</span>
 </button>
 <mat-menu
   #menu="matMenu"
   class="slider_menu_item"
   (click)="$event.stopPropagation()"
 >
-<app-custom-menu-item [title]="'age'" [icon]="'dialpad'">
+<app-custom-menu-item [title]="'customers.age'" [icon]="'dialpad'">
   <app-customers-filter
     [filterName]="'age'"
     [range]="getRangesFor('age')"
     [rangeSliderValue]="customersAgeRangeSliderValue"
   ></app-customers-filter>
 </app-custom-menu-item>
-<app-custom-menu-item [title]="'purchases'" [icon]="'dialpad'">
+<app-custom-menu-item [title]="'customers.purchases'" [icon]="'dialpad'">
   <app-customers-filter
     [filterName]="'purchases'"
     [range]="getRangesFor('purchases')"
@@ -28,10 +28,10 @@
 </app-custom-menu-item>
   <button mat-menu-item (click)="onGoFilterClick()">
     <mat-icon>arrow_forward_ios</mat-icon>
-    <span>Filter</span>
+    <span translate>customers.filter</span>
   </button>
   <button mat-menu-item (click)="onRemoveFilters()">
     <mat-icon>dialpad</mat-icon>
-    <span>Remove all filters</span>
+    <span translate>customers.removeFilters</span>
   </button>
 </mat-menu>

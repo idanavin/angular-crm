@@ -4,6 +4,7 @@ import { CustomMenuItemComponent } from './custom-menu-item.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -15,7 +16,8 @@ import { MatMenuModule } from '@angular/material/menu';
     CommonModule,
     MatSliderModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    TranslateModule
   ],
   exports: [CustomMenuItemComponent]
 })
