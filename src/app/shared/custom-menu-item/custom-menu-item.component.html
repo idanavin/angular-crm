@@ -1,0 +1,5 @@
+<div mat-menu-item [disableRipple]="true" (click)="$event.stopPropagation()">
+  <mat-icon>{{ icon }}</mat-icon>
+  <span>{{ title | titlecase }}</span>
+</div>
+<ng-content></ng-content>

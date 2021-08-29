@@ -8,6 +8,7 @@ import { PaginatorModule } from './paginator/paginator.module';
 import { CardModule } from './card/card.module';
 import { SelectModule } from './select/select.module';
 import { RangeSliderModule } from './range-slider/range-slider.module';
+import { CustomMenuItemModule } from './custom-menu-item/custom-menu-item.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { RangeSliderModule } from './range-slider/range-slider.module';
     PaginatorModule,
     CardModule,
     SelectModule,
-    RangeSliderModule
+    RangeSliderModule,
+    CustomMenuItemModule,
   ],
   exports: [
     ChartModule, 
@@ -33,7 +35,8 @@ import { RangeSliderModule } from './range-slider/range-slider.module';
     PaginatorModule,
     CardModule,
     SelectModule,
-    RangeSliderModule
+    RangeSliderModule,
+    CustomMenuItemModule
   ]
 })
 export class SharedModule {}

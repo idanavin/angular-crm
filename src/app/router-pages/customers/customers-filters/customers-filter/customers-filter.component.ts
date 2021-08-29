@@ -13,9 +13,7 @@ export interface FilterSlider {
   styleUrls: ['./customers-filter.component.scss'],
 })
 export class CustomersFilterComponent {
-  @Input() icon!: string;
   @Input() filterName!: string;
-
   @Input() range!: RangeType;
   @Input() rangeSliderValue!: RangeType;
   private filter: FilterSlider;
@@ -25,17 +23,17 @@ export class CustomersFilterComponent {
       filtered: false,
       range: {
         min: 0,
-        max: 100
-      }
-    }
-    this.filtersService.setFilter(this.filter, this.filterName)
+        max: 100,
+      },
+    };
+    this.filtersService.setFilter(this.filter, this.filterName);
   }
 
   setRangeForFilter(range: RangeType) {
     if (range != this.range) {
       this.filter.filtered = true;
-      this.filter.range = range
-      this.filtersService.setFilter(this.filter, this.filterName)
+      this.filter.range = range;
+      this.filtersService.setFilter(this.filter, this.filterName);
     } else {
       this.filter.filtered = false;
     }
