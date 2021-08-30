@@ -10,8 +10,11 @@ import { RangeType } from 'src/app/shared/range-slider/range-slider.component';
 })
 export class CustomersFiltersComponent {
   @Output() filtered: EventEmitter<boolean> = new EventEmitter<boolean>();
+  filterValues: Map<string, RangeType> = new Map();
+  filteredValues: Map<string, RangeType> = new Map();
   customersAgeRangeSliderValue: RangeType;
   customersPurchasesRangeSliderValue: RangeType;
+  customersMoneySpentSliderValue: RangeType;
 
   constructor(
     private customersService: CustomersService,
@@ -19,22 +22,59 @@ export class CustomersFiltersComponent {
   ) {
     this.customersAgeRangeSliderValue = this.getRangesFor('age');
     this.customersPurchasesRangeSliderValue = this.getRangesFor('purchases');
+    this.customersMoneySpentSliderValue = this.getRangesFor('moneySpent');
+    this.getFilterValues();
+  }
+
+  getFilterValues() {
+    this.filterValues.set(
+      'ageRanges',
+      this.customersService.getCustomersAgeRanges()
+    );
+    this.filterValues.set(
+      'purchaseRanges',
+      this.customersService.getCustomersPurchasesRanges()
+    );
+    this.filterValues.set(
+      'moneySpentRange',
+      this.customersService.getMoneySpentRanges()
+    );
   }
 
   onMenuClick(): void {
     const ageRanges = this.filterService.getRangesIfFiltered('age');
-    const purchasesRanges = this.filterService.getRangesIfFiltered('purchases');
+    ageRanges && this.filteredValues.set('ageRanges', ageRanges);
+    const purchaseRanges = this.filterService.getRangesIfFiltered('purchases');
+    purchaseRanges && this.filteredValues.set('purchaseRanges', purchaseRanges);
+    const moneySpentRange =
+      this.filterService.getRangesIfFiltered('moneySpent');
+    moneySpentRange && this.filteredValues.set('moneySpent', moneySpentRange);
 
     this.customersAgeRangeSliderValue = ageRanges || this.getRangesFor('age');
     this.customersPurchasesRangeSliderValue =
-      purchasesRanges || this.getRangesFor('purchases');
+      purchaseRanges || this.getRangesFor('purchases');
+  }
+
+  // getRangesFor(filterName: string): RangeType {
+  //   return this.filterValues.get(filterName)!;
+  // }
+
+  getFilteredValue(filterName: string): RangeType {
+    return this.filteredValues.get(filterName)!;
   }
 
   getRangesFor(filterType: string): RangeType {
-    if (filterType === 'age') {
-      return this.customersService.getCustomersAgeRanges();
+    switch (filterType) {
+      case 'age': {
+        return this.customersService.getCustomersAgeRanges();
+      }
+      case 'purchases': {
+        return this.customersService.getCustomersPurchasesRanges();
+      }
+      default: {
+        return this.customersService.getCustomersPurchasesRanges();
+      }
     }
-    return this.customersService.getCustomersPurchasesRanges();
   }
 
   onGoFilterClick(): void {

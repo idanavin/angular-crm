@@ -1,8 +1,6 @@
-<div mat-menu-item class="slider_menu_item" (click)="$event.stopPropagation()">
-  <app-range-slider
-    [min]="range.min"
-    [max]="range.max"
-    [value]="rangeSliderValue"
-    (output)="setRangeForFilter($event)"
-  ></app-range-slider>
-</div>
+<app-range-slider
+  [min]="range.min"
+  [max]="range.max"
+  [value]="rangeSliderValue"
+  (output)="setRangeForFilter($event)"
+></app-range-slider>

@@ -95,17 +95,6 @@ export class CustomersService {
     this.purchaseService.saveToPurchaseHistory(users);
   }
 
-  getCustomersPurchasesRanges(): RangeType {
-    const customers = this.UnsortedUsers;
-    const customersPurchasesLength = customers.map(
-      (customer): number => customer.purchased?.length!
-    );
-    return {
-      min: Math.min(...customersPurchasesLength),
-      max: Math.max(...customersPurchasesLength),
-    };
-  }
-
   private _getListInOrder(sortOrder: Sort): RandomUser[] {
     sortOrder = this._changeSortDirectionIfUnsorted(sortOrder);
     this._sortIfNotExist(sortOrder);
@@ -209,5 +198,30 @@ export class CustomersService {
     const minAge = Math.min(...customersAges);
     const maxAge = Math.max(...customersAges);
     return { min: minAge, max: maxAge };
+  }
+
+  getCustomersPurchasesRanges(): RangeType {
+    const customers = this.UnsortedUsers;
+    const customersPurchasesLength = customers.map(
+      (customer): number => customer.purchased?.length!
+    );
+    return {
+      min: Math.min(...customersPurchasesLength),
+      max: Math.max(...customersPurchasesLength),
+    };
+  }
+
+  getMoneySpentRanges(): RangeType {
+    const customers = this.UnsortedUsers;
+    const customersMaxSpentList: number[] = customers.map((user) => {
+      return user.purchased?.reduce(
+        (acc, value) => acc + parseFloat(value.total_cost),
+        0
+      ) || 0;
+    });
+    return {
+      min: 0,
+      max: Math.max(...customersMaxSpentList)
+    };
   }
 }

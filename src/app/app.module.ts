@@ -27,6 +27,7 @@ import { DashboardCardComponent } from './router-pages/dashboard/dashboard-card/
 import { CustomersSortComponent } from './router-pages/customers/customers-sort/customers-sort.component';
 import { CustomersFiltersComponent } from './router-pages/customers/customers-filters/customers-filters.component';
 import { CustomersFilterComponent } from './router-pages/customers/customers-filters/customers-filter/customers-filter.component';
+import { CustomersFilterSlideComponent } from './router-pages/customers/customers-filters/customers-filter-slide/customers-filter-slide.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +47,7 @@ import { CustomersFilterComponent } from './router-pages/customers/customers-fil
     CustomersSortComponent,
     CustomersFiltersComponent,
     CustomersFilterComponent,
+    CustomersFilterSlideComponent,
   ],
   imports: [
     AppRoutingModule,

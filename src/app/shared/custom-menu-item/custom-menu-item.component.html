@@ -2,4 +2,6 @@
   <mat-icon>{{ icon }}</mat-icon>
   <span>{{ title | translate }}</span>
 </div>
-<ng-content></ng-content>
+<div mat-menu-item class="slider_menu_item" (click)="$event.stopPropagation()">
+  <ng-content></ng-content>
+</div>

@@ -12,20 +12,26 @@
   class="slider_menu_item"
   (click)="$event.stopPropagation()"
 >
-<app-custom-menu-item [title]="'customers.age'" [icon]="'dialpad'">
-  <app-customers-filter
-    [filterName]="'age'"
-    [range]="getRangesFor('age')"
-    [rangeSliderValue]="customersAgeRangeSliderValue"
-  ></app-customers-filter>
-</app-custom-menu-item>
-<app-custom-menu-item [title]="'customers.purchases'" [icon]="'dialpad'">
-  <app-customers-filter
-    [filterName]="'purchases'"
-    [range]="getRangesFor('purchases')"
-    [rangeSliderValue]="customersPurchasesRangeSliderValue"
-  ></app-customers-filter>
-</app-custom-menu-item>
+  <app-custom-menu-item [title]="'customers.age'" [icon]="'dialpad'">
+    <app-customers-filter
+      [filterName]="'age'"
+      [range]="getRangesFor('age')"
+      [rangeSliderValue]="getFilteredValue('age')"
+    ></app-customers-filter>
+  </app-custom-menu-item>
+  <app-custom-menu-item [title]="'customers.purchases'" [icon]="'dialpad'">
+    <app-customers-filter
+      [filterName]="'purchases'"
+      [range]="getRangesFor('purchases')"
+      [rangeSliderValue]="getFilteredValue('purchases')"
+    ></app-customers-filter>
+  </app-custom-menu-item>
+  <app-custom-menu-item [title]="'customers.moneySpent'" [icon]="'dialpad'">
+    <!-- <app-customers-filter-slide
+      [filterName]="'moneySpent'"
+      [range]="getFilteredValue('moneySpent')"
+    ></app-customers-filter-slide> -->
+  </app-custom-menu-item>
   <button mat-menu-item (click)="onGoFilterClick()">
     <mat-icon>arrow_forward_ios</mat-icon>
     <span translate>customers.filter</span>
