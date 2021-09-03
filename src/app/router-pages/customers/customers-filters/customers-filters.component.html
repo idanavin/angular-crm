@@ -27,10 +27,10 @@
     ></app-customers-filter>
   </app-custom-menu-item>
   <app-custom-menu-item [title]="'customers.moneySpent'" [icon]="'dialpad'">
-    <!-- <app-customers-filter-slide
+    <app-customers-filter-slide
       [filterName]="'moneySpent'"
-      [range]="getFilteredValue('moneySpent')"
-    ></app-customers-filter-slide> -->
+      [range]="getRangesFor('moneySpent')"
+    ></app-customers-filter-slide>
   </app-custom-menu-item>
   <button mat-menu-item (click)="onGoFilterClick()">
     <mat-icon>arrow_forward_ios</mat-icon>

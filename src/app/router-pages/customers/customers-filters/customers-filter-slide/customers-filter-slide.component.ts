@@ -9,10 +9,10 @@ import { FilterSlider } from '../customers-filter/customers-filter.component';
   templateUrl: './customers-filter-slide.component.html',
   styleUrls: ['./customers-filter-slide.component.scss']
 })
-export class CustomersFilterSlideComponent {
+export class CustomersFilterSlideComponent implements OnInit {
   @Input() filterName!: string;
   @Input() range!: RangeType;
-  maxValue: number;
+  maxValue?: number;
   private filter: FilterSlider;
   
   constructor(private filtersService: CustomersFilterService) {
@@ -24,6 +24,9 @@ export class CustomersFilterSlideComponent {
       },
     };
     this.filtersService.setFilter(this.filter, this.filterName);
+  }
+
+  ngOnInit() {
     this.maxValue = this.range.max
   }
 

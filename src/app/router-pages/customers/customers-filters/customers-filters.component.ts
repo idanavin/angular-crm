@@ -72,7 +72,7 @@ export class CustomersFiltersComponent {
         return this.customersService.getCustomersPurchasesRanges();
       }
       default: {
-        return this.customersService.getCustomersPurchasesRanges();
+        return this.customersService.getMoneySpentRanges();
       }
     }
   }
