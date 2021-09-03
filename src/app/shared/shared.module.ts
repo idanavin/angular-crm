@@ -7,14 +7,12 @@ import { InputModule } from './form/input/input.module';
 import { PaginatorModule } from './paginator/paginator.module';
 import { CardModule } from './card/card.module';
 import { SelectModule } from './select/select.module';
-import { RangeSliderModule } from './range-slider/range-slider.module';
 import { CustomMenuItemModule } from './custom-menu-item/custom-menu-item.module';
+import { SlidersModule } from './sliders/sliders.module';
 
 
 @NgModule({
-  declarations: [
-
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     ChartModule,
@@ -24,8 +22,8 @@ import { CustomMenuItemModule } from './custom-menu-item/custom-menu-item.module
     PaginatorModule,
     CardModule,
     SelectModule,
-    RangeSliderModule,
     CustomMenuItemModule,
+    SlidersModule
   ],
   exports: [
     ChartModule, 
@@ -35,8 +33,8 @@ import { CustomMenuItemModule } from './custom-menu-item/custom-menu-item.module
     PaginatorModule,
     CardModule,
     SelectModule,
-    RangeSliderModule,
-    CustomMenuItemModule
+    CustomMenuItemModule,
+    SlidersModule
   ]
 })
 export class SharedModule {}

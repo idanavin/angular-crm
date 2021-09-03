@@ -1,24 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RangeSliderComponent } from './range-slider.component'
 import { MatSliderModule } from '@angular/material/slider';
 import { MatDividerModule } from '@angular/material/divider';
 import { FormsModule } from '@angular/forms';
+import { SimpleSliderComponent } from './simple-slider/simple-slider.component';
+import { RangeSliderComponent } from './range-slider/range-slider.component';
 
 
 
 @NgModule({
-  declarations: [
-    RangeSliderComponent
-  ],
+  declarations: [SimpleSliderComponent, RangeSliderComponent],
   imports: [
     CommonModule,
     MatSliderModule,
     MatDividerModule,
     FormsModule
   ],
-  exports: [
-    RangeSliderComponent
-  ]
+  exports: [SimpleSliderComponent, RangeSliderComponent]
 })
-export class RangeSliderModule { }
+export class SlidersModule { }

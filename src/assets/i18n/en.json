@@ -15,6 +15,7 @@
   "customers": {
     "age": "Age",
     "purchases": "Purchases",
+    "moneySpent": "Max money spent",
     "filters": "Filters",
     "filter": "Filter",
     "removeFilters": "Remove all filters"

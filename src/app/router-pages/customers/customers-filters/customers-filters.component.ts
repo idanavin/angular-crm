@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CustomersFilterService } from 'src/app/services/customers-filter.service';
 import { CustomersService } from 'src/app/services/customers.service';
-import { RangeType } from 'src/app/shared/range-slider/range-slider.component';
+import { RangeType } from 'src/app/shared/sliders/range-slider/range-slider.component';
 
 @Component({
   selector: 'app-customers-filters',

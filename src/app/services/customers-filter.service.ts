@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { RandomUser } from '../domain-layer/entities/random-users';
 import { FilterSlider } from '../router-pages/customers/customers-filters/customers-filter/customers-filter.component';
-import { RangeType } from '../shared/range-slider/range-slider.component';
+import { RangeType } from '../shared/sliders/range-slider/range-slider.component';
 @Injectable({
   providedIn: 'root',
 })

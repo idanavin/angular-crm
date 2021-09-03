@@ -16,6 +16,7 @@
   "customers": {
     "age": "גיל",
     "purchases": "רכישות",
+    "moneySpent": "מקס. הוצאות",
     "filters": "פילטרים",
     "filter": "פילטר",
     "removeFilters": "הסר פילטרים"

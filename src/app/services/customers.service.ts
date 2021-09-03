@@ -7,7 +7,7 @@ import {
   RandomUsers,
 } from '../domain-layer/entities/random-users';
 import { RandomProduct } from '../interface/product';
-import { RangeType } from '../shared/range-slider/range-slider.component';
+import { RangeType } from '../shared/sliders/range-slider/range-slider.component';
 import { CustomersFilterService } from './customers-filter.service';
 import { PurchaseService } from './purchase.service';
 

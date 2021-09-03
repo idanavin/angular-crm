@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CustomersFilterService } from 'src/app/services/customers-filter.service';
-import { RangeType } from 'src/app/shared/range-slider/range-slider.component';
+import { RangeType } from 'src/app/shared/sliders/range-slider/range-slider.component';
 
 export interface FilterSlider {
   filtered: boolean;

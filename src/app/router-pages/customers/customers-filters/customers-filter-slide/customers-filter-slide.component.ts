@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
 import { CustomersFilterService } from 'src/app/services/customers-filter.service';
-import { RangeType } from 'src/app/shared/range-slider/range-slider.component';
+import { RangeType } from 'src/app/shared/sliders/range-slider/range-slider.component';
 import { FilterSlider } from '../customers-filter/customers-filter.component';
 
 @Component({
