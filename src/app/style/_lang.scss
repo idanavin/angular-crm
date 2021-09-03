@@ -17,4 +17,7 @@
     --border-radius-left-for-ltr: 0 6px 6px 0;
     --small-gap-right-for-ltr: 0 0 0 1vmin;
     --small-gap-left-for-ltr: 0 1vmin 0 0;
+    .mat-menu-content {
+        direction: rtl;
+    }
 }
