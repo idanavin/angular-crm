@@ -12,6 +12,7 @@ import { FilterSlider } from '../customers-filter/customers-filter.component';
 export class CustomersFilterSlideComponent implements OnInit {
   @Input() filterName!: string;
   @Input() range!: RangeType;
+  @Input() rangeSliderValue!: RangeType;
   maxValue?: number;
   private filter: FilterSlider;
   
@@ -30,12 +31,12 @@ export class CustomersFilterSlideComponent implements OnInit {
     this.maxValue = this.range.max
   }
 
-  setRangeForFilter(slideValue: MatSliderChange) {
-    if (slideValue.value != this.range.max) {
+  setRangeForFilter(value: RangeType) {
+    if (value.max != this.range.max) {
       this.filter.filtered = true;
       this.filter.range = {
         min: 0,
-        max: slideValue.value || this.range.max
+        max: value.max || this.range.max
       };
       this.filtersService.setFilter(this.filter, this.filterName);
     } else {

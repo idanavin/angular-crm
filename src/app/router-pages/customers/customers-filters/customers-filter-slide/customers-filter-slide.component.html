@@ -1,7 +1,6 @@
-<mat-slider
+<app-simple-slider
   [min]="range.min"
   [max]="range.max"
-  [value]="maxValue"
-  (change)="setRangeForFilter($event)"
->
-</mat-slider>
+  [value]="rangeSliderValue"
+  (output)="setRangeForFilter($event)"
+></app-simple-slider>

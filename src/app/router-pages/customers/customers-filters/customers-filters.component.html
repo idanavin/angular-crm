@@ -30,6 +30,7 @@
     <app-customers-filter-slide
       [filterName]="'moneySpent'"
       [range]="getRangesFor('moneySpent')"
+      [rangeSliderValue]="getFilteredValue('moneySpent')"
     ></app-customers-filter-slide>
   </app-custom-menu-item>
   <button mat-menu-item (click)="onGoFilterClick()">
