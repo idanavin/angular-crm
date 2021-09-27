@@ -1,27 +1,40 @@
-# AngularCrm
+# Angular - CRM
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.5.
+This project is a simple "customer relationship management" app, designed to work without a server nor database.
+
+## Login/register
+In this app admin user is static data but creating a new user is possible.
+Tester login:
+test@test
+123456
+
+![Screenshot1](screenshots/login.JPG)
+
+## Customers
+This app track random people as customers, create a random X amount of purchases per customer.
+You can add, edit, delete customers.
+You can filter them by age, amount of purchases and amount of money spent.
+You can sort them by age or last name
+You can search through all of your customers (50 by default)
+
+![Screenshot1](screenshots/customers.JPG)
+
+## Dashboard & Profile
+This app contain dashboard with graphs, and a way to check user profile
+
+![Screenshot1](screenshots/dashboard.JPG)
+
+![Screenshot1](screenshots/profile.JPG)
+
+## Settings
+![Screenshot1](screenshots/settings.JPG)
+
+This app You can translate into hebrew, right-to-left design
+This app got dark theme
+
+![Screenshot1](screenshots/hebrew.JPG)
+![Screenshot1](screenshots/darktheme.JPG)
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
