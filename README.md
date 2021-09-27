@@ -3,7 +3,7 @@
 This project is a simple "customer relationship management" app, designed to work without a server nor database.
 
 ## Login/register
-In this app admin user is static data but creating a new user is possible.
+In this app user is static data but creating a new user is possible.
 Tester login:
 test@test
 123456
@@ -29,11 +29,10 @@ This app contain dashboard with graphs, and a way to check user profile
 ## Settings
 ![Screenshot1](screenshots/settings.jpg)
 
-This app You can translate into hebrew, right-to-left design
-This app got dark theme
+This app you can translate into Hebrew, right-to-left design and a dark theme
 
 ![Screenshot1](screenshots/hebrew.jpg)
-![Screenshot1](screenshots/darktheme.jpg)
+![Screenshot1](screenshots/dark-theme.jpg)
 
 ## Development server
 
