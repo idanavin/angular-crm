@@ -19,7 +19,7 @@ export class UsersController {
 
   @Get(":id")
   async getUser(@Param("id") userId: string) {
-    const user = await this.usersService.getSingleUser(userId);
+    const user = await this.usersService.getUserById(userId);
     return user
   }
 }
