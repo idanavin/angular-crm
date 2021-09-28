@@ -8,7 +8,7 @@ Tester login:
 test@test
 123456
 
-![Screenshot1](screenshots/login.jpg)
+![Screenshot1](client/screenshots/login.jpg)
 
 ## Customers
 This app track random people as customers, create a random X amount of purchases per customer.
@@ -17,22 +17,22 @@ You can filter them by age, amount of purchases and amount of money spent.
 You can sort them by age or last name
 You can search through all of your customers (50 by default)
 
-![Screenshot1](screenshots/customers.jpg)
+![Screenshot1](client/screenshots/customers.jpg)
 
 ## Dashboard & Profile
 This app contain dashboard with graphs, and a way to check user profile
 
-![Screenshot1](screenshots/dashboard.jpg)
+![Screenshot1](client/screenshots/dashboard.jpg)
 
-![Screenshot1](screenshots/profile.jpg)
+![Screenshot1](client/screenshots/profile.jpg)
 
 ## Settings
-![Screenshot1](screenshots/settings.jpg)
+![Screenshot1](client/screenshots/settings.jpg)
 
 This app you can translate into Hebrew, right-to-left design and a dark theme
 
-![Screenshot1](screenshots/hebrew.jpg)
-![Screenshot1](screenshots/dark-theme.jpg)
+![Screenshot1](client/screenshots/hebrew.jpg)
+![Screenshot1](client/screenshots/dark-theme.jpg)
 
 ## Development server
 
