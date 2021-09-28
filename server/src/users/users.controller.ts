@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { UsersService } from "./users.service";
 
 @Controller("users")
@@ -11,9 +11,15 @@ export class UsersController {
     @Body("password") password: string
   ) {
     if (!username || !password) {
-      return 'Invalid body to post request'
+      return "Invalid body to post request";
     }
     const results = await this.usersService.insertUser(username, password);
     return results;
+  }
+
+  @Get(":id")
+  async getUser(@Param("id") userId: string) {
+    const user = await this.usersService.getSingleUser(userId);
+    return user
   }
 }

@@ -11,7 +11,7 @@ export const userSchema = new mongoose.Schema({
 export interface User {
     id: string;
     username: string;
-    password: string;
+    password?: string;
     employee_id?: string;
     is_admin: boolean;
     is_manager: boolean;
