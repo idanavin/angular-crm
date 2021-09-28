@@ -30,8 +30,8 @@ export class UsersService {
   }
 
   async getUserByName(username: string): Promise<User> {
-    const user = await this.findUser(username);
-    return user;
+    const user = await this.findUser(null, username);
+    return user as User;
   }
 
   private async findUser(id: string = null, username: string = null): Promise<User> {
@@ -41,7 +41,7 @@ export class UsersService {
         user = await this.userModel.findById(id).exec();
       }
       if (username) {
-        user = await this.userModel.find({ username }).exec();
+        user = await this.userModel.findOne({ username: username }).exec(); 
       }
     } catch (error) {
       throw new NotFoundException("Could not find user.");
