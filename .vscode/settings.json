@@ -1,8 +1,9 @@
 {
     "typescript.tsdk": "node_modules\\typescript\\lib",
     "cSpell.words": [
-        "Datepicker",
+        "Authed",
         "customersedit",
+        "Datepicker",
         "newcostumer"
     ]
 }
