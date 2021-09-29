@@ -26,7 +26,7 @@ export class AuthService {
     throw new UnauthorizedException("Password incorrect");
   }
 
-  async login(user: User) {
+  login(user: User) {
     const payload = {
       name: user.username,
       sub: user.id,
