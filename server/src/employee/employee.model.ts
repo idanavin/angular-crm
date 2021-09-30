@@ -1,3 +1,46 @@
+import * as mongoose from "mongoose";
+
+export const EmployeeSchema = new mongoose.Schema({
+  id: { type: String, required: true },
+  user_id: { type: String, required: true },
+  name: [
+    {
+      first: { type: String, required: true },
+      last: { type: String, required: true },
+    },
+  ],
+  social_id: { type: Number, required: true },
+  picture: { type: String, required: true },
+  address: [
+    {
+      country: { type: String, required: true },
+      city: { type: String, required: true },
+      street: { type: String, required: true },
+      house: { type: String, required: true },
+      apartment: { type: Number, required: true },
+    },
+  ],
+  phone: [
+    {
+      prefix: { type: Number, required: true },
+      number: { type: Number, required: true },
+    },
+  ],
+  dob: [
+    {
+      date: { type: Date, required: true },
+      age: { type: Number, required: false },
+    },
+  ],
+  bank_account: [
+    {
+      bank: { type: Number, required: false },
+      branch: { type: Number, required: false },
+      account: { type: Number, required: false },
+    },
+  ],
+});
+
 //! Not belong here, temp
 export interface Constrain {
   id: number;
@@ -49,5 +92,5 @@ export interface Employee {
   completed_shifts?: string[];
   assigned_shifts?: string[];
   constrains: Constrain[];
-  current_location: GeolocationPosition
+  current_location: GeolocationPosition;
 }
