@@ -1,8 +1,7 @@
 import * as mongoose from "mongoose";
 
 export const employeeSchema = new mongoose.Schema({
-  id: { type: String, required: true },
-  user_id: { type: String, required: true },
+  user_id: { type: mongoose.Types.ObjectId, required: true },
   name: {
     first: { type: String, required: true },
     last: { type: String, required: true },
