@@ -1,6 +1,6 @@
 import * as mongoose from "mongoose";
 
-export const EmployeeSchema = new mongoose.Schema({
+export const employeeSchema = new mongoose.Schema({
   id: { type: String, required: true },
   user_id: { type: String, required: true },
   name: {
