@@ -7,7 +7,7 @@ import { EmployeeService } from './employee.service';
 import { JwtAdminStrategy } from './jwt-admin.strategy';
 
 @Module({
-  imports: [UsersModule, MongooseModule.forFeature([{name: 'Users', schema: employeeSchema}])],
+  imports: [UsersModule, MongooseModule.forFeature([{name: 'Employees', schema: employeeSchema}])],
   controllers: [EmployeeController],
   providers: [EmployeeService, JwtAdminStrategy]
 })

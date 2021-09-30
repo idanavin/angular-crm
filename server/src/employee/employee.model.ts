@@ -34,7 +34,7 @@ export const employeeSchema = new mongoose.Schema({
   completed_shifts: [{ type: String, required: false }],
   assigned_shifts: [{ type: String, required: false }],
   constrains: [{ type: String, required: false }],
-  current_location: { type: Geolocation, required: false },
+  current_location: { type: String, required: false },
 });
 
 //! Not belong here, temp
