@@ -1,5 +1,5 @@
 {
-    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "typescript.tsdk": "client\node_modules\\typescript\\lib",
     "cSpell.words": [
         "Authed",
         "customersedit",
