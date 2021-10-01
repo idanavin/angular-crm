@@ -20,7 +20,7 @@ export const employeeSchema = new mongoose.Schema({
     number: { type: Number, required: true },
   },
   dob: {
-    date: { type: Date, required: true },
+    date: { type: Date, required: false },
     age: { type: Number, required: false },
   },
   bank_account: {

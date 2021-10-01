@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from "@nestjs/common";
+import { BadRequestException, Injectable, NotFoundException } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
 import { UsersService } from "src/users/users.service";
@@ -25,6 +25,17 @@ export class EmployeeService {
 
     const result = await newEmployee.save();
     return result.id as string;
+  }
+
+  
+  async getAllEmployees() {
+    const employees = await this.employeeModel.find();
+
+    if (!employees) {
+      throw new NotFoundException("Couldn't find any employees");
+    }
+
+    return employees;
   }
 
   private getEmployeeFromParams(params): Employee {
