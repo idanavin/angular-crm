@@ -1,63 +1,55 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { User } from '../interface/user';
-import { DataService } from './data.service';
 import { server } from '../../../.env';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private _successfulAuth = new Subject<User>();
+  private _successfulAuth = new Subject<boolean>();
   authSuccess$ = this._successfulAuth.asObservable();
 
   constructor(
-    private dataService: DataService,
-    private readonly httpClient: HttpClient
+    private readonly httpClient: HttpClient,
   ) {}
 
   async login(formValues: { username: string; password: string }) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' })
     const result = await this.httpClient
-      .post<string>(server.IP + 'auth', formValues, {
+      .post<{ 'access_token': string }>(server.IP + 'auth', formValues, {
         headers: headers,
       })
       .toPromise();
 
     if (result) {
-      this.setAccessToken(result);
+      this.setAccessToken(result.access_token);
     }
   }
 
-  setAccessToken(accessToken: string) {
-    console.log(accessToken);
-  }
-
-  private setToken(user: User) {
-    this.dataService.setTokenOnUser = user.email;
-    this._successfulAuth.next(user);
-  }
-
-  getLocalToken(): string | null {
-    return localStorage.getItem('credentials');
-  }
-
-  getUserForLocalToken(): User | undefined {
-    let user;
+  getUserForLocalToken(): string | null {
     const localToken = this.getLocalToken();
-    if (localToken) {
-      user = this.dataService.getUserByToken(localToken);
+    if (!localToken) {
+      return null;
     }
-    return user;
+    
+    return localToken;
   }
-
+  
   logout() {
     const localToken = this.getLocalToken();
     if (localToken) {
-      localStorage.clear();
-      this.dataService.removeToken(localToken);
+      localStorage.removeItem('access_token');
     }
-    this._successfulAuth.next(undefined);
+    this._successfulAuth.next(false);
+  }
+  
+  private setAccessToken(accessToken: string) {
+    localStorage.setItem('access_token', accessToken);
+    this._successfulAuth.next(true);
+  }
+
+  private getLocalToken(): string | null {
+    return localStorage.getItem('access_token');
   }
 }

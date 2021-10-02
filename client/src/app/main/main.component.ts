@@ -14,7 +14,7 @@ import { ProductsService } from '../services/products.service';
   animations: [routeSlider],
 })
 export class MainComponent implements OnInit {
-  user: User | undefined;
+  isLogged: boolean | undefined;
 
   constructor(
     private authService: AuthService,
@@ -28,10 +28,10 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.authSuccess$.subscribe((user) => {
-      this.user = user;
+    this.authService.authSuccess$.subscribe((isAuth) => {
+      this.isLogged = isAuth;
     });
-    this.isLogged();
+    this.checkIsLogged();
     this.themeService.setDefaultTheme();
   }
   
@@ -40,12 +40,10 @@ export class MainComponent implements OnInit {
     this.customersService.getCustomersWithProducts(50, products);
   }
 
-  isLogged() {
-    const user = this.authService.getUserForLocalToken();
+  checkIsLogged() {
+    const token = this.authService.getUserForLocalToken();
 
-    if (user) {
-      this.user = user;
-    }
+    this.isLogged = token ? true : false
   }
 
   prepareRoute(outlet: RouterOutlet) {
