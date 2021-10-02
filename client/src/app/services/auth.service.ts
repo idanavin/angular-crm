@@ -1,7 +1,9 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { User } from '../interface/user';
 import { DataService } from './data.service';
+import { server } from '../../../.env';
 
 @Injectable({
   providedIn: 'root',
@@ -10,23 +12,26 @@ export class AuthService {
   private _successfulAuth = new Subject<User>();
   authSuccess$ = this._successfulAuth.asObservable();
 
-  constructor(private dataService: DataService) {}
+  constructor(
+    private dataService: DataService,
+    private readonly httpClient: HttpClient
+  ) {}
 
-  login(formValues: { email: string; password: string }) {
-    const { email, password } = formValues;
-    return new Promise((resolve, reject) => {
-      let resolved = false;
-      setTimeout(() => {
-        this.dataService.getUsers.map((user: User) => {
-          if (user.email === email && user.password === password) {
-            this.setToken(user);
-            resolve(true);
-            resolved = true;
-          }
-        });
-        if (!resolved) reject();
-      }, 2500);
-    });
+  async login(formValues: { username: string; password: string }) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' })
+    const result = await this.httpClient
+      .post<string>(server.IP + 'auth', formValues, {
+        headers: headers,
+      })
+      .toPromise();
+
+    if (result) {
+      this.setAccessToken(result);
+    }
+  }
+
+  setAccessToken(accessToken: string) {
+    console.log(accessToken);
   }
 
   private setToken(user: User) {

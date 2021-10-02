@@ -28,7 +28,7 @@ export class EmployeeService {
   }
 
   
-  async getAllEmployees() {
+  async getAllEmployees(): Promise<Employee[]> {
     const employees = await this.employeeModel.find();
 
     if (!employees) {

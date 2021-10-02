@@ -10,7 +10,7 @@ import { FormValidator } from '../../shared/form/input/form-validator';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
+    username: ['', [Validators.required]],
     password: ['', [Validators.required, Validators.minLength(3)]],
   });
 
