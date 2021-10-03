@@ -15,6 +15,7 @@ import { ProductsService } from '../services/products.service';
 })
 export class MainComponent implements OnInit {
   isLogged: boolean | undefined;
+  loading: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -31,8 +32,8 @@ export class MainComponent implements OnInit {
     this.authService.authSuccess$.subscribe((isAuth) => {
       this.isLogged = isAuth;
     });
-    this.checkIsLogged();
     this.themeService.setDefaultTheme();
+    this.checkIsLogged();
   }
   
   async getInitData() {
@@ -40,8 +41,10 @@ export class MainComponent implements OnInit {
     this.customersService.getCustomersWithProducts(50, products);
   }
 
-  checkIsLogged() {
-    const token = this.authService.getUserForLocalToken();
+  async checkIsLogged() {
+    this.loading = true;
+    const token = await this.authService.getUserForLocalToken();
+    this.loading = false;
 
     this.isLogged = token ? true : false
   }

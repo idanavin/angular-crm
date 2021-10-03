@@ -10,14 +10,12 @@ export class AuthService {
   private _successfulAuth = new Subject<boolean>();
   authSuccess$ = this._successfulAuth.asObservable();
 
-  constructor(
-    private readonly httpClient: HttpClient,
-  ) {}
+  constructor(private readonly httpClient: HttpClient) {}
 
   async login(formValues: { username: string; password: string }) {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' })
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const result = await this.httpClient
-      .post<{ 'access_token': string }>(server.IP + 'auth', formValues, {
+      .post<{ access_token: string }>(server.IP + 'auth', formValues, {
         headers: headers,
       })
       .toPromise();
@@ -27,15 +25,16 @@ export class AuthService {
     }
   }
 
-  getUserForLocalToken(): string | null {
+  async getUserForLocalToken(): Promise<string | null> {
     const localToken = this.getLocalToken();
     if (!localToken) {
       return null;
     }
-    
-    return localToken;
+    const isLogged = await this.checkServerIsLogged(localToken);
+
+    return isLogged ? localToken : null;
   }
-  
+
   logout() {
     const localToken = this.getLocalToken();
     if (localToken) {
@@ -43,7 +42,29 @@ export class AuthService {
     }
     this._successfulAuth.next(false);
   }
-  
+
+  private async checkServerIsLogged(
+    localToken: string
+  ): Promise<boolean | undefined> {
+    try {
+      const isLogged = await this.httpClient
+        .get<boolean>(server.IP + 'auth', {
+          headers: new HttpHeaders({
+            Authorization: localToken,
+          }),
+        })
+        .toPromise();
+
+      if (!isLogged) {
+        this.logout();
+      }
+      return isLogged;
+    } catch (err) {
+      console.log(err);
+      return undefined;
+    }
+  }
+
   private setAccessToken(accessToken: string) {
     localStorage.setItem('access_token', accessToken);
     this._successfulAuth.next(true);
