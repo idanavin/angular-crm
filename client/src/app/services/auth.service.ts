@@ -13,15 +13,25 @@ export class AuthService {
   constructor(private readonly httpClient: HttpClient) {}
 
   async login(formValues: { username: string; password: string }) {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const result = await this.httpClient
-      .post<{ access_token: string }>(server.IP + 'auth', formValues, {
-        headers: headers,
-      })
-      .toPromise();
+    try {
+      const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+      const result = await this.httpClient
+        .post<{ access_token: string }>(server.IP + 'auth', formValues, {
+          headers: headers,
+        })
+        .toPromise();
 
-    if (result) {
-      this.setAccessToken(result.access_token);
+      if (result) {
+        this.setAccessToken(result.access_token);
+      }
+    } catch (error) {
+      //!Need to display error message
+      if (error.status === 404) {
+        console.log('Cant find username');
+      }
+      if (error.status === 401) {
+        console.log('Incorrect password');
+      }
     }
   }
 
