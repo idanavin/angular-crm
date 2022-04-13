@@ -15,6 +15,7 @@ import { CustomersService } from '../../services/customers.service';
   styleUrls: ['./customers.component.scss'],
 })
 export class CustomersComponent implements OnDestroy {
+
   customers: Promise<RandomUser[]>;
   page: number = 0;
   customersPerPage: number = 5;
